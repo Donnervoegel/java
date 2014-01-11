@@ -8,3 +8,6 @@ Colin Woodbury
 
 Jordan Toering
 <jtoering@sfu.ca>
+
+Chazz Young
+<chazzy@sfu.ca>
