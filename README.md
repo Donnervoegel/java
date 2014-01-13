@@ -24,6 +24,3 @@ Chazz Young
 
 Markus Balaski
 <mabalaski@gmail.com>
-
-Graeme Smith
-<gds3@sfu.ca>
