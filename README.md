@@ -22,5 +22,8 @@ Jordan Toering
 Chazz Young
 <chazzy@sfu.ca>
 
+Ian Pun
+<itpun@sfu.ca>
+
 Markus Balaski
 <mabalaski@gmail.com>
