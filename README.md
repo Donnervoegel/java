@@ -27,3 +27,6 @@ Markus Balaski
 
 Stephen Laboucane
 <slabouca@sfu.ca>
+
+Graeme Smith
+<gds3@sfu.ca>
