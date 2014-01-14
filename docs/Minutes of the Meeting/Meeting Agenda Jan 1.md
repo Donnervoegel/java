@@ -2,13 +2,13 @@
 ## January 13, 2014
 
 ### Attendance
--Jordan
--Colin
--Chazz
--Graeme
--Ian
--Markus
--Stephen
+- Jordan
+- Colin
+- Chazz
+- Graeme
+- Ian
+- Markus
+- Stephen
 
 Are we OK with the name? Yes
 
