@@ -3,7 +3,7 @@ Roles
 Front-end Development
 ---------------------
 - Interface design, layout, implementation, testing
-- Will use Swing (and possibly helper libraries)
+- Will use Swing (and possibly helper libraries)<br>
   Swing tutorial [here](http://docs.oracle.com/javase/tutorial/uiswing/)
 
 Back-end Development
@@ -37,5 +37,5 @@ Team Management
 Document Writing
 ----------------
 - User Manual
-- Should know [LaTeX](https://en.wikipedia.org/wiki/LaTeX)
+- Should know [LaTeX](https://en.wikipedia.org/wiki/LaTeX)<br>
   Guide PDF available [here](https://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf)
