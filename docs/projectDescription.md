@@ -84,8 +84,9 @@ The final software package must:
 The Streamlined Marking System must run on the Windows platform, The preferred
 languages for development of the system are Java and C++. Other languages may be
 considered if there is a significant efficiency increase to be made by moving to
-another language. Any persistent data should be stored in a MS SQL database or a
-custom designed data solution.
+another language. Any persistent data should be stored in a MS SQL database
+(**Why MS SQL and not MySQL, etc.?**) or a custom designed data solution.
+
 
 ### Testing Suite Questions
 - How do we sanitize input? That is, check for malicious code.
