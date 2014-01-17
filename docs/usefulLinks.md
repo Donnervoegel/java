@@ -6,3 +6,6 @@ Useful Links
 [Java Project Build Tool (Maven)](https://en.wikipedia.org/wiki/Apache_Maven)
 
 [Making Swing (GUI) Programming Easy](https://code.google.com/p/javabuilders/)
+
+[Markdown Formatting Cheat Sheet]
+(https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
