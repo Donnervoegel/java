@@ -3,13 +3,38 @@
 #### Room: Improved, in-class
 
 ### Attendance
--- ALL
+- ALL
 
 ### Topics
--- How do we feel about the formal roles?
+- How do we feel about the formal roles?
 
--- How do we feel about posting your interpretations?
+- Hopefully we can continue with the informal rules we've been using so far.
 
--- How are we for our client meeting?
+- Use them but our current informal roles are working well so far.
 
--- General questions?
+- Put your interpretations into the proper github folder. 
+
+- Push the GitHub to the official subversion repository every week.
+
+- Not necessary to email the minutes as they are present in the GitHub repository in the correct area.
+
+### Agenda
+
+- Go over our acceptance of formal roles.
+- Prep for the meetng tomorrow. 
+
+#### Roles
+
+- Communications: Markus
+
+- Configuration: Colin
+
+- Configuration 2: Chazz
+
+- Meeting Manager: Ian
+
+- Meeting Manager 2: Graeme
+
+- Mintues 1: Jordan
+
+- Minutes 2: Stephen
