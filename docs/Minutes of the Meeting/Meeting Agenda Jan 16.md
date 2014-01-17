@@ -10,11 +10,9 @@
 
 - Hopefully we can continue with the informal rules we've been using so far.
 
-- Use them but our current informal roles are working well so far.
-
 - Put your interpretations into the proper github folder. 
 
-- Push the GitHub to the official subversion repository every week.
+- Push the GitHub to the official subversion repository every week to allow faculty to see our work.
 
 - Not necessary to email the minutes as they are present in the GitHub repository in the correct area.
 
