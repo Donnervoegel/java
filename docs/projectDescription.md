@@ -42,7 +42,8 @@ The final software package must:
 - Individuals who grade activities are called markers
 - Allow "markers" to view the work of each student or group they are assigned
   to grade, one student or group at a time
-- Allow "markers" to and add comments directly to the submitted student work
+- Allow "markers" to and add comments directly to the submitted student work<BR>
+  **Define _directly_.**
 - Allow "markers" to enter grades for each item in the rubric after viewing the
   student's work related to that portion of the rubric
 - "Markers" should be able to grade or regrade any assigned student or group.
