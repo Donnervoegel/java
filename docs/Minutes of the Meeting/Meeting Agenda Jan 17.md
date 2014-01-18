@@ -22,3 +22,4 @@
 - Went over how we are going to present the testing suite; we decided to suggest strongly to subcontract out the testing suite
 - Roughly assigned each question to the group members
 - Opted to assign questions to group members at a later date.
+- Opted to try to acquire a TASC room for further meetings as the library rooms are contested and difficult to book in time.
