@@ -9,3 +9,6 @@ Useful Links
 
 [Markdown Formatting Cheat Sheet]
 (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+[Adding your sfu email address to Thunderbird {Recommended manual email server config}]
+(http://www.sfu.ca/biology/facilities/computer/email/thunderbirdsetup.html)
