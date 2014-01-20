@@ -7,8 +7,8 @@ Useful Links
 
 [Making Swing (GUI) Programming Easy](https://code.google.com/p/javabuilders/)
 
-[Markdown Formatting Cheat Sheet]
-(https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Markdown Formatting Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-[Adding your sfu email address to Thunderbird {Recommended manual email server config}]
-(http://www.sfu.ca/biology/facilities/computer/email/thunderbirdsetup.html)
+[Adding your sfu email address to Thunderbird {Recommended manual email server config}](http://www.sfu.ca/biology/facilities/computer/email/thunderbirdsetup.html)
+
+[Great Markdown Editor](http://markdownpad.com/)
