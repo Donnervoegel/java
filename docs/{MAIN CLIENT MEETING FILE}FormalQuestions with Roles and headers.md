@@ -26,12 +26,20 @@ Assignments Part 2
   (if students have access to the system))
 - Are there any time limits for modifying an assignment/rubric?
 
-#### Ian Pun itpun@sfu.ca
+#### Graeme Smith gds3@sfu.ca
 
 Assignements Part 3
 
 - What does it mean to `return` an assignment? Is it as simple as outputting
   the commented file back into the folder provided for the student?
+
+Students
+
+- Are students interacting with this system at all?
+- If not, will the system be responsible for showing grades in some other way?
+- If so, what can the student access?
+
+#### Ian Pun itpun@sfu.ca
 
 Courses
 
@@ -40,14 +48,6 @@ Courses
 - Is the system responsible for checking to see if a student is eligible to take
   the course?
 - Are there time limits as to when the course can be modified?
-
-#### Chazz Young chazzy@sfu.ca 
-
-Students
-
-- Are students interacting with this system at all?
-- If not, will the system be responsible for showing grades in some other way?
-- If so, what can the student access?
 
 #### Stephen Laboucane slabouca@sfu.ca
 
@@ -68,7 +68,7 @@ Academic Administrators & Academic Admin Assistants
   (batch add, person by person add)
 - Case where student cannot enter course?
 
-#### Graeme Smith gds3@sfu.ca
+#### Chazz Young chazzy@sfu.ca 
 
 System Administrator
 
