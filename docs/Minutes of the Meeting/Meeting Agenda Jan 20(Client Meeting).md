@@ -1,0 +1,14 @@
+# Meeting Agenda
+## January 20, 2014
+#### Room: TASC 9204E
+#### Time: 2:45-3:45
+
+### Attendance
+
+### Agenda
+- Set up recording device
+- Have each member present their sections of the questions to the client
+- Listen to the client's requests
+- If extra time, get more detail and pose our idea of the accounts system to the client
+
+### Minutes
