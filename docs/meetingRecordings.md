@@ -6,3 +6,6 @@ https://www.dropbox.com/s/kxhyukb14t004he/Jan%2017%20meeting%20part2.wav
 
 Jan 20 requirements meeting
 https://www.dropbox.com/s/iae6pp2jfb30e2u/Jan%2020%20requirements%20meeting.wav
+
+Jan 24 meeting (I excluded the first part as it was just us reading and typing)
+https://www.dropbox.com/s/q0986srf9zupdeh/Jan%2024%20meeting.wav
