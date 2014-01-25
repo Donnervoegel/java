@@ -3,11 +3,13 @@
 #### Room: 2007 Library
 
 ### Attendance
-- ALL
+- All members
+
 ### Agenda
 - Review of Client Meeting Transcript
 - LaTeX
 - Start Requirements Spec. (due Tuesday)
+
 ### Minutes
 - ASAP Push a picture of yourself into the member images folder
 - Went over transcribed client meeting
