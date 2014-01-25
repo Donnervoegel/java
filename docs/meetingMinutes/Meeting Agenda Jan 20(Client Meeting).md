@@ -4,7 +4,7 @@
 #### Time: 2:45-3:45
 
 ### Attendance
-
+- ALL
 ### Agenda
 - Set up recording device
 - Have each member present their sections of the questions to the client
