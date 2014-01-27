@@ -89,11 +89,63 @@ is visible to every user excluding the Ta/Tm marker.
 The system log contains a record of the systems tasks.  It documents user sign-ins
 and system backup times. The system log is only visible to the System Administrator.
 
-\part{Non-functional Requirements}
-\section{Test Section}
-\subsection{Test subsection}
+% --------------------------------------------
+\part{Prioritization of Function Requirements}
 
-\part{User Interface Mockups}
+% --------------------------------
+\part{Non-functional Requirements}
+\section{Quality}
+\subsection{Usability}
+The application should be usable to all relevant university staff
+regardless of computer experience.
+\subsection{Accessibility}
+\subsubsection{Valid Users}
+Only users who have created an account with the System Administrator will be able
+to use the application. Users will not be able to log in with their normal
+university username and password.
+\subsubsection{Availability Hours}
+The system should be accessible at any time of day, except during backup times.
+\subsection{Performance}
+\subsubsection{Maximum Load}
+The client has specified that up to 20 users might use the system during
+peak times, thus the system should aim for no slow-down for up to \textbf{40 users.}
+\subsection{Maintenance}
+\subsubsection{Application Life Span}
+The client has not indicated how long they plan to use the system once developed.
+\subsubsection{Addition of Features}
+The client has not requested a desire for the addition of new
+features post release.
+
+\section{Constraints}
+\subsection{Platform}
+The application will run on the Windows desktop.
+\subsection{Implementation}
+\subsubsection{Language}
+The application will be written in Java using the Swing library for its GUI.
+\subsubsection{Development Environment}
+Eclipse?
+\subsubsection{Version Control}
+The source code will be managed via a software version control system.
+\subsection{External Resources}
+\subsubsection{SQL Database}
+The application will store user and grading data on an MS SQL server located on
+the university campus, and thus the user's computer must have a network connection.
+\subsection{Licensing}
+\subsubsection{Closed Source}
+The application will be closed source under the Donnervögel Draconian License.
+\subsubsection{GPL Incompatibility}
+No libraries with GPL licensing will be included in the system.
+
+\section{Other Requirements}
+\subsection{System Administration}
+\subsubsection{Account Management}
+User accounts may only be created through the System Administrator.
+\subsubsection{System Backups}
+Database backups will be performed by the System Administrator and not handled
+through the application.
+
+% -------------------------------
+\part{User Interface Description}
 
 \section{Login}
 
