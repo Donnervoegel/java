@@ -1,4 +1,237 @@
-**Starting approx. 24:00 of Jordan's recording**
+**Regan:** So welcome, I’m glad you could all come. I understand you’re the group that has won our contract for our new grading system. I look forward to working with you on this over the next 18 months. I believe that was the length of our contract. I think for today what we were doing is to answer some of your questions regarding the requirements that we sent you and also regarding what parts of those requirements will be implemented in our prototype for the first three months. So I’ll let you begin.
+
+**Colin:** Thank you very much for having us. If it’s possible we’d like to record the meeting.
+
+**Regan:** no problem.
+
+**Colin:** just so we can refer back to it later. Thank you for the specifications. We got that the other day and we’ve had a number of meetings regarding it. If possible, we’d like to just jump right in.
+
+**Regan:** Wonderful
+
+**Colin:** Ok, Stephen, can you…
+
+**Stephen:** All right. So first off, how big is your userbase going to be like? How many users at a time do you expect to use it?
+
+**Regan:** At a time or the total userbase?
+
+**Stephen:** Both, actually.
+
+**Regan:** The total userbase should be on the order of about 200. At busy times there maybe be 20. 
+
+**Stephen:** And then, going on with the login system. What would happen when passwords are lost, for the users.
+
+**Regan:** If passwords are lost. I would assume that the administrator of the system would have to assign a temporary password that would allow the person to reset their password. Either that or the administrator would have to reset the password to something requested by the user.
+
+**Colin:** By Administrator do you mean the System Administrator?
+
+**Regan:** Yes.
+
+**Colin:** In the document that we received from you there was a System Administrator as well as the Administrator.
+
+**Regan:** Yes. I think we had a System Administrator and an Administrative Assistant who was actually entering things like the course information in preparation for Instructors before they were actually using the system.
+
+**Colin:** So then there were 3 users then that had that Administrator title.
+
+**Chazz:** 3 types of user.
+
+**Regan:** More than 3 types of users. There’s the System Administator, there’s the Administrative Assistant. Did we have an Administrator as well…
+General babbling.
+
+**Ian:** There were 3 types of Administrators noted down in the…
+
+**Regan:** Ok. What did our Administrator do? Do you have a copy…
+
+**Graeme:** As far as I can remember, the top Administrator was supposed to be able to view and update the material done by any other user…
+
+**Regan:** Ah yes, we do have 3, so yes, that would be an Administrator in terms of administration of the university and an Administrator in terms of administration of the system.
+
+**Markus:** So when the users would go to reset their passwords we assume that the System Administrator would be responsible for that?
+
+**Regan:** Yes, the System Administrator.
+
+**Markus:** Sorry one more thing: the students themselves would not be able to reset their passwords, they would always require the help of the System Administrator or is that…?
+
+**Regan:** Students have no access to this system.
+
+**Stephen:** And then going on with that. Since the System Administrator would be required for lost passwords, how about when users enter incorrect passwords too many times? Would they be locked out?
+
+**Regan:** Lockout? Yes, that would actually be a very useful feature. We do want the system to be secure.
+
+**Stephen:** So after a couple of tries?
+
+**Regan:** Maybe 5.
+
+**Stephen:** And then after that they’d have to go back to the System Administrator to get it all sorted out?
+
+**Markus:** So an extension of my old question earlier that individual users have no way of resetting their own password? Without going through the System Admin.
+
+**Regan:** They should be able to reset their own password. I understood this question as they had forgotten their password or misentered it.
+
+**Stephen:** And also with the UI. Since there are Administrators and then more normal users, would the UI look different for them or would it be more of a unified thing?
+
+**Regan:** I suspect it would be fairly unified but the things that a user couldn’t do just wouldn’t show up. It would just be a simpler page with less options.
+
+**Colin:** For example, an Academic Administrator, do you think that’s an appropriate term?
+
+**Regan:** That’s an appropriate term.
+
+**Colin:** Or the Assistant can create courses, say that page, that creation page just wouldn’t be visible for a TM, or say a TA.
+
+**Regan:** That’s right. If you’re not allowed to do that function you wouldn’t be able to see that option.
+
+**Colin:** Is it safe to say that this is a desktop application and not a browser-based application?
+
+**Regan:** We would be happy either way. In fact browser-based might even be easier but it’s not necessary. A desktop application would also be very acceptable.
+
+**Stephen:** Keeping with the multiple types of Administrators, if a user has multiple roles, such as a Teacher and a TM or a TA in a different course, or even might be an Administrator and also teaching, their interface would just…?
+
+**Regan:** In the case where one person has multiple roles we would expect that person to have one account for each role.
+
+**Colin:** With say a completely different username than say for…
+
+**Regan:** At least different for password, possibly a different username.
+
+**Ian:** Could be a different number, possibly.
+
+**Chazz:** I would like to talk about the System Administrator. I understand from you project specifications that he is allowed to manage accounts as in, as you mentioned before, create passwords, create user accounts, manage them. Is there anything else the System Administrator can do?
+
+**Regan:** The System Administrator would also be responsible for backups of the system so we would want him to be able to back up the entire database and restore the database in the case we want to restore to a previous state.
+
+**Chazz:** So the System Administrator has no access to the other functions that, say, an Administrator could do.
+
+**Regan:** No. He’s only responsible for actually managing the system and access to the system. Not anything going on inside the system.
+
+**Chazz:** How much power does the System Administrator have? Can the Administrator change passwords without student request?
+
+**Regan:** Could you rephrase that? Because you said Administrator but not which kind, and also student password when students have no access.
+
+**Chazz:** I’m sorry. My apologies. So the System Admin, how much power does the System Administrator have? Can he arbitrarily change passwords of a user of the system?
+
+**Regan:** He should be able to either change or block an account if there’s problems with security.
+**Colin:** Is there a limit to the number of System Administrators that can be on the system.
+
+**Regan:** I suspect we would have a small number, probably one for each shift?
+
+**Chazz:** For example 3 or 4 System Administrators.
+
+**Regan:** Yes, 3 or 4.
+
+**Colin:** Certainly not 1.
+
+**Regan:** Certainly not 1, because 1 will not be here 24 hours a day.
+
+**Markus:** So I was thinking of moving down the hierarchy and ask about the other administrative roles. So, kind of wondering specifically about the top Administrator, without the assistant title. So, in terms of access, the specifications kind of say they have access to everything. So, the scope of everything a teacher can do, an instructor, say a teaching assistant…
+
+**Regan:** Anything that anyone else in the system can do or enter they can look at or change.
+
+**Chazz:** Sorry, is that including the System Administrator’s privileges?
+
+**Regan:** I would see the System Administrator as completely separate. The Academic Administrator would not be allowed to manage passwords.
+
+**Markus:** Basically there’d be a complete divide between the System Admin and the other roles.
+
+**Regan:** Yes.
+
+(knocking on door around this time, for TA’s entrance presumably)
+
+**Markus:** So the System Admin would deal with passwords and accounts whereas all the other roles are dealing with the marking side of things.
+
+**Regan:** Yes, that’s right.
+
+**Markus:** So in that case, for example, would an administrator be able to go into a course and, for some reason if they needed to, modify the grade of an individual student?
+
+**Regan:** Yes, they would, because they are responsible for things like students requesting changes to grades because they are not happy with how the instructor has dealt with them and so forth.
+
+**Markus:** So if it went through a review council or something.
+
+**Regan:** Or if suddenly the instructor has a harder time and needs someone to go in and take over.
+
+**Markus:** Another thing was with the Assistant Admins kind of seem like the people who will be creating courses and modifiying them and such. There’s no mention of students who will participate in classes, so, will the system kind of like, for example, might the registration system create a file with a list of students and then..
+
+**Regan:** All right. So you’re asking how we get the classes into your system?
+
+**Markus:** Yes. And students specifically.
+
+**Regan:** Students specifically. All right. So, we have a course management system and the course management system keeps track of who is registered in what course. We will download a comma separated file from that tool and it will have the student names, student ID for all the students registered in the course. And when the Assistant Administrator creates the course, she’ll add the list of students and periodically she will update this from the course management system. Download a new list and update the system.
+
+**Chazz:** Sorry, do we have the syntax for that now? Like the student name…
+
+**Regan:** The comma separated files would come out of a spreadsheet so it’s just student name, comma, student ID. One row for each student.
+
+**Colin:** It’ll be clear when we see it.
+
+**Markus:** So in that case, for something like in the case where a student shouldn’t be registered in the course, we’re presuming that…
+
+**Regan:** That’s taken care of before we get to your system. You have to have the ability to let the Assistant Administrator add a whole new list of names or add list of names to update the present list. So, she’d put in the new list and your system would have to check it against the present list; delete or add to make it correspond to the new list.
+
+**Markus:** And just, maybe, it would also be desirable to add an individual student, or just based off of the csv would be fine.
+
+**Regan:** Just based off of the csv would be fine because we want to make it as fast and simple as possible for the administrator. It’s a one button job to get the list. To get just the students that need to be added is much harder.
+
+**Markus:** I think that’s everything for me…
+
+**Ian:** So I’m just going to continue on with the courses. So what does it mean to exactly create a course from the administration? Are there anything to do with prerequisites or any other kind of attributes to go with the course?
+
+**Regan:** Well for your system we are creating a course to grade. So you already had a question about the student list. The course then will need a list of the activities in the course, a list of the Teaching Assistants and Tutor Markers, the name of the Instructor, start and end date of the course.
+
+**Jordan:**  So because this is a grading system we wouldn’t be expected to include things like the syllabus or other, more descriptive…
+
+**Regan:** That’s correct.
+
+**Ian:** Would that be included as the activities in the course, kind of like the assignments that are going to be given or such things?
+
+**Regan:** Yes. Maybe we should finish talking about the course and then talk about the activities. Now I’ve forgotten which ones I’ve given you. The course has a name, the course has a number, we’ve got the dates, the list of activities, the list of students, the Instructor, the list of Teaching Assistants and Tutor Markers. For the course we had a list of activities so each activity has parts, and a list that we’ve come up with, of course the activity has a name, there’s a solution or a model solution for the activity which may be one or more items, we have the rubric, we have a type of activity, we have the language of the activity, whether it’s a group or an individual activity, a directory of student submissions, a due date, and a list of student grades for each item in the rubric for each student.
+
+**Colin:** Can I clarify something? You mentioned the language of the activity. Did that mean human spoken language or computer language when it would be about computing science?
+
+**Regan:** Yes and yes. We have teachers of foreign languages where the assignment would be in a foreign language. We have teachers of computing science where it will be the computing language.
+
+**Colin:** So both.
+
+**Regan:** Both.
+
+**Ian:** So moving on here. There was a list that an admin could also copy a course and we were wondering what part of that is copied. The students or the rubric or…?
+
+**Regan:** That’s a very good question. Basically, we would need all the things that the instructor puts in about the course. So you need the rubric, you need , let’s go through the list, the language, whether it’s group oriented or individual, what the due date was, the name, the solution. Basically everything that’s part of the actual description of the activity but not the student grades, not the student names because we’re copying it so that it’s ready for another term.
+
+**Jordan:**  Would the Tutors or the TAs not also be included?
+
+**Regan:** The tutors wouldn’t be included, the TAs wouldn’t be included…
+
+**Jordan:**  The instructor also
+
+**Regan:** The instructor, because those can change.
+
+**Chazz:** And the course ID as well? Would we need to generate a new course ID?
+
+**Regan:** No, the course ID would be the same. The way that we discriminate between offerings of the course is to take the ID plus the date.
+
+**Chazz:** Ok, there’s also the option for the Admin to modify a course and, now, I’m assuming that at some point in time, modification of a course is probably not the best, so say within halfway through a term or later in a term. I was wondering if there was such thing as a time limit when you can modify a course.
+
+**Regan:** On the surface it seems that you shouldn’t be changing during the term but we’ve found that there are situations where it becomes necessary. When the instructor becomes ill two thirds of the way through the course we have to change the instructor. When a TA does not satisfy the instructor, is not able to perform the duties we have to change the TA partway through the course. So yes, in an ideal world we wouldn’t want to change them but in some situations we have to. Flexibility needs to be there and also can be used if we need to have it.
+
+**Ian:** With the Instructors and TAs changing it wouldn’t be too big of a problem for us, but I was wondering more about rubrics. Since there’s going to be probably a lot of assignments handed in already that have been graded through the rubric, if we do happen to change the rubric all of a sudden, I think it might maybe end up messing up the course grading.
+
+**Regan:** If a rubric is changed then the course has to be regarded.
+
+**Chazz:** Or that activity.
+
+**Regan:** Or that activity for the rubric.
+
+**Jordan:**  So, sorry, just one thing on the rubric while we’re there. So would we have a rubric for each assignment then?
+
+**Regan:** Yes.
+
+**Jordan:**  And then would the course itself have a rubric also?
+
+**Regan:** Each activity has a rubric.
+
+**Ian:** Yeah, that’s it for courses for me.
+
+**Colin:** Is there a way then to calculate the final grade for a course if there’s no rubric for the course? Say if this assignment has this much weight, say a midterm has 20 percent and the final has 50.
+
+**Regan:** The purpose of this system is to actually do the grading. The calculation of the final grade can be held in our course management system. Now did we want to go back to talk about, let’s see we talked about what was in the course, you’d asked about…Oh, we did do the activity.
+
 
 **Colin:** They were mentioned in passing, we had instructors as a possible user, as well as TAs. We couldn't find anything that differentiated TAs and TMs
 

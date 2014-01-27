@@ -1,0 +1,167 @@
+% Hey guys. This is a LaTeX file.
+% I've tried to lay out everything so it's easy to understand.
+% LaTeX guide: https://upload.wikimedia.org/wikipedia/commons/2/2d/LaTeX.pdf
+
+% Preamble. Don't worry about it.
+\documentclass{article}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\onehalfspacing
+
+\begin{document}
+
+% --- TITLE PAGE ---
+\title{Donnervögel Consulting \\ Streamlined Grading System}
+\author{Markus Balaski \\ Graeme Smith \\ Jordan Toering \\ Stephen Laboucane \\ Ian Pun \\ Colin Woodbury \\ Chazz Young}
+\date{\today}
+\maketitle
+\clearpage
+% ------------------
+
+% --- REVISION HISTORY ---
+% Add more entries here as the Spec undergoes major changes.
+% More recent entries come first.
+\textbf{Revision History}\\
+\emph{Jan 25, 2014}\\
+Added Academic Admin section.\\
+\emph{Jan 24, 2014}\\
+Created initial template.\\
+\clearpage
+% ------------------------
+
+% --- TABLE OF CONTENTS ---
+\tableofcontents
+\clearpage
+% -------------------------
+
+% Use this as a template. Section numbers, etc, is all handled automatically.
+\part{Functional Requirements}
+\section{Role - The Muffin Man}
+\subsection{Making Muffins}
+There is much to consider when making muffins.
+\subsubsection{Choosing the Right Ingredients}
+Any Muffin Man knows the right selection of bacon can make or break a good
+muffin. Basically you can type whatever you want here and LaTeX will format it
+nicely for you.
+\subsubsection{Mixing}
+Put your back into it.
+\subsubsection{Into the Oven}
+Preheat your oven to $\frac{1}{\pi}\sum_{i=0}^{\infty}e^i$ degrees.
+\subsection{Sellings Muffins}
+\subsubsection{Presentation}
+Ugly looking muffins won't get bought.
+\subsubsection{A Good Store Front}
+People won't come into a shady looking place, no matter how good your muffins are.
+\subsubsection{On Wit and Charm}
+When all else fails, hope you rolled a good CHA stat, and be a gentleman.
+% --- END OF TEMPLATE ---
+
+\section{Role - The System Administrator}
+
+\section{Role - The Academic Administrator}
+\subsection{The Power of the Academic Admin}
+The Academic Admin does not have any jurisdiction over the role of System Administrator.
+The Academic Administrator role assumes all functions of and can change/update any material
+provided by the following users:
+\begin{itemize}
+  \item Assistant Academic Administrators
+  \item Instructors
+  \item TA/TMs
+\end{itemize}
+
+\section{Role - The Assistant Academic Administrator}
+
+\section{Role - The Instructor}
+
+\section{Role - The Ta/Tm Markers}
+
+\section{The Login System}
+
+\section{The Database}
+
+\section{Logs}
+There are two distinct types of logs: Academic Logs and System Logs.
+\subsection{Academic Logs}
+The academic log contains all records of additions and changes to the academic records.
+The academic log documents grade and assignment modifications.  The academic log
+is visible to every user excluding the Ta/Tm marker.
+\subsection{System Logs}
+The system log contains a record of the systems tasks.  It documents user sign-ins
+and system backup times. The system log is only visible to the System Administrator.
+
+% --------------------------------------------
+\part{Prioritization of Function Requirements}
+
+% --------------------------------
+\part{Non-functional Requirements}
+\section{Quality}
+\subsection{Usability}
+The application should be usable to all relevant university staff
+regardless of computer experience.
+\subsection{Accessibility}
+\subsubsection{Valid Users}
+Only users who have created an account with the System Administrator will be able
+to use the application. Users will not be able to log in with their normal
+university username and password.
+\subsubsection{Availability Hours}
+The system should be accessible at any time of day, except during backup times.
+\subsection{Performance}
+\subsubsection{Maximum Load}
+The client has specified that up to 20 users might use the system during
+peak times, thus the system should aim for no slow-down for up to \textbf{40 users.}
+\subsection{Maintenance}
+\subsubsection{Application Life Span}
+The client has not indicated how long they plan to use the system once developed.
+\subsubsection{Addition of Features}
+The client has not requested a desire for the addition of new
+features post release.
+
+\section{Constraints}
+\subsection{Platform}
+The application will run on the Windows desktop.
+\subsection{Implementation}
+\subsubsection{Language}
+The application will be written in Java using the Swing library for its GUI.
+\subsubsection{Development Environment}
+Eclipse?
+\subsubsection{Version Control}
+The source code will be managed via a software version control system.
+\subsection{External Resources}
+\subsubsection{SQL Database}
+The application will store user and grading data on an MS SQL server located on
+the university campus, and thus the user's computer must have a network connection.
+\subsection{Licensing}
+\subsubsection{Closed Source}
+The application will be closed source under the Donnervögel Draconian License.
+\subsubsection{GPL Incompatibility}
+No libraries with GPL licensing will be included in the system.
+
+\section{Other Requirements}
+\subsection{System Administration}
+\subsubsection{Account Management}
+User accounts may only be created through the System Administrator.
+\subsubsection{System Backups}
+Database backups will be performed by the System Administrator and not handled
+through the application.
+
+% -------------------------------
+\part{User Interface Description}
+
+\section{Login}
+
+\section{Marking}
+
+\section{System Admin Maintenance Panels}
+
+\section{Course Creation/Modification}
+
+\section{Assignment Management}
+
+\section{Test Suite}
+The submitted code will be view-able side by side with the solution code.  The code will be compiled on the server in an insulated environment.  Only Python will be implemented for the prototype.  The test suite will also allow a section for the marker to view and interact with the output of submitted code.
+stop the submitted code.
+
+\section{Student/TA Group Management}
+
+\end{document}
+% Nothing past this will be included in the document.
