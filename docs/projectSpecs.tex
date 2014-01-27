@@ -22,6 +22,8 @@
 % Add more entries here as the Spec undergoes major changes.
 % More recent entries come first.
 \textbf{Revision History}\\
+\emph{Jan 26, 2014}\\
+Added Instructor role, and Login mockup.
 \emph{Jan 25, 2014}\\
 Added Academic Admin section.\\
 \emph{Jan 24, 2014}\\
@@ -133,6 +135,41 @@ making any necessary additions or removal of students.
 
 
 \section{Role - The Instructor}
+The instructor has the main control over the contents of a course, its students, 
+and its TAs or TMs. They can also grade any activities in the course.
+\subsection{Activity Management}
+Activity details include:
+\begin {itemize}
+	\item Name of activity
+	\item Rubric of activity
+	\item Type of activity
+	\item Language of activity (programming or actual language)
+	\item Group or individual activity
+	\item Due date
+	\item List of student grades
+	\item Solution
+\end {itemize}
+\subsubsection{Create an activity}
+Create an activity (assignment) and include the necessary details about it such 
+as rubric and description.
+\subsubsection{Modify an activity}
+Edit any existing part of an activity, including its rubric. If the rubric is updated
+the activity must be regraded fully.
+\subsubsection{Copy activities}
+Copy activities or a list of activities from a previous offering of the course, excluding
+course offering specific info, but including details of the activity and its rubric.
+\subsubsection{Enter tests/comparisons for code assignments}
+Create tests or solutions for coding assignments that the students' work can be compared
+to in grading.
+\subsection{Student Management}
+\subsubsection{Create student groups}
+The instructor can create groups of students for an individual activity, or
+multiple activities. 
+\subsection{TA/TM Management}
+\subsubsection{Assign TA/TMs to students}
+The instructor can assign TAs and TMs to subsets of students or subsets of 
+groups in the class for a particular activity or set of activities. The TA/TMs will then
+only be able to grade those subsets for the activities the instructor chooses.
 \subsection{Grade Assignments}
 \subsubsection{View Assignments and Rubric}
 A particular student's or group's assignment can be selected so the rubric is
@@ -146,8 +183,7 @@ or directly into the code if it is a code submission.
 \subsubsection{Test Code Assignments}
 The system will compile and run code assignments through the submitted tests,
 then present the outputs side by side with the sample correct outputs.
-\subsection{TA/TM Management}
-\textbf{Stuff needs to go here.}
+
 
 \section{Role - The TA/TM Markers}
 \subsection{Grade Assignments}
@@ -236,6 +272,23 @@ Any page of the application will have a means to go back to the previous
 page visited.
 
 \section{Login}
+\subsection{Login Screen}
+\subsubsection{Inputs}
+The login screen will contain inputs for "username" and "password", along with a
+button to "enter" (confirm the username and password entered) and a button to handle
+forgotten passwords. The username and password will be checked against the login database,
+and the forgotten password will invoke some process to reset passwords.
+\subsubsection{Outputs}
+Upon hitting the "enter" button, the user will either be granted access or denied based
+on an incorrect password. If a user is granted access, they will be sent
+to a main UI screen offering their account's options in the system. If they enter a wrong
+password, they will be told so, and given 5 opportunities to enter the correct password
+before their account is locked. If the "forgot password" prompt is hit, the user will be sent
+to a separate interface for resetting passwords
+\subsection{Description}
+The login will be the first screen shown upon opening the program. The login screen 
+satisfies the separation of the functional requirements by role, as well as the capacity for users
+to reset their passwords.
 
 \section{Marking}
 The marking system involves several stages each with its own screen in
