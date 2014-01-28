@@ -116,12 +116,14 @@ An Admin. Assistant is allowed to copy a course. Copying a course will transcrib
   \item Course ID
   \item List of activities including their individual:
     \begin{itemize}
+    \item Description
     \item Marking rubric
     \item Language of the activity
     \item Type of activity
     \item Marking scheme (group/individual based)
     \item Due date
     \item Solution
+    \item Test input and output files (for programming activities only)
     \end {itemize}
 \end {itemize}
 \subsubsection{Modifying a Rubric}
@@ -137,6 +139,7 @@ and its TAs or TMs. They can also grade any activities in the course.
 Activity details include:
 \begin {itemize}
 	\item Name of activity
+	\item Activity description
 	\item Rubric of activity
 	\item Type of activity
 	\item Language of activity (programming or actual language)
@@ -144,6 +147,7 @@ Activity details include:
 	\item Due date
 	\item List of student grades
 	\item Solution
+	\item Test input and output files (for coding activities only)
 \end {itemize}
 \subsubsection{Create an activity}
 Create an activity (assignment) and include the necessary details about it such 
@@ -244,7 +248,6 @@ and system backup times. The system log is only visible to the System Administra
   \item Academic Logs
   \item System Logs
 \end{itemize}
-
 % --------------------------------
 \part{Non-functional Requirements}
 \section{Quality}
@@ -389,27 +392,16 @@ There will be a list of existing courses for you to choose from with checkboxes
 to satisfy req. (SECTION HERE) deleting a course.
 
 \section{Activity Creation/Modification}
-The view is virtually the same for both creation and modification.
-The fields that will be shown for data entry or modification are:
-\begin{itemize}
-	\item Activity name
-	\item Due date
-	\item Type of activity
-	\item Language of activity
-	\item Size of group
-	\item Rubric
-	\begin{itemize}
-		\item Number of expectations
-		\item Description for each expectation
-		\item Maximum grade for each expectation
-	\end{itemize}
-	\item Solution
-	\item Test input and output files
-\end{itemize}
-
+\subsection{Inputs and Outputs}
+The fields that will be shown for data entry or modification are all those listed
+under (SECTION HERE) Assignment Management except for a list of student grades.
+Activities being edited will have the current information shown in the appropriate field.
 Activities being created from scratch will have each field empty.
-When editing, the current information is shown in the appropriate field.
-Test input and output files are only an option for code activities.
+When an option would not be applicable for the activity, such as test input and output files
+for non-programming activities, the field will not be shown.
+\subsection{Description}
+Both activity creation and modification share virtually the same screen.
+This screen satisfies the requirement (SECTION HERE) for an Instructor to create and modify activities.
 
 \section{Test Suite}
 \begin{itemize}
