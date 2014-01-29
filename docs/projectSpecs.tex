@@ -17,12 +17,16 @@
 % --- REVISION HISTORY ---
 % Add more entries here as the Spec undergoes major changes.
 % More recent entries come first.
-\textbf{Revision History}\\
+\textbf{Revision History}
 \begin{center}
-  \begin{tabular}{l l l | c}
+  \begin{tabular}{| c | c | c | l |}
+    \hline
     Version & Date & Members & Changes\\
     \hline
-    1.0 & 2014 Jan 28 & All Members & Initial Specifications Complete
+    & & & Initial Functional Requirements complete.\\
+    1.0 & 2014 Jan 28 (Tues) & All Members & Initial Non-functional Requirements complete.\\
+    & & & Initial UI Descriptions complete.\\
+    \hline
   \end{tabular}
 \end{center}
 \clearpage
@@ -35,26 +39,6 @@
 
 % Use this as a template. Section numbers, etc, is all handled automatically.
 \part{Functional Requirements}
-\section{Role - The Muffin Man}
-\subsection{Making Muffins}
-There is much to consider when making muffins.
-\subsubsection{Choosing the Right Ingredients}
-Any Muffin Man knows the right selection of bacon can make or break a good
-muffin. Basically you can type whatever you want here and LaTeX will format it
-nicely for you.
-\subsubsection{Mixing}
-Put your back into it.
-\subsubsection{Into the Oven}
-Preheat your oven to $\frac{1}{\pi}\sum_{i=0}^{\infty}e^i$ degrees.
-\subsection{Sellings Muffins}
-\subsubsection{Presentation}
-Ugly looking muffins won't get bought.
-\subsubsection{A Good Store Front}
-People won't come into a shady looking place, no matter how good your muffins are.
-\subsubsection{On Wit and Charm}
-When all else fails, hope you rolled a good CHA stat, and be a gentleman.
-% --- END OF TEMPLATE ---
-
 \section{Role - The System Administrator}
 The System Administrator is responsible for:
 \subsection{Account Management}
@@ -89,7 +73,7 @@ provided by the following users:
 \section{Role - The Assistant Academic Administrator}
 An Assistant Academic Administrator is able to create, modify, copy, and delete courses.
 \subsection {Course management}
-\subsubsection{Creating a Course}
+\subsubsection{Creating a Course \label{courseCreation}}
 To create a course, an Admin. Assistant must provide the following:
 \begin{itemize}
 	\item Name of course
@@ -116,12 +100,14 @@ An Admin. Assistant is allowed to copy a course. Copying a course will transcrib
   \item Course ID
   \item List of activities including their individual:
     \begin{itemize}
+    \item Description
     \item Marking rubric
     \item Language of the activity
     \item Type of activity
     \item Marking scheme (group/individual based)
     \item Due date
     \item Solution
+    \item Test input and output files (for programming activities only)
     \end {itemize}
 \end {itemize}
 \subsubsection{Modifying a Rubric}
@@ -137,6 +123,7 @@ and its TAs or TMs. They can also grade any activities in the course.
 Activity details include:
 \begin {itemize}
 	\item Name of activity
+	\item Activity description
 	\item Rubric of activity
 	\item Type of activity
 	\item Language of activity (programming or actual language)
@@ -144,6 +131,7 @@ Activity details include:
 	\item Due date
 	\item List of student grades
 	\item Solution
+	\item Test input and output files (for coding activities only)
 \end {itemize}
 \subsubsection{Create an activity}
 Create an activity (assignment) and include the necessary details about it such 
@@ -166,7 +154,7 @@ multiple activities.
 The instructor can assign TAs and TMs to subsets of students or subsets of 
 groups in the class for a particular activity or set of activities. The TA/TMs will then
 only be able to grade those subsets for the activities the instructor chooses.
-\subsection{Grade Assignments}
+\subsection{Grade Assignments \label{grading}}
 \subsubsection{View Assignments and Rubric}
 A particular student's or group's assignment can be selected so the rubric is
 shown side by side during grading.
@@ -202,6 +190,47 @@ and system backup times. The system log is only visible to the System Administra
 
 % --------------------------------------------
 \part{Prioritization of Function Requirements}
+\section{Priority Lists}
+\subsection{Core Features}
+\begin{itemize}
+  \item Account Creation
+  \item Existing Account Modification
+  \item Creating a Course
+  \item Modifying a Course
+  \item Modifying a Rubric
+  \item Create an Activity
+  \item Modify an Activity
+  \item View Assignments and Rubric
+  \item The Login System
+\end{itemize}
+
+\subsection{Most Important Features}
+\begin{itemize}
+  \item Copying a Course
+  \item Copy Activities
+  \item Enter tests/comparisons for code assignments
+  \item Enter Grades
+  \item Add Comments to Student Work
+  \item Grade Assignments
+\end{itemize}
+
+\subsection{Less Important Features}
+\begin{itemize}
+  \item The Power of the Academic Administrator
+  \item System Backups/Restorations
+  \item Create Student Groups
+  \item Assign TA/TM's to students
+  \item Test Code Assignments
+  \item The Database
+\end{itemize}
+
+\subsection{Desired Features}
+\begin{itemize}
+  \item Application Installation
+  \item System Log Management
+  \item Academic Logs
+  \item System Logs
+\end{itemize}
 
 % --------------------------------
 \part{Non-functional Requirements}
@@ -237,7 +266,8 @@ The application will run on the Windows desktop.
 \subsubsection{Language}
 The application will be written in Java using the Swing library for its GUI.
 \subsubsection{Development Environment}
-Eclipse?
+Eclipse and Emacs will be used for code creation.\\
+?? will be used for document editing.
 \subsubsection{Version Control}
 The source code will be managed via a software version control system.
 \subsection{External Resources}
@@ -288,43 +318,27 @@ The login will be the first screen shown upon opening the program. The login scr
 satisfies the separation of the functional requirements by role, as well as the capacity for users
 to reset their passwords.
 
-\section{Marking}
-The marking system involves several stages each with its own screen in
-the application.
-\subsection{Course Choice}
-The user is presented with a list of courses they are affiliated with. \\
-Only courses in the current term will be shown. The courses themselves
-will be buttons or clickable text.
-\subsection{Assignment Choice by Student/Group}
-The user can select two view styles for this screen. Note that in either case,
-assignments not to be graded by the user will not be selectable. Assignments
-will be buttons.
-\subsubsection{Student View}
-The user is presented with a grid of students and assignments. Only students
-affiliated with the user will be visible.
-\subsubsection{Group View}
-The user is presented with a grid of groups and assignments. Only groups
-affiliated with the user will be visible.
-\subsection{Assignment Grading}
-This screen shows all information relavent to the assignment, specifically:
-\begin{itemize}
-  \item Name of Activity
-  \item Type of Activity
-  \item Human Language of Activity/Instruction
-  \item Programming Language of Activity (if applicable)
-  \item Status as Group/Individual Activity (yes/no)
-  \item Due date
-\end{itemize}
-\subsubsection{Rubric Display}
-All entries for the rubric will be shown. Beside each entry will be an
-area for the Marker to add a grade for that part of the rubric.\\
-Total grade will be calculated based on the above entries and shown at the
-bottom.
-\subsubsection{Assignment Display}
-Will the assignment be clearly visible right beside the rubric?
+\section{Activity Marking}
+\subsection{Description}
+This screen allows users with Marking privileges to grade student activities
+as described in section \ref{grading} on page \pageref{grading}.\\
+The user navigates here from \textbf{Course Choice} then \textbf{Assignment Choice}.
+\subsection{Inputs}
+\subsubsection{Grade Inputs}
+Beside each entry will be an
+area for the Marker to add a grade for that part of the rubric.
+\subsubsection{Comment Insertion}
+The user can insert comments directly into student work.
 \subsubsection{Return Assignment Button}
 There will be a button available to deliver a commented copy of the working
 assignment back to the student.
+\subsection{Outputs}
+\subsubsection{Rubric Display}
+All entries for the rubric will be shown.
+Total grade will be calculated based on the above entries and shown at the
+bottom.
+\subsubsection{Student Work Display}
+The student work will be visible beside the rubric and grade entry areas.
 
 \section{System Admin Maintenance Panels}
 The System Administrator's screens are exclusive to the System Admin
@@ -351,7 +365,7 @@ There will be 4 buttons available, \emph{Add a course}, \emph{Edit existing cour
 
 \subsection{Adding a course}
 There will be fields open to the user to input the neccessary information described
-in (SECTION HERE): adding a course.
+in section \ref{courseCreation} on page \pageref{courseCreation}.
 
 \subsection{Editing an existing course}
 Ther will be a list of existing courses for you to choose from. Once the user has
@@ -364,36 +378,25 @@ There will be a list of existing courses for you to choose from with checkboxes
 to satisfy req. (SECTION HERE) deleting a course.
 
 \section{Activity Creation/Modification}
-The view is virtually the same for both creation and modification.
-The fields that will be shown for data entry or modification are:
-\begin{itemize}
-	\item Activity name
-	\item Due date
-	\item Type of activity
-	\item Language of activity
-	\item Size of group
-	\item Rubric
-	\begin{itemize}
-		\item Number of expectations
-		\item Description for each expectation
-		\item Maximum grade for each expectation
-	\end{itemize}
-	\item Solution
-	\item Test input and output files
-\end{itemize}
-
+\subsection{Inputs and Outputs}
+The fields that will be shown for data entry or modification are all those listed
+under (SECTION HERE) Assignment Management except for a list of student grades.
+Activities being edited will have the current information shown in the appropriate field.
 Activities being created from scratch will have each field empty.
-When editing, the current information is shown in the appropriate field.
-Test input and output files are only an option for code activities.
+When an option would not be applicable for the activity, such as test input and output files
+for non-programming activities, the field will not be shown.
+\subsection{Description}
+Both activity creation and modification share virtually the same screen.
+This screen satisfies the requirement (SECTION HERE) for an Instructor to create and modify activities.
 
 \section{Test Suite}
-\begin{itemize}
-  \item The submitted code will be view-able side by side with the solution code.
-  \item The test suite will allow a section for the marker to view and interact
-    with the output of submitted code.
-  \item It will only be possible to view one project at a time.
-  \item The marker will be able to insert comments directly into the submitted assignment window.
-\end{itemize}
+\subsection{Test Suite Screen}
+\subsubsection{Inputs}
+The only inputs the test suite would take would be comments to place in the submitted code as well as the user input needed to interact with the console output of the submitted code.
+\subsubsection{Outputs}
+The test suite would output to the screen the reference code, the submitted code and the console messages.
+\subsection{Description}
+The test suite screen contains both the reference code and the student submitted code in a side by side format.  It includes a section for the marker to view and interact with the output of the submitted code.  The test suite also allows markers to add comments directly to the submitted code.  The test suite satisfies for all roles the functional requirement of a side-by-side code marking system, as well as marker interaction with the submitted code.
 
 \section{Student/TA Group Management}
 
