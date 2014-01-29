@@ -2,6 +2,7 @@
 \documentclass{article}
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry} % Document margins
 \onehalfspacing
 
 \begin{document}
@@ -50,14 +51,11 @@ The following fields are necessary:
   \item The account type
 \end{itemize}
 \subsubsection{Existing Account Modification}
-The System Admin can do:
+The System Admin can:
 \begin{itemize}
-  \item Blocking or permission changing for accounts that are security risks.
-  \item Password resets for users with forgotten passwords/multiple bad logins.
+  \item Change permissions or block accounts that pose security risks.
+  \item Reset passwords for users with forgotten passwords or multiple bad logins.
 \end{itemize}
-\subsection{System Log Management}
-\subsection{System Backups/Restorations}
-\subsection{Application Installation}
 
 \section{Role - The Academic Administrator \label{AcAdmin}}
 \subsection{Privileges}
@@ -65,10 +63,10 @@ The Academic Admin does not have any jurisdiction over the role of System
 Administrator. The Academic Administrator role assumes all functions of and can
 change/update any material provided by the following users:
 \begin{itemize}
-  \item Assistant Academic Administrator in section \ref{AsAcAdmin} on page
+  \item Assistant Academic Administrator in section \ref{AsAcAdmin}, page
     \pageref{AsAcAdmin}.
-  \item Instructors  in section \ref{Instructor} on page \pageref{Instructor}.
-  \item TA/TMs in section \ref{Marker} on page \pageref{Marker}.
+  \item Instructors  in section \ref{Instructor}, page \pageref{Instructor}.
+  \item TA/TMs in section \ref{Marker}, page \pageref{Marker}.
 \end{itemize}
 
 \section{Role - The Assistant Academic Administrator \label{AsAcAdmin}}
@@ -79,8 +77,8 @@ To create a course, an Admin. Assistant must provide the following:
 \begin{itemize}
 	\item Name of course
 	\item Course ID
-	\item Assigned Teacher Assistants/Markers names
 	\item Assigned Instructor name
+	\item Assigned Teacher Assistants/Markers names
 	\item Start and end date of course
 	\item List of activities in the course
 	\item List of students enrolled in the course
@@ -100,17 +98,8 @@ a new copy of these existing specifications:
 \begin{itemize}
   \item Name of course
   \item Course ID
-  \item List of activities including their individual:
-    \begin{itemize}
-    \item Description
-    \item Marking rubric
-    \item Language of the activity
-    \item Type of activity
-    \item Marking scheme (group/individual based)
-    \item Due date
-    \item Solution
-    \item Test input and output files (for programming activities only)
-    \end {itemize}
+  \item List of activities including their data as described in section
+    \ref{ActivityManagement}
 \end {itemize}
 \subsubsection{Modifying a Rubric}
 Modifying the rubric of an activity after it has been marked requires the whole
@@ -164,7 +153,7 @@ shown side by side during grading.
 Markers are able to enter grades directly into the rubric while they are viewing
 the assignment and rubric side by side.
 \subsubsection{Add Comments to Student Work}
-Markers are able to add comments directly into the pdf if it is a pdf submission,
+Markers are able to add comments directly into the PDF if it is a PDF submission,
 or directly into the code if it is a code submission.
 \subsubsection{Test Code Activities}
 The system will compile and run code assignments through the submitted tests,
@@ -178,7 +167,7 @@ have been assigned to.
 
 \section{The Login System}
 \subsection{Failed Logins \label{loginSystem1}}
-Users are granted five(5) attempts to log in successfully.  If they incorrectly
+Users are granted five attempts to log in successfully.  If they incorrectly
 enter their password all five times, their account is locked and they must reset
 their password with the system administrator before they can login again.
 \subsection{Password Resets \label{loginSystem2}}
@@ -203,7 +192,7 @@ There are two distinct types of logs: Academic Logs and System Logs.
 \subsection{Academic Logs}
 The academic log contains all records of additions and changes to the academic records.
 The academic log documents grade and assignment modifications.  The academic log
-is visible to every user excluding the Ta/Tm marker.
+is visible to every user excluding the TA/TM marker.
 \subsection{System Logs}
 The system log contains a record of the systems tasks.  It documents user sign-ins
 and system backup times. The system log is only visible to the System Administrator.
@@ -236,11 +225,10 @@ and system backup times. The system log is only visible to the System Administra
 
 \subsection{Less Important Features}
 \begin{itemize}
-  \item The Power of the Academic Administrator
   \item System Backups/Restorations
   \item Create Student Groups
   \item Assign TA/TM's to students
-  \item Test Code Activities
+  \item Code Testing Suite
   \item The Database
 \end{itemize}
 
@@ -289,7 +277,7 @@ The application will run on the Windows desktop.
 The application will be written in Java using the Swing library for its GUI.
 \subsubsection{Development Environment}
 Eclipse and Emacs will be used for code creation.\\
-TexMaker will be used for \LaTeX document editing.
+TexMaker will be used for {\LaTeX} document editing.
 \subsubsection{Version Control}
 The source code will be managed via a software version control system.
 \subsection{External Resources}
@@ -309,6 +297,8 @@ User accounts may only be created through the System Administrator.
 \subsubsection{System Backups}
 Database backups will be performed by the System Administrator and not handled
 through the application.
+\subsubsection{Application Installation}
+\subsubsection{System Log Management}
 
 % -------------------------------
 \part{User Interface Description}
@@ -361,8 +351,7 @@ This screen allows users with Marking privileges to grade student activities
 as described in section \ref{grading} on page \pageref{grading}.\\
 The user navigates here from \textbf{Course Choice} then \textbf{Activity Choice}.
 
-\section{Create/Mody Account}
-\emph{*Creating An Account*}
+\section{Account Creation/Modification}
 \subsection{Inputs}
 There will be fields to input the neccessary information described
 in section \ref{Account Creation} on page \pageref{Account Creation}.
