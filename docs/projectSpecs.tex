@@ -175,8 +175,21 @@ A TA/TM has can only access the assignments of the groups or students they
 have been assigned to.
 
 \section{The Login System}
+\subsection{Failed Logins}
+Users are granted five(5) attempts to log in successfully.  If they incorrectly enter their password all five times, their account is locked and they must reset their password with the system administrator before they can login again.
+\subsection{Password Resets}
+If a user wants to reset their own password(without the help of the System Administrator) they may ask the system to reset their password.  The system will send a randomly generated password to their email that they can use to login until they choose to change their own password.
 
 \section{The Database}
+\subsection{Content}
+The database is responsible for storing:
+\begin{itemize}
+\item User Accounts
+\item Courses
+\item Assignments
+\item Rubrics
+\item Grades
+\end{itemize}
 
 \section{Logs}
 There are two distinct types of logs: Academic Logs and System Logs.
