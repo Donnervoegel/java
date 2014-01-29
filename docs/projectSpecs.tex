@@ -150,7 +150,7 @@ to in grading.
 The instructor can create groups of students for an individual activity, or
 multiple activities. 
 \subsection{TA/TM Management}
-\subsubsection{Assign TA/TMs to students}
+\subsubsection{Assign TA/TMs to students \label{AssignTA}}
 The instructor can assign TAs and TMs to subsets of students or subsets of 
 groups in the class for a particular activity or set of activities. The TA/TMs will then
 only be able to grade those subsets for the activities the instructor chooses.
@@ -413,6 +413,23 @@ The test suite would output to the screen the reference code, the submitted code
 The test suite screen contains both the reference code and the student submitted code in a side by side format.  It includes a section for the marker to view and interact with the output of the submitted code.  The test suite also allows markers to add comments directly to the submitted code.  The test suite is a side-by-side code marking system, as well as marker interaction with the submitted code which satisfies the functional requirement described in section \ref{grading} on page \pageref{grading}.
 
 \section{Student/TA Group Management}
+The TA Management Screen allows the instructor to (re)assign students to TA's.
+\subsection{Inputs}
+The user will be presented with three lists: all the TA's in the course and all students enrolled in the course, along with all activities.  TA's, students, and activities can be selected, along with respective Select All and Select None buttons.  There will also be a few buttons to relate TA's and students:
+\begin{itemize}
+  \item Assign TA
+  \item Default Split
+\end{itemize}
+
+\subsection{Outputs}
+\subsubsection{Assign TA}
+Groups all selected students with the selected TA.
+\subsubsection{Default Split}
+Chunks all selected students (or all enrolled, if none are specified) by name, then assign equal sized groups to each selected TA (or all available, if none are specified).  This also fills the role of assigning all students to one TA if there is only one TA for the course.
+\subsubsection{Result}
+The result of the selected operation will be displayed afterwards, saying whether the process was successful or an error occurred.
+\subsection{Description}
+This UI page satisfies the functional requirements outlined in \ref{AssignTA} on page \pageref{AssignTA}.
 
 \end{document}
 % Nothing past this will be included in the document.
