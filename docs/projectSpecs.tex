@@ -39,7 +39,7 @@
 
 % Use this as a template. Section numbers, etc, is all handled automatically.
 \part{Functional Requirements}
-\section{Role - The System Administrator}
+\section{Role - The System Administrator \label{SysAdmin}}
 The System Administrator is responsible for:
 \subsection{Account Management}
 \subsubsection{\label{Account Creation} Account Creation}
@@ -59,18 +59,18 @@ The System Admin can do:
 \subsection{System Backups/Restorations}
 \subsection{Application Installation}
 
-\section{Role - The Academic Administrator}
-\subsection{The Power of the Academic Admin}
+\section{Role - The Academic Administrator \label{AcAdmin}}
+\subsection{The Privileges of the Academic Admin}
 The Academic Admin does not have any jurisdiction over the role of System Administrator.
 The Academic Administrator role assumes all functions of and can change/update any material
 provided by the following users:
 \begin{itemize}
-  \item Assistant Academic Administrators
-  \item Instructors
-  \item TA/TMs
+  \item Assistant Academic Administrator in section \ref{AsAcAdmin} on page \pageref{AsAcAdmin}.
+  \item Instructors  in section \ref{Instructor} on page \pageref{Instructor}.
+  \item TA/TMs in section \ref{Marker} on page \pageref{Marker}.
 \end{itemize}
 
-\section{Role - The Assistant Academic Administrator}
+\section{Role - The Assistant Academic Administrator \label{AsAcAdmin}}
 An Assistant Academic Administrator is able to create, modify, copy, and delete courses.
 \subsection {Course management}
 \subsubsection{Creating a Course \label{courseCreation}}
@@ -116,7 +116,7 @@ activity to be re-marked.
 \subsubsection{Deleting a course}
 An admin assistant is able to delete any existing course.
 
-\section{Role - The Instructor}
+\section{Role - The Instructor \label{Instructor}}
 The instructor has the main control over the contents of a course, its students, 
 and its TAs or TMs. They can also grade any activities in the course.
 \subsection{Activity Management}
@@ -168,7 +168,7 @@ or directly into the code if it is a code submission.
 The system will compile and run code assignments through the submitted tests,
 then present the outputs side by side with the sample correct outputs.
 
-\section{Role - The TA/TM Markers}
+\section{Role - The TA/TM Markers \label{Marker}}
 \subsection{Grade Assignments}
 The same as the Grade Assignments section under the Instructor.
 A TA/TM has can only access the assignments of the groups or students they
