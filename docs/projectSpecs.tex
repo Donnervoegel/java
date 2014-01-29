@@ -69,7 +69,7 @@ provided by the following users:
 \section{Role - The Assistant Academic Administrator}
 An Assistant Academic Administrator is able to create, modify, copy, and delete courses.
 \subsection {Course management}
-\subsubsection{Creating a Course}
+\subsubsection{Creating a Course \label{courseCreation}}
 To create a course, an Admin. Assistant must provide the following:
 \begin{itemize}
 	\item Name of course
@@ -150,7 +150,7 @@ multiple activities.
 The instructor can assign TAs and TMs to subsets of students or subsets of 
 groups in the class for a particular activity or set of activities. The TA/TMs will then
 only be able to grade those subsets for the activities the instructor chooses.
-\subsection{Grade Assignments}
+\subsection{Grade Assignments \label{grading}}
 \subsubsection{View Assignments and Rubric}
 A particular student's or group's assignment can be selected so the rubric is
 shown side by side during grading.
@@ -262,7 +262,8 @@ The application will run on the Windows desktop.
 \subsubsection{Language}
 The application will be written in Java using the Swing library for its GUI.
 \subsubsection{Development Environment}
-Eclipse?
+Eclipse and Emacs will be used for code creation.\\
+?? will be used for document editing.
 \subsubsection{Version Control}
 The source code will be managed via a software version control system.
 \subsection{External Resources}
@@ -313,43 +314,27 @@ The login will be the first screen shown upon opening the program. The login scr
 satisfies the separation of the functional requirements by role, as well as the capacity for users
 to reset their passwords.
 
-\section{Marking}
-The marking system involves several stages each with its own screen in
-the application.
-\subsection{Course Choice}
-The user is presented with a list of courses they are affiliated with. \\
-Only courses in the current term will be shown. The courses themselves
-will be buttons or clickable text.
-\subsection{Assignment Choice by Student/Group}
-The user can select two view styles for this screen. Note that in either case,
-assignments not to be graded by the user will not be selectable. Assignments
-will be buttons.
-\subsubsection{Student View}
-The user is presented with a grid of students and assignments. Only students
-affiliated with the user will be visible.
-\subsubsection{Group View}
-The user is presented with a grid of groups and assignments. Only groups
-affiliated with the user will be visible.
-\subsection{Assignment Grading}
-This screen shows all information relavent to the assignment, specifically:
-\begin{itemize}
-  \item Name of Activity
-  \item Type of Activity
-  \item Human Language of Activity/Instruction
-  \item Programming Language of Activity (if applicable)
-  \item Status as Group/Individual Activity (yes/no)
-  \item Due date
-\end{itemize}
-\subsubsection{Rubric Display}
-All entries for the rubric will be shown. Beside each entry will be an
-area for the Marker to add a grade for that part of the rubric.\\
-Total grade will be calculated based on the above entries and shown at the
-bottom.
-\subsubsection{Assignment Display}
-Will the assignment be clearly visible right beside the rubric?
+\section{Activity Marking}
+\subsection{Description}
+This screen allows users with Marking privileges to grade student activities
+as described in section \ref{grading} on page \pageref{grading}.\\
+The user navigates here from \textbf{Course Choice} then \textbf{Assignment Choice}.
+\subsection{Inputs}
+\subsubsection{Grade Inputs}
+Beside each entry will be an
+area for the Marker to add a grade for that part of the rubric.
+\subsubsection{Comment Insertion}
+The user can insert comments directly into student work.
 \subsubsection{Return Assignment Button}
 There will be a button available to deliver a commented copy of the working
 assignment back to the student.
+\subsection{Outputs}
+\subsubsection{Rubric Display}
+All entries for the rubric will be shown.
+Total grade will be calculated based on the above entries and shown at the
+bottom.
+\subsubsection{Student Work Display}
+The student work will be visible beside the rubric and grade entry areas.
 
 \section{System Admin Maintenance Panels}
 
@@ -359,7 +344,7 @@ There will be 4 buttons available, \emph{Add a course}, \emph{Edit existing cour
 
 \subsection{Adding a course}
 There will be fields open to the user to input the neccessary information described
-in (SECTION HERE): adding a course.
+in section \ref{courseCreation} on page \pageref{courseCreation}.
 
 \subsection{Editing an existing course}
 Ther will be a list of existing courses for you to choose from. Once the user has
