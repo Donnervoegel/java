@@ -42,7 +42,7 @@
 \section{Role - The System Administrator \label{SysAdmin}}
 The System Administrator is responsible for:
 \subsection{Account Management}
-\subsubsection{\label{Account Creation} Account Creation}
+\subsubsection{Account Creation \label{Account Creation}}
 The following fields are necessary:
 \begin{itemize}
   \item The account owner's name
@@ -60,19 +60,20 @@ The System Admin can do:
 \subsection{Application Installation}
 
 \section{Role - The Academic Administrator \label{AcAdmin}}
-\subsection{The Privileges of the Academic Admin}
-The Academic Admin does not have any jurisdiction over the role of System Administrator.
-The Academic Administrator role assumes all functions of and can change/update any material
-provided by the following users:
+\subsection{Privileges}
+The Academic Admin does not have any jurisdiction over the role of System
+Administrator. The Academic Administrator role assumes all functions of and can
+change/update any material provided by the following users:
 \begin{itemize}
-  \item Assistant Academic Administrator in section \ref{AsAcAdmin} on page \pageref{AsAcAdmin}.
+  \item Assistant Academic Administrator in section \ref{AsAcAdmin} on page
+    \pageref{AsAcAdmin}.
   \item Instructors  in section \ref{Instructor} on page \pageref{Instructor}.
   \item TA/TMs in section \ref{Marker} on page \pageref{Marker}.
 \end{itemize}
 
 \section{Role - The Assistant Academic Administrator \label{AsAcAdmin}}
 An Assistant Academic Administrator is able to create, modify, copy, and delete courses.
-\subsection {Course management}
+\subsection {Course Management}
 \subsubsection{Creating a Course \label{courseCreation}}
 To create a course, an Admin. Assistant must provide the following:
 \begin{itemize}
@@ -94,7 +95,8 @@ When inputting the list of the students into the course, the course management
 system will check for any updates from the previous list with the new one,
 making any necessary additions or removal of students.
 \subsubsection{Copying a Course}
-An Admin. Assistant is allowed to copy a course. Copying a course will transcribe a new copy of these existing specifications:
+An Admin. Assistant is allowed to copy a course. Copying a course will transcribe
+a new copy of these existing specifications:
 \begin{itemize}
   \item Name of course
   \item Course ID
@@ -113,7 +115,7 @@ An Admin. Assistant is allowed to copy a course. Copying a course will transcrib
 \subsubsection{Modifying a Rubric}
 Modifying the rubric of an activity after it has been marked requires the whole
 activity to be re-marked.
-\subsubsection{Deleting a course}
+\subsubsection{Deleting a Course}
 An admin assistant is able to delete any existing course.
 
 \section{Role - The Instructor \label{Instructor}}
@@ -154,8 +156,8 @@ multiple activities.
 The instructor can assign TAs and TMs to subsets of students or subsets of 
 groups in the class for a particular activity or set of activities. The TA/TMs will then
 only be able to grade those subsets for the activities the instructor chooses.
-\subsection{Grade Assignments \label{grading}}
-\subsubsection{View Assignments and Rubric}
+\subsection{Grade Activities \label{grading}}
+\subsubsection{View Activities and Rubric}
 A particular student's or group's assignment can be selected so the rubric is
 shown side by side during grading.
 \subsubsection{Enter Grades}
@@ -164,21 +166,26 @@ the assignment and rubric side by side.
 \subsubsection{Add Comments to Student Work}
 Markers are able to add comments directly into the pdf if it is a pdf submission,
 or directly into the code if it is a code submission.
-\subsubsection{Test Code Assignments}
+\subsubsection{Test Code Activities}
 The system will compile and run code assignments through the submitted tests,
 then present the outputs side by side with the sample correct outputs.
 
 \section{Role - The TA/TM Markers \label{Marker}}
-\subsection{Grade Assignments}
-The same as the Grade Assignments section under the Instructor.
+\subsection{Grade Activities}
+The same as the Grade Activities section under the Instructor.
 A TA/TM has can only access the assignments of the groups or students they
 have been assigned to.
 
 \section{The Login System}
 \subsection{Failed Logins \label{loginSystem1}}
-Users are granted five(5) attempts to log in successfully.  If they incorrectly enter their password all five times, their account is locked and they must reset their password with the system administrator before they can login again.
+Users are granted five(5) attempts to log in successfully.  If they incorrectly
+enter their password all five times, their account is locked and they must reset
+their password with the system administrator before they can login again.
 \subsection{Password Resets \label{loginSystem2}}
-If a user wants to reset their own password(without the help of the System Administrator) they may ask the system to reset their password.  The system will send a randomly generated password to their email that they can use to login until they choose to change their own password.
+If a user wants to reset their own password(without the help of the System
+Administrator) they may ask the system to reset their password.  The system will
+send a randomly generated password to their email that they can use to login
+until they choose to change their own password.
 
 \section{The Database}
 \subsection{Content}
@@ -186,7 +193,7 @@ The database is responsible for storing:
 \begin{itemize}
 \item User Accounts
 \item Courses
-\item Assignments
+\item Activities
 \item Rubrics
 \item Grades
 \end{itemize}
@@ -213,7 +220,7 @@ and system backup times. The system log is only visible to the System Administra
   \item Modifying a Rubric
   \item Create an Activity
   \item Modify an Activity
-  \item View Assignments and Rubric
+  \item View Activities and Rubric
   \item The Login System
 \end{itemize}
 
@@ -224,7 +231,7 @@ and system backup times. The system log is only visible to the System Administra
   \item Enter tests/comparisons for code assignments
   \item Enter Grades
   \item Add Comments to Student Work
-  \item Grade Assignments
+  \item Grade Activities
 \end{itemize}
 
 \subsection{Less Important Features}
@@ -233,7 +240,7 @@ and system backup times. The system log is only visible to the System Administra
   \item System Backups/Restorations
   \item Create Student Groups
   \item Assign TA/TM's to students
-  \item Test Code Assignments
+  \item Test Code Activities
   \item The Database
 \end{itemize}
 
@@ -316,18 +323,19 @@ page visited.
 \subsection{Inputs}
 The login screen will contain inputs for "username" and "password", along with a
 button to "enter" (confirm the username and password entered) and a button to handle
-forgotten passwords. The username and password will be checked against the login database,
-and the forgotten password will invoke some process to reset passwords.
+forgotten passwords. The username and password will be checked against the login
+database, and the forgotten password will invoke some process to reset passwords.
 \subsection{Outputs}
 Upon hitting the "enter" button, the user will either be granted access or denied based
 on an incorrect password. If a user is granted access, they will be sent
-to a main UI screen offering their account's options in the system. If the "forgot password"
- prompt is hit, the user will be sent to a separate interface for resetting passwords
+to a main UI screen offering their account's options in the system.
+If the "forgot password" prompt is hit, the user will be sent to a separate
+interface for resetting passwords
 \subsection{Description}
 The login will be the first screen shown upon opening the program. The login screen 
-satisfies the separation of the functional requirements by role, as well as the password locking
-after failed attempts and password resetting as specified in sections \ref{loginSystem1} and
-\ref{loginSystem2} on page \pageref{loginSystem1}.
+satisfies the separation of the functional requirements by role, as well as the
+password locking after failed attempts and password resetting as specified in
+sections \ref{loginSystem1} and \ref{loginSystem2} on page \pageref{loginSystem1}.
 
 \section{Activity Marking}
 \subsection{Inputs}
@@ -336,7 +344,7 @@ Beside each entry will be an
 area for the Marker to add a grade for that part of the rubric.
 \subsubsection{Comment Insertion}
 The user can insert comments directly into student work.
-\subsubsection{Return Assignment Button}
+\subsubsection{Return Activity Button}
 There will be a button available to deliver a commented copy of the working
 assignment back to the student.
 \subsection{Outputs}
@@ -349,7 +357,7 @@ The student work will be visible beside the rubric and grade entry areas.
 \subsection{Description}
 This screen allows users with Marking privileges to grade student activities
 as described in section \ref{grading} on page \pageref{grading}.\\
-The user navigates here from \textbf{Course Choice} then \textbf{Assignment Choice}.
+The user navigates here from \textbf{Course Choice} then \textbf{Activity Choice}.
 
 \section{System Admin Maintenance Panels}
 The System Administrator's screens are exclusive to the System Admin
@@ -371,45 +379,58 @@ The "restore" button will prompt the user for the version s/he wished to restore
 The user will be provided with a .exe file to be used to isntall the application.
 
 \section{Course Creation}
-
-\subsection{Adding a course}
-\subsubsection{Inputs}
+\subsection{Inputs}
 There will be fields open to the user to input the neccessary information described
 in section \ref{courseCreation} on page \pageref{courseCreation}.
-\subsubsection{Outputs}
-Once the input has been finalized with a submission button, the output will return the use back to the course management system for other options.
+\subsection{Outputs}
+Once the input has been finalized with a submission button, the output will return
+the use back to the course management system for other options.
 \subsection{Description}
-When creating the course, the screen will be the same as the function in section \ref{modifying} Modifying an Existing course, but the fields will be empty. When choosing the "create a Course" function, it will directly send you to this screen.
-
+When creating the course, the screen will be the same as the function in section
+\ref{modifying} Modifying an Existing course, but the fields will be empty.
+When choosing the "create a Course" function, it will directly send you to this screen.
 
 \section{Activity Creation/Modification}
 \subsection{Inputs}
 The fields that will be shown for data entry or modification are all those listed
-under \ref{ActivityManagement} Assignment Management on page \pageref{ActivityManagement} except for a list of student grades.
-When an option would not be applicable for the activity, such as test input and output files
-for non-programming activities, the field will not be shown.
+under \ref{ActivityManagement} Activity Management on page
+\pageref{ActivityManagement} except for a list of student grades.
+When an option would not be applicable for the activity, such as test input and
+output files for non-programming activities, the field will not be shown.
 \subsection{Outputs}
 Activities being edited will have the current information shown in the appropriate field.
 Activities being created from scratch will have each field empty.
-When an option would not be applicable for the activity, such as test input and output files
-for non-programming activities, the field will not be shown.
+When an option would not be applicable for the activity, such as test input and
+output files for non-programming activities, the field will not be shown.
 \subsection{Description}
 Both activity creation and modification share virtually the same screen.
-This screen satisfies the requirements \ref{CreateAct} and \ref{ModifyAct} for an Instructor to create and modify activities.
+This screen satisfies the requirements \ref{CreateAct} and \ref{ModifyAct} for
+an Instructor to create and modify activities.
 
 \section{Test Suite}
-\subsection{Test Suite Screen}
-\subsubsection{Inputs}
-The only inputs the test suite would take would be comments to place in the submitted code as well as the user input needed to interact with the console output of the submitted code.
-\subsubsection{Outputs}
-The test suite would output to the screen the reference code, the submitted code and the console messages.
+\subsection{Inputs}
+The only inputs the test suite would take would be comments to place in the
+submitted code as well as the user input needed to interact with the console
+output of the submitted code.
+\subsection{Outputs}
+The test suite would output to the screen the reference code, the submitted code
+and the console messages.
 \subsection{Description}
-The test suite screen contains both the reference code and the student submitted code in a side by side format.  It includes a section for the marker to view and interact with the output of the submitted code.  The test suite also allows markers to add comments directly to the submitted code.  The test suite is a side-by-side code marking system, as well as marker interaction with the submitted code which satisfies the functional requirement described in section \ref{grading} on page \pageref{grading}.
+The test suite screen contains both the reference code and the student submitted
+code in a side by side format.  It includes a section for the marker to view
+and interact with the output of the submitted code.  The test suite also allows
+markers to add comments directly to the submitted code.  The test suite is a
+side-by-side code marking system, as well as marker interaction with the
+submitted code which satisfies the functional requirement described in section
+\ref{grading} on page \pageref{grading}.
 
 \section{Student/TA Group Management}
 The TA Management Screen allows the instructor to (re)assign students to TA's.
 \subsection{Inputs}
-The user will be presented with three lists: all the TA's in the course and all students enrolled in the course, along with all activities.  TA's, students, and activities can be selected, along with respective Select All and Select None buttons.  There will also be a few buttons to relate TA's and students:
+The user will be presented with three lists: all the TA's in the course and all
+students enrolled in the course, along with all activities.  TA's, students, and
+activities can be selected, along with respective Select All and Select None
+buttons.  There will also be a few buttons to relate TA's and students:
 \begin{itemize}
   \item Assign TA
   \item Default Split
@@ -419,11 +440,16 @@ The user will be presented with three lists: all the TA's in the course and all 
 \subsubsection{Assign TA}
 Groups all selected students with the selected TA.
 \subsubsection{Default Split}
-Chunks all selected students (or all enrolled, if none are specified) by name, then assign equal sized groups to each selected TA (or all available, if none are specified).  This also fills the role of assigning all students to one TA if there is only one TA for the course.
+Chunks all selected students (or all enrolled, if none are specified) by name,
+then assign equal sized groups to each selected TA (or all available, if none
+are specified).  This also fills the role of assigning all students to one TA
+if there is only one TA for the course.
 \subsubsection{Result}
-The result of the selected operation will be displayed afterwards, saying whether the process was successful or an error occurred.
+The result of the selected operation will be displayed afterwards, saying whether
+the process was successful or an error occurred.
 \subsection{Description}
-This UI page satisfies the functional requirements outlined in \ref{AssignTA} on page \pageref{AssignTA}.
+This UI page satisfies the functional requirements outlined in \ref{AssignTA}
+on page \pageref{AssignTA}.
 
 \end{document}
 % Nothing past this will be included in the document.
