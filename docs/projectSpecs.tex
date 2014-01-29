@@ -175,9 +175,9 @@ A TA/TM has can only access the assignments of the groups or students they
 have been assigned to.
 
 \section{The Login System}
-\subsection{Failed Logins}
+\subsection{Failed Logins \label{loginSystem1}}
 Users are granted five(5) attempts to log in successfully.  If they incorrectly enter their password all five times, their account is locked and they must reset their password with the system administrator before they can login again.
-\subsection{Password Resets}
+\subsection{Password Resets \label{loginSystem2}}
 If a user wants to reset their own password(without the help of the System Administrator) they may ask the system to reset their password.  The system will send a randomly generated password to their email that they can use to login until they choose to change their own password.
 
 \section{The Database}
@@ -313,23 +313,21 @@ Any page of the application will have a means to go back to the previous
 page visited.
 
 \section{Login}
-\subsection{Login Screen}
-\subsubsection{Inputs}
+\subsection{Inputs}
 The login screen will contain inputs for "username" and "password", along with a
 button to "enter" (confirm the username and password entered) and a button to handle
 forgotten passwords. The username and password will be checked against the login database,
 and the forgotten password will invoke some process to reset passwords.
-\subsubsection{Outputs}
+\subsection{Outputs}
 Upon hitting the "enter" button, the user will either be granted access or denied based
 on an incorrect password. If a user is granted access, they will be sent
-to a main UI screen offering their account's options in the system. If they enter a wrong
-password, they will be told so, and given 5 opportunities to enter the correct password
-before their account is locked. If the "forgot password" prompt is hit, the user will be sent
-to a separate interface for resetting passwords
+to a main UI screen offering their account's options in the system. If the "forgot password"
+ prompt is hit, the user will be sent to a separate interface for resetting passwords
 \subsection{Description}
 The login will be the first screen shown upon opening the program. The login screen 
-satisfies the separation of the functional requirements by role, as well as the capacity for users
-to reset their passwords.
+satisfies the separation of the functional requirements by role, as well as the password locking
+after failed attempts and password resetting as specified in sections \ref{loginSystem1} and
+\ref{loginSystem2} on page \pageref{loginSystem1}.
 
 \section{Activity Marking}
 \subsection{Inputs}
