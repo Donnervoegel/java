@@ -1,4 +1,4 @@
-﻿% Preamble. Don't worry about it.
+% Preamble. Don't worry about it.
 \documentclass{article}
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
@@ -119,7 +119,7 @@ An admin assistant is able to delete any existing course.
 \section{Role - The Instructor \label{Instructor}}
 The instructor has the main control over the contents of a course, its students, 
 and its TAs or TMs. They can also grade any activities in the course.
-\subsection{Activity Management}
+\subsection{Activity Management \label{ActivityManagement}
 Activity details include:
 \begin {itemize}
 	\item Name of activity
@@ -133,10 +133,10 @@ Activity details include:
 	\item Solution
 	\item Test input and output files (for coding activities only)
 \end {itemize}
-\subsubsection{Create an activity}
+\subsubsection{Create an activity \label{CreateAct}}
 Create an activity (assignment) and include the necessary details about it such 
 as rubric and description.
-\subsubsection{Modify an activity}
+\subsubsection{Modify an activity \label{ModifyAct}}
 Edit any existing part of an activity, including its rubric. If the rubric is updated
 the activity must be regraded fully.
 \subsubsection{Copy activities}
@@ -378,16 +378,19 @@ There will be a list of existing courses for you to choose from with checkboxes
 to satisfy req. (SECTION HERE) deleting a course.
 
 \section{Activity Creation/Modification}
-\subsection{Inputs and Outputs}
+\subsection{Inputs}
 The fields that will be shown for data entry or modification are all those listed
-under (SECTION HERE) Assignment Management except for a list of student grades.
+under \ref{ActivityManagement} Assignment Management on page \pageref{ActivityManagement} except for a list of student grades.
+When an option would not be applicable for the activity, such as test input and output files
+for non-programming activities, the field will not be shown.
+\subsection{Outputs}
 Activities being edited will have the current information shown in the appropriate field.
 Activities being created from scratch will have each field empty.
 When an option would not be applicable for the activity, such as test input and output files
 for non-programming activities, the field will not be shown.
 \subsection{Description}
 Both activity creation and modification share virtually the same screen.
-This screen satisfies the requirement (SECTION HERE) for an Instructor to create and modify activities.
+This screen satisfies the requirements \ref{CreateAct} and \ref{ModifyAct} for an Instructor to create and modify activities.
 
 \section{Test Suite}
 \subsection{Test Suite Screen}
