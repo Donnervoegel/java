@@ -5,8 +5,9 @@
 ### Attendance
 
 ### Agenda
-- Compile nicely deliverable 3
-- Begin discussion of next deliverable
-- Start next deliverable
+- Review Project Specifications Document
+- 
 
 ### Minutes
+- Members should finalize their contributions and acquire development environment for LaTeX.
+- Next meeting booked for this coming Friday, January 31.
