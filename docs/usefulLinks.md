@@ -14,3 +14,5 @@ Useful Links
 [Great Markdown Editor](http://markdownpad.com/)
 
 [GoogleDoc](https://docs.google.com/document/d/1kxi05ADhvrbr3SO9T7ZK3w4J83j7TJ6dg0c0qmxNwN0/edit?usp=sharing)
+
+[Creating adn Editing PDFs in Java](http://www.vogella.com/tutorials/JavaPDF/article.html)
