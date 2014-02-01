@@ -3,6 +3,7 @@
 #### Room: Meet in front of dining hall
 
 ### Attendance
+- ALL
 
 ### Agenda
 - Review Project Specifications Document
