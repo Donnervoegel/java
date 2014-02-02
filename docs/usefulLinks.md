@@ -18,3 +18,5 @@ Useful Links
 [ICEpdf](http://www.icesoft.org/java/projects/ICEpdf/documentation.jsf)
 
 [Creating adn Editing PDFs in Java](http://www.vogella.com/tutorials/JavaPDF/article.html)
+
+[GoogleDoc 2](https://docs.google.com/document/d/1dkISAxYpGWtGSLQiHWuiRlMO_dAPjn4NMZzyCeOMAfw/edit?usp=sharing)
