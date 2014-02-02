@@ -7,7 +7,6 @@
 
 ### Agenda
 - Review Project Specifications Document
-- 
 
 ### Minutes
 - Members should finalize their contributions and acquire development environment for LaTeX.
