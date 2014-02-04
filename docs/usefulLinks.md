@@ -20,3 +20,5 @@ Useful Links
 [Creating adn Editing PDFs in Java](http://www.vogella.com/tutorials/JavaPDF/article.html)
 
 [GoogleDoc 2](https://docs.google.com/document/d/1dkISAxYpGWtGSLQiHWuiRlMO_dAPjn4NMZzyCeOMAfw/edit?usp=sharing)
+
+[Jordan's Collection of Meeting Recording Files](https://skydrive.live.com/redir?resid=D0A87066CFF36442!15437&authkey=!AJEB8R0olb5ihB8&ithint=folder%2c)
