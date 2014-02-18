@@ -1,4 +1,4 @@
-% Preamble. Don't worry about it.
+﻿% Preamble. Don't worry about it.
 \documentclass{article}
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
@@ -54,8 +54,21 @@ The following fields are necessary:
 The System Admin can:
 \begin{itemize}
   \item Change permissions or block accounts that pose security risks.
-  \item Reset passwords for users with forgotten passwords or multiple bad logins.
+  \item Reset passwords for users with forgotten passwords or five consecutive failed logins.
 \end{itemize}
+\subsubsection{System Backup and Restoration}
+The System Administrator maintains an archive of the system. 
+\begin{itemize}
+  \item The System Administrator will archive the system at the end of overy semester.
+  \item The System Administrator will restore the system to the required archive as necessary.
+  \item The System will purge any archives that are greater than five years old.
+\end{itemize}
+\subsubsection{System and Academic Logs}
+The System Administrator is responsible for the maintenance and archiving of logs. \\
+See section \ref{logs} on page \pageref{logs}
+
+
+%-----THIS NEEDS TO BE EDITED!!!----%
 
 \section{Role - The Academic Administrator \label{AcAdmin}}
 \subsection{Privileges}
@@ -187,7 +200,7 @@ The database is responsible for storing:
 \item Grades
 \end{itemize}
 
-\section{Logs}
+\section{Logs \label{logs}}
 There are two distinct types of logs: Academic Logs and System Logs.
 \subsection{Academic Logs}
 The academic log contains all records of additions and changes to the academic records.
