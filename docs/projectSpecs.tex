@@ -9,7 +9,7 @@
 
 % --- TITLE PAGE ---
 \title{Donnervögel Consulting \\ Streamlined Grading System}
-\author{Markus Balaski \\ Graeme Smith \\ Jordan Toering \\ Stephen Laboucane \\ Ian Pun \\ Colin Woodbury \\ Chazz Young}
+\author{Markus Balaski \\ Stephen Laboucane \\ Ian Pun \\ Graeme Smith \\ Jordan Toering \\ Colin Woodbury \\ Chazz Young}
 \date{\today}
 \maketitle
 \clearpage
@@ -23,6 +23,14 @@
   \begin{tabular}{| c | c | c | l |}
     \hline
     Version & Date & Members & Changes\\
+    \hline
+    & & Markus Balaski & \\
+    & & Stephen Laboucane & \\
+    & & Ian Pun & \\
+    0.0 & 2014 Jan 24(Fri) & Graeme Smith & Cration of Document \\
+    & & Jordan Toering & \\
+    & & Colin Woodbury & \\
+    & & Chazz Young & \\
     \hline
     & & & Initial Functional Requirements complete.\\
     1.0 & 2014 Jan 28 (Tues) & All Members & Initial Non-functional Requirements complete.\\
@@ -46,11 +54,12 @@ The System Administrator is responsible for:
 \subsubsection{Account Creation \label{Account Creation}}
 The following fields are necessary:
 \begin{itemize}
-  \item The account owner's name
+  \item The account owner's name (first name, last name),
+  \item The account owner's employee ID,
+  \item The account type, 
   \item A temporary password for the account owner
-  \item The account type
 \end{itemize}
-\subsubsection{Existing Account Modification}
+\subsubsection{Existing Account Modification \label{Account Mod}}
 The System Admin can:
 \begin{itemize}
   \item Change permissions or block accounts that pose security risks.
@@ -364,7 +373,21 @@ This screen allows users with Marking privileges to grade student activities
 as described in section \ref{grading} on page \pageref{grading}.\\
 The user navigates here from \textbf{Course Choice} then \textbf{Activity Choice}.
 
-\section{Account Creation/Modification}
+\section{Account Creation/Modification - Requirement \ref{Account Creation} and \ref{Account Mod}}
+
+\begin{center}
+  \begin{tabular}{| c | c | c | l |}
+    \hline
+    Data Displayed &  Data Submitted & Data Returned/Saved \\
+    \hline
+    & The account owner's name & The account owner's name \\
+    (blank fields & The account owner's employee ID & The account owner's employee ID \\
+    & The account owner's account type & The account owner's account type \\
+    & & A temporary password \\
+  \end{tabular}
+\end{center}
+    
+
 \subsection{Inputs}
 There will be fields to input the neccessary information described
 in section \ref{Account Creation} on page \pageref{Account Creation}.
