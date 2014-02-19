@@ -1,0 +1,17 @@
+Some simplifications to speed up the prototype:
+
+Testing Suite
+One language, Python.
+Assume only 1 test, and that test has only one (set?) of input(s).  The output is also trivial.
+
+Essays and Math can be rolled into one Activity type.
+
+Need Create/Modify/Delete, but copy can wait.
+
+A broad system-wide backup and restore.
+
+No groups for Activities, so that UI can wait.
+
+Similarly, all TA/TMs are assigned to all students in the course (as is the default).
+
+The database was brought up, but not discussed.

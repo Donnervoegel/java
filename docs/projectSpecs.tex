@@ -5,6 +5,9 @@
 \usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry} % Document margins
 \onehalfspacing
 
+% Setting the depth for Table of Contents
+\setcounter{tocdepth}{2}
+
 \begin{document}
 
 % --- TITLE PAGE ---
@@ -24,9 +27,21 @@
     \hline
     Version & Date & Members & Changes\\
     \hline
-    & & & Initial Functional Requirements complete.\\
-    1.0 & 2014 Jan 28 (Tues) & All Members & Initial Non-functional Requirements complete.\\
-    & & & Initial UI Descriptions complete.\\
+    1.0 & 2014 Jan 28 (Tues) & Markus B. & Initial Non-functional Requirements complete\\
+    & & Graeme S. & Initial Functional Requirements complete\\
+    & & Jordan Toering & Initial UI Descriptions complete\\
+    & & Stephen L. & \\
+    & & Ian P. & \\
+    & & Colin W. & \\
+    & & Chazz Y. & \\
+    \hline
+    1.1 & 2014 Feb 20 (Thurs) & Markus B. & BLAH\\
+    & & Graeme S. & BLAH\\
+    & & Jordan Toering & BLAH\\
+    & & Stephen L. & \\
+    & & Ian P. & \\
+    & & Colin W. & \\
+    & & Chazz Y. & \\
     \hline
   \end{tabular}
 \end{center}
@@ -59,14 +74,11 @@ The System Admin can:
 
 \section{Role - The Academic Administrator \label{AcAdmin}}
 \subsection{Privileges}
-The Academic Admin does not have any jurisdiction over the role of System
-Administrator. The Academic Administrator role assumes all functions of and can
-change/update any material provided by the following users:
+The Academic Administrator can change grades inputted by any of the below roles:
 \begin{itemize}
-  \item Assistant Academic Administrator in section \ref{AsAcAdmin}, page
-    \pageref{AsAcAdmin}.
-  \item Instructors  in section \ref{Instructor}, page \pageref{Instructor}.
-  \item TA/TMs in section \ref{Marker}, page \pageref{Marker}.
+  \item Assistant Academic Administrator in section \ref{AsAcAdmin}.
+  \item Instructors  in section \ref{Instructor}.
+  \item TA/TMs in section \ref{Marker}.
 \end{itemize}
 
 \section{Role - The Assistant Academic Administrator \label{AsAcAdmin}}
@@ -204,32 +216,33 @@ and system backup times. The system log is only visible to the System Administra
 \begin{itemize}
   \item Account Creation
   \item Existing Account Modification
-  \item Creating a Course
-  \item Modifying a Course
-  \item Modifying a Rubric
+  \item Create a Course
+  \item Modify a Course
+  \item Delete a Course
   \item Create an Activity
   \item Modify an Activity
+  \item Delete an Activity
+  \item Modifying a Rubric
   \item View Activities and Rubric
+  \item Grading Activities
   \item The Login System
 \end{itemize}
 
 \subsection{Most Important Features}
 \begin{itemize}
-  \item Copying a Course
-  \item Copy Activities
+  \item Code Testing Suite
   \item Enter tests/comparisons for code assignments
-  \item Enter Grades
   \item Add Comments to Student Work
-  \item Grade Activities
+  \item System Backups/Restorations
+  \item The Database
 \end{itemize}
 
 \subsection{Less Important Features}
 \begin{itemize}
-  \item System Backups/Restorations
-  \item Create Student Groups
+  \item Copying a Course
+  \item Copy Activities
   \item Assign TA/TM's to students
-  \item Code Testing Suite
-  \item The Database
+  \item Create Student Groups
 \end{itemize}
 
 \subsection{Desired Features}
