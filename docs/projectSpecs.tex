@@ -120,6 +120,7 @@ An admin assistant is able to delete any existing course only if no activity has
 \section{Role - The Instructor \label{Instructor}}
 The instructor has the main control over the contents of a course, its students, 
 and its TAs or TMs. They can also grade any activities in the course.
+
 \subsection{Activity Management \label{ActivityManagement}}
 Activity details include:
 \begin {itemize}
@@ -148,12 +149,8 @@ Activity details include:
 	\end{itemize}
 \end {itemize}
 \subsubsection{Create an activity \label{CreateAct}}
-\begin{itemize}
-	\item The user will create an activity (assignment) by including all activity
-		details for that activity from the list above in section \ref{ActivityManagement}.
-	\item In the case of a coding assignment, the user will enter additional details
-		listed in the testing portion of the above list.
-\end{itemize}
+The user will create an activity (assignment) by including all activity
+details for that activity from the list above in section \ref{ActivityManagement}.
 \subsubsection{Modify an activity \label{ModifyAct}}
 \begin{itemize}
 	\item The user will edit any activity details from the list above in section 
@@ -161,7 +158,7 @@ Activity details include:
 	\item Any of the details listed can be editted, but if a rubric is changed then
 		the activitiy must be regraded completely.
 \end{itemize}
-\subsubsection{Copy activities}
+\subsubsection{Copy activities \label{copyAct}}
 \begin{itemize}
 	\item The user will copy an activity or list of activities from a previous 
 		offering of the course, or a previous course the instructor has taught.
@@ -169,6 +166,25 @@ Activity details include:
 		above, but will exclude all course specific aspects like the student's grades
 		or TA/TM student/group assignments.
 \end{itemize}
+\subsubsection{Delete activities \label{deleteAct}}
+The user will delete any specific activity of the course, removing all the details and entries
+in the database for that activity.
+\subsubsection{Edit rubric \label{editRubric}}
+\begin{itemize}
+	\item The instructor will modify the rubric of a selected activity from the course.
+	\item If the rubric of an activity is modified where grading has already done, the 
+		activity must be completely regraded.
+\end{itemize}
+\subsubsection{Add tests (coding activities) \label{addTests}}
+\begin{itemize}
+	\item The instructor will add tests for a coding assignment.
+	\item The tests can include some test inputs for the student's code to be run on.
+	\item The tests also include a sample output against which the student's solution
+		will be compared.
+	\item The instructor will specify the location of the inputs and outputs/solution.
+	\item The instructor can add more tests, or modify any existing tests at any point.
+\end{itemize}
+
 \subsection{Student Management}
 \subsubsection{Create student groups}
 The instructor will (optionally) create groups of students for a specific assignment
@@ -353,17 +369,16 @@ Any page of the application will have a means to go back to the previous
 page visited.
 
 \section{Login}
-\subsection{Inputs}
-The login screen will contain inputs for "username" and "password", along with a
-button to "enter" (confirm the username and password entered) and a button to handle
-forgotten passwords. The username and password will be checked against the login
-database, and the forgotten password will invoke some process to reset passwords.
-\subsection{Outputs}
-Upon hitting the "enter" button, the user will either be granted access or denied based
-on an incorrect password. If a user is granted access, they will be sent
-to a main UI screen offering their account's options in the system.
-If the "forgot password" prompt is hit, the user will be sent to a separate
-interface for resetting passwords
+\begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+	\hline
+	Inputs & Outputs & Data Displayed \\ \hline
+	Username of user \newline Password of user \newline Enter button \newline Forgot 
+	Password button & If user enters correct username and password, they will be sent 
+	to their respective home screen. \newline If the user selects the forgotten password 
+	option they will be sent to a screen with a process for resetting passwords. & Upon 
+	hitting enter, an error will be displayed if the username and password are not valid.
+	\\ \hline
+\end{tabular}
 \subsection{Description}
 The login will be the first screen shown upon opening the program. The login screen 
 satisfies the separation of the functional requirements by role, as well as the
