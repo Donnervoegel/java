@@ -22,3 +22,5 @@ Useful Links
 [GoogleDoc 2](https://docs.google.com/document/d/1dkISAxYpGWtGSLQiHWuiRlMO_dAPjn4NMZzyCeOMAfw/edit?usp=sharing)
 
 [Jordan's Collection of Meeting Recording Files](https://skydrive.live.com/redir?resid=D0A87066CFF36442!15437&authkey=!AJEB8R0olb5ihB8&ithint=folder%2c)
+
+[GoogleDoc 3, detailed jobs](https://docs.google.com/document/d/1F2W6PveZ5-__kmNgUV-nQJ4-v2qcSn6FUmb7qhOT8y0/edit)
