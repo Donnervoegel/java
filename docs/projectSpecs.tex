@@ -125,36 +125,63 @@ Activity details include:
 \begin {itemize}
 	\item Name of activity
 	\item Activity description
-	\item Rubric of activity
+	\item Rubric of activity including columns, each with:
+	\begin{itemize}
+		\item Description of an aspect of marking
+		\item Possible grade for that aspect 
+		\item Grade student will be given by marker for that aspect
+	\end{itemize}
 	\item Type of activity
 	\item Language of activity (programming or actual language)
 	\item Group or individual activity
-	\item Due date
-	\item List of student grades
+	\item Due date 
+	\begin{itemize}
+		\item Due date will be used to automatically calculate bonuses or 
+			penalties based on the submission time of the activity
+		\item There will be 3 (time) categories for penalties and bonuses
+	\end{itemize}
 	\item Solution
 	\item Test input and output files (for coding activities only)
+	\begin{itemize}
+		\item User will specify location of an input file for running code
+		\item User will specify the location of sample output
+	\end{itemize}
 \end {itemize}
 \subsubsection{Create an activity \label{CreateAct}}
-Create an activity (assignment) and include the necessary details about it such 
-as rubric and description.
+\begin{itemize}
+	\item The user will create an activity (assignment) by including all activity
+		details for that activity from the list above in section \ref{ActivityManagement}.
+	\item In the case of a coding assignment, the user will enter additional details
+		listed in the testing portion of the above list.
+\end{itemize}
 \subsubsection{Modify an activity \label{ModifyAct}}
-Edit any existing part of an activity, including its rubric. If the rubric is updated
-the activity must be regraded fully.
+\begin{itemize}
+	\item The user will edit any activity details from the list above in section 
+		\ref{ActivityManagement}.
+	\item Any of the details listed can be editted, but if a rubric is changed then
+		the activitiy must be regraded completely.
+\end{itemize}
 \subsubsection{Copy activities}
-Copy activities or a list of activities from a previous offering of the course, excluding
-course offering specific info, but including details of the activity and its rubric.
-\subsubsection{Enter tests/comparisons for code assignments}
-Create tests or solutions for coding assignments that the students' work can be compared
-to in grading.
+\begin{itemize}
+	\item The user will copy an activity or list of activities from a previous 
+		offering of the course, or a previous course the instructor has taught.
+	\item The details copied will include all those listed in section \ref{ActivityManagement}
+		above, but will exclude all course specific aspects like the student's grades
+		or TA/TM student/group assignments.
+\end{itemize}
 \subsection{Student Management}
 \subsubsection{Create student groups}
-The instructor can create groups of students for an individual activity, or
-multiple activities. 
+The instructor will (optionally) create groups of students for a specific assignment
+based off of subsets of the students in the class list.
 \subsection{TA/TM Management}
 \subsubsection{Assign TA/TMs to students \label{AssignTA}}
-The instructor can assign TAs and TMs to subsets of students or subsets of 
-groups in the class for a particular activity or set of activities. The TA/TMs will then
-only be able to grade those subsets for the activities the instructor chooses.
+\begin{itemize}
+	\item The instructor will assign TA/TMs to a subset of the students or groups in the class
+		for a particular activity or the whole course.
+	\item The TA/TMs will then only be able to grade their assigned subset of students
+		or groups for those activities chosen.
+\end{itemize}
+
 \subsection{Grade Activities \label{grading}}
 \subsubsection{View Activities and Rubric}
 A particular student's or group's assignment can be selected so the rubric is
