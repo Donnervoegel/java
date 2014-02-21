@@ -592,6 +592,75 @@ on page \pageref{AssignTA}.
 \end{enumerate}
 
 % Shorter 2nd Use Case description here.
+
+subsubsection {User case name: Marking an Activity}
+
+\textbf{Functional Requirement # :} // need to find this 
+
+\textbf{Primary Actors:} Instructors, TA/TM Markers \\
+\textbf{Secondary Actors:} Database \\
+\textbf{Preconditions:}
+\begin{itemize}
+\item Network is running.
+\item Marker is a valid marker and logged in.
+\item Initial welcome screen displayed containing options available to Marker.
+\item The assignment, rubric and course exist
+\item User is marking an assignment they are associated with
+\item Database is functional
+\end {itemize}
+
+\textbf{Main Flow of Events:}
+\begin{enumerate}
+\item The use case starts when the Marker selects the Marking tab
+\item The marker selects a course from the selection they are provided, which then redirects them to a new page for a list of assignments available.
+\item The marker selects the assignment they want to mark on which is organized by submission of group/student. 
+\item The marker views the assignment, and enters the following data:
+	\begin {enumerate}
+	\item “Grade”
+		\begin {enumerate}
+			\item  The user inputs the grade directly into the appropriate section of the rubric.
+		\end {enumerate}
+	\end {enumerate}
+\item The Marker clicks the ‘Save’ button to update the database with the changes they have just made.
+\item The system checks that the input data is in correct format (a number greater than or equal to 0).
+\item A message is displayed stating that the mark has been successfully added.
+The use case terminates after the message has been closed by the “OK” button.
+\end {enumerate}
+
+\textbf{Postconditions:}
+\begin{itemize}
+\item System saves the mark to the database
+\item System returns to the marker’s initial screen
+\end {itemize}
+
+\textbf{Exceptional Flow of Events:}
+\begin{enumerate}
+
+\item \underline {Invalid mark entered:} If the marker enters non-conformable values for the mark (a mark that is less than 0 or empty) and presses save then:
+	\begin {itemize}
+		\item The system displays a message stating the mistake.
+		\item The marker correct their mistake
+		\item The marker selects “save”
+		\item The use case continues in the normal fashion starting from step 6.
+	\end {itemize}
+\item \underline {No submission found:}
+If the marker clicks onto an assignment that has not been submitted, then the system displays a message stating the mistake and returns the user back to the same page after closing the message tab.
+
+\item \underline {Changes not saved:} If the marker has made changes but clicks ‘back’ or’’next’ without clicking ‘save’, the user will be offered a prompt asking if they would like to save their changes or move on without saving.
+\item \underline {If no more submissions are available :} If the marker clicks ‘next’ and there is no further submissions available to mark, then:
+\begin {itemize}
+	\item The system displays a message stating the situation.
+	\item The system takes the user back to the assignment selection page, ready for any further modifications
+	\item The user can continue to select any assignment for remarking or can leave the page by pressing “back”
+\end {itemize}
+
+\item \underline {Lost connection:} If the marker’s client program loses connection to the database, then: 
+\begin {itemize}
+\item The system displays a message stating the connection is lost. 
+\item The system takes the user back to the login page.
+\end {itemize}
+\end {enumerate}
+
 % Remaining Use Case descriptions here.
 \begin{itemize}
   \item createUserAccount
