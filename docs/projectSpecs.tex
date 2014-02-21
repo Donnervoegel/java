@@ -208,7 +208,7 @@ the assignment and rubric side by side.
 \subsubsection{Add Comments to Student Work}
 \begin {itemize}
 	\item For PDF submissions, markers are able to add comments directly into the PDF.
-	\item For code submissions, comments will be added directly to the code via the Test Suite
+	\item For code submissions, comments will be added directly to the code 
 and the commented version saved separately, also leaving a copy of the original.
 \end {itemize}
 \subsubsection{Test Code Activities}
@@ -506,7 +506,38 @@ on page \pageref{AssignTA}.
 % Coming.
 
 \section{Scenarios}
-% Write 3 scenarios within a complex Use Case.
+\subsection{Grade and Save Changes}
+Instructor Lee logs in, navigates to his Marking tab, then selects the course MATH 151.
+He selects the student Mary’s submission for Homework 3, which was a series of multiple
+choice math questions. He checks Mary’s submitted answers side-by-side with the solutions.
+There were 20 questions worth 1 point each and Mary had 18 correct, so Instructor
+Lee enters 18 into the points received portion of the rubric. He then clicks Save to update
+the database, and it saves successfully.
+
+\subsection{Grade and Discard Changes}
+TA Jane logs in, navigates to her marking tab, then selects the course PHIL 100. She
+selects the student Bill’s submission for Essay 2. The pdf of the essay is opened and
+its rubric is shown beside it. Halfway through marking the essay and having already
+filled in the marks for half of the rubric’s criteria, Jane realizes she had been repeatedly
+misreading some key words and it changed the meaning of most of the essay. She decides
+to regrade the entire essay, so she clicks on Discard Changes. A dialogue window pops
+up that asks “You are going to discard changes. All unsaved changes will be lost. Are you
+sure you want to continue?” with the options yes and no. She chooses yes and all the
+changes she made to the rubric were reset. She now still has the same view, but the
+rubric is back to its initial state with no marks entered.
+
+\subsection{Comment on Code and Save Changes}
+Instructor Lee logs in, navigates to his Marking tab, then selects the course CMPT 120.
+He selects the student Ned’s submission for Code Assignment 4, which is a short Java
+program. The code submission is presented in a text-editable box and the rubric is shown
+beside it. As he is marking, Instructor Lee notices some portions of the code could have
+been written more efficiently, so he enters a Java comment directly into the code which
+suggests a possible improvement. He clicks Save which saves all the marks he had input
+into the rubric, and also saves the updated code with his comments. A copy of the student’s
+original submission still exists, but there is now also a copy which includes Instructor Lee’s
+comments. Instructor Lee’s view is now still of the commented submission and the rubric with
+the marks that have already been entered.
+
 
 \end{document}
 % Nothing past this will be included in the document.
