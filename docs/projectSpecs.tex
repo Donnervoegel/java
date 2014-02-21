@@ -498,7 +498,93 @@ on page \pageref{AssignTA}.
 \subsection{Diagram}
 % Coming
 \subsection{Descriptions}
-% Detailed Use Case description here.
+\subsubsection{Create Activity}
+\textbf{Functional Requirement:} \ref{CreateAct} \\
+\textbf{Primary Actors:} Instructor \\
+\textbf{Secondary Actors:} Database \\
+\textbf{Preconditions:}
+\begin{itemize}
+	\item The instructor is a valid user, and is logged in.
+	\item The course the instructor is adding an activity to exists.
+	\item The instructor teaches the course the activity is being added to.
+	\item The system is at its initial screen after login.
+\end{itemize}
+\textbf{Main Flow of Events:}
+\begin{enumerate}
+	\item The use case starts when the instructor selects the "Activity Management" tab.
+	\item The instructor then chooses to "Add An Activity" which sends them to a page listing
+		the courses they are currently the instructor of.
+	\item The instructor then selects the desired course to add an activity to, and is sent to 	
+		a page containing fields to enter all the necessary details of an activity.
+	\item The instructor inputs the necessary details to create an activity into the fields for
+		them:
+	\begin{enumerate}
+		\item Name of activity
+		\item Activity description
+		\item Type of activity
+		\item Language of activity
+		\item Group or individual activity
+		\item Solution
+		\item Rubric
+		\begin{enumerate}
+			\item 	Instructor presses the "Add Rubric" button.
+			\item The instructor enters the description of the aspect being graded, and the 
+					possible grade for that aspect.
+			\item The above process (ii.) is repeated for as many rubric aspects as desired
+					(possibly none).
+			\item The instructor presses "Confirm" and the rubric is added to the activity.
+					A message is displayed confirming the rubric has been added successfully.
+			\item The instructor is returned to the form for details of the activity.
+		\end{enumerate}
+		\item Due date with penalties/bonuses
+			\begin{enumerate}
+				\item The instructor enters a due date for the submission.
+				\item The instructor presses the "Bonuses/Penalties" button.
+				\item The instructor enters hour cutoffs for bonuses or penalties along with
+						percentages of bonus or penalty at the hour marks specified.
+				\item The instructor presses "Confirm" and the bonuses and penalties are
+						saved based on the due date specified. A message is displayed
+						confirming the bonuses and penalties have been saved.
+				\item The instructor is returned to the normal form for details of activities.
+			\end{enumerate}
+		\item Test input and output files (for coding activities only)
+			\begin{enumerate}
+				\item The instructor presses "Add Tests".
+				\item The instructor is prompted to enter the locations of any testing input
+						files, as well as the locations of solution output files for a specific
+						input. 
+				\item The instructor presses "Confirm" and the testing files' locations are
+						registered in the database to be used for marking. A message is
+						displayed confirming the tests have been saved.
+				\item The instructor is returned to the normal form for details of activites.
+			\end{enumerate}
+	\end{enumerate}
+	\item The instructor presses the "Confirm" button.
+	\item The system verifies that the details entered for the activity are valid in every field.
+	\item A message is displayed confirming that the activity details were correct and the
+			activity has been added to the course.
+	\item The system returns the user to their initial screen.
+	\item The use case terminates once the instructor has been returned to the initial
+			screen.
+\end{enumerate}
+\textbf{Postconditions:}
+\begin{itemize}
+	\item The system has saved the activity in the database in the proper course.
+	\item The system has returned to the instructor's initial screen.
+\end{itemize}
+\textbf{Exceptional Flow of Events:}
+\begin{enumerate}
+	\item \underline{Details for activity are not complete:} If the instructor did not specify
+			all the necessary details for creating an activity, a message will be displayed
+			stating which fields were empty when the instructor attempted to confirm.
+			They will remain on the form for the activity, and be prompted to fill in necessary
+			fields.
+	\item \underline{Invalid data for a field of the activity:} If the instructor enters invalid
+			data for one of the details of the assignment, a message will be displayed
+			specifying which field contained invalid data. They will remain on the form and
+			be prompted to correct errors in their entries.
+\end{enumerate}
+
 % Shorter 2nd Use Case description here.
 % Remaining Use Case descriptions here.
 
