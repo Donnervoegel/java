@@ -28,17 +28,17 @@
     \hline
     Version & Date & Members & Changes\\
     \hline
-    1.0 & 2014 Jan 28 (Tues) & Markus B. & Initial Non-functional Requirements complete\\
+    1.0 & 2014 Jan 28 (Tues) & Markus B. & Document created\\
     & & Graeme S. & Initial Functional Requirements complete\\
-    & & Jordan Toering & Initial UI Descriptions complete\\
-    & & Stephen L. & \\
+    & & Jordan T. & Initial UI Descriptions complete\\
+    & & Stephen L. & Initial Non-functional Requirements complete\\
     & & Ian P. & \\
     & & Colin W. & \\
     & & Chazz Y. & \\
     \hline
     1.1 & 2014 Feb 20 (Thurs) & Markus B. & Added Requirements Analysis\\
     & & Graeme S. & Reworked Functional Requirements\\
-    & & Jordan Toering & \\
+    & & Jordan T. & \\
     & & Stephen L. & \\
     & & Ian P. & \\
     & & Colin W. & \\
@@ -55,7 +55,7 @@
 % -------------------------
 
 % Use this as a template. Section numbers, etc, is all handled automatically.
-\part{Functional Requirements}
+\part{Requirements: Functional}
 \section{Role - The System Administrator \label{SysAdmin}}
 The System Administrator is responsible for:
 \subsection{Account Management}
@@ -256,7 +256,7 @@ The system log contains a record of the systems tasks.  It documents user sign-i
 and system backup times. The system log is only visible to the System Administrator.
 
 % --------------------------------------------
-\part{Prioritization of Function Requirements}
+\part{Requirements: Prioritization}
 \section{Priority Lists}
 \subsection{Core Features}
 \begin{itemize}
@@ -300,7 +300,7 @@ and system backup times. The system log is only visible to the System Administra
 \end{itemize}
 
 % --------------------------------
-\part{Non-functional Requirements}
+\part{Requirements: Non-functional}
 \section{Quality}
 \subsection{Usability}
 The application should be usable to all relevant university staff
@@ -362,7 +362,7 @@ through the application.
 \subsubsection{System Log Management}
 
 % -------------------------------
-\part{User Interface Description}
+\part{Analysis: User Interface}
 
 \section{General}
 \subsection{Layout}
@@ -411,7 +411,8 @@ This screen allows users with Marking privileges to grade student activities
 as described in section \ref{grading} on page \pageref{grading}.\\
 The user navigates here from \textbf{Course Choice} then \textbf{Activity Choice}.
 
-\section{Account Creation/Modification  -Requirement \ref{AccountMod}}
+\section{Account Creation/Modification}
+Requirement \ref{AccountMod}
 \begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
 	\hline
 	Inputs & Outputs & Data Displayed \\ \hline
@@ -499,7 +500,7 @@ The TA Management Screen allows the instructor to (re)assign students to TA's.
 This UI page satisfies the functional requirements outlined in \ref{AssignTA}
 on page \pageref{AssignTA}.
 
-\part{Requirements Analysis}
+\part{Analysis: Use Cases / Classes}
 \section{Use Cases}
 \subsection{Diagram}
 % Coming
@@ -593,9 +594,9 @@ on page \pageref{AssignTA}.
 
 % Shorter 2nd Use Case description here.
 
-subsubsection {User case name: Marking an Activity}
+\subsubsection{Use Case: Marking an Activity}
 
-\textbf{Functional Requirement # :} // need to find this 
+% \textbf{Functional Requirement} \ref{}
 
 \textbf{Primary Actors:} Instructors, TA/TM Markers \\
 \textbf{Secondary Actors:} Database \\
