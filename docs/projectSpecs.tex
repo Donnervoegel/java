@@ -1,4 +1,4 @@
-﻿% Preamble. Don't worry about it.
+% Preamble. Don't worry about it.
 \documentclass{article}
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
@@ -593,6 +593,7 @@ on page \pageref{AssignTA}.
 
 % Shorter 2nd Use Case description here.
 % Remaining Use Case descriptions here.
+\subsection{Summary Use Cases}
 \begin{itemize}
   \item createUserAccount
 The System Admin clicks on the "Create Account" button. The fields are then filled in 
@@ -613,6 +614,22 @@ The System Admin clicks the "Back Up Now" button, and a backup of the system is 
   \item restoreDatabase
 The System Admin clicks the "Restore Database" button. S/he then selects the backup to restore to and clicks "Restore". The system 
 si reverted to that backup.
+
+\item assignInstructor \hfill \\
+The Assistant Academic Administrator will assign an instructor to a course.  The instructor will then have proper permissions for the course.
+\item assignTA \hfill \\
+The Assistant Academic Administrator will assign a TA/TM to a course.  The TA/TM will then have proper permissions for the course.
+\item addCourse \hfill \\
+The Assistant Academic Administrator will add course offerings.
+\item modifyCourse \hfill \\
+The Assistant Academic Administrator can modify a course offering.
+\item copyCourse \hfill \\
+The Assistant Academic Administrator can copy a previous course offering.  A course can be copied from a previous offering of the course (within 5 years).
+\item deleteCourse \hfill \\
+The Assistant Academic Administrator can delete a course offering.  A course cannot be deleted once an activity has be created.
+updateStudentList \hfill \\
+The Assistant Academic Administrator will update the student list for a course.  The student list will be a CSV.
+
   \item chooseCourse
 The Marker will select a course to grade assignments on from a list of courses they are affiliated with.
   \item selectStudentView
@@ -621,7 +638,21 @@ The Marker selects "Student View" for assignment grading
 The Marker selects "Group View" for assignment grading.
   \item selectActivity
 The Marker selects the activity to mark
+\item enterGrades \hfill \\
+The TA/TM will enter grades for an assignment.  Grades will be typed into a field in the rubric.
+\item commentOnCode \hfill \\
+The TA/TM will comment on coding assignments.  Comments will be injected directly into the code.
+\item commentOnPDF \hfill \\
+The TA/TM will comment on PDF-formatted assignments.  Comments will be applied directly into the PDF.
+\item saveChanges \hfill \\
+The TA/TM will be able to save changes.  After adding grades or comments, there will be a button to save changes, instead of discarding them upon exit.
+\item testStudentCode \hfill \\
+The TA/TM will test coding assignments.  Input files and their correct/expected output will have been added during assignment creation.  The source code will be compiled and run the provided test cases.  The experimental console output will be compared with the theoretical output.
+\item moveToNextGroup \hfill \\
+The TA/TM can directly move from marking one group to the next.  This button does not automatically save changes.
 \end{itemize}
+
+
 
 \section{Class Diagram}
 % Coming.
