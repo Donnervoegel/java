@@ -699,6 +699,27 @@ The Assistant Academic Administrator can delete a course offering.  A course can
 updateStudentList \hfill \\
 The Assistant Academic Administrator will update the student list for a course.  The student list will be a CSV.
 
+\item createStudentGroup \hfill \\
+This allows the Instructor to create groups of students to be graded together for a specific activity or set of activities satisfying requirement 4.2.1. The groups can then be marked as a whole, but students can also be given individual grades.
+\item assignTAtoStudent \hfill \\
+This allows the Instructor to assign TAs to mark a subset of students in the class satisfying requirement 4.3.1. The TA can be assigned to any subset of groups or students in the class. These assignments can be for a specific activity or an entire course, and the TA can then only mark sets assigned to them.
+\item createActivity \hfill \\
+This seems to be the main use case you did above.
+\item modifyActivity \hfill \\
+The instructor can modify any existing detail of an activity, satisfying requirement 4.1.2. Any detail of a specific activity can be modified.
+\item copyActivity \hfill \\
+The instructor can copy an activity from a previous offering of a course, satisfying requirement 4.1.3. An activity can be copied from a previous offering of the course or any of the instructor’s previous courses (within 5 years). All the portions of the activity not specific to an offering will be copied.
+\item deleteActivity \hfill \\
+The instructor can delete an activity from the course, satisfying requirement 4.1.4. The activity will be removed from the database. Any details of the activity or grading done on it will be completely removed.
+\item addRubric \hfill \\
+The instructor will add a rubric they create when creating the activity, satisfying another portion of requirement 4.1.1. The rubric will include descriptions of grading sections, possible grades for that section, and the grade given to the student for that section.
+\item modifyRubric \hfill \\
+The instructor can modify a rubric, satisfying requirement 4.1.5. Any parts of the rubric can be changed, deleted, or new parts can be added. If a rubric is modified, the any grading for that activity must be redone.
+\item clearRubric \hfill \\
+The instructor can clear a rubric while modifying it, as a portion of requirement 4.1.5. If a rubric is cleared, then a new rubric must be added (or edited in) before any grading can be done on the assignment.
+\item submitCodeTests \hfill \\
+The instructor can add tests for a coding assignment, satisfying requirement 4.1.6. The tests will include inputs for the student's code and a solution against which the student's result will be compared. These tests will be used in the testing suite for grading coding activities.
+
   \item chooseCourse
 The Marker will select a course to grade assignments on from a list of courses they are affiliated with.
   \item selectStudentView
