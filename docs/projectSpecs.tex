@@ -35,9 +35,9 @@
     & & Colin W. & \\
     & & Chazz Y. & \\
     \hline
-    1.1 & 2014 Feb 20 (Thurs) & Markus B. & BLAH\\
-    & & Graeme S. & BLAH\\
-    & & Jordan Toering & BLAH\\
+    1.1 & 2014 Feb 20 (Thurs) & Markus B. & Added Requirements Analysis\\
+    & & Graeme S. & Reworked Functional Requirements\\
+    & & Jordan Toering & \\
     & & Stephen L. & \\
     & & Ian P. & \\
     & & Colin W. & \\
@@ -74,6 +74,9 @@ The System Admin can:
 
 \section{Role - The Academic Administrator \label{AcAdmin}}
 \subsection{Privileges}
+\subsubsection{Viewing Privileges}
+The Academic Administrator is able to view every screen in the system except the screens exclusive to the System Administrator.
+\subsubsection{Grading Privileges}
 The Academic Administrator can change grades inputted by any of the below roles:
 \begin{itemize}
   \item Assistant Academic Administrator in section \ref{AsAcAdmin}.
@@ -89,74 +92,112 @@ To create a course, an Admin. Assistant must provide the following:
 \begin{itemize}
 	\item Name of course
 	\item Course ID
-	\item Assigned Instructor name
-	\item Assigned Teacher Assistants/Markers names
+	\item Assigned Instructor name and Employee ID
+	\item Assigned Teacher Assistants/Markers names and Employee IDs
 	\item Start and end date of course
-	\item List of activities in the course
 	\item List of students enrolled in the course
 \end{itemize}
 \subsubsection{Modifying a Course\label{modifying}}
-An Admin. Assistant can to make any changes or additions to existing courses
-freely after it has been created except for the rubric of an activity.
+An Admin. Assistant can make any changes or additions to existing courses
+freely after it has been created except for the rubric of an activity. Modifying the rubric of an activity after it has been marked requires the whole
+activity to re-graded.
+
 \subsubsection{Updating Student Lists}
-An Admin. Assistant can fetch the latest list of students registered in a
-specific course through the Course Management System.
-When inputting the list of the students into the course, the course management
-system will check for any updates from the previous list with the new one,
-making any necessary additions or removal of students.
+An Admin. Assistant can use a newly updated student list for a certain course and update the enrollment list.
+
 \subsubsection{Copying a Course}
-An Admin. Assistant is allowed to copy a course. Copying a course will transcribe
+An Admin. Assistant is allowed to copy a course from a back up up to 5 years. Copying a course will transcribe
 a new copy of these existing specifications:
 \begin{itemize}
   \item Name of course
   \item Course ID
-  \item List of activities including their data as described in section
     \ref{ActivityManagement}
 \end {itemize}
-\subsubsection{Modifying a Rubric}
-Modifying the rubric of an activity after it has been marked requires the whole
-activity to be re-marked.
+
 \subsubsection{Deleting a Course}
-An admin assistant is able to delete any existing course.
+An admin assistant is able to delete any existing course only if no activity has been added.
 
 \section{Role - The Instructor \label{Instructor}}
 The instructor has the main control over the contents of a course, its students, 
 and its TAs or TMs. They can also grade any activities in the course.
+
 \subsection{Activity Management \label{ActivityManagement}}
 Activity details include:
 \begin {itemize}
 	\item Name of activity
 	\item Activity description
-	\item Rubric of activity
+	\item Rubric of activity including columns, each with:
+	\begin{itemize}
+		\item Description of an aspect of marking
+		\item Possible grade for that aspect 
+		\item Grade student will be given by marker for that aspect
+	\end{itemize}
 	\item Type of activity
 	\item Language of activity (programming or actual language)
 	\item Group or individual activity
-	\item Due date
-	\item List of student grades
+	\item Due date 
+	\begin{itemize}
+		\item Due date will be used to automatically calculate bonuses or 
+			penalties based on the submission time of the activity
+		\item There will be 3 (time) categories for penalties and bonuses
+	\end{itemize}
 	\item Solution
 	\item Test input and output files (for coding activities only)
+	\begin{itemize}
+		\item User will specify location of an input file for running code
+		\item User will specify the location of sample output
+	\end{itemize}
 \end {itemize}
 \subsubsection{Create an activity \label{CreateAct}}
-Create an activity (assignment) and include the necessary details about it such 
-as rubric and description.
+The user will create an activity (assignment) by including all activity
+details for that activity from the list above in section \ref{ActivityManagement}.
 \subsubsection{Modify an activity \label{ModifyAct}}
-Edit any existing part of an activity, including its rubric. If the rubric is updated
-the activity must be regraded fully.
-\subsubsection{Copy activities}
-Copy activities or a list of activities from a previous offering of the course, excluding
-course offering specific info, but including details of the activity and its rubric.
-\subsubsection{Enter tests/comparisons for code assignments}
-Create tests or solutions for coding assignments that the students' work can be compared
-to in grading.
+\begin{itemize}
+	\item The user will edit any activity details from the list above in section 
+		\ref{ActivityManagement}.
+	\item Any of the details listed can be editted, but if a rubric is changed then
+		the activitiy must be regraded completely.
+\end{itemize}
+\subsubsection{Copy activities \label{copyAct}}
+\begin{itemize}
+	\item The user will copy an activity or list of activities from a previous 
+		offering of the course, or a previous course the instructor has taught.
+	\item The details copied will include all those listed in section \ref{ActivityManagement}
+		above, but will exclude all course specific aspects like the student's grades
+		or TA/TM student/group assignments.
+\end{itemize}
+\subsubsection{Delete activities \label{deleteAct}}
+The user will delete any specific activity of the course, removing all the details and entries
+in the database for that activity.
+\subsubsection{Edit rubric \label{editRubric}}
+\begin{itemize}
+	\item The instructor will modify the rubric of a selected activity from the course.
+	\item If the rubric of an activity is modified where grading has already done, the 
+		activity must be completely regraded.
+\end{itemize}
+\subsubsection{Add tests (coding activities) \label{addTests}}
+\begin{itemize}
+	\item The instructor will add tests for a coding assignment.
+	\item The tests can include some test inputs for the student's code to be run on.
+	\item The tests also include a sample output against which the student's solution
+		will be compared.
+	\item The instructor will specify the location of the inputs and outputs/solution.
+	\item The instructor can add more tests, or modify any existing tests at any point.
+\end{itemize}
+
 \subsection{Student Management}
 \subsubsection{Create student groups}
-The instructor can create groups of students for an individual activity, or
-multiple activities. 
+The instructor will (optionally) create groups of students for a specific assignment
+based off of subsets of the students in the class list.
 \subsection{TA/TM Management}
 \subsubsection{Assign TA/TMs to students \label{AssignTA}}
-The instructor can assign TAs and TMs to subsets of students or subsets of 
-groups in the class for a particular activity or set of activities. The TA/TMs will then
-only be able to grade those subsets for the activities the instructor chooses.
+\begin{itemize}
+	\item The instructor will assign TA/TMs to a subset of the students or groups in the class
+		for a particular activity or the whole course.
+	\item The TA/TMs will then only be able to grade their assigned subset of students
+		or groups for those activities chosen.
+\end{itemize}
+
 \subsection{Grade Activities \label{grading}}
 \subsubsection{View Activities and Rubric}
 A particular student's or group's assignment can be selected so the rubric is
@@ -165,17 +206,20 @@ shown side by side during grading.
 Markers are able to enter grades directly into the rubric while they are viewing
 the assignment and rubric side by side.
 \subsubsection{Add Comments to Student Work}
-Markers are able to add comments directly into the PDF if it is a PDF submission,
-or directly into the code if it is a code submission.
+\begin {itemize}
+	\item For PDF submissions, markers are able to add comments directly into the PDF.
+	\item For code submissions, comments will be added directly to the code via the Test Suite
+and the commented version saved separately, also leaving a copy of the original.
+\end {itemize}
 \subsubsection{Test Code Activities}
-The system will compile and run code assignments through the submitted tests,
+The Test Suite will compile and run code assignments through the submitted tests,
 then present the outputs side by side with the sample correct outputs.
 
 \section{Role - The TA/TM Markers \label{Marker}}
 \subsection{Grade Activities}
-The same as the Grade Activities section under the Instructor.
-A TA/TM has can only access the assignments of the groups or students they
-have been assigned to.
+The same as the Grade Activities section \ref {grading} under the Instructor.
+A TA/TM has access to and only to the assignments of the groups or students they
+have been assigned, for both grading and regrading.
 
 \section{The Login System}
 \subsection{Failed Logins \label{loginSystem1}}
@@ -265,12 +309,12 @@ Only users with accounts created by the System Administrator will be able to use
 the application. Users will not be able to log in with their normal
 university username and password.
 \subsubsection{Availability Hours}
-The system should be accessible at any time of day, except during backup times.
+The system should be accessible twenty four hours, except during backup times.
 \subsubsection{Application Font}
 The text font throughout the application will be uniform.
 \subsection{Performance}
 \subsubsection{User Base}
-The client has specified that there will be around 200 user accounts. Ensure
+The client has specified that there will be 200 user accounts. Ensure
 support of up to \textbf{400 users.}
 \subsubsection{Maximum Load}
 The client has specified that up to 20 users might use the system during
@@ -291,8 +335,10 @@ The application will be written in Java using the Swing library for its GUI.
 \subsubsection{Development Environment}
 Eclipse and Emacs will be used for code creation.\\
 TexMaker will be used for {\LaTeX} document editing.
+% Janice highlighted but left no comments. This section was not changed for submission of deliverable 5
 \subsubsection{Version Control}
 The source code will be managed via a software version control system.
+% Janice highlighted but left no comments. This section was not changed for submission of deliverable 5
 \subsection{External Resources}
 \subsubsection{SQL Database}
 The application will store user and grading data on an MS SQL server located on
@@ -308,7 +354,7 @@ No libraries with GPL licensing will be included in the system.
 \subsubsection{Account Management}
 User accounts may only be created through the System Administrator.
 \subsubsection{System Backups}
-Database backups will be performed by the System Administrator and not handled
+Database backups will be performed by the System Administrator
 through the application.
 \subsubsection{Application Installation}
 \subsubsection{System Log Management}
@@ -325,17 +371,16 @@ Any page of the application will have a means to go back to the previous
 page visited.
 
 \section{Login}
-\subsection{Inputs}
-The login screen will contain inputs for "username" and "password", along with a
-button to "enter" (confirm the username and password entered) and a button to handle
-forgotten passwords. The username and password will be checked against the login
-database, and the forgotten password will invoke some process to reset passwords.
-\subsection{Outputs}
-Upon hitting the "enter" button, the user will either be granted access or denied based
-on an incorrect password. If a user is granted access, they will be sent
-to a main UI screen offering their account's options in the system.
-If the "forgot password" prompt is hit, the user will be sent to a separate
-interface for resetting passwords
+\begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+	\hline
+	Inputs & Outputs & Data Displayed \\ \hline
+	Username of user \newline Password of user \newline Enter button \newline Forgot 
+	Password button & If user enters correct username and password, they will be sent 
+	to their respective home screen. \newline If the user selects the forgotten password 
+	option they will be sent to a screen with a process for resetting passwords. & Upon 
+	hitting enter, an error will be displayed if the username and password are not valid.
+	\\ \hline
+\end{tabular}
 \subsection{Description}
 The login will be the first screen shown upon opening the program. The login screen 
 satisfies the separation of the functional requirements by role, as well as the
@@ -388,19 +433,19 @@ When creating the course, the screen will be the same as the function in section
 When choosing the "create a Course" function, it will directly send you to this screen.
 
 \section{Activity Creation/Modification}
-\subsection{Inputs}
-The fields that will be shown for data entry or modification are all those listed
-under \ref{ActivityManagement} Activity Management on page
-\pageref{ActivityManagement} except for a list of student grades.
-When an option would not be applicable for the activity, such as test input and
-output files for non-programming activities, the field will not be shown.
-\subsection{Outputs}
-Activities being edited will have the current information shown in the appropriate field.
-Activities being created from scratch will have each field empty.
-When an option would not be applicable for the activity, such as test input and
-output files for non-programming activities, the field will not be shown.
+\begin{tabular}{| p{5cm} | p{5cm} | p{5cm} |}
+	\hline
+	Inputs & Outputs & Data Displayed \\ \hline
+	Fields for data entry, or buttons that lead to more in-depth entry, for all points listed under \ref{ActivityManagement} Activity Management on page \pageref{ActivityManagement}, except for a list of student grades
+	& Activities being edited will have the current information shown in appropriate field. & None
+	\\Activities being created from scratch will have each field empty & &
+	\\ \hline
+\end{tabular}
+
 \subsection{Description}
 Both activity creation and modification share virtually the same screen.
+When an option would not be applicable for the activity, such as test input and
+output files for non-programming activities, the field will not be shown.
 This screen satisfies the requirements \ref{CreateAct} and \ref{ModifyAct} for
 an Instructor to create and modify activities.
 
@@ -447,6 +492,21 @@ the process was successful or an error occurred.
 \subsection{Description}
 This UI page satisfies the functional requirements outlined in \ref{AssignTA}
 on page \pageref{AssignTA}.
+
+\part{Requirements Analysis}
+\section{Use Cases}
+\subsection{Diagram}
+% Coming
+\subsection{Descriptions}
+% Detailed Use Case description here.
+% Shorter 2nd Use Case description here.
+% Remaining Use Case descriptions here.
+
+\section{Class Diagram}
+% Coming.
+
+\section{Scenarios}
+% Write 3 scenarios within a complex Use Case.
 
 \end{document}
 % Nothing past this will be included in the document.
