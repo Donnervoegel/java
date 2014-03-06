@@ -1,4 +1,4 @@
-% Preamble. Don't worry about it.
+﻿% Preamble. Don't worry about it.
 \documentclass{article}
 \usepackage{setspace,graphicx}
 \usepackage[utf8]{inputenc}
@@ -76,7 +76,7 @@
 \subsection{Landing Page}
 \includegraphics[scale=0.6]{../images/UIMockups/PNG_Renders/LandingPage}
 The Landing Page is shown to all users of the system following login.  The Tasks box shows actions that each user can do.  It does not show actions the user cannot do.
-
+  
 \subsection{Manage Courses}
 
 \subsection{Modify Courses}
@@ -138,11 +138,28 @@ The \textbf{Diff} window intelligently shows the difference between
 solution and submitted code.
 
 \subsection{Manage Database}
-
+%INSERT DATABASE MANAGEMENT PAGE HERE%
+The user will be led to a page with two options \emph{Backup Database} and \emph{Restore Database}
+\begin{itemize}
+  \item Backup Database
+By clicking this, the system will create a backup of the entire system. It will be suffixed with the data of backup. A confirmation message will appear when completed.
+  \item Restore Database
+By clicking this, the user will be given a popup to select the backup to restore the database to. It will then prompt a second time to confirm the restoration of hte system to that backup.
+%INSERT SELECT BACKUP HERE%
 \subsection{Manage User Accounts}
-
+%INSERT ACCOUNT MANAGEMENT FORM HERE%
+A form will appear on clicking this. 
+If the user wishes to modify an existign account: \\
+the user must check the "Modify" checkbox. The greyed out drop down menu and save button will become active, and the "Create" button will be greyed out.  The user will select the account to edit (organized alphabetically by username). 
+Upon selecting a user, the form fields will populate and become editable. After the user has finished editing the fields, the user must click "save". The system will save the changes and return to the Landing page. \\
+\emph{*NOTE*} If the user wishes to generate a new password, a confirmation prompt will appear asking for confirmation \\
+If the user wishes to create a new account: \\
+The user must not check the "Modify" box. By doing so, the "Save" button and the dropdown menu for selectign an account wil be greyed out. The user then fills the form as normal. After the user has finished, 
+the user msut click "Create". 
 \subsection{Manage System Logs}
-
+%INSERT SYSTEM LOG SELECT HERE%
+Upon clickign this button, The user will be prompted with a dropdown menu of the system logs (organized chronologically, with the default being the log frfom the current day)
+The system will then display the log activity for that day.
 % ---
 \section{Quick Reference}  % 9 Marks
 
