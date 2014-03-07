@@ -1,4 +1,4 @@
-﻿% Preamble. Don't worry about it.
+% Preamble. Don't worry about it.
 \documentclass{article}
 \usepackage{setspace,graphicx}
 \usepackage[utf8]{inputenc}
@@ -61,7 +61,7 @@
 
 \subsection{Running the Application}
 
-\subsection{UAT??}
+\subsection{UAT Installation}
 
 % ---
 \section{Functions and User Interface Description}  % 30 Marks total
@@ -74,8 +74,10 @@
 \subsection{Login}
 
 \subsection{Landing Page}
-\includegraphics[scale=0.6]{../images/UIMockups/PNG_Renders/LandingPage}
-The Landing Page is shown to all users of the system following login.  The Tasks box shows actions that each user can do.  It does not show actions the user cannot do.
+\includegraphics[scale=0.55]{../images/UIMockups/PNG_Renders/LandingPage}
+The Landing Page is shown to all users of the system following login.  The Tasks
+box shows actions that each user can do.  It does not show actions the user
+cannot do. The above represents what an Instructor would see upon logging in.
 
 \subsection{Manage Courses}
 
@@ -92,46 +94,54 @@ The Landing Page is shown to all users of the system following login.  The Tasks
   \item Log in to the system as a user who has marking privileges.
   \item The following screen will be shown.  Press the \textbf{Marking} button.
   \begin{center} 
-   \includegraphics[scale=0.6]{../images/UIMockups/PNG_Renders/LandingPage}
+   \includegraphics[scale=0.55]{../images/UIMockups/PNG_Renders/LandingPage}
   \end{center}
-  \item The following screen will be shown.  Select the course that you wish to do marking for from the drop-down list, then press Ok.
+  \item The following screen will be shown.  Select the course that you wish
+    to do marking for from the drop-down list, then press \textbf{Ok}.
     \begin{center} 
-   STEPHEN'S COURSE SELECTION IMAGE HERE
+      STEPHEN'S COURSE SELECTION IMAGE HERE
     \end{center}
-  \item The following screen will be shown.  Students are listed down the left side.  Available activities are listed along the top.  Find the student you wish to mark for, and select the corresponding activity, then press Ok.
+  \item The following screen will be shown.  Students are listed down the left
+    side. Available activities are listed along the top.  Find the student you
+    wish to mark for, and select the corresponding activity, then press \textbf{Ok}.
   \begin{center} 
-   STEPHEN'S STUDENT/ACTIVITY MATRIX IMAGE HERE
-    \end{center}
-  \item The assignment's marking screen will be shown.  The marking screen displays the rubric, sample solution, and the student's submission. 
+    STEPHEN'S STUDENT/ACTIVITY MATRIX IMAGE HERE
+  \end{center}
+  \item The assignment's marking screen will be shown.  The marking screen
+    displays the rubric, sample solution, and the student's submission.
   \begin{center} 
-   COLIN'S ASSIGNMENT PAGE HERE
-    \end{center}
+   \includegraphics[scale=0.55]{../images/UIMockups/PNG_Renders/activityMarking}
+  \end{center}
     Perform the grading process as follows:
     \begin{enumerate}
       \item Perform necessary analysis on the student's work. 
       \item Read rubric points and enter a number into the available box 
-      based on your analysis of the student's work.
+        based on your analysis of the student's work.
       \item Repeat step (a) for remaining rubric points.
       \item A total will be shown at the bottom of the rubric to reflect the
-       student's final grade on the activity.
-      \item Click the \textbf{Submit} button to update the marks database with
-      the changes made.
+        student's final grade on the activity.
+       \item Click the \textbf{Submit} button to update the marks database with
+         the changes made.
     \end{enumerate}
 
-	\item If desired: Press the \textbf{Submit} button to move to the next student's
-	submission of the same activity.
+  \item If desired: Press the \textbf{Submit} button to move to the next
+    student's submission of the same activity.
 \end{enumerate}
-\textbf{*NOTE: }If the user clicks \textbf{Back}, \textbf{Next}, \textbf{Logout} or \textbf{Anywhere in the Breadcrumb} when there are un-submitted changes a prompt will be shown asking the user to confirm that they intend to navigate away from the current page without saving. (As shown below)
+\textbf{*NOTE: }If the user clicks \textbf{Back}, \textbf{Next}, \textbf{Logout}
+or \textbf{Anywhere in the Breadcrumb} when there are unsubmitted changes a
+prompt will be shown asking the user to confirm that they intend to navigate away
+from the current page without saving. (As shown below)
 
-	\begin{center}
-      COLIN'S CONFIRMATION PROMPT IMAGE
-    \end{center}
+\begin{center}
+  \includegraphics[scale=0.55]{../images/UIMockups/PNG_Renders/activityMarkingWarning}
+\end{center}
 
 \subsection{Test Suite}
 \begin{center}
-\includegraphics[scale=0.6]{../images/UIMockups/PNG_Renders/SRS_TestSuite_Split}
+\includegraphics[scale=0.55]{../images/UIMockups/PNG_Renders/SRS_TestSuite_Split}
 \end{center}
-The Test Suite shows the \textbf{Solution Output}, the \textbf{Student Output}, and the \textbf{Diff}.  
+The Test Suite shows the \textbf{Solution Output}, the \textbf{Student Output},
+and the \textbf{Diff}.
 The three windows can be docked together(tabbed) or positioned that each
 window takes up 1/3 of the screen space.
 The \textbf{Diff} window intelligently shows the difference between
@@ -139,28 +149,41 @@ solution and submitted code.
 
 \subsection{Manage Database}
 +%INSERT DATABASE MANAGEMENT PAGE HERE%
-The user will be led to a page with two options: \emph{Backup Database} and \emph{Restore Database}
+The user will be led to a page with two options: \emph{Backup Database} and
+\emph{Restore Database}
 \begin{itemize}
   \item Backup Database
-By clicking this, the system will create a backup of the entire system. It will be suffixed with the data of backup. A confirmation message will appear when completed.
+    By clicking this, the system will create a backup of the entire system.
+    It will be suffixed with the data of backup. A confirmation message will
+    appear when completed.
   \item Restore Database
 By clicking this, the user will be given a popup to select the backup to restore the database to (organized from newest to oldest). It will then prompt a second time to confirm the restoration of hte system to that backup.
+
 %INSERT SELECT BACKUP HERE%
 \end{itemize}
 \subsection{Manage User Accounts}
 %INSERT ACCOUNT MANAGEMENT FORM HERE%
 A form will appear on clicking this. 
-If the user wishes to modify an existign account: \\
-the user must check the "Modify" checkbox. The greyed out drop down menu and save button will become active, and the "Create" button will be greyed out.  The user will select the account to edit (organized alphabetically by username). 
-Upon selecting a user, the form fields will populate and become editable. After the user has finished editing the fields, the user must click "save". The system will save the changes and return to the Landing page. \\
-\emph{*NOTE*} If the user wishes to generate a new password, a confirmation prompt will appear asking for confirmation \\
+If the user wishes to modify an existing account: \\
+the user must check the "Modify" check-box. The grayed out drop down menu and
+save button will become active, and the "Create" button will be grayed out.
+The user will select the account to edit (organized alphabetically by username).
+Upon selecting a user, the form fields will populate and become editable. After
+the user has finished editing the fields, the user must click "save". The system
+will save the changes and return to the Landing page. \\
+\emph{*NOTE*} If the user wishes to generate a new password, a confirmation
+prompt will appear asking for confirmation \\
 If the user wishes to create a new account: \\
-The user must not check the "Modify" box. By doing so, the "Save" button and the dropdown menu for selectign an account wil be greyed out. The user then fills the form as normal. After the user has finished, 
-the user msut click "Create". 
+The user must not check the "Modify" box. By doing so, the "Save" button and
+the drop-down menu for selecting an account will be grayed out. The user then
+fills the form as normal. After the user has finished,
+the user must click "Create".
 \subsection{Manage System Logs}
 %INSERT SYSTEM LOG SELECT HERE%
-Upon clickign this button, The user will be prompted with a dropdown menu of the system logs (organized chronologically, with the default being the log frfom the current day)
-The system will then display the log activity for that day.
+Upon clicking this button, the user will be prompted with a drop-down menu of
+the system logs (organized chronologically, with the default being the log
+from the current day). The system will then display the log activity for
+that day.
 
 % ---
 \section{Quick Reference}  % 9 Marks
