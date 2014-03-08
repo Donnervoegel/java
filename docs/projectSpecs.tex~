@@ -55,8 +55,14 @@
 % -------------------------
 
 % Use this as a template. Section numbers, etc, is all handled automatically.
+<<<<<<< HEAD
 \part{Requirements: Functional}
 \section{Role - The System Administrator \label{SysAdmin}}
+=======
+\part{Functional Requirements}
+
+\section{Role - The System Administrator}
+>>>>>>> b6de8a1ee8c4c24330a9cc01aff0579e755538ae
 The System Administrator is responsible for:
 \subsection{Account Management}
 \subsubsection{Account Creation \label{Account Creation}}
@@ -81,6 +87,7 @@ The Academic Administrator is able to view every screen in the system except the
 \subsubsection{Grading Privileges}
 The Academic Administrator can change grades inputted by any of the below roles:
 \begin{itemize}
+  \item Assistant Academic Administrator in section \ref{AsAcAdmin}.
   \item Instructors  in section \ref{Instructor}.
   \item TA/TMs in section \ref{Marker}.
 \end{itemize}
@@ -114,6 +121,14 @@ a new copy of these existing specifications:
   \item Course ID
     \ref{ActivityManagement}
 \end {itemize}
+<<<<<<< HEAD
+=======
+\subsubsection{Modifying a Rubric}
+Modifying the rubric of an activity after it has been marked requires the whole
+activity to be re-marked.
+\subsubsection{Deleting a course}
+An Admin. Assistant is able to delete any existing course through the course management system.
+>>>>>>> b6de8a1ee8c4c24330a9cc01aff0579e755538ae
 
 \subsubsection{Deleting a Course}
 An admin assistant is able to delete any existing course only if no activity has been added.
@@ -524,7 +539,7 @@ The System Admin selects this option and chooses the log s/he wishes to see.
 The System Admin clicks the "Back Up Now" button, and a backup of the system is created. It is saved in a backup archive for up to 5 years.
   \item restoreDatabase \hfill \\
 The System Admin clicks the "Restore Database" button. S/he then selects the backup to restore to and clicks "Restore". The system 
-is reverted to that backup.
+si reverted to that backup.
 
 \item assignInstructor \hfill \\
 The Assistant Academic Administrator will assign an instructor to a course.  The instructor will then have proper permissions for the course.
