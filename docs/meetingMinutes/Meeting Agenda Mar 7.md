@@ -25,7 +25,7 @@
 - Addressed some GitHub rebase errors (25 minutes)
 - Don't use -rebase on Windows
 - Read Deliverable 7 (10 minutes)
-- Assign roles
+- Assign roles (20 minutes)
 - Colin will be away
 
 ### Deliverable 7 Roles
