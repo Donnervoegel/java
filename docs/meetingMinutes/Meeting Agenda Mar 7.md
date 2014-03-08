@@ -11,14 +11,25 @@
 - Graeme Smith
 
 ### Agenda
-- 
-- Review comments
-- Deliverable 6
+- Read Deliverable 5 comments
+- Check Deliverable 6 status
 - Deliverable 7
 - Class Diagram
 - Development Enviroment fixes
 
 ### Minutes
 - Approved Agenda
-- Reviewed comments on Deliverable 5
-- Fixed some github errors
+- Deliverable 6 looks good
+- Reviewed comments on Deliverable 5 (10 minutes)
+- Jordan will fix all comments
+- Addressed some GitHub rebase errors (25 minutes)
+- Don't use -rebase on Windows
+- Read Deliverable 7 (10 minutes)
+- Assign roles
+- Colin will be away
+
+### Deliverable 7 Roles
+- Refined Use ases + Interaction diagrams - Chazz & Markus
+- Class diagram - Jordan & Graeme
+- Data persistence (3rd normal form) - Stephen & Ian
+- Architecture diagram (#4) - Colin
