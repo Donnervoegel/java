@@ -54,38 +54,38 @@ and also to minimise the effort required to maintain a central grading system. T
 SGS has been designed from the ground up to meet the needs of universities and 
 to simplify the process required for grading. Features of the program include:
 \begin{itemize}
-	\item Easy-to-use interface that simplifies the process of grading for everyone involved
-		in it.
-	\item Separation of users by role, wherein:
-	\begin{itemize}
-		\item System administrators handle intimate details of the system (backups and
-			accounts).
-		\item Administrators have access to all the course-related details of the system.
-		\item Assistant administrators handle creation, modification, and deletion of the
-			courses in the system.
-		\item Instructors manage their courses, creating and editing activities. In the full
-			version of the software, student group and TA/TM management will also be 
-			included. Instructors can also grade any activities in their class, or edit any 
-			grades as they see fit.
-		\item Teaching assistants or tutor markers have the ability to mark any students'
-			work assigned to them by the instructor.
-	\end{itemize}
-	\item An atomic structure, where each user has access to only the features they 
-		\emph{should} have access to.
-	\item Simple, rubric-based marking, where the instructor creates a rubric upon which
-		a marker simply enters values corresponding to the rubric's details. This creates
-		a consistent marking criteria that is also easy to use.
-	\item Support for various types of assignments. 
-	\begin{itemize}
-			\item Essays and problem sets submitted to the system in $.pdf$ format can be 
-				viewed alongside the rubric for simultaeneous viewing and marking, and easily 
-				commented using a propriertary editor. 
-			\item Coding assignments in $Python$ are also supported, and students' submitted
-				can be viewed and marked alongside the rubric. In addition, a built in testing
-				suite feature can run student code and compare its solutions to those of an
-				inputted solution file, showing differences to allow easy marking of code
-				output.
-	\end{itemize}
+  \item Easy-to-use interface that simplifies the process of grading for everyone
+    involved in it.
+  \item Separation of users by role, wherein:
+    \begin{itemize}
+      \item System administrators handle intimate details of the system (backups and
+	accounts).
+      \item Administrators have access to all the course-related details of the system.
+      \item Assistant administrators handle creation, modification, and deletion of the
+	courses in the system.
+      \item Instructors manage their courses, creating and editing activities.
+        In the full version of the software, student group and TA/TM management
+        will also be included. Instructors can also grade any activities in their
+        class, or edit any grades as they see fit.
+      \item Teaching assistants or tutor markers have the ability to mark any students'
+	work assigned to them by the instructor.
+    \end{itemize}
+  \item An atomic structure, where each user has access to only the features they 
+    \emph{should} have access to.
+  \item Simple, rubric-based marking, where the instructor creates a rubric upon which
+    a marker simply enters values corresponding to the rubric's details. This creates
+    a consistent marking criteria that is also easy to use.
+  \item Support for various types of assignments. 
+    \begin{itemize}
+      \item Essays and problem sets submitted to the system in $.pdf$ format can be 
+	viewed alongside the rubric for simultaeneous viewing and marking, and easily 
+	commented using a propriertary editor. 
+      \item Coding assignments in $Python$ are also supported, and students' submitted
+	can be viewed and marked alongside the rubric. In addition, a built in testing
+	suite feature can run student code and compare its solutions to those of an
+	inputted solution file, showing differences to allow easy marking of code
+	output.
+    \end{itemize}
 \end{itemize}
 
 % ---
@@ -115,9 +115,9 @@ to simplify the process required for grading. Features of the program include:
 \centerline{\includegraphics[scale=0.65]{../images/UIMockups/pngs/loginScreen}}
 The login screen is displayed whenever the program is started, so the user can login
 to their own account. The user will enter their username and password into the
-appropriate field and hit the Login button. If the details entered were correct, they will
-be sent to the landing page, and otherwise an error will be shown telling the user their
-details were incorrect.\\
+appropriate field and hit the Login button. If the details entered were correct,
+they will be sent to the landing page, and otherwise an error will be shown telling
+the user their details were incorrect.\\
 \centerline{\includegraphics[scale=0.65]{../images/UIMockups/pngs/forgotPW}}
 If the user hits the Forgot Password button, a pop up window will open prompting
 them to enter their username. Once they confirm their username, the System 
@@ -137,13 +137,14 @@ cannot do. The above represents what an Instructor would see upon logging in.
 \subsection{Create/Modify Activity (Detailed)}
 \begin{enumerate}
   \item Log in to the system as an Instructor.
-  \item The following screen will be shown.  Press the \textbf{Assignment Management} button.
+  \item The following screen will be shown.
+    Press the \textbf{Assignment Management} button.
   \begin{center} 
    \includegraphics[scale=0.55]{../images/UIMockups/pngs/LandingPage}
   \end{center}
   \item The following screen will be shown. Select the \textbf{New Activity} button.
   \begin{center}
-  NEED A SCREEN FOR THIS
+    NEED A SCREEN FOR THIS
   \end{center}
   \item The following screen will be shown.
    \begin{center} 
@@ -166,22 +167,23 @@ cannot do. The above represents what an Instructor would see upon logging in.
   \textbf{Group} activity. If \textbf{Group} is chosen, type in the group size in the 
   adjacent field.
   \item Enter the date and time the activity is due in the \textbf{Due Date} fields 
-  in the Year, Month, Day format, followed by the time it is due on that due in the 24-hour 
-  format. The default time is 23:59.
+  in the Year, Month, Day format, followed by the time it is due on that due in
+  the 24-hour format. The default time is 23:59.
   \item A solution can be attached by clicking the \textbf{Attach Solution} button and 
   selecting the desired file from the Explorer window. Alternatively, the path can be 
   typed directly into the adjacent field.
   \end{enumerate}
-  \item The following is how the New Activity screen could look with some additional options. 
+  \item The following is how the New Activity screen could look with some
+    additional options. 
   \begin{center} 
    \includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivityDetailed}
   \end{center}
   \begin{enumerate}
-  \item Clicking \textbf{Add Due Date} adds new fields to add an additional date that can 
-  be before or after the original due date. The new date can be entered in the same manner 
-  as as above. The extra field is the multiplier for penalties/bonuses. For example, 
-  entering "75" is equivalent to a 25\% penalty, and entering "110" would be equivalent 
-  to a 10\% bonus.
+  \item Clicking \textbf{Add Due Date} adds new fields to add an additional
+    date that can be before or after the original due date. The new date can
+    be entered in the same manner as as above. The extra field is the multiplier
+    for penalties/bonuses. For example, entering "75" is equivalent to a 25\%
+    penalty, and entering "110" would be equivalent to a 10\% bonus.
   \item The option \textbf{Attach Test Input/Output} becomes available if \textbf{Type} 
   is set to \textbf{Programming}. This functions exactly as \textbf{Attach Solution}.
  \end{enumerate}
@@ -192,20 +194,19 @@ cannot do. The above represents what an Instructor would see upon logging in.
    NEED AN IMAGE FOR THIS
    \\ THEN THIS STEP NEEDS TO BE COMPLETED
  \end{center}
- \item Once all the desired information about the activity has been entered in correctly, 
- clicking \textbf{Finish} will create the activity and open the \textbf{Activity Management} 
- page.
+ \item Once all the desired information about the activity has been entered
+   in correctly, clicking \textbf{Finish} will create the activity and open
+   the \textbf{Activity Management} page.
   \begin{center} 
-   PUT THE ACTIVITY MANAGEMENT IMAGE HERE
- \end{center}
+    PUT THE ACTIVITY MANAGEMENT IMAGE HERE
+  \end{center}
 \end{enumerate}
-\textbf{*NOTE: }If the user tries to navigate away or clicks \textbf{Logout} when 
+\textbf{*NOTE:} If the user tries to navigate away or clicks \textbf{Logout} when 
 there are unsubmitted changes, a prompt will be shown asking the user to confirm that 
 they intend to navigate away from the current page without saving. (As shown below)
- \begin{center} 
-   WARNING SCREEN HERE
- \end{center}
-
+\begin{center} 
+  WARNING SCREEN HERE
+\end{center}
 
 \subsection{Modify Activity}
 
@@ -333,179 +334,181 @@ Each screen of the system (outside of the login screen) contains a unified top b
 \end{itemize}
 
 \subsection{System Administrator}
-\centerline{\includegraphics[scale=.6]{../images/UIMockups/pngs/sysAdmin}}
+\centerline{\includegraphics[scale=0.6]{../images/UIMockups/pngs/sysAdmin}}
 \begin{itemize}
-	\item To begin, log into the system through the login screen (page \pageref{login})
-		by entering a valid username and password for a System Administrator account.
-	\item Upon login, the \textbf{System Administrator Landing Page} (page 
-		\pageref{landPg}) is displayed. The landing page contains Manage Database, 
-		Manage User Accounts, and Manage System Logs buttons.
-	\begin{itemize}
-		\item If you select Manage Database, the \textbf{Manage Database screen} 
-			(page \pageref{manageDB}) is displayed. This screen contains two 
-			options, one for backing up the database and one for restoring it from 
-			a previous backup. If you click on Backup Database then the database
-			will be backed up to a specified location. If you click on Restore 
-			Database, the system will prompt for a system backup, and restore
-			the system based on it.
-		\item If you select Manage User Accounts, the \textbf{User Account 
-			Management screen} (page \pageref{manageAccts}) is displayed. If you are
-			modifying an account, tick the Modify Account and select the account to
-			modify, then update any details and save the changes. If you are creating an
-			account, leave the modify box unticked, enter all details, and click save to
-			create the account.
-		\item If you select Manage System Logs the \textbf{System Log Management 
-			screen} (page \pageref{manageLogs}) is displayed. This screen presents 
-			you with a drop down menu from which you can select a log file for the 
-			specified day of the system's usage, which will be displayed when selected.
-	\end{itemize}
+  \item To begin, log into the system through the login screen (page \pageref{login})
+    by entering a valid username and password for a System Administrator account.
+  \item Upon login, the \textbf{System Administrator Landing Page} (page 
+    \pageref{landPg}) is displayed. The landing page contains Manage Database, 
+    Manage User Accounts, and Manage System Logs buttons.
+    \begin{itemize}
+      \item If you select Manage Database, the \textbf{Manage Database screen} 
+	(page \pageref{manageDB}) is displayed. This screen contains two 
+	options, one for backing up the database and one for restoring it from 
+	a previous backup. If you click on Backup Database then the database
+	will be backed up to a specified location. If you click on Restore 
+	Database, the system will prompt for a system backup, and restore
+	the system based on it.
+      \item If you select Manage User Accounts, the \textbf{User Account 
+	Management screen} (page \pageref{manageAccts}) is displayed. If you are
+	modifying an account, tick the Modify Account and select the account to
+	modify, then update any details and save the changes. If you are creating an
+	account, leave the modify box unticked, enter all details, and click save to
+	create the account.
+      \item If you select Manage System Logs the \textbf{System Log Management 
+	screen} (page \pageref{manageLogs}) is displayed. This screen presents 
+	you with a drop down menu from which you can select a log file for the 
+	specified day of the system's usage, which will be displayed when selected.
+    \end{itemize}
 \end{itemize}
 
 \subsection{Administrator}
-\centerline{\includegraphics[scale=.6]{../images/UIMockups/pngs/admin}}
+\centerline{\includegraphics[scale=0.6]{../images/UIMockups/pngs/admin}}
 \begin{itemize}
-	\item To begin, log into the system through the login screen (page \pageref{login})
-		by entering a valid username and password for an Administrator account.
-	\item Upon login, the \textbf{Administrator Landing Page} (page \pageref{landPg})
-		is displayed. The landing page contains two buttons: Grading and Viewing.
-	\begin{itemize}
-		\item If you select Grading, you will select a course from the complete list of 
-			courses on the \textbf{Course Selection screen}. You will then select an 
-			activity to view or edit grades for, from all student from the \textbf{Activity 
-			Selection Matrix screen}. You can then view the grading of the specified
-			activity and edit it as necessary on the \textbf{Marking screen} (page
-			\pageref{marking}).
-		\item If you select Viewing, you will be select a course from the complete list of 
-			courses on the \textbf{Course Selection screen}. You can then view the
-			details of that course on the \textbf{Course Modification screen} or view the
-			details of any activities in it on the \textbf{Activity Modification screen}, but
-			cannot edit any of the details of courses or activities.
-	\end{itemize}
+  \item To begin, log into the system through the login screen (page \pageref{login})
+    by entering a valid username and password for an Administrator account.
+  \item Upon login, the \textbf{Administrator Landing Page} (page \pageref{landPg})
+    is displayed. The landing page contains two buttons: Grading and Viewing.
+    \begin{itemize}
+    \item If you select Grading, you will select a course from the complete list of 
+      courses on the \textbf{Course Selection screen}. You will then select an 
+      activity to view or edit grades for, from all student from the \textbf{Activity 
+	Selection Matrix screen}. You can then view the grading of the specified
+      activity and edit it as necessary on the \textbf{Marking screen} (page
+      \pageref{marking}).
+    \item If you select Viewing, you will be select a course from the complete list of 
+      courses on the \textbf{Course Selection screen}. You can then view the
+      details of that course on the \textbf{Course Modification screen} or view the
+      details of any activities in it on the \textbf{Activity Modification screen}, but
+      cannot edit any of the details of courses or activities.
+    \end{itemize}
 \end{itemize}
 
 \subsection{Assistant Administrator}
 \centerline{\includegraphics[scale=.6]{../images/UIMockups/pngs/assistantAdmin}}
 \begin{itemize}
-	\item To begin, log into the system through the login screen (page \pageref{login})
-		by entering a valid username and password for an Assistant Administrator 
-		account.
-	\item Upon login, the \textbf{Assistant Administrator Landing Page} (page
-		\pageref{landPg}) is displayed. There will be one button available: Course
-		Management.
-	\begin{itemize}
-		\item When you select Course Management, the \textbf{Course Management
-		screen} will be displayed, with two buttons: Create a Course and Modify a 
-		Course.
-		\begin{itemize}
-			\item If you select Create a Course, you will be sent to the \textbf{Course
-				Creation screen}. Enter all the relevant details to creating a course, and
-				confirm the course creation.
-			\item If you select Modify a Course, you will be sent to the \textbf{Course
-				Selection screen} and will select a course from all the current courses
-				available to be modified. After choosing a course, you are sent to the
-				\textbf{Course Modification screen}. Change any relevant details about
-				the course, and then confirm the course modification.
-		\end{itemize}
-	\end{itemize}
+  \item To begin, log into the system through the login screen (page \pageref{login})
+    by entering a valid username and password for an Assistant Administrator 
+    account.
+  \item Upon login, the \textbf{Assistant Administrator Landing Page} (page
+    \pageref{landPg}) is displayed. There will be one button available: Course
+    Management.
+    \begin{itemize}
+    \item When you select Course Management, the \textbf{Course Management
+      screen} will be displayed, with two buttons: Create a Course and Modify a 
+      Course.
+      \begin{itemize}
+      \item If you select Create a Course, you will be sent to the \textbf{Course
+	Creation screen}. Enter all the relevant details to creating a course, and
+	confirm the course creation.
+      \item If you select Modify a Course, you will be sent to the \textbf{Course
+	Selection screen} and will select a course from all the current courses
+	available to be modified. After choosing a course, you are sent to the
+	\textbf{Course Modification screen}. Change any relevant details about
+	the course, and then confirm the course modification.
+      \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 \subsection{Instructor}
 \centerline{\includegraphics[scale=.6]{../images/UIMockups/pngs/instructor}}
 \begin{itemize}
-	\item To begin, log into the system through the login screen (page \pageref{login})
-		by entering a valid username and password for an Instructor account.
-	\item Upon login, the \textbf{Instructor Landing Page} (page \pageref{landPg}) 
-		is displayed. There will be two buttons visible: Marking and Assignment 
-		Management.
-	\begin{itemize}
-		\item If you select Marking, you will select a course from your list of courses
-			on the \textbf{Course Selection screen}. You will then select an activity
-			to mark for an available student from the \textbf{Activity Selection screen}.
-		\begin{itemize}
-			\item You will then be sent to the \textbf{Marking screen}. (page
-				\pageref{marking}) You will enter grades into the rubric while viewing 
-				the student's submission side by side. If you click on the Sample Solution 
-				tab, the Rubric will be replaced with a sample solution to the assignment 
-				(the Rubric tab can then be reselected at any time). If you click Submit 
-				Grades the grades entered in the rubric will be saved, and you will 
-				move to the next student's submission. If you click Next, the you will 
-				move to the next student's submission, and a confirmation will be displayed 
-				asking if you are sure you want to navigate away if you have made any 
-				changes. If you click Submit Comments, any comments you have made 
-				on the student's work will be saved.
-			\begin{itemize}
-				\item If you click on Test Code, the \textbf{Test Suite} (page 
-					\pageref{testSuite}) screen is displayed. The test suite will allow you 
-					to run the student's code and compare its output with a sample 
-					solution's output. Clicking on the Diff tab will show a color coded 
-					comparison between the sample solution output and the student's 
-					output. Clicking on Run will run the student's code. Clicking on Stop 
-					will stop the code running (useful if it is stuck or hanging).
-			\end{itemize}
-		\end{itemize}
-		\item If you select Activity Management, you will then select a course from your
-			list of courses on the \textbf{Course Selection screen}. The \textbf{Activity 
-			Management screen} is then displayed, with two buttons available: New 
-			Activity and Modify Activity.
-		\begin{itemize}
-			\item If you select Create Activity, the \textbf{New Activity screen} 
-				(page \pageref{newActivity}) is displayed.
-				Enter all relevant information to the assignment on this page. Clicking on
-				the Rubric tab will swap to a new tab for entering the details of the rubric.
-				You can navigate freely between the two tabs at any point. After entering
-				all fields, click on Finish and the activity will be created.
-			\item If you select Modify Activity, the \textbf{Activity Selection screen} is
-				displayed. You will select an activity from the current course, and the
-				\textbf{Activity Modification screen} will be displayed with all the current
-				info for the selected activity. You will update any desired info, along with
-				any of the details in the rubric. You can swap between the Rubric and 
-				Activity tabs at any time to edit details for the activity itself or the rubric.
-				After updating the activity, click Finish and any changes will be made.
-			\item If you select Copy Activity, the \textbf{Copy Activity screen} is displayed.
-				You will see a list of previous course offerings along with all courses you
-				have previously taught. When you select one of these courses, you will
-				then see a list of activities available for copy. You can then select an
-				activity to copy, and confirm copying it to the current course.
-		\end{itemize}
+  \item To begin, log into the system through the login screen (page \pageref{login})
+    by entering a valid username and password for an Instructor account.
+  \item Upon login, the \textbf{Instructor Landing Page} (page \pageref{landPg}) 
+    is displayed. There will be two buttons visible: Marking and Assignment 
+    Management.
+    \begin{itemize}
+      \item If you select Marking, you will select a course from your list of courses
+        on the \textbf{Course Selection screen}. You will then select an activity
+        to mark for an available student from the \textbf{Activity Selection screen}.
+        \begin{itemize}
+        \item You will then be sent to the \textbf{Marking screen}. (page
+	  \pageref{marking}) You will enter grades into the rubric while viewing 
+	  the student's submission side by side. If you click on the Sample Solution 
+	  tab, the Rubric will be replaced with a sample solution to the assignment 
+	  (the Rubric tab can then be reselected at any time). If you click Submit 
+	  Grades the grades entered in the rubric will be saved, and you will 
+	  move to the next student's submission. If you click Next, the you will 
+	  move to the next student's submission, and a confirmation will be displayed 
+	  asking if you are sure you want to navigate away if you have made any 
+	  changes. If you click Submit Comments, any comments you have made 
+	  on the student's work will be saved.
+	  \begin{itemize}
+	    \item If you click on Test Code, the \textbf{Test Suite} (page 
+	      \pageref{testSuite}) screen is displayed. The test suite will allow you 
+	      to run the student's code and compare its output with a sample 
+	      solution's output. Clicking on the Diff tab will show a color coded 
+	      comparison between the sample solution output and the student's 
+	      output. Clicking on Run will run the student's code. Clicking on Stop 
+	      will stop the code running (useful if it is stuck or hanging).
+	  \end{itemize}
 	\end{itemize}
+      \item If you select Activity Management, you will then select a course from your
+	list of courses on the \textbf{Course Selection screen}. The \textbf{Activity 
+	  Management screen} is then displayed, with two buttons available: New 
+	Activity and Modify Activity.
+	\begin{itemize}
+	\item If you select Create Activity, the \textbf{New Activity screen} 
+	  (page \pageref{newActivity}) is displayed.
+	  Enter all relevant information to the assignment on this page. Clicking on
+	  the Rubric tab will swap to a new tab for entering the details of the rubric.
+	  You can navigate freely between the two tabs at any point. After entering
+	  all fields, click on Finish and the activity will be created.
+	\item If you select Modify Activity, the \textbf{Activity Selection screen} is
+	  displayed. You will select an activity from the current course, and the
+	  \textbf{Activity Modification screen} will be displayed with all the current
+	  info for the selected activity. You will update any desired info, along with
+	  any of the details in the rubric. You can swap between the Rubric and 
+	  Activity tabs at any time to edit details for the activity itself or
+          the rubric.
+	  After updating the activity, click Finish and any changes will be made.
+	\item If you select Copy Activity, the \textbf{Copy Activity screen}
+          is displayed.
+	  You will see a list of previous course offerings along with all courses you
+	  have previously taught. When you select one of these courses, you will
+	  then see a list of activities available for copy. You can then select an
+	  activity to copy, and confirm copying it to the current course.
+	\end{itemize}
+    \end{itemize}
 \end{itemize}
 
 \subsection{Teaching Assistant}
 \centerline{\includegraphics[scale=.6]{../images/UIMockups/pngs/teachingAsst}}
 \begin{itemize}
-	\item To begin, log into the system through the login screen (page \pageref{login})
-		by entering a valid username and password for a Teaching Assistant account.
-	\item Upon login, the \textbf{Teaching Assistant Landing Page} (page \pageref{
-		landPg}) is displayed. The only button available on the landing page will be 
-		Marking.
+  \item To begin, log into the system through the login screen (page \pageref{login})
+    by entering a valid username and password for a Teaching Assistant account.
+  \item Upon login, the \textbf{Teaching Assistant Landing Page} (page \pageref{
+    landPg}) is displayed. The only button available on the landing page will be 
+    Marking.
+    \begin{itemize}
+      \item After clicking on Marking, you will select a course from your list of courses
+	on the \textbf{Course Selection screen}. You will then select an activity
+	to mark for an available student from the \textbf{Activity Selection Matrix
+	  screen}.
 	\begin{itemize}
-		\item After clicking on Marking, you will select a course from your list of courses
-			on the \textbf{Course Selection screen}. You will then select an activity
-			to mark for an available student from the \textbf{Activity Selection Matrix
-			screen}.
-		\begin{itemize}
-			\item You will then be sent to the \textbf{Marking screen}. (page
-				\pageref{marking}) You will enter grades into the rubric while viewing 
-				the student's submission side by side. If you click on the Sample Solution 
-				tab, the Rubric will be replaced with a sample solution to the assignment 
-				(the Rubric tab can then be reselected at any time). If you click Submit 
-				Grades the grades entered in the rubric will be saved, and you will 
-				move to the next student's submission. If you click Next, the you will 
-				move to the next student's submission, and a confirmation will be displayed 
-				asking if you are sure you want to navigate away if you have made any 
-				changes. If you click Submit Comments, any comments you have made 
-				on the student's work will be saved.
-			\begin{itemize}
-				\item If you click on Test Code, the \textbf{Test Suite} (page 
-					\pageref{testSuite}) screen is displayed. The test suite will allow you 
-					to run the student's code and compare its output with a sample 
-					solution's output. Clicking on the Diff tab will show a color coded 
-					comparison between the sample solution output and the student's 
-					output. Clicking on Run will run the student's code. Clicking on Stop 
-					will stop the code running (useful if it is stuck or hanging).
-			\end{itemize}
-		\end{itemize}
+	  \item You will then be sent to the \textbf{Marking screen}. (page
+	    \pageref{marking}) You will enter grades into the rubric while viewing 
+	    the student's submission side by side. If you click on the Sample Solution 
+	    tab, the Rubric will be replaced with a sample solution to the assignment 
+	    (the Rubric tab can then be reselected at any time). If you click Submit 
+	    Grades the grades entered in the rubric will be saved, and you will 
+	    move to the next student's submission. If you click Next, the you will 
+	    move to the next student's submission, and a confirmation will be displayed 
+	    asking if you are sure you want to navigate away if you have made any 
+	    changes. If you click Submit Comments, any comments you have made 
+	    on the student's work will be saved.
+	    \begin{itemize}
+	      \item If you click on Test Code, the \textbf{Test Suite} (page 
+		\pageref{testSuite}) screen is displayed. The test suite will allow you 
+		to run the student's code and compare its output with a sample 
+		solution's output. Clicking on the Diff tab will show a color coded 
+		comparison between the sample solution output and the student's 
+		output. Clicking on Run will run the student's code. Clicking on Stop 
+		will stop the code running (useful if it is stuck or hanging).
+	    \end{itemize}
 	\end{itemize}
+    \end{itemize}
 \end{itemize}
 
 % ---
