@@ -150,6 +150,7 @@ cannot do. The above represents what an Instructor would see upon logging in.
 
 
 !!!!!!!!!!!!! USE COURSEMANAGEMENT.PNG   !!!!!!!!!!!!!
+\label{courseManage}
 
 \item The "Create A Course" screen will be shown. There will be input fields for Instructors Name/ID, TA Name/ID, Course start and end date, and student list.
 
@@ -157,6 +158,7 @@ cannot do. The above represents what an Instructor would see upon logging in.
 
 
 !!!!!!!!!!!!!!! please input the CreateACourse.png !!!!!!!!!!!!!!!!!!
+\label{createCourse}
 
 
 
@@ -277,6 +279,7 @@ To create a course, do the following:
     additional options. 
   \begin{center} 
    \includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivityDetailed}
+ 
   \end{center}
   \begin{enumerate}
   \item Clicking \textbf{Add Due Date} adds new fields to add an additional
@@ -314,6 +317,7 @@ they intend to navigate away from the current page without saving. (As shown bel
 Upon selecting \textbf{Modify Activity}, the activity selection screen will be shown.
   \begin{center} 
      \includegraphics[scale=0.55]{../images/UIMockups/pngs/ActivitySelectionAM}
+     \label{actSel}
   \end{center} 
 After selecting the activity, a screen will be shown that is the same as for 
 \textbf{New Activity} but with the fields already completed. Make edits as desired and 
@@ -343,12 +347,14 @@ for \textbf{Due Date} as desired, and complete as for \textbf{New Activity}.
     to do marking for from the drop-down list, then press \textbf{Ok}.
     \begin{center} 
      \includegraphics[scale=0.55]{../images/UIMockups/pngs/CourseSelectionM}
+     \label{courseSel}
     \end{center}
   \item The following screen will be shown.  Students are listed down the left
     side. Available activities are listed along the top.  Find the student you
     wish to mark for, and select the corresponding activity, then press \textbf{Ok}.
   \begin{center} 
     \includegraphics[scale=0.55]{../images/UIMockups/pngs/StudentActivitySelectionM}
+    \label{actSel}
   \end{center}
   \item The assignment's marking screen will be shown.  The marking screen
     displays the rubric, sample solution, and the student's submission.
@@ -491,15 +497,18 @@ Each screen of the system (outside of the login screen) contains a unified top b
     is displayed. The landing page contains two buttons: Grading and Viewing.
     \begin{itemize}
     \item If you select Grading, you will select a course from the complete list of 
-      courses on the \textbf{Course Selection screen}. You will then select an 
+      courses on the \textbf{Course Selection screen} (page \pageref{courseSel}). 
+      You will then select an 
       activity to view or edit grades for, from all student from the \textbf{Activity 
-	Selection Matrix screen}. You can then view the grading of the specified
+    	 Selection Matrix screen} (page \pageref{actSel}). You can then view the 
+	 grading of the specified
       activity and edit it as necessary on the \textbf{Marking screen} (page
       \pageref{marking}).
     \item If you select Viewing, you will be select a course from the complete list of 
-      courses on the \textbf{Course Selection screen}. You can then view the
-      details of that course on the \textbf{Course Modification screen} or view the
-      details of any activities in it on the \textbf{Activity Modification screen}, but
+      courses on the \textbf{Course Selection screen} (page \pageref{courseSel}). You can then view the
+      details of that course on the \textbf{Course Modification screen} (page \pageref{createCourse})
+      or view the details of any activities in it on the \textbf{Activity Modification screen}
+      (page \pageref{newActivity}), but
       cannot edit any of the details of courses or activities.
     \end{itemize}
 \end{itemize}
@@ -515,16 +524,16 @@ Each screen of the system (outside of the login screen) contains a unified top b
     Management.
     \begin{itemize}
     \item When you select Course Management, the \textbf{Course Management
-      screen} will be displayed, with two buttons: Create a Course and Modify a 
-      Course.
+      screen} (page \pageref{courseManage}) will be displayed, with two buttons: 
+      Create a Course and Modify a Course.
       \begin{itemize}
       \item If you select Create a Course, you will be sent to the \textbf{Course
-	Creation screen}. Enter all the relevant details to creating a course, and
+	Creation screen} (page \pageref{createCourse}). Enter all the relevant details to creating a course, and
 	confirm the course creation.
       \item If you select Modify a Course, you will be sent to the \textbf{Course
-	Selection screen} and will select a course from all the current courses
+	Selection screen} (page \pageref{courseSel}) and will select a course from all the current courses
 	available to be modified. After choosing a course, you are sent to the
-	\textbf{Course Modification screen}. Change any relevant details about
+	\textbf{Course Modification screen} (page \pageref{courseManage}). Change any relevant details about
 	the course, and then confirm the course modification.
       \end{itemize}
     \end{itemize}
@@ -540,8 +549,9 @@ Each screen of the system (outside of the login screen) contains a unified top b
     Management.
     \begin{itemize}
       \item If you select Marking, you will select a course from your list of courses
-        on the \textbf{Course Selection screen}. You will then select an activity
-        to mark for an available student from the \textbf{Activity Selection screen}.
+        on the \textbf{Course Selection screen} (page \pageref{courseSel}). You will then select an activity
+        to mark for an available student from the \textbf{Activity Selection screen}
+        (page \pageref{actSel}).
         \begin{itemize}
         \item You will then be sent to the \textbf{Marking screen}. (page
 	  \pageref{marking}) You will enter grades into the rubric while viewing 
@@ -565,7 +575,7 @@ Each screen of the system (outside of the login screen) contains a unified top b
 	  \end{itemize}
 	\end{itemize}
       \item If you select Activity Management, you will then select a course from your
-	list of courses on the \textbf{Course Selection screen}. The \textbf{Activity 
+	list of courses on the \textbf{Course Selection screen} (page \pageref{courseSel}). The \textbf{Activity 
 	  Management screen} is then displayed, with three buttons available: New 
 	Activity, Modify Activity, and Copy Activity.
 	\begin{itemize}
@@ -575,9 +585,10 @@ Each screen of the system (outside of the login screen) contains a unified top b
 	  the Rubric tab will swap to a new tab for entering the details of the rubric.
 	  You can navigate freely between the two tabs at any point. After entering
 	  all fields, click on Finish and the activity will be created.
-	\item If you select Modify Activity, the \textbf{Activity Selection screen} is
+	\item If you select Modify Activity, the \textbf{Activity Selection screen} (page \pageref{actSel}) is
 	  displayed. You will select an activity from the current course, and the
-	  \textbf{Activity Modification screen} will be displayed with all the current
+	  \textbf{Activity Modification screen} (page \pageref{newActivity}) 
+	  will be displayed with all the current
 	  info for the selected activity. You will update any desired info, along with
 	  any of the details in the rubric. You can swap between the Rubric and 
 	  Activity tabs at any time to edit details for the activity itself or
@@ -588,7 +599,7 @@ Each screen of the system (outside of the login screen) contains a unified top b
 	  You will see a list of previous course offerings along with all courses you
 	  have previously taught. When you select one of these courses, you will
 	  then see a list of activities available for copy. You can then select an
-	  activity to copy, and after filling in an appropriate \textbf{Due Date}, add 
+	  activity to copy, and after filling in an appropriate Due Date, add 
 	  it to the course.
 	\end{itemize}
     \end{itemize}
@@ -603,9 +614,9 @@ Each screen of the system (outside of the login screen) contains a unified top b
   	is displayed. The only button available on the landing page will be Marking.
     \begin{itemize}
       \item After clicking on Marking, you will select a course from your list of courses
-	on the \textbf{Course Selection screen}. You will then select an activity
+	on the \textbf{Course Selection screen} (page \pageref{courseSel}). You will then select an activity
 	to mark for an available student from the \textbf{Activity Selection Matrix
-	  screen}.
+	  screen} (page \pageref{actSel}).
 	\begin{itemize}
 	  \item You will then be sent to the \textbf{Marking screen}. (page
 	    \pageref{marking}) You will enter grades into the rubric while viewing 
