@@ -54,9 +54,33 @@
 
 \section{High Level Design}
 \subsection{Architecture Diagram}
-\centerline{\includegraphics[scale=0.6]{../images/architectureDiagram}}
+\centerline{\includegraphics[scale=0.5]{../images/architectureDiagram}}
 
-\subsection{Sub-system Descriptions}
+\subsection{Subsystem Descriptions}
+\subsubsection{Main MarkShark Modules}
+\begin{itemize}
+  \item \textbf{User Interface}: Responsible for the visual portion of the
+    application. Accepts user input and handles output.
+  \item \textbf{System Administration}: Handles database backups and user
+    account creation/modification.
+  \item \textbf{Activity Management}: Handles activity creation/modification.
+    Contains data related to activity creation forms, etc.
+  \item \textbf{Course Management}: Analogous for Courses.
+  \item \textbf{Marking}: 
+  \item \textbf{Test Suite}:
+  \item \textbf{Database Interaction}: Handles all database requests within the
+    following smaller modules:
+    \begin{itemize}
+      \item \textbf{Logger}: Handles the recording of actions performed in the
+        system. 
+      \item \textbf{Account Access}: Handles requests for user account information
+        and conversion between raw database entries into Java classes representing
+        the users.
+      \item \textbf{Course Access}: Analogous for Course data and Java objects.
+      \item \textbf{Grade Access}: Analogous for Grade data and Java objects.
+    \end{itemize}
+\end{itemize}
+
 \subsection{Refined Use Cases}
 
 \section{Low Level Design}
