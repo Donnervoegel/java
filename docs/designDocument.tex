@@ -58,7 +58,44 @@
 
 \subsection{Sub-system Descriptions}
 \subsection{Refined Use Cases}
+\textbf{Use Case Name: testCourse (#3.9)}
 
+\textbf{Scenario:}
+TA Marker Joe Fresh runs the test suite to grade Student Tina Turner’s “Assignment 4” code.
+
+\textbf{Preconditions:}
+\begin{itemize}
+	\item Joe has logged in successfully.
+	\item Joe has navigated to the “Marking” page for Assignment 4. (\textbf{ Marking > Courses > Select Activity > Assignment 4}), 
+	\item The test suite  and database are ready to be initialised .
+\end{itemize}
+	\item Tina has turned in Assignment 4, and her code can be compiled.
+
+\textbf{Main Flow of Events:}
+\begin{enumerate} 
+	\item Joe clicks on the “Test Code” button in the bottom right corner of the screen.
+	\item The program will compile and run Tina’s  code.
+	\item Assuming the code generates output, an output file is generated.
+	\item The screen will change to the “Test Suite” page, displaying the output generated code, the solution code and a diff (the differences between the two documents) of the two outputs.
+	\item Joe will look at the diff, then the solution code and mark the output by tabbing between the test suite and the rubric.	
+	\item Additionally, Joe may comment on Tina’s code by 	clicking the “Submit Comment” button.
+	\item Joe finishes marking and clicks “Submit”.
+\end{enumerate}
+
+Textbf{Postconditions:}
+
+\begin{itemize}
+\item The program saves the grade to the database. 
+\item Joe is returned to the “Select Activity” page for Assignment 4.
+\end{itemize}
+
+\textbf{Exceptional Flow of Events:}
+\begin{enumerate}
+ 	\item If the compiled code doesn’t generate output, or crashes from a runtime error, then a message will appear in the “Student Solution” field saying that  no output could be generated.
+	\item If the rubric is not completely filled out (i.e. one or more of the items in the rubric that do not have a mark)
+\end{enumerate}
+
+%INSERT COLLABORATION DIAGRAM HERE%
 \section{Low Level Design}
 \subsection{Interaction Diagrams}
 \subsection{Class Diagram}
