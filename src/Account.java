@@ -7,20 +7,20 @@
  */
 public abstract class Account
 {
-    protected static String firstName, lastName;
+    protected static String first_name, last_name;
     protected String username;
     private String password;
     protected static int id;
-    protected int userType;
+    protected int user_type;
     
     public Account(String fn, String ln, int empID, String un, String pass, int ut)
     {
-        firstName = fn;
-        lastName = ln;
+        first_name = fn;
+        last_name = ln;
         id = empID;
         username = un;
         password = pass;
-        userType = ut;
+        user_type = ut;
     }
     
     /**
@@ -28,7 +28,7 @@ public abstract class Account
      */
     public static String getFirstName()
     {
-        return firstName;
+        return first_name;
     }
     
     /**
@@ -36,7 +36,7 @@ public abstract class Account
      */
     public static String getLastName()
     {
-        return lastName;
+        return last_name;
     }
     
     /**
@@ -93,7 +93,7 @@ public abstract class Account
     public void setAccountType(int type)
     {
         if(type < 1 || type > 4){
-            userType = type;
+            user_type = type;
         }else{
             System.out.println("Error: invalid account type");
         }
