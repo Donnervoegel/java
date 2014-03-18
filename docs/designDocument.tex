@@ -57,6 +57,31 @@
 \centerline{\includegraphics[scale=0.55]{../images/architectureDiagram}}
 
 \subsection{Sub-system Descriptions}
+\subsubsection{User Interface}
+The user interface provides the main interface between users and the functions
+of the system. All system functions will be performed through the user interface.
+\subsubsection{System Admin}
+The system admin sub-system controls the main management of the internal
+system functions, in terms of managing user accounts, logs, and backups.
+\subsubsection{Login System}
+The login system controls the access to the system. Users must login to access 
+their accounts, and their system responsibilities are separated by user accounts.
+\subsubsection{Activity Managing}
+The system for activity managing allows for the creation, modification, and deletion
+of the activities for each course in the system, which will be marked.
+\subsubsection{Course Managing}
+The system for course managing allows for the creation, modification, and deletion
+of the courses for which marking will be done in the system.
+\subsubsection{Marking}
+The marking sub-system provides the interface to the instructors and TAs to mark
+student work, taking care of all marking and commenting work.
+\subsubsection{Test Suite}
+The test suite provides an isolated environment for testing of student code. It allows a
+marker to run student code and compare its outputs to a proper solution.
+\subsubsection{Database}
+The database provides central access to all of the system's data, including logs,
+user accounts, courses, and grades.
+
 \subsection{Refined Use Cases}
 \textbf{Use Case Name: testCourse (\#3.9)}\\
 \textbf{Scenario:}
@@ -97,7 +122,7 @@ code.\\
 	\item If the rubric is not completely filled out (i.e. one or more of the items in the 
 		rubric that do not have a mark)
 \end{enumerate}
-\textbf{Use Case Name: createActivity (\#x.x)} \\
+\textbf{Use Case Name: createActivity (\#4.1.1)} \\
 \textbf{Scenario:} Instructor John Smith creates an activity “Assignment 1” to his
 course CMPT 165.\\
 \textbf{Preconditions:}
@@ -187,7 +212,7 @@ course CMPT 165.\\
 
 \section{Data Persistence}
 
-\centerline{\includegraphics[scale=0.5]{../images/Data_Persistance.png}}
+\centerline{\includegraphics[scale=0.9]{../images/Data_Persistance.png}}
 
 
 \end{document}
