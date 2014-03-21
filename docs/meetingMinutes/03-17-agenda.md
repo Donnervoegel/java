@@ -25,7 +25,7 @@
 - Until Friday, all code done will be voluntary.  The Friday meeting will formally assign sections of code to members as all members will be present at the meeting.
 - Stephen is assigned to transcribe client meeting 2 by Friday's meeting.
 
-### General coding guidelines:
+### General coding guidelines(Use Java 8):
 - Follow as much as possible prototype requirements in terms of content
 - Variables are declared using only lowercase and underscores if a space is needed
 - Variable visibility: All variables will be private, except in special cases(interface classes).  Methods should be public unless they are helpers used only in that class.
@@ -35,3 +35,6 @@
 - Methods: For the first word in each method, use lowercase.  For every subsequent use uppercase.  No matter how small the word is (Of, Is, To), follow the  guidelines.  No spaces between words.
 - Classes: Capitalize every word, no spaces.
 - Constructors: Always put the constructor between fields and other methods.
+- Use iterative loops instead of manual loops ( where possible)
+- Use Eclipse's style of formatting (ie. curly brace placement, tabbing)
+- 
