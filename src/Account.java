@@ -14,6 +14,7 @@ public abstract class Account
     private String password;
     private int bad_logins;
     private static final int MAX_FAILS = 5;
+    private static final int MAX_TYPES = 6;
     protected boolean blocked;
     
     
@@ -139,7 +140,7 @@ public abstract class Account
      */
     public void setAccountType(int type)
     {
-        if(type < 1 || type > 5){
+        if(type < 1 || type > MAX_TYPES){
             user_type = type;
         }else{
             System.out.println("Error: invalid account type");
