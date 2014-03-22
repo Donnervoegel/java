@@ -5,3 +5,6 @@
 *.gz
 *.*~
 *.class
+/nbproject/private/
+/build/
+/src/nbproject/private
