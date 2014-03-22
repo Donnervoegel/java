@@ -21,3 +21,7 @@ Stephen Laboucane
 
 Graeme Smith
 <gds3@sfu.ca>
+
+## Products
+MarkShark Grading System
+![MarkShark Logo](/images/logo/markshark-3x.png)
