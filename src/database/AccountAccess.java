@@ -16,8 +16,8 @@ public class AccountAccess {
 	
 	// STATIC METHODS 
 	
-	/* Method to establish a connection to the Cypress SQL server. Uses hard-coded login information of s_mbalaski
-	 * account to access the database.
+	/* Method to establish a connection to the Cypress SQL server. Uses hard-coded login information of our
+	 * group's SQL connection.
 	 */
 	private static void establishConnection() {
 		try {																   // Access the JDBC driver
@@ -30,7 +30,7 @@ public class AccountAccess {
 		try {																   // Connect to Cypress
 			dbConnection = DriverManager
 					.getConnection("jdbc:sqlserver://cypress.csil.sfu.ca;"
-							+ " user = s_mbalaski; password = Med72H76hm2RNnJJ");
+							+ " user = c275g01; password = TAA2Md7nGrPj2LjN");
 		} catch (SQLException e) {
 			System.out.println("Connection failed, exiting.");
 			System.exit(0);
