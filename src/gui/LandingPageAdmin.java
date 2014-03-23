@@ -32,7 +32,6 @@ public class LandingPageAdmin extends javax.swing.JFrame {
         Role = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         Tasks = new javax.swing.JPanel();
         ManageDB = new javax.swing.JButton();
         ManageAcc = new javax.swing.JButton();
@@ -47,8 +46,6 @@ public class LandingPageAdmin extends javax.swing.JFrame {
 
         jButton1.setText("Back");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login/markshark-1x.png"))); // NOI18N
-
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
         TopPanelLayout.setHorizontalGroup(
@@ -61,9 +58,7 @@ public class LandingPageAdmin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Logout))
                     .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(17, 527, Short.MAX_VALUE)
                         .addComponent(Role)))
                 .addContainerGap())
         );
@@ -71,9 +66,7 @@ public class LandingPageAdmin extends javax.swing.JFrame {
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Role)
-                    .addComponent(jLabel1))
+                .addComponent(Role)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Logout)
@@ -129,7 +122,7 @@ public class LandingPageAdmin extends javax.swing.JFrame {
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Tasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(655, 492));
@@ -185,6 +178,5 @@ public class LandingPageAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel Tasks;
     private javax.swing.JPanel TopPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

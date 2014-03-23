@@ -31,8 +31,7 @@ public class LandingPageInstructor extends javax.swing.JFrame {
         TopPanel = new javax.swing.JPanel();
         Role = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
         Tasks = new javax.swing.JPanel();
         ManageDB = new javax.swing.JButton();
         ManageAcc = new javax.swing.JButton();
@@ -45,9 +44,12 @@ public class LandingPageInstructor extends javax.swing.JFrame {
 
         Logout.setText("Log Out");
 
-        jButton1.setText("Back");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login/markshark-1x.png"))); // NOI18N
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
@@ -57,13 +59,11 @@ public class LandingPageInstructor extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Logout))
                     .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(17, 552, Short.MAX_VALUE)
                         .addComponent(Role)))
                 .addContainerGap())
         );
@@ -71,13 +71,11 @@ public class LandingPageInstructor extends javax.swing.JFrame {
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Role)
-                    .addComponent(jLabel1))
+                .addComponent(Role)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Logout)
-                    .addComponent(jButton1))
+                    .addComponent(BackButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -140,6 +138,10 @@ public class LandingPageInstructor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ManageDBActionPerformed
 
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,13 +180,12 @@ public class LandingPageInstructor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
     private javax.swing.JButton Logout;
     private javax.swing.JButton ManageAcc;
     private javax.swing.JButton ManageDB;
     private javax.swing.JLabel Role;
     private javax.swing.JPanel Tasks;
     private javax.swing.JPanel TopPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
