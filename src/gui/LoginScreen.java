@@ -7,6 +7,7 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.event.*;
 
 /**
  *
@@ -131,11 +132,30 @@ public class LoginScreen extends JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("Logging in...");
+    private void loginButtonActionPerformed(ActionEvent evt) {
+	/*
+	 * Pass the user name and password to the login system.
+	 * The login system will indicate whether the login succeeded.
+	 * If it did, hide the login screen and show the splash page
+	 * according to the user's Role.
+	 */
+	String name = username.getText();
+	String pass = new String(pass_field.getPassword());
+
+	if(pass.length() < 5) {
+	    JOptionPane
+		.showMessageDialog(this, "The password given is too short.");
+	} else {
+	    System.out.println("Logging in as " + name +
+			       " with password `" + pass + "`");
+	    // Perform login.
+	}
     }
 
-    private void forgotPassActionPerformed(java.awt.event.ActionEvent evt) {
+    private void forgotPassActionPerformed(ActionEvent evt) {
+	/*
+	 * Doesn't have to be dealt with yet.
+	 */
         System.out.println("Forgot password!");
     }
 }
