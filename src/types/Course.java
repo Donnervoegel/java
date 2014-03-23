@@ -10,16 +10,14 @@ import java.util.*;
  */
 public class Course
 {
-    private static String name;
-    private int[] start_date, end_date;
+    private static String name, start_date, end_date;
     private static int id;
     private Instructor instructor;
     private ArrayList<TATMMarker> markers;
     private ArrayList<Student> students;
     private ArrayList<Activity> activities;
     
-    public Course( String n, int i, Instructor ins, int yr_start, int mo_start, 
-                   int day_start, int yr_end, int mo_end, int day_end)
+    public Course( String n, int i, Instructor ins, String start, String end)
     {
         name = n;
         id = i;
@@ -27,10 +25,8 @@ public class Course
         markers = new ArrayList<TATMMarker>();
         students = new ArrayList<Student>();
         activities = new ArrayList<Activity>();
-        start_date = new int[2];
-        start_date[0] = yr_start; start_date[1] = mo_start; start_date[2] = day_start;
-        end_date = new int[2];
-        end_date[0] = yr_end; end_date[1] = mo_end; end_date[2] = day_end;
+        start_date = start;
+        end_date = end;
     }
     
     public void addMarker(TATMMarker m)
