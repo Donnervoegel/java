@@ -53,7 +53,7 @@ public class AccountAccess {
 	 * ResultSet can then be used to access information about the specified
 	 * account.
 	 */
-	protected ResultSet accessAccount(String username) {
+	public ResultSet accessAccount(String username) {
 		PreparedStatement prepStatement = null;
 		ResultSet resSet = null;
 		// Create the selection query string
@@ -76,12 +76,12 @@ public class AccountAccess {
 	 * account as arguments and inserts an account into the database based off
 	 * of the parameters.
 	 */
-	protected void createAccount(String username, int empID, String password,
-			int acctType, boolean blockFlag) {
+	public void createAccount(String username, String password, int empID,
+			String empName, int acctType, boolean blockFlag) {
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Account VALUES ('" + username
-				+ "'," + empID + ",'" + password + "'," + acctType + ","
-				+ boolToBit(blockFlag) + ")";
+				+ "','" + password + "'," + empID + ",'" + empName + "',"
+				+ acctType + "," + boolToBit(blockFlag) + ")";
 		execUpdate(query); // Execute the insertion update
 	}
 
@@ -90,14 +90,15 @@ public class AccountAccess {
 	 * account, along with a username to query as arguments. All fields will be
 	 * updated to the entered parameters.
 	 */
-	protected void modifyAccount(String username, int empID, String password,
-			int acctType, boolean blockFlag, String accessUsername) {
+	public void modifyAccount(String username, String password, int empID,
+			String empName, int acctType, boolean blockFlag,
+			String accessUsername) {
 		// Create the update query string
 		String query = "UPDATE c275g01A SET Username='" + username
-				+ "', EmployeeID=" + empID + ", Pass = '" + password
-				+ "', AccountType = " + acctType + ", BlockAccountaFlag = "
-				+ boolToBit(blockFlag) + "WHERE Username = '" + accessUsername
-				+ "'";
+				+ "', Pass = '" + password + ", EmployeeID = " + empID
+				+ ", EmployeeName = '" + empName + "', AccountType = "
+				+ acctType + ", BlockAccountaFlag = " + boolToBit(blockFlag)
+				+ "WHERE Username = '" + accessUsername + "'";
 		execUpdate(query); // Execute the update query
 	}
 
@@ -105,7 +106,7 @@ public class AccountAccess {
 	 * Method to delete an account from the database. Takes a username as an
 	 * argument and removes the account with that username from the database.
 	 */
-	protected void deleteAccount(String username) {
+	public void deleteAccount(String username) {
 		// Create the deletion query string
 		String query = "DELETE FROM c275g01A.dbo.Account WHERE Username = '"
 				+ username + "'";

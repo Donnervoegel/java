@@ -52,22 +52,11 @@ public class CourseAccess {
 	 * method returns a ResultSet object that can be used to access the data in
 	 * a course.
 	 */
-	protected ResultSet accessCourse(String courseID) {
-		PreparedStatement prepStatement = null;
-		ResultSet resSet = null;
+	public ResultSet accessCourse(String courseID) {
 		// Create the selection query string
 		String query = "SELECT * FROM c275g01A.dbo.Course WHERE CourseID = '"
 				+ courseID + "'";
-
-		establishConnection();
-		try { // Prepare and execute query
-			prepStatement = dbConnection.prepareStatement(query);
-			resSet = prepStatement.executeQuery();
-		} catch (SQLException e) {
-			System.out.println("SQL Exception occured, the state : "
-					+ e.getSQLState() + "\nMessage: " + e.getMessage());
-		}
-		return resSet;
+		return execQuery(query); // Execute the query and return the result set
 	}
 
 	/*
@@ -75,14 +64,13 @@ public class CourseAccess {
 	 * course as arguments and inserts a course into the database based off of
 	 * the parameters.
 	 */
-	protected void createAccount(String courseID, String courseName,
-			int markerID, String instructorName, int instructorID,
-			String startDate, String endDate) {
+	public void createCourse(String courseID, String courseName,
+			String instructorName, int instructorID, String startDate,
+			String endDate) {
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Course VALUES ('" + courseID
-				+ "','" + courseName + "'," + markerID + ",'" + instructorName
-				+ "'," + instructorID + ",'" + startDate + "','" + endDate
-				+ "')";
+				+ "','" + courseName + "','" + instructorName + "',"
+				+ instructorID + ",'" + startDate + "','" + endDate + "')";
 		execUpdate(query); // Execute the insertion update
 	}
 
@@ -92,15 +80,15 @@ public class CourseAccess {
 	 * all the fields of the course with the specified access ID based on the
 	 * arguments passed.
 	 */
-	protected void modifyAccount(String courseID, String courseName,
-			int markerID, String instructorName, int instructorID,
-			String startDate, String endDate, String accessID) {
+	public void modifyCourse(String courseID, String courseName,
+			String instructorName, int instructorID, String startDate,
+			String endDate, String accessID) {
 		// Create the update query string
 		String query = "UPDATE c275g01A.dbo.Course CourseID='" + courseID
-				+ "',CourseName='" + courseName + "',MarkerID=" + markerID
-				+ ",InstructorName='" + instructorName + "',InstructorID="
-				+ instructorID + ",StartDate='" + startDate + "',EndDate='"
-				+ endDate + "' WHERE CourseID='" + accessID + "'";
+				+ "',CourseName='" + courseName + "',InstructorName='"
+				+ instructorName + "',InstructorID=" + instructorID
+				+ ",StartDate='" + startDate + "',EndDate='" + endDate
+				+ "' WHERE CourseID='" + accessID + "'";
 		execUpdate(query); // Execute the update query
 	}
 
@@ -108,11 +96,33 @@ public class CourseAccess {
 	 * Method to delete a course from the database. Takes a course ID as the
 	 * parameter and removes the specified course from the database.
 	 */
-	protected void deleteCourse(String courseID) {
+	public void deleteCourse(String courseID) {
 		// Create the deletion query string
 		String query = "DELETE FROM c275g01A.dbo.Course WHERE CourseID = '"
 				+ courseID + "'";
 		execUpdate(query); // Execute the deletion query
+	}
+
+	/*
+	 * Method to access the student list for a specified course. Will return the
+	 * student IDs and names of the student list for the course.
+	 */
+	public ResultSet accessStudentList(String courseID) {
+		String query = "SELECT StudentID,StudentName FROM c275g01A.dbo.Student "
+				+ "WHERE CourseID = '" + courseID + "'";
+		return execQuery(query);
+	}
+
+	public void clearStudentList(String courseID) {
+		String query = "DELETE FROM c275g01A.dbo.Student WHERE CourseID = '"
+				+ courseID + "'";
+		execUpdate(query);
+	}
+
+	public void addStudent(String studentName, int studentID, String courseID) {
+		String query = "INSERT INTO c275g01A.dbo.Student VALUES ('"
+				+ studentName + "'," + studentID + ",'" + courseID + "')";
+		execUpdate(query);
 	}
 
 	/*
@@ -131,5 +141,24 @@ public class CourseAccess {
 			System.out.println("SQL Exception occured, the state : "
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
 		}
+	}
+
+	/*
+	 * Method to execute a query on the database connection and return a result
+	 * set for the query entered as a string argument.
+	 */
+	private ResultSet execQuery(String query) {
+		PreparedStatement prepStatement = null;
+		ResultSet resSet = null;
+
+		establishConnection();
+		try { // Prepare and execute query
+			prepStatement = dbConnection.prepareStatement(query);
+			resSet = prepStatement.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+		return resSet;
 	}
 }
