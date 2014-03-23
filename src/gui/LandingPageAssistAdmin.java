@@ -10,12 +10,12 @@ package gui;
  *
  * @author Pun
  */
-public class LandingPageInstructor extends javax.swing.JFrame {
+public class LandingPageAssistAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form LandingPage
      */
-    public LandingPageInstructor() {
+    public LandingPageAssistAdmin() {
         initComponents();
     }
 
@@ -31,25 +31,19 @@ public class LandingPageInstructor extends javax.swing.JFrame {
         TopPanel = new javax.swing.JPanel();
         Role = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
-        BackButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         Tasks = new javax.swing.JPanel();
-        Marking = new javax.swing.JButton();
-        ViewGrds = new javax.swing.JButton();
+        CourseMang = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MarkShark - Home");
         setResizable(false);
 
-        Role.setText("Role: Instructor");
+        Role.setText("Role: Assistant Admin.");
 
         Logout.setText("Log Out");
 
-        BackButton.setText("Back");
-        BackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButtonActionPerformed(evt);
-            }
-        });
+        jButton1.setText("Back");
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
@@ -59,11 +53,11 @@ public class LandingPageInstructor extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Logout))
                     .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addGap(17, 552, Short.MAX_VALUE)
+                        .addGap(17, 506, Short.MAX_VALUE)
                         .addComponent(Role)))
                 .addContainerGap())
         );
@@ -75,23 +69,16 @@ public class LandingPageInstructor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Logout)
-                    .addComponent(BackButton))
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Tasks.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
 
-        Marking.setText("Marking");
-        Marking.addActionListener(new java.awt.event.ActionListener() {
+        CourseMang.setText("Course Management");
+        CourseMang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MarkingActionPerformed(evt);
-            }
-        });
-
-        ViewGrds.setText("Viewing Grades");
-        ViewGrds.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewGrdsActionPerformed(evt);
+                CourseMangActionPerformed(evt);
             }
         });
 
@@ -100,20 +87,16 @@ public class LandingPageInstructor extends javax.swing.JFrame {
         TasksLayout.setHorizontalGroup(
             TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TasksLayout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
-                .addGroup(TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ViewGrds, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Marking, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(161, 161, 161))
+                .addContainerGap(154, Short.MAX_VALUE)
+                .addComponent(CourseMang, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145))
         );
         TasksLayout.setVerticalGroup(
             TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TasksLayout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addComponent(Marking)
-                .addGap(30, 30, 30)
-                .addComponent(ViewGrds)
-                .addGap(98, 98, 98))
+                .addGap(117, 117, 117)
+                .addComponent(CourseMang)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,7 +105,7 @@ public class LandingPageInstructor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addComponent(Tasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89))
         );
@@ -132,24 +115,16 @@ public class LandingPageInstructor extends javax.swing.JFrame {
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Tasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(655, 492));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MarkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarkingActionPerformed
+    private void CourseMangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourseMangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MarkingActionPerformed
-
-    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BackButtonActionPerformed
-
-    private void ViewGrdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewGrdsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ViewGrdsActionPerformed
+    }//GEN-LAST:event_CourseMangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,13 +143,13 @@ public class LandingPageInstructor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LandingPageInstructor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingPageAssistAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LandingPageInstructor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingPageAssistAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LandingPageInstructor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingPageAssistAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LandingPageInstructor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingPageAssistAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
@@ -182,19 +157,18 @@ public class LandingPageInstructor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                new LandingPageInstructor().setVisible(true);
+                new LandingPageAssistAdmin().setVisible(true);
                 
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BackButton;
+    private javax.swing.JButton CourseMang;
     private javax.swing.JButton Logout;
-    private javax.swing.JButton Marking;
     private javax.swing.JLabel Role;
     private javax.swing.JPanel Tasks;
     private javax.swing.JPanel TopPanel;
-    private javax.swing.JButton ViewGrds;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
