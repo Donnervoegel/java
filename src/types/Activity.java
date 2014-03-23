@@ -1,3 +1,5 @@
+package types;
+
 
 /**
  * Write a description of class Activity here.
@@ -8,5 +10,13 @@
 public class Activity
 {
     private Rubric rubric;
+    private int id;
+    
+    
+    
+    public int getID()
+    {
+        return id;
+    }
 
 }

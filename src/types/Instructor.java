@@ -1,3 +1,5 @@
+package types;
+
 
 /**
  * @desc:   The Instructor class is used to model the Instructor account.
