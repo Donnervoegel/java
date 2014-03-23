@@ -113,17 +113,146 @@ public class CourseAccess {
 		return execQuery(query);
 	}
 
+	/*
+	 * Method to clear the student list when updating it with a new .csv file.
+	 */
 	public void clearStudentList(String courseID) {
 		String query = "DELETE FROM c275g01A.dbo.Student WHERE CourseID = '"
 				+ courseID + "'";
 		execUpdate(query);
 	}
 
+	/*
+	 * Method to add a student to the student list for a particular course.
+	 */
 	public void addStudent(String studentName, int studentID, String courseID) {
 		String query = "INSERT INTO c275g01A.dbo.Student VALUES ('"
 				+ studentName + "'," + studentID + ",'" + courseID + "')";
 		execUpdate(query);
 	}
+
+	/*
+	 * Method to access the list of activities for a particular course.
+	 */
+	public ResultSet accessCourseActivities(String courseID) {
+		String query = "SELECT * FROM c275g01A.dbo.Activity WHERE CourseID = '"
+				+ courseID + "'";
+		return execQuery(query);
+	}
+
+	/*
+	 * Method to access a particular activity by combination of course ID and
+	 * name.
+	 */
+	public ResultSet accessActivity(String courseID, String activityName) {
+		String query = "SELECT * FROM c275g01A.dbo.Activity WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + activityName + "'";
+		return execQuery(query);
+	}
+
+	/*
+	 * Method to add an activity, including all necessary details,
+	 */
+	public void addActivity(String courseID, String activityName,
+			String activityDesc, int activityLang, int activityType,
+			boolean group, String studentSolnPath, String solnPath) {
+		String query = "INSERT INTO c275g01A.dbo.Activity VALUES ('" + courseID
+				+ "','" + activityName + "','" + activityDesc + "',"
+				+ activityLang + "," + activityType + "," + boolToBit(group)
+				+ ",'" + studentSolnPath + "','" + solnPath + "')";
+		execUpdate(query);
+	}
+
+	/*
+	 * Method to update an activity (specified by name) in a particular course
+	 * specified by the course ID passed as a parameter.
+	 */
+	public void modifyActivity(String courseID, String activityName,
+			String activityDesc, int activityLang, int activityType,
+			boolean group, String studentSolnPath, String solnPath) {
+		String query = "UPDATE c275g01A.dbo.Activity ActivityName='"
+				+ activityName + "',ActivityDesc='" + activityDesc
+				+ "',ActivityLang=" + activityLang + ",activityType="
+				+ activityType + ",GroupAct=" + boolToBit(group)
+				+ ",StudentSolnPath='" + studentSolnPath + "',SolnPath='"
+				+ solnPath + "' WHERE CourseID = '" + courseID + "'";
+		execUpdate(query);
+	}
+
+	/*
+	 * Method to remove a specified activity from a course (also specified) by
+	 * name and course ID.
+	 */
+	public void deleteActivity(String courseID, String activityName) {
+		String query = "DELETE FROM c275g01A.dbo.Activity WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + activityName + "'";
+		execUpdate(query);
+	}
+
+	/*
+	 * Method to list the teaching assistant(s) or tutor marker(s) for the
+	 * specified course.
+	 */
+	public ResultSet accessTAs(String courseID) {
+		String query = "SELECT EmployeeID, EmployeeName FROM c275g01A.dbo.Activity WHERE CourseID = '"
+				+ courseID + "'";
+		return execQuery(query);
+	}
+
+	/*
+	 * Method to add a teaching assistant (or tutor marker) to a specified
+	 * course including their employee ID and name.
+	 */
+	public void addTA(String courseID, int empID, String empName) {
+		String query = "INSERT INTO c275g01A.dbo.TeachingAssistant VALUES ('"
+				+ courseID + "'," + empID + ",'" + empName + "')";
+		execUpdate(query);
+	}
+
+	/*
+	 * Method to delete a teaching assistant (or tutor marker) from a specified
+	 * course, deleted by their employee ID.
+	 */
+	public void deleteTA(String courseID, int empID) {
+		String query = "DELETE FROM c275g01A.dbo.TeachingAssistant WHERE CourseID = '"
+				+ courseID + "' AND EmployeeID = " + empID;
+		execUpdate(query);
+	}
+
+	/*
+	 * Method to access the rubric for a specific activity in a course.
+	 */
+	public ResultSet accessRubric(String courseID, String activityName) {
+		String query = "SELECT RubricItem, MaxGrade FROM c275g01A.dbo.Rubric WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + activityName + "'";
+		return execQuery(query);
+	}
+
+	/*
+	 * Method to add a rubric item to the database for a specific activity in a
+	 * specific course.
+	 */
+	public void addRubricItem(String courseID, String activityName,
+			String rubricItem, float maxGrade) {
+		String query = "INSERT INTO c275g01A.dbo.Rubric VALUES ('" + courseID
+				+ "','" + activityName + "','" + rubricItem + "'," + maxGrade
+				+ ")";
+		execUpdate(query);
+	}
+
+	/*
+	 * Method to delete a rubric item for a specific activity in a specific
+	 * course.
+	 */
+	public void deleteRubricItem(String courseID, String activityName,
+			String rubricItem) {
+		String query = "DELETE FROM c275g01A.dbo.Rubric WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + activityName
+				+ "' AND RubricItem = '" + rubricItem + "'";
+		execUpdate(query);
+	}
+
+	// HELPER METHODS
 
 	/*
 	 * Method to execute an update (INSERT, DELETE, UPDATE) query on the
@@ -160,5 +289,13 @@ public class CourseAccess {
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
 		}
 		return resSet;
+	}
+
+	/*
+	 * Method to convert a boolean value to either 0 or 1 to be used as a bit in
+	 * SQL queries.
+	 */
+	private int boolToBit(boolean b) {
+		return b ? 1 : 0;
 	}
 }
