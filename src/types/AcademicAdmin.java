@@ -1,3 +1,4 @@
+package types;
 
 /**
  * @desc:   The AcademicAdmin class is used to model the Academic Administrator account.
@@ -14,5 +15,4 @@ public class AcademicAdmin extends Marker
         super(fn, ln, empID, un, pass, 2);
     }
 
-    
 }

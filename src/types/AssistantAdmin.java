@@ -1,3 +1,5 @@
+package types;
+
 
 /**
  * @desc:   The AssistantAdmin class is used to model the Academic Admin Assistant account.

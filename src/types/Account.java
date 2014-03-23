@@ -1,3 +1,5 @@
+package types;
+
 
 /**
  * @desc:   The Abstract Account class is used to hold all atributes

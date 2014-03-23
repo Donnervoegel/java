@@ -1,33 +1,53 @@
+package types;
 
+import java.util.*;
+import java.io.*;
 /**
- * Write a description of class Rubric here.
+ * The class Rubric is used to model the Rubric option. It requires a csv file
+ * to create and populate the items
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chazz Young(0.1) 
  */
 public class Rubric
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    private ArrayList<RubricItem> items;
+    
     /**
-     * Constructor for objects of class Rubric
+     * General constructor
      */
-    public Rubric()
+    public Rubric(String file)
     {
-        // initialise instance variables
-        x = 0;
+        items = new ArrayList<RubricItem>();
+        populateRubric(file);
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Special case where the rubric is a pass/fail rubric
      */
-    public int sampleMethod(int y)
+    public Rubric(boolean pass, int max)
     {
-        // put your code here
-        return x + y;
+        items = new ArrayList<RubricItem>(1);
+        items.add(new RubricItem("This assignment is pass/fail", 1));
+    }
+    
+    private void populateRubric(String filepath)
+    {
+        //Input is coming soon...
+    }
+}
+
+/**
+ * This helper class is used to represent one item in the rubric. As it is only 
+ * used by the Rubric class, its fields are public
+ */
+class RubricItem
+{
+    public String description;
+    public int max_grade;
+    
+    public RubricItem(String desc, int max)
+    {
+        description = desc;
+        max_grade = max;
     }
 }

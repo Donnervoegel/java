@@ -1,3 +1,5 @@
+package types;
+
 
 /**
  * @desc:   The SystemAdmin class is used to model the System Administrator account.
