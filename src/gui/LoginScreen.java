@@ -66,7 +66,7 @@ public class LoginScreen extends JFrame {
         login_button.addActionListener(evt -> loginButtonActionPerformed(evt));
 
 	// Flurry of generated code
-        javax.swing.GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)

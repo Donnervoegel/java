@@ -1,7 +1,8 @@
 package gui;
 
 import javax.swing.*;
-import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 import java.awt.event.*;
 import java.util.*;
 import types.*;
@@ -38,11 +39,30 @@ public class MasterFrame extends JFrame {
 	logout.addActionListener(e -> logoutAction(e));
 
 	// Set up persistent top bar
-	top_bar.setLayout(new GridLayout(2,2,100,5));
-	top_bar.add(crumbs);
-	top_bar.add(role);
-	top_bar.add(back);
-	top_bar.add(logout);
+	top_bar.setLayout(new GridBagLayout());
+	GridBagConstraints c = new GridBagConstraints();
+	c.gridx = 0;
+	c.gridy = 0;
+	c.anchor = GridBagConstraints.LINE_START;
+	top_bar.add(crumbs, c);
+
+	c.gridx = 2;
+	c.gridy = 0;
+	c.weighty = 1.0;
+	c.anchor = GridBagConstraints.LINE_END;
+	top_bar.add(role, c);
+
+	c.gridx = 0;
+	c.gridy = 1;
+	c.weighty = 0;
+	c.anchor = GridBagConstraints.LINE_START;
+	top_bar.add(back, c);
+
+	c.gridx = 2;
+	c.gridy = 1;
+	c.anchor = GridBagConstraints.LINE_END;
+	c.weighty = 1.0;
+	top_bar.add(logout, c);
 
 	// Set up bottom panel according to `a`.
 
