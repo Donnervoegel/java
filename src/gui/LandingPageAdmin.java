@@ -33,8 +33,8 @@ public class LandingPageAdmin extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         Tasks = new javax.swing.JPanel();
-        ManageDB = new javax.swing.JButton();
-        ManageAcc = new javax.swing.JButton();
+        Grading = new javax.swing.JButton();
+        ActManage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MarkShark - Home");
@@ -76,14 +76,14 @@ public class LandingPageAdmin extends javax.swing.JFrame {
 
         Tasks.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
 
-        ManageDB.setText("Marking");
-        ManageDB.addActionListener(new java.awt.event.ActionListener() {
+        Grading.setText("Grading");
+        Grading.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ManageDBActionPerformed(evt);
+                GradingActionPerformed(evt);
             }
         });
 
-        ManageAcc.setText("Activity Management");
+        ActManage.setText("Activity Management");
 
         javax.swing.GroupLayout TasksLayout = new javax.swing.GroupLayout(Tasks);
         Tasks.setLayout(TasksLayout);
@@ -92,17 +92,17 @@ public class LandingPageAdmin extends javax.swing.JFrame {
             .addGroup(TasksLayout.createSequentialGroup()
                 .addGap(146, 146, 146)
                 .addGroup(TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ManageAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ManageDB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ActManage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Grading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         TasksLayout.setVerticalGroup(
             TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TasksLayout.createSequentialGroup()
                 .addContainerGap(94, Short.MAX_VALUE)
-                .addComponent(ManageDB)
+                .addComponent(Grading)
                 .addGap(30, 30, 30)
-                .addComponent(ManageAcc)
+                .addComponent(ActManage)
                 .addGap(98, 98, 98))
         );
 
@@ -129,9 +129,9 @@ public class LandingPageAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ManageDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageDBActionPerformed
+    private void GradingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GradingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ManageDBActionPerformed
+    }//GEN-LAST:event_GradingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,9 +171,9 @@ public class LandingPageAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ActManage;
+    private javax.swing.JButton Grading;
     private javax.swing.JButton Logout;
-    private javax.swing.JButton ManageAcc;
-    private javax.swing.JButton ManageDB;
     private javax.swing.JLabel Role;
     private javax.swing.JPanel Tasks;
     private javax.swing.JPanel TopPanel;
