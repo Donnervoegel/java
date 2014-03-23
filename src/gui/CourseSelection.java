@@ -10,12 +10,12 @@ package gui;
  *
  * @author Pun
  */
-public class LandingPageTA extends javax.swing.JFrame {
+public class CourseSelection extends javax.swing.JFrame {
 
     /**
      * Creates new form LandingPage
      */
-    public LandingPageTA() {
+    public CourseSelection() {
         initComponents();
     }
 
@@ -32,8 +32,11 @@ public class LandingPageTA extends javax.swing.JFrame {
         Role = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
         Back = new javax.swing.JButton();
-        Tasks = new javax.swing.JPanel();
-        Marking = new javax.swing.JButton();
+        CourseSelectionHeader = new javax.swing.JPanel();
+        CourseDropdown = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        OKButton = new javax.swing.JButton();
+        CancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MarkShark - Home");
@@ -62,7 +65,7 @@ public class LandingPageTA extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Logout))
                     .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(17, 588, Short.MAX_VALUE)
                         .addComponent(Role)))
                 .addContainerGap())
         );
@@ -78,64 +81,85 @@ public class LandingPageTA extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Tasks.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
+        CourseSelectionHeader.setBorder(javax.swing.BorderFactory.createTitledBorder("Course Selection"));
+        CourseSelectionHeader.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CourseSelectionHeader.setName(""); // NOI18N
 
-        Marking.setText("Marking");
-        Marking.addActionListener(new java.awt.event.ActionListener() {
+        CourseDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LIFT 101", "NUTR 203", "CARD 201", "GYM 406" }));
+
+        jLabel1.setText("Courses:");
+
+        javax.swing.GroupLayout CourseSelectionHeaderLayout = new javax.swing.GroupLayout(CourseSelectionHeader);
+        CourseSelectionHeader.setLayout(CourseSelectionHeaderLayout);
+        CourseSelectionHeaderLayout.setHorizontalGroup(
+            CourseSelectionHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CourseSelectionHeaderLayout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CourseDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
+        );
+        CourseSelectionHeaderLayout.setVerticalGroup(
+            CourseSelectionHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CourseSelectionHeaderLayout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addGroup(CourseSelectionHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CourseDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        OKButton.setText("OK");
+        OKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MarkingActionPerformed(evt);
+                OKButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout TasksLayout = new javax.swing.GroupLayout(Tasks);
-        Tasks.setLayout(TasksLayout);
-        TasksLayout.setHorizontalGroup(
-            TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TasksLayout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(Marking, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
-        TasksLayout.setVerticalGroup(
-            TasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TasksLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(Marking)
-                .addContainerGap(127, Short.MAX_VALUE))
-        );
+        CancelButton.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
+            .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Tasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89))))
+                        .addComponent(CourseSelectionHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(OKButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CancelButton)
+                        .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Tasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addComponent(CourseSelectionHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OKButton)
+                    .addComponent(CancelButton))
+                .addContainerGap())
         );
 
         setSize(new java.awt.Dimension(655, 492));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MarkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarkingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MarkingActionPerformed
-
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BackActionPerformed
+
+    private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OKButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,13 +178,13 @@ public class LandingPageTA extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LandingPageTA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LandingPageTA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LandingPageTA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LandingPageTA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
@@ -168,7 +192,7 @@ public class LandingPageTA extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                new LandingPageTA().setVisible(true);
+                new CourseSelection().setVisible(true);
                 
             }
         });
@@ -176,10 +200,13 @@ public class LandingPageTA extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
+    private javax.swing.JButton CancelButton;
+    private javax.swing.JComboBox CourseDropdown;
+    private javax.swing.JPanel CourseSelectionHeader;
     private javax.swing.JButton Logout;
-    private javax.swing.JButton Marking;
+    private javax.swing.JButton OKButton;
     private javax.swing.JLabel Role;
-    private javax.swing.JPanel Tasks;
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
