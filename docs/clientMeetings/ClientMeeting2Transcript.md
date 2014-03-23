@@ -82,7 +82,7 @@
 
 **Stephen:** And I have one question about if she fails to put in the password correctly that she was given when she’s trying to change it, would there be some sort of security issue or continually allow to...
 
-**Janice** Again, if she screws it up five times she’ll have to go back to the system administrator.
+**Janice:** Again, if she screws it up five times she’ll have to go back to the system administrator.
 
 (That’s still unlikely)
 
@@ -90,7 +90,7 @@
 
 **Stephen:** And then, so that...  So for the password, do you have any sorts of specifications that you suggest to conform with the rest of your system?
 
-**Janice** Um, not directly, we simply specify that they’re characters and numbers.
+**Janice:** Um, not directly, we simply specify that they’re characters and numbers.
 
 **Chazz:** characters and numbers.
 
@@ -100,7 +100,7 @@
 
 **Stephen:** And this is all stored in the database, so the system administrator Jennifer, when she went to go back up the database, we envision this to be outside the system, so that she would shut down the system...
 
-**Janice** We would actually like the system administrator within the system to have a button that says “backup system”
+**Janice:** We would actually like the system administrator within the system to have a button that says “backup system”
 
 **Stephen:** So just make it…  So then, would you like to… be able to schedule on a regular basis or just always the system
 
@@ -108,19 +108,19 @@
 
 **Stephen:** Alright, um, so internal… So then, the system administrator’s home page would have a backup button, would that be, would this be common feature that the system administrator does seeing as it’s only a semester—a term.
 
-**Janice** It’s something that would not be done that often.  [?] Archive it.  It would probably actually have ongoing backups.
+**Janice:** It’s something that would not be done that often.  [?] Archive it.  It would probably actually have ongoing backups.
 
 **Stephen:** Yes.  And you had some other comments about the database?
 
-**Janice** Actually there was storing.
+**Janice:** Actually there was storing.
 
 **Stephen:** Oh yes, storing. So then, you would also want a restore button that would bring up a list of previous backups?
 
-**Janice** What we would like to see in the long run is that from old backups on request we could load courses that were more than 5 years old.
+**Janice:** What we would like to see in the long run is that from old backups on request we could load courses that were more than 5 years old.
 
 **Stephen:** More than 5.
 
-**Janice** Because at 5 years we’ll be taking them out of the active system.
+**Janice:** Because at 5 years we’ll be taking them out of the active system.
 
 **Stephen:** Ok.  And you specified courses, so backups, how we see it would be the entire system.  So you would like to choose specific courses for the restore?
 
@@ -132,25 +132,25 @@
 
 **Ian:** Perfect.  I would like to talk about the administrator assistant role.  So um, let’s say the admin assistant Jane logs in correctly and uh what I have come up with is that we’re given a UI of some sort that has a create button, a modify or update button
 
-**Janice** Uh huh
+**Janice:** Uh huh
 
-**Ian** And copy course, and my question here is about the delete. And in the scenario that Jane, er, yeah, would like to delete a course
+**Ian:** And copy course, and my question here is about the delete. And in the scenario that Jane, er, yeah, would like to delete a course
 
-**Janice** Mmhm
+**Janice:** Mmhm
 
-**Ian** Is a certain time frame that they’re allowed to delete in or…?
+**Ian:** Is a certain time frame that they’re allowed to delete in or…?
 
-**Janice** There’s not an actual time frame but there is a constraint.
+**Janice:** There’s not an actual time frame but there is a constraint.
 
-**Ian** Ok
+**Ian:** Ok
 
 **Janice:** After activities have been added she may not delete a course.
 
 **Ian:** Thank you.  Ok so, I want to further ask the course database.  Now, when we do create a course um, is it in a local database that we’re holding the courses for then—
 
-**Janice** Your system would have a local database. Um, local as opposed to what?
+**Janice:** Your system would have a local database. Um, local as opposed to what?
 
-**Ian** Storing the courses as outside the … building.
+**Ian:** Storing the courses as outside the … building.
 
 **Chazz:** Like on an external database.
 
@@ -168,9 +168,9 @@
 
 **Colin:** May I ask something?  That courses can’t be deleted after activities have been added. 
 
-**Janice** That’s correct
+**Janice:** That’s correct
 
-**Colin** When you… copy a course, are assignments that were say part of the older course that you could then… several semesters ago, wouldn’t there already be assignments in there?
+**Colin:** When you… copy a course, are assignments that were say part of the older course that you could then… several semesters ago, wouldn’t there already be assignments in there?
 
 **Janice:** No, no.  Copy a course is only some of the things that are copied
 
@@ -190,19 +190,19 @@
 
 **Ian:** so are we allowed to only copy courses within the 5 years?
 
-**Janice** Yes.
+**Janice:** Yes.
 
-**Ian** So then that would be from the same backup .
+**Ian:** So then that would be from the same backup .
 
-**Janice** It would be from the active courses in the database which would be the last 5 years.
+**Janice:** It would be from the active courses in the database which would be the last 5 years.
 
 **Ian:** ok.  And up with creating a page, um, or say sorry creating a course, I would like to know a little bit more about the additional info needed about the instructor or the TA.
 
-**Janice** Uh, I think I just actually gave you that, because all we need is the name and employee number for each.
+**Janice:** Uh, I think I just actually gave you that, because all we need is the name and employee number for each.
 
-**Ian** Name and employee number.
+**Ian:** Name and employee number.
 
-**Janice** For each instructor and TA.
+**Janice:** For each instructor and TA.
 
 **Ian:** Ok.  And when we’re in as an admin assistant we’re also doing the list of activities section, and I just want to clarify for further than from our last meeting what that is meant.  Does the admin assistant
 
@@ -214,49 +214,49 @@
 
 **Janice:** could you give us just a second here?
 
-**Markus** Yeah no problem.
+**Markus:** Yeah no problem.
 
-**Janice** Okay.
+**Janice:** Okay.
 
-**Markus** Ok, so let’s say we’ll have an instructor, say professor smith, who has logged in correctly, and is on the start page. They might have an option for grading and an option for course management, which would be the instructor’s part of managing courses obviously not creating or anything. SO, they might choose course management and see a list of courses they have, maybe CS125 and CS150? They chose one of those, maybe 125 and they would see a list of their activities for the course, that they might already have this could be empty or maybe they already put some in.  Um, and so kind of branch off into two slightly different options. They’d have an option to create a course
+**Markus:** Ok, so let’s say we’ll have an instructor, say professor smith, who has logged in correctly, and is on the start page. They might have an option for grading and an option for course management, which would be the instructor’s part of managing courses obviously not creating or anything. SO, they might choose course management and see a list of courses they have, maybe CS125 and CS150? They chose one of those, maybe 125 and they would see a list of their activities for the course, that they might already have this could be empty or maybe they already put some in.  Um, and so kind of branch off into two slightly different options. They’d have an option to create a course
 
-**Janice** Course or an activity?
+**Janice:** Course or an activity?
 
-**Markus** Er activity, sorry, thank you. So, they would create an activity, and sort of be prompted with a form to fill out, and I just wanted to clarify to make sure we had the proper details for this.  So I have listed here that it would have the name of the activity, description for the activity, its type, say programming or an essay or something, language, now this could either be a programming language or foreign language, if it was a group or individual activity, a rubric, and possibly a solution if there was
+**Markus:** Er activity, sorry, thank you. So, they would create an activity, and sort of be prompted with a form to fill out, and I just wanted to clarify to make sure we had the proper details for this.  So I have listed here that it would have the name of the activity, description for the activity, its type, say programming or an essay or something, language, now this could either be a programming language or foreign language, if it was a group or individual activity, a rubric, and possibly a solution if there was
 
-**Janice** It must have a solution
+**Janice:** It must have a solution
 
-**Markus** Ok it has to have a solution. Would you want that even for something like an essay?
+**Markus:** Ok it has to have a solution. Would you want that even for something like an essay?
 
-**Janice** There would be a sample solution.
+**Janice:** There would be a sample solution.
 
-**Markus** Ok, and would there be anything else?
+**Markus:** Ok, and would there be anything else?
 
 **Janice:** ok, uh, well, you have to be able to find the assignments to grade, so the instructor would have to specify the path to the directory of the assignments to mark. And depending on your project there’s going to be different types of files and different numbers of files in each student’s directory, in that submission area, so you would have to have the instructor specify the file names and file types that are expected
 
-**Markus** Ok
+**Markus:** Ok
 
-**Janice** Did you have a due date?
+**Janice:** Did you have a due date?
 
-**Markus** Uh… I should have said that, I had it written here, but I didn’t, so.
+**Markus:** Uh… I should have said that, I had it written here, but I didn’t, so.
 
-**Janice** Well in addition to the due date, uh, there would be a group of late penalties, ok?  So up to 3 dates after the due date, and for each due date a percentage reduction score.
+**Janice:** Well in addition to the due date, uh, there would be a group of late penalties, ok?  So up to 3 dates after the due date, and for each due date a percentage reduction score.
 
 **Colin:** one percent or a certain percent? 
 
-**Janice** The instructor would actually specify the percent reduction for each of the 3 dates
+**Janice:** The instructor would actually specify the percent reduction for each of the 3 dates
 
 **Markus:** so for example after 24h maybe the student would lose 25% of their total mark.
 
-**Janice** And after 48 hours 50%.
+**Janice:** And after 48 hours 50%.
 
-**Markus** Ok.
+**Markus:** Ok.
 
-**Janice** And after 72 hours, 100%.
+**Janice:** And after 72 hours, 100%.
 
 **Chazz:** As an example.
 
-**Janice** As an example. So they would have to specify the time the date and the uh
+**Janice:** As an example. So they would have to specify the time the date and the uh
 
 **Markus:** Time and date of the penalties.
 
@@ -268,11 +268,11 @@
 
 **Stephen:** Uh, one other way I have heard of other classes is that the professors would remove a percentage of the grade of the what the student would get if it wasn’t late, like if the student would have handed it in on time, and he only got 50%, and the student--and the late fee was 25% they’d only lose 25% of the 50
 
-**Janice** Well... that’s exactly what we mean.
+**Janice:** Well... that’s exactly what we mean.
 
 **Stephen:** Oh.
 
-**Janice** Well basically, that’s actually a good thing to clarify because it can be interpreted in different ways.  If the instructor says the reduction is 50% the student gets 50% of the score that they would have got if it was on time.
+**Janice:** Well basically, that’s actually a good thing to clarify because it can be interpreted in different ways.  If the instructor says the reduction is 50% the student gets 50% of the score that they would have got if it was on time.
 
 **Chazz;** so the instructor marks it as they would mark it if it wasn’t late, and the system would handle the reduction.
 
@@ -280,121 +280,121 @@
 
 **Markus:** So is that all the details of an activity?
 
-**Janice** Ah, let me see…  The list of tests if it’s a programming, and of course after it’s been graded the list of all the student grades for every rubric.
+**Janice:** Ah, let me see…  The list of tests if it’s a programming, and of course after it’s been graded the list of all the student grades for every rubric.
 
 **Markus:** And just to clarify the rubric as well, so you’re looking at sort of a table, where it would have columns for uh parts of the assignment
 
-**Janice** So a description of what points are for, the maximum number of points, and a place to actually enter the actual number of points.  And I think one thing I should point out about that is that the system should not enforce the maximum because instructors occasionally like to give bonuses.
+**Janice:** So a description of what points are for, the maximum number of points, and a place to actually enter the actual number of points.  And I think one thing I should point out about that is that the system should not enforce the maximum because instructors occasionally like to give bonuses.
 
-**Markus** And just to go along with that, that would be for creating an activity and presumably for editing an activity it would be a similar thing instead of clicking create they’d choose from an activity that they already had
+**Markus:** And just to go along with that, that would be for creating an activity and presumably for editing an activity it would be a similar thing instead of clicking create they’d choose from an activity that they already had
 
 **Janice:** Would come up
 
-**Markus** In the same form, with the only constraint that if they do edit a rubric then everything needs to be regarded.
+**Markus:** In the same form, with the only constraint that if they do edit a rubric then everything needs to be regarded.
 
-**Janice** Janice: If anything has been marked.
+**Janice:** Janice: If anything has been marked.
 
-**Markus** And then, I just want to ask about copying as well, so 
+**Markus:** And then, I just want to ask about copying as well, so 
 
-**Janice** Alright just give me a short second…
+**Janice:** Alright just give me a short second…
 
 (Cough)
 
-**Markus** So following the same basic flow, the professor logs in, they choose course management, they choose the course they’re teaching, uh, and then they see the list of activities again, and there would be a prompt to copy activities kind of probably close to the create button, and uh at this point I’m assuming they would be presented with a list of previous offerings of the course. Would this be any offerings or only theirs or
+**Markus:** So following the same basic flow, the professor logs in, they choose course management, they choose the course they’re teaching, uh, and then they see the list of activities again, and there would be a prompt to copy activities kind of probably close to the create button, and uh at this point I’m assuming they would be presented with a list of previous offerings of the course. Would this be any offerings or only theirs or
 
-**Janice** It would be any offerings.
+**Janice:** It would be any offerings.
 
-**Markus** Ok, and similarly that would follow that 5 year active
+**Markus:** Ok, and similarly that would follow that 5 year active
 
-**Janice** Yes and in addition to any offerings previous offerings any other courses that they taught.  
+**Janice:** Yes and in addition to any offerings previous offerings any other courses that they taught.  
 
-**Markus** Ok.  So all the courses they’ve taught and previous offerings of the same course.
+**Markus:** Ok.  So all the courses they’ve taught and previous offerings of the same course.
 
-**Janice** Yes.
+**Janice:** Yes.
 
-**Markus** And then they might choose from one of those offerings and then would be shown a list of the activities from that offering, and would be able to select either all or a subset of activities
+**Markus:** And then they might choose from one of those offerings and then would be shown a list of the activities from that offering, and would be able to select either all or a subset of activities
 
-**Janice** Yeah
+**Janice:** Yeah
 
-**Markus** And then they might select the option to copy and this would give them er this would complete the operation and copy those activities into the current course offering
+**Markus:** And then they might select the option to copy and this would give them er this would complete the operation and copy those activities into the current course offering
 
-**Janice** Perfect yes
+**Janice:** Perfect yes
 
-**Markus** And I just want to clarify which details would be copied
+**Markus:** And I just want to clarify which details would be copied
 
-**Janice** Alright let me check to make sure I get this correct.  Have you got that list on you?  Ah here.  So you would copy the name the solutions, the rubric, the language, whether it was individual or group, the due date and penalties and bonuses.
+**Janice:** Alright let me check to make sure I get this correct.  Have you got that list on you?  Ah here.  So you would copy the name the solutions, the rubric, the language, whether it was individual or group, the due date and penalties and bonuses.
 
 **Colin:** the due date?  If it was a previous offering wouldn’t the due date be incorrect?
 
-**Janice** That’s true.
+**Janice:** That’s true.
 
 (Laughter)
 
-**Janice** Ah yes, so, the specifications of the file name and file types.  I see what happened.
+**Janice:** Ah yes, so, the specifications of the file name and file types.  I see what happened.
 
 **Colin:** is it safe to say then that due date is not copied?  
 
-**Janice** Due date is not copied. That was an error on my part
+**Janice:** Due date is not copied. That was an error on my part
 
 **Chazz:** and so then the late penalties and early bonuses
 
-**Janice** Yes I did say that I thought the due date yes that’s right. The late penalties and early bonuses could be copied…
+**Janice:** Yes I did say that I thought the due date yes that’s right. The late penalties and early bonuses could be copied…
 
 **Markus:** if they’re based off the time from the due date rather than a concrete date.
 
 **Janice:** That’s right.
 
-**Markus** Ok. And I think that covers everything that I have.
+**Markus:** Ok. And I think that covers everything that I have.
 
 **Graeme:** I wanted to talk about the instructor and how groups are managed.
 
-**Janice** Alright. If you could give me just one second here… (27:13) Ok, 
+**Janice:** Alright. If you could give me just one second here… (27:13) Ok, 
 
-**Graeme** So, you have the instructor Smith and he’s going to create a new group, just a single group. So he goes and he [?] in his course management.  So click on that and go to that.  And from there he’ll be presented with the list of activities, so he can choose a group for a certain activity or possibly multiple activities at the same time?
+**Graeme:** So, you have the instructor Smith and he’s going to create a new group, just a single group. So he goes and he [?] in his course management.  So click on that and go to that.  And from there he’ll be presented with the list of activities, so he can choose a group for a certain activity or possibly multiple activities at the same time?
 
-**Janice** We would want two options: either choose a group for this particular activity, or choose a group for the whole course.
+**Janice:** We would want two options: either choose a group for this particular activity, or choose a group for the whole course.
 
-**Graeme** Ok, so it wouldn’t just be like say a group for 2 activities out of all of—
+**Graeme:** Ok, so it wouldn’t just be like say a group for 2 activities out of all of—
 
 **Janice:** No.
 
-**Graeme** Ok.  Ok, in that case he’s just going to make a group for one activity called Activity Hello World, so he chooses “Hello World” from this list of already made activities
+**Graeme:** Ok.  Ok, in that case he’s just going to make a group for one activity called Activity Hello World, so he chooses “Hello World” from this list of already made activities
 
-**Janice** Mmhm.
+**Janice:** Mmhm.
 
 **Graeme:** And he’ll continue next, he’s then presented with his list of students in the course, and he for this activity let’s say there’s a group of two.  So out of his list of students he can choose 2 students… Tasha and John, and then he’ll also enter a name for the group. So the group will have the name um, the can be of his choosing right
 
-**Janice** Yeah
+**Janice:** Yeah
 
 **Graeme:** So it’s just G1 or anything.   He’ll confirm and there’s this group for that one activity Hello World that’s present.  Also there’s TA and TM management.
 
-**Janice** Ok.
+**Janice:** Ok.
 
-**Graeme** Um, well it’ll be the same they’ll be treated essentially the same whether they’re a TA or TM.
+**Graeme:** Um, well it’ll be the same they’ll be treated essentially the same whether they’re a TA or TM.
 
-**Janice** Yes.
+**Janice:** Yes.
 
-**Graeme** So could also have the management option, and he’ll click on that to go to the TA’s and TM’s and similarly he’ll be presented with a list of which
+**Graeme:** So could also have the management option, and he’ll click on that to go to the TA’s and TM’s and similarly he’ll be presented with a list of which
 
-**Janice** Now who’s doing this?  I missed that.
+**Janice:** Now who’s doing this?  I missed that.
 
 **Graeme:** The instructor, the instructor’s still…
 
-**Janice** No, the admin assistant sets up the courses and is responsible for assigning the TA’s.
+**Janice:** No, the admin assistant sets up the courses and is responsible for assigning the TA’s.
 
-**Graeme** To activities? To certain activities.
+**Graeme:** To activities? To certain activities.
 
-**Janice** Oh to certain activities? Oh! Ok so you’re saying for groups of students or 
+**Janice:** Oh to certain activities? Oh! Ok so you’re saying for groups of students or 
 
-**Graeme** Groups of students and activities. Does that...?
+**Graeme:** Groups of students and activities. Does that...?
 
-**Janice** Yes, yeah.
+**Janice:** Yes, yeah.
 
 **Graeme:** Ok good.
 
-**Janice** Alright.  I was confused and I missed what you said.
+**Janice:** Alright.  I was confused and I missed what you said.
 
-**Graeme** Oh yes so this management would all be for assigning activities or groups to certain TA’s I’ll just say TA.
+**Graeme:** Oh yes so this management would all be for assigning activities or groups to certain TA’s I’ll just say TA.
 
 **Janice:** Ok
 
@@ -929,14 +929,12 @@ Ian: Ok.
 
 **Jordan:** I think that’s all for the test suite.
 
-**Janice:** alright, thank you. I think… are you done?
+**Janice:** Alright, thank you. I think… are you done?
 
 **All:** Yes.
 
 **Janice:** Ok, so very good. I think we are very close to running out of time here. Thank you for coming, I had hoped we would have some time to discuss priorities and what is going to go into the prototype today, but it looks like we’ll have to have a short meeting at a later time.  Thank you
 
 **All:** Thank you. (59:57)
-
-
 
 
