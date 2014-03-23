@@ -8,6 +8,7 @@ package gui;
 
 import javax.swing.*;
 import java.awt.event.*;
+import types.*;
 
 /**
  *
@@ -22,6 +23,7 @@ public class LoginScreen extends JFrame {
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JPanel jPanel1;
+    private MasterFrame master;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -145,10 +147,16 @@ public class LoginScreen extends JFrame {
 	if(pass.length() < 5) {
 	    JOptionPane
 		.showMessageDialog(this, "The password given is too short.");
+	} else if(name.isEmpty()) {
+	    JOptionPane
+		.showMessageDialog(this, "No user name given.");
 	} else {
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
-	    // Perform login.
+	    // TODO: This needs to be passed a legit Account object.
+	    master = new MasterFrame(null);
+	    this.setVisible(false);
+	    master.run();
 	}
     }
 
