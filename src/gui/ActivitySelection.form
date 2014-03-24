@@ -27,18 +27,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="TopPanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="top_panel" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="ActivitySelectionHeader" min="-2" max="-2" attributes="0"/>
+                      <Component id="activity_selection_header" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="OKButton" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="ok_button" min="-2" pref="63" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="CancelButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="cancel_button" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -48,13 +48,13 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
+              <Component id="top_panel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="ActivitySelectionHeader" min="-2" max="-2" attributes="0"/>
+              <Component id="activity_selection_header" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="50" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="OKButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ok_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancel_button" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -62,7 +62,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="TopPanel">
+    <Container class="javax.swing.JPanel" name="top_panel">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -71,13 +71,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Back" min="-2" pref="59" max="-2" attributes="0"/>
+                          <Component id="back_button" min="-2" pref="59" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Logout" min="-2" max="-2" attributes="0"/>
+                          <Component id="logout_button" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="17" pref="588" max="32767" attributes="0"/>
-                          <Component id="Role" min="-2" max="-2" attributes="0"/>
+                          <Component id="role_label" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -88,11 +88,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Component id="Role" min="-2" max="-2" attributes="0"/>
+                  <Component id="role_label" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Logout" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Back" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="logout_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="back_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -100,27 +100,27 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="Role">
+        <Component class="javax.swing.JLabel" name="role_label">
           <Properties>
             <Property name="text" type="java.lang.String" value="Role: TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Logout">
+        <Component class="javax.swing.JButton" name="logout_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Log Out"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Back">
+        <Component class="javax.swing.JButton" name="back_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="back_buttonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="ActivitySelectionHeader">
+    <Container class="javax.swing.JPanel" name="activity_selection_header">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -132,18 +132,15 @@
         </Property>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Activity Selection"/>
-      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="66" max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="activities_label" min="-2" pref="102" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ActivityDropdown" min="-2" pref="206" max="-2" attributes="0"/>
+                  <Component id="activity_dropdown" min="-2" pref="206" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -153,8 +150,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ActivityDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="activity_dropdown" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="activities_label" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="142" max="32767" attributes="0"/>
               </Group>
@@ -162,7 +159,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JComboBox" name="ActivityDropdown">
+        <Component class="javax.swing.JComboBox" name="activity_dropdown">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -174,22 +171,22 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="activities_label">
           <Properties>
             <Property name="text" type="java.lang.String" value="Activities:"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="OKButton">
+    <Component class="javax.swing.JButton" name="ok_button">
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OKButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ok_buttonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="CancelButton">
+    <Component class="javax.swing.JButton" name="cancel_button">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
