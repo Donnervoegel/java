@@ -29,62 +29,16 @@ public class SelectActivityMatrix extends javax.swing.JPanel {
     private void initComponents() {
 
         student_matrix_header = new javax.swing.JPanel();
-        student_activity_scrollpane = new javax.swing.JScrollPane();
-        student_activity_table = new javax.swing.JTable();
         cancel_button = new javax.swing.JButton();
         ok_button = new javax.swing.JButton();
+        student_select_dropdown = new javax.swing.JComboBox();
+        assignment_select_dropdown = new javax.swing.JComboBox();
+        student_label = new javax.swing.JLabel();
+        assignment_label = new javax.swing.JLabel();
 
         student_matrix_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Select the Desired Activity:"));
         student_matrix_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         student_matrix_header.setName(""); // NOI18N
-
-        student_activity_table.setAutoCreateRowSorter(true);
-        student_activity_table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Colin", null, null, null, null},
-                {"Jordan", null, null, null, null},
-                {"Stephen", null, null, null, null},
-                {"Ian", null, null, null, null},
-                {"Markus", null, null, null, null},
-                {"Chazz", null, null, null, null},
-                {"Graeme", null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Student", "Activity 1", "Activity 2", "Activity 3", "Activity 4"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        student_activity_table.setColumnSelectionAllowed(true);
-        student_activity_table.getTableHeader().setReorderingAllowed(false);
-        student_activity_scrollpane.setViewportView(student_activity_table);
 
         cancel_button.setText("Cancel");
 
@@ -95,26 +49,50 @@ public class SelectActivityMatrix extends javax.swing.JPanel {
             }
         });
 
+        student_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Student A", "Student B", "Student C" }));
+
+        assignment_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Assignment 1", "Assignment 2", "Assignment 3" }));
+
+        student_label.setText("Student:");
+
+        assignment_label.setText("Assignment");
+
         javax.swing.GroupLayout student_matrix_headerLayout = new javax.swing.GroupLayout(student_matrix_header);
         student_matrix_header.setLayout(student_matrix_headerLayout);
         student_matrix_headerLayout.setHorizontalGroup(
             student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(student_matrix_headerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(72, 72, 72)
+                .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(student_matrix_headerLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(cancel_button))
-                    .addComponent(student_activity_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, student_matrix_headerLayout.createSequentialGroup()
+                        .addComponent(assignment_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                        .addComponent(assignment_select_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(student_matrix_headerLayout.createSequentialGroup()
+                        .addComponent(student_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(student_select_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         student_matrix_headerLayout.setVerticalGroup(
             student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(student_matrix_headerLayout.createSequentialGroup()
-                .addComponent(student_activity_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(52, 52, 52)
+                .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(student_matrix_headerLayout.createSequentialGroup()
+                        .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(student_select_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(student_label))
+                        .addGap(78, 78, 78))
+                    .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(assignment_label)
+                        .addComponent(assignment_select_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ok_button)
                     .addComponent(cancel_button)))
@@ -144,10 +122,12 @@ public class SelectActivityMatrix extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel assignment_label;
+    private javax.swing.JComboBox assignment_select_dropdown;
     private javax.swing.JButton cancel_button;
     private javax.swing.JButton ok_button;
-    private javax.swing.JScrollPane student_activity_scrollpane;
-    private javax.swing.JTable student_activity_table;
+    private javax.swing.JLabel student_label;
     private javax.swing.JPanel student_matrix_header;
+    private javax.swing.JComboBox student_select_dropdown;
     // End of variables declaration//GEN-END:variables
 }
