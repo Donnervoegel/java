@@ -80,6 +80,14 @@ public class MasterFrame extends JFrame {
 	this.setVisible(true);
     }
 
+    public void movePage(JPanel p) {
+	curr_page.setVisible(false);
+	//pages.add(0, curr_page);  // Should push that page to the Stack.
+	curr_page = p;
+	add(curr_page);  // Better way to do this?
+	curr_page.setVisible(true);
+    }
+
     private void goBackAction(ActionEvent e) {
 	System.out.println("Going back.");
     }

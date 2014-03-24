@@ -7,12 +7,14 @@
 package gui;
 
 import gui.utils.*;
+import javax.swing.*;
+import java.awt.event.*;
 
 /**
  *
  * @author colin
  */
-public class LandingPageSysAdmin extends javax.swing.JPanel {
+public class LandingPageSysAdmin extends JPanel {
 
     /**
      * Creates new form LandingPageSysAdmin2
@@ -30,38 +32,48 @@ public class LandingPageSysAdmin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tasks_panel = new javax.swing.JPanel();
-        manage_database_button = new javax.swing.JButton();
-        manage_accounts_button = new javax.swing.JButton();
-        manage_log_button = new javax.swing.JButton();
+        tasks_panel = new JPanel();
+        manage_database_button = new JButton();
+        manage_accounts_button = new JButton();
+        manage_log_button = new JButton();
 
-        tasks_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
+        tasks_panel.setBorder(BorderFactory.createTitledBorder("Tasks"));
 
         manage_database_button.setText("Manage Database");
-        manage_database_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        manage_database_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 manage_database_buttonActionPerformed(evt);
             }
         });
 
         manage_accounts_button.setText("Manage Accounts");
+        manage_accounts_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                manage_accounts_buttonActionPerformed(evt);
+            }
+        });
 
         manage_log_button.setText("Manage Logs");
+        manage_log_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                manage_log_buttonActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout tasks_panelLayout = new javax.swing.GroupLayout(tasks_panel);
+        GroupLayout tasks_panelLayout = new GroupLayout(tasks_panel);
         tasks_panel.setLayout(tasks_panelLayout);
         tasks_panelLayout.setHorizontalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(tasks_panelLayout.createSequentialGroup()
                 .addGap(146, 146, 146)
-                .addGroup(tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(manage_accounts_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manage_log_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manage_database_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(manage_accounts_button, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manage_log_button, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manage_database_button, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         tasks_panelLayout.setVerticalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(tasks_panelLayout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(manage_database_button)
@@ -72,34 +84,41 @@ public class LandingPageSysAdmin extends javax.swing.JPanel {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void manage_database_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manage_database_buttonActionPerformed
-	// This finally reaches the MasterFrame
-        System.out.println(GUIUtils.getMasterFrame(this));
+    private void manage_database_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_manage_database_buttonActionPerformed
+	GUIUtils.nothing();
     }//GEN-LAST:event_manage_database_buttonActionPerformed
+
+    private void manage_accounts_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_manage_accounts_buttonActionPerformed
+        GUIUtils.getMasterFrame(this).movePage(new CreateAccount());
+    }//GEN-LAST:event_manage_accounts_buttonActionPerformed
+
+    private void manage_log_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_manage_log_buttonActionPerformed
+        GUIUtils.nothing();
+    }//GEN-LAST:event_manage_log_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton manage_accounts_button;
-    private javax.swing.JButton manage_database_button;
-    private javax.swing.JButton manage_log_button;
-    private javax.swing.JPanel tasks_panel;
+    private JButton manage_accounts_button;
+    private JButton manage_database_button;
+    private JButton manage_log_button;
+    private JPanel tasks_panel;
     // End of variables declaration//GEN-END:variables
 }

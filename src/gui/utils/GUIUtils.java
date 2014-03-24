@@ -13,4 +13,8 @@ public abstract class GUIUtils {
 	    return getMasterFrame(c.getParent());
 	}
     }
+
+    public static void nothing() {
+	System.out.println("Do nothing.");
+    }
 }
