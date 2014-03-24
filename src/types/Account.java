@@ -9,22 +9,23 @@ package types;
  */
 public abstract class Account
 {
-    protected static String first_name, last_name;
-    protected static int id;
-    protected int user_type;
+	private static final int MAX_FAILS = 5;
+    private static final int MAX_TYPES = 6;
+	
+    protected String first_name, last_name;
+    protected int accountType;
     protected String username;
     private String password;
-    private int bad_logins;
-    private static final int MAX_FAILS = 5;
-    private static final int MAX_TYPES = 6;
     protected boolean blocked;
+    protected int empID;
     
+    private int bad_logins;
     
     public Account(String fn, String ln, int empID, String un, String pass, int ut)
     {
         first_name = fn;
         last_name = ln;
-        id = empID;
+        this.empID = empID;
         username = un;
         password = pass;
         //if(ut < 1 || ut > 5){}
@@ -32,12 +33,12 @@ public abstract class Account
         blocked = false;
     }
     
-    public static String getFirstName()
+    public String getFirstName()
     {
         return first_name;
     }
     
-    public static String getLastName()
+    public String getLastName()
     {
         return last_name;
     }
@@ -47,27 +48,39 @@ public abstract class Account
         return username;
     }
     
-    public int getID()
+    public int getEmpID()
     {
-        return id;
+        return empID;
+    }
+    
+    public int getAccountType() {
+    	return accountType;
+    }
+    
+    public boolean getBlocked() {
+    	return blocked;
+    }
+    
+    public String getPassword() {
+    	return password;
     }
     
     /**
      * @desc:   Returns the string representation of the account type.
      * @author  Chazz Young 
      */
-    public String getAccountType()
+    public String getAccountTypeString()
     {
         String toReturn = null;
-        if(id == 1){
+        if(accountType == 1){
             toReturn = "System Administrator";
-        }else if(id == 2){
+        }else if(accountType == 2){
             toReturn = "Academic Administrator";
-        }else if(id == 3){
+        }else if(accountType == 3){
             toReturn = "Assistant Academic Administrator";
-        }else if(id == 4){
+        }else if(accountType == 4){
             toReturn = "Instructor";
-        }else if(id == 5){
+        }else if(accountType == 5){
             toReturn = "TA/TM Marker"; 
         }else{
             toReturn = "Error: invalid account type";
@@ -125,7 +138,7 @@ public abstract class Account
     public void setAccountType(int type)
     {
         if(type < 1 || type > MAX_TYPES){
-            user_type = type;
+            accountType = type;
         }else{
             System.out.println("Error: invalid account type");
         }

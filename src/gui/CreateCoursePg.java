@@ -95,10 +95,25 @@ public class CreateCoursePg extends javax.swing.JPanel {
         stud_list_file_location_field.setText("File Location...");
 
         choose_file_student_list_button.setText("Choose File");
+        choose_file_student_list_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                choose_file_student_list_buttonActionPerformed(evt);
+            }
+        });
 
         cancel_button.setText("Submit");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
 
         submit_course.setText("Cancel");
+        submit_course.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submit_courseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout create_course_panelLayout = new javax.swing.GroupLayout(create_course_panel);
         create_course_panel.setLayout(create_course_panelLayout);
@@ -231,6 +246,18 @@ public class CreateCoursePg extends javax.swing.JPanel {
     private void course_end_formatfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_end_formatfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_course_end_formatfieldActionPerformed
+
+    private void submit_courseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_courseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submit_courseActionPerformed
+
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancel_buttonActionPerformed
+
+    private void choose_file_student_list_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_choose_file_student_list_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
