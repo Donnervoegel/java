@@ -28,124 +28,124 @@ public class CourseSelection extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TopPanel = new javax.swing.JPanel();
-        Role = new javax.swing.JLabel();
-        Logout = new javax.swing.JButton();
-        Back = new javax.swing.JButton();
-        CourseSelectionHeader = new javax.swing.JPanel();
-        CourseDropdown = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        OKButton = new javax.swing.JButton();
-        CancelButton = new javax.swing.JButton();
+        top_panel = new javax.swing.JPanel();
+        role_label = new javax.swing.JLabel();
+        logout_button = new javax.swing.JButton();
+        back_button = new javax.swing.JButton();
+        course_selection_header = new javax.swing.JPanel();
+        course_selection_dropdown = new javax.swing.JComboBox();
+        courses_label = new javax.swing.JLabel();
+        ok_button = new javax.swing.JButton();
+        cancel_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MarkShark - Home");
         setResizable(false);
 
-        Role.setText("Role: TA");
+        role_label.setText("Role: TA");
 
-        Logout.setText("Log Out");
+        logout_button.setText("Log Out");
 
-        Back.setText("Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        back_button.setText("Back");
+        back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                back_buttonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
-        TopPanel.setLayout(TopPanelLayout);
-        TopPanelLayout.setHorizontalGroup(
-            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TopPanelLayout.createSequentialGroup()
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TopPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout top_panelLayout = new javax.swing.GroupLayout(top_panel);
+        top_panel.setLayout(top_panelLayout);
+        top_panelLayout.setHorizontalGroup(
+            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(top_panelLayout.createSequentialGroup()
+                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(top_panelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Logout))
-                    .addGroup(TopPanelLayout.createSequentialGroup()
+                        .addComponent(logout_button))
+                    .addGroup(top_panelLayout.createSequentialGroup()
                         .addGap(17, 588, Short.MAX_VALUE)
-                        .addComponent(Role)))
+                        .addComponent(role_label)))
                 .addContainerGap())
         );
-        TopPanelLayout.setVerticalGroup(
-            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TopPanelLayout.createSequentialGroup()
+        top_panelLayout.setVerticalGroup(
+            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(top_panelLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(Role)
+                .addComponent(role_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Logout)
-                    .addComponent(Back))
+                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logout_button)
+                    .addComponent(back_button))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        CourseSelectionHeader.setBorder(javax.swing.BorderFactory.createTitledBorder("Course Selection"));
-        CourseSelectionHeader.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        CourseSelectionHeader.setName(""); // NOI18N
+        course_selection_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Course Selection"));
+        course_selection_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        course_selection_header.setName(""); // NOI18N
 
-        CourseDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LIFT 101", "NUTR 203", "CARD 201", "GYM 406" }));
+        course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LIFT 101", "NUTR 203", "CARD 201", "GYM 406" }));
 
-        jLabel1.setText("Courses:");
+        courses_label.setText("Courses:");
 
-        javax.swing.GroupLayout CourseSelectionHeaderLayout = new javax.swing.GroupLayout(CourseSelectionHeader);
-        CourseSelectionHeader.setLayout(CourseSelectionHeaderLayout);
-        CourseSelectionHeaderLayout.setHorizontalGroup(
-            CourseSelectionHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CourseSelectionHeaderLayout.createSequentialGroup()
+        javax.swing.GroupLayout course_selection_headerLayout = new javax.swing.GroupLayout(course_selection_header);
+        course_selection_header.setLayout(course_selection_headerLayout);
+        course_selection_headerLayout.setHorizontalGroup(
+            course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, course_selection_headerLayout.createSequentialGroup()
                 .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(courses_label, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CourseDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(course_selection_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
-        CourseSelectionHeaderLayout.setVerticalGroup(
-            CourseSelectionHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CourseSelectionHeaderLayout.createSequentialGroup()
+        course_selection_headerLayout.setVerticalGroup(
+            course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(course_selection_headerLayout.createSequentialGroup()
                 .addGap(114, 114, 114)
-                .addGroup(CourseSelectionHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CourseDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(course_selection_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(courses_label))
                 .addContainerGap(142, Short.MAX_VALUE))
         );
 
-        OKButton.setText("OK");
-        OKButton.addActionListener(new java.awt.event.ActionListener() {
+        ok_button.setText("OK");
+        ok_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OKButtonActionPerformed(evt);
+                ok_buttonActionPerformed(evt);
             }
         });
 
-        CancelButton.setText("Cancel");
+        cancel_button.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(top_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(CourseSelectionHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(course_selection_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(OKButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CancelButton)
+                        .addComponent(cancel_button)
                         .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(top_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CourseSelectionHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(course_selection_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OKButton)
-                    .addComponent(CancelButton))
+                    .addComponent(ok_button)
+                    .addComponent(cancel_button))
                 .addContainerGap())
         );
 
@@ -153,60 +153,23 @@ public class CourseSelection extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BackActionPerformed
+    }//GEN-LAST:event_back_buttonActionPerformed
 
-    private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
+    private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OKButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CourseSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                
-                new CourseSelection().setVisible(true);
-                
-            }
-        });
-    }
+    }//GEN-LAST:event_ok_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
-    private javax.swing.JButton CancelButton;
-    private javax.swing.JComboBox CourseDropdown;
-    private javax.swing.JPanel CourseSelectionHeader;
-    private javax.swing.JButton Logout;
-    private javax.swing.JButton OKButton;
-    private javax.swing.JLabel Role;
-    private javax.swing.JPanel TopPanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton back_button;
+    private javax.swing.JButton cancel_button;
+    private javax.swing.JComboBox course_selection_dropdown;
+    private javax.swing.JPanel course_selection_header;
+    private javax.swing.JLabel courses_label;
+    private javax.swing.JButton logout_button;
+    private javax.swing.JButton ok_button;
+    private javax.swing.JLabel role_label;
+    private javax.swing.JPanel top_panel;
     // End of variables declaration//GEN-END:variables
 }
