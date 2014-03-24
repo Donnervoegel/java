@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import types.Course;
+
 /**
  * Class to access courses in project SQL database.
  * 
@@ -64,9 +66,16 @@ public class CourseAccess {
 	 * course as arguments and inserts a course into the database based off of
 	 * the parameters.
 	 */
-	public void createCourse(String courseID, String courseName,
-			String instructorName, int instructorID, String startDate,
-			String endDate) {
+	public void createCourse(Course course) {
+		// Build database entries from course object
+		String courseID = course.getCourseID();
+		String courseName = course.getCourseName();
+		String instructorName = course.getInstructor().getFirstName()
+				+ course.getInstructor().getLastName();
+		int instructorID = course.getInstructor().getEmpID();
+		String startDate = course.getStartDate();
+		String endDate = course.getEndDate();
+
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Course VALUES ('" + courseID
 				+ "','" + courseName + "','" + instructorName + "',"
@@ -80,9 +89,16 @@ public class CourseAccess {
 	 * all the fields of the course with the specified access ID based on the
 	 * arguments passed.
 	 */
-	public void modifyCourse(String courseID, String courseName,
-			String instructorName, int instructorID, String startDate,
-			String endDate, String accessID) {
+	public void modifyCourse(String accessID, Course course) {
+		// Build database entries from course object
+		String courseID = course.getCourseID();
+		String courseName = course.getCourseName();
+		String instructorName = course.getInstructor().getFirstName()
+				+ course.getInstructor().getLastName();
+		int instructorID = course.getInstructor().getEmpID();
+		String startDate = course.getStartDate();
+		String endDate = course.getEndDate();
+
 		// Create the update query string
 		String query = "UPDATE c275g01A.dbo.Course CourseID='" + courseID
 				+ "',CourseName='" + courseName + "',InstructorName='"

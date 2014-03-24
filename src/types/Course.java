@@ -9,23 +9,42 @@ import java.util.*;
  */
 public class Course
 {
-    private static String name, start_date, end_date;
-    private static int id;
-    private Instructor instructor;
+    private String courseName, startDate, endDate, courseID;
+	private Instructor instructor;
     private ArrayList<TATMMarker> markers;
     private ArrayList<Student> students;
     private ArrayList<Activity> activities;
     
-    public Course(String n, int i, Instructor ins, String start, String end)
+    public String getCourseName() {
+  		return courseName;
+  	}
+
+  	public String getStartDate() {
+  		return startDate;
+  	}
+
+  	public String getEndDate() {
+  		return endDate;
+  	}
+
+  	public String getCourseID() {
+  		return courseID;
+  	}
+
+  	public Instructor getInstructor() {
+  		return instructor;
+  	}
+    
+    public Course(String n, String id, Instructor ins, String start, String end)
     {
-        name = n;
-        id = i;
+        courseName = n;
+        courseID = id;
         instructor = ins;
+        startDate = start;
+        endDate = end;
         markers = new ArrayList<TATMMarker>();
         students = new ArrayList<Student>();
         activities = new ArrayList<Activity>();
-        start_date = start;
-        end_date = end;
     }
     
     /**
@@ -86,8 +105,8 @@ public class Course
             @Override
             public int compare(TATMMarker m1, TATMMarker m2)
             {
-                int o1 = m1.getID(); 
-                int o2 = m2.getID();
+                int o1 = m1.getEmpID(); 
+                int o2 = m2.getEmpID();
                 return (o1>o2 ? -1 : (o1==o2 ? 0 : 1));
             }
         });
