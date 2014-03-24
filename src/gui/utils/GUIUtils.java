@@ -17,4 +17,10 @@ public abstract class GUIUtils {
     public static void nothing() {
 	System.out.println("Do nothing.");
     }
+    
+    public static String generatePassword()
+    {
+        Integer rand = ((int) Math.random() * 90000) + 10000;
+        return rand.toString();
+    }
 }
