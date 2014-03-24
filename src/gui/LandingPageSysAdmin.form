@@ -84,11 +84,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Manage Accounts"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manage_accounts_buttonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="manage_log_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Manage Logs"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manage_log_buttonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
