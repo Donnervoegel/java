@@ -174,7 +174,7 @@ public class CourseAccess {
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
 		String studentSolnPath = act.getSolnPath();
-		String activityLang = act.getLanguage();
+		int activityLang = act.getLanguage();
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
 		String solnPath = "";
@@ -197,7 +197,7 @@ public class CourseAccess {
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
 		String studentSolnPath = act.getSolnPath();
-		String activityLang = act.getLanguage();
+		int activityLang = act.getLanguage();
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
 		String solnPath = "";

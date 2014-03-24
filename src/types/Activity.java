@@ -9,15 +9,15 @@ package types;
  */
 public class Activity
 {
-    private String name, path_solutions, language, due_date, activityDesc;
-    private int num_of_tests, num_of_files;
+    private String name, path_solutions, due_date, activityDesc;
+    private int num_of_tests, num_of_files, language;
     //isGroup has been included, but it wil lbe empty as this was discontinued
     //in the prioritization meeting 
     private boolean isProgramming, isGroup;
     
     private Rubric rubric;
     
-    public Activity(String n, String sol, String lang, boolean p, boolean g)
+    public Activity(String n, String sol, int lang, boolean p, boolean g)
     {
         name = n;
         path_solutions = sol;
@@ -43,7 +43,7 @@ public class Activity
         return name;
     }
     
-    public String getLanguage()
+    public int getLanguage()
     {
         return language;
     }
