@@ -75,6 +75,9 @@ public class MasterFrame extends JFrame {
 	add(top_panel);
 	add(curr_page);
 	pack();
+        
+        //Grey back button initially
+        back_button.setEnabled(false);
     }
 
     public void run() {
@@ -82,12 +85,18 @@ public class MasterFrame extends JFrame {
     }
 
     public void movePage(JPanel p) {
-	curr_page.setVisible(false);
+	
+        //if length of pages is zero 
+        if (pages.isEmpty())
+            back_button.setEnabled(true);
+        
+        curr_page.setVisible(false);
 	remove(curr_page);
 	pages.push(curr_page);
 	curr_page = p;
 	add(curr_page);
 	curr_page.setVisible(true);
+        
     }
 
     private void goBackAction(ActionEvent e) {
@@ -97,6 +106,12 @@ public class MasterFrame extends JFrame {
 	curr_page = pages.pop();
 	add(curr_page);
 	curr_page.setVisible(true);
+        
+        //if the page stack zero, then grey back button
+        
+        if (pages.isEmpty())
+            back_button.setEnabled(false);
+            
     }
 
     private void logoutAction(ActionEvent e) {
