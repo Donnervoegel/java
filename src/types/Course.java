@@ -5,8 +5,7 @@ import java.util.*;
  * @desc:   The Course class is used to model the course object. A course can
  *          only be created by an AssitantAdmin.
  * 
- * @author Chazz Young(0.0) - 03/21/2014
- * @version 0.0
+ * @author Chazz Young
  */
 public class Course
 {
@@ -29,6 +28,10 @@ public class Course
         end_date = end;
     }
     
+    /**
+     * @desc:   Single add marker
+     * @author: Chazz Young
+     */
     public void addMarker(TATMMarker m)
     {
         ArrayList<TATMMarker> a = new ArrayList<TATMMarker>(1);
@@ -36,6 +39,10 @@ public class Course
         updateMarkers(a);
     }
     
+    /**
+     * @desc:   Single add student
+     * @author: Chazz Young
+     */
     public void addStudent(Student s)
     {
         ArrayList<Student> a = new ArrayList<Student>(1);
@@ -43,6 +50,10 @@ public class Course
         updateStudents(a);
     }
     
+    /**
+     * @desc:   Single addActivity
+     * @author: Chazz Young
+     */
     public void addActivity(Activity s)
     {
         ArrayList<Activity> a = new ArrayList<Activity>(1);
@@ -51,8 +62,10 @@ public class Course
     }
     
     /**
-     * Takes an ArrayList of TATMMarkers and searches the 
-     * sorted ArrayList for the given object iteratively
+     * @desc:   Batch add Markers
+     *          Takes an ArrayList of TATMMarkers and searches the 
+     *          sorted ArrayList for the given object iteratively
+     * @author: Chazz Young
      */
     public void updateMarkers(ArrayList<TATMMarker> t)
     {
@@ -81,8 +94,10 @@ public class Course
     }
     
     /**
-     * Takes an ArrayList of Students and searches the 
-     * sorted ArrayList for the given object iteratively
+     * @desc:  Batch add Students
+     *          Takes an ArrayList of Students and searches the 
+     *          sorted ArrayList for the given object iteratively
+     * @author: Chazz Young
      */
     public void updateStudents(ArrayList<Student> t)
     {
@@ -112,8 +127,10 @@ public class Course
     }
     
     /**
-     * Takes an ArrayList of Actviities and searches the 
-     * sorted ArrayList for the given object iteratively
+     * @desc:   Batch add Activities
+     *          Takes an ArrayList of Actviities and searches the 
+     *          sorted ArrayList for the given object iteratively
+     * @author: Chazz Young
      */
     public void updateActivities(ArrayList<Activity> t)
     {
