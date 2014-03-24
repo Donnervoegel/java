@@ -10,7 +10,7 @@
 - 1.2.8. ~~A user with multiple roles requires one account for each role~~
 - 1.2.9. ~~A system administrator may not access any activities or grades~~ 
 - 1.2.12. ~~TAs/TMs are have identical privileges within the streamlined grading system~~
-- 1.2.13.  A system administrator may view any or all accounts at any time~~
+- 1.2.13.  A system administrator may view any or all accounts at any time
 - 1.3.1. ~~A course includes~~
 - 1.3.1.1.	~~Course name~~
 - 1.3.1.2.	~~Course number~~`
