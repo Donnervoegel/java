@@ -1,4 +1,4 @@
-package types;
+package gui.utils;
 
 import java.awt.Component;
 import gui.MasterFrame;
