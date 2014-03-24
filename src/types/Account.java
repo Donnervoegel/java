@@ -9,7 +9,15 @@ package types;
  */
 public abstract class Account
 {
-	private static final int MAX_FAILS = 5;
+    public enum Type {
+	INSTRUCTOR,
+	TATMMARKER,
+	ACADEMICADMIN,
+	ASSISTANTADMIN,
+	SYSTEMADMIN
+    }
+
+    private static final int MAX_FAILS = 5;
     private static final int MAX_TYPES = 6;
 	
     protected String first_name, last_name;
