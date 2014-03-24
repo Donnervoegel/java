@@ -42,6 +42,11 @@ public class LandingPageAdmin extends javax.swing.JPanel {
         });
 
         viewing_button.setText("Viewing");
+        viewing_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewing_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tasks_panelLayout = new javax.swing.GroupLayout(tasks_panel);
         tasks_panel.setLayout(tasks_panelLayout);
@@ -89,6 +94,10 @@ public class LandingPageAdmin extends javax.swing.JPanel {
     private void grading_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grading_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_grading_buttonActionPerformed
+
+    private void viewing_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewing_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewing_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

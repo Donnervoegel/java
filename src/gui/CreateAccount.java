@@ -104,6 +104,11 @@ public class CreateAccount extends javax.swing.JPanel {
         });
 
         cancel_button.setText("Cancel");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout account_creation_headerLayout = new javax.swing.GroupLayout(account_creation_header);
         account_creation_header.setLayout(account_creation_headerLayout);
@@ -235,6 +240,10 @@ public class CreateAccount extends javax.swing.JPanel {
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ok_buttonActionPerformed
+
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancel_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

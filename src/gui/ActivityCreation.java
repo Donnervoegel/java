@@ -84,6 +84,11 @@ public class ActivityCreation extends javax.swing.JPanel {
         activity_group_checkbox.setText("Group");
 
         additional_due_date_button.setText("Additional Due Date");
+        additional_due_date_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                additional_due_date_buttonActionPerformed(evt);
+            }
+        });
 
         activity_solution_button.setText("Attach Solution");
         activity_solution_button.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +105,11 @@ public class ActivityCreation extends javax.swing.JPanel {
         });
 
         activity_submit_button.setText("Submit");
+        activity_submit_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activity_submit_buttonActionPerformed(evt);
+            }
+        });
 
         activity_solution_field.setText("File Location...");
         activity_solution_field.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +138,11 @@ public class ActivityCreation extends javax.swing.JPanel {
         });
 
         activity_reset_button.setText("Reset");
+        activity_reset_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activity_reset_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout create_activity_tabLayout = new javax.swing.GroupLayout(create_activity_tab);
         create_activity_tab.setLayout(create_activity_tabLayout);
@@ -342,6 +357,18 @@ public class ActivityCreation extends javax.swing.JPanel {
     private void activity_student_submissionpath_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_student_submissionpath_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_student_submissionpath_buttonActionPerformed
+
+    private void additional_due_date_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additional_due_date_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_additional_due_date_buttonActionPerformed
+
+    private void activity_reset_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_reset_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activity_reset_buttonActionPerformed
+
+    private void activity_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_submit_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activity_submit_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

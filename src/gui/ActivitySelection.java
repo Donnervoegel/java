@@ -55,6 +55,11 @@ public class ActivitySelection extends javax.swing.JPanel {
         });
 
         cancel_button.setText("Cancel");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout activity_selection_headerLayout = new javax.swing.GroupLayout(activity_selection_header);
         activity_selection_header.setLayout(activity_selection_headerLayout);
@@ -115,6 +120,10 @@ public class ActivitySelection extends javax.swing.JPanel {
     private void activity_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_dropdownActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_dropdownActionPerformed
+
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancel_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
