@@ -83,16 +83,19 @@ public class MasterFrame extends JFrame {
 
     public void movePage(JPanel p) {
 	curr_page.setVisible(false);
+	remove(curr_page);
 	pages.push(curr_page);
 	curr_page = p;
-	add(curr_page);  // Better way to do this?
+	add(curr_page);
 	curr_page.setVisible(true);
     }
 
     private void goBackAction(ActionEvent e) {
 	System.out.println("Going back.");
 	curr_page.setVisible(false);
+	remove(curr_page);
 	curr_page = pages.pop();
+	add(curr_page);
 	curr_page.setVisible(true);
     }
 
