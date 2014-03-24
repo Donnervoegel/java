@@ -28,222 +28,354 @@ public class ActivityCreation extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tasks_panel = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        create_activity_pane = new javax.swing.JTabbedPane();
+        create_activity_tab = new javax.swing.JPanel();
+        activity_name_label = new javax.swing.JLabel();
+        activity_type_label = new javax.swing.JLabel();
+        activity_desc_label = new javax.swing.JLabel();
+        activity_lang_label = new javax.swing.JLabel();
+        activity_due_date_1_label = new javax.swing.JLabel();
+        activity_name_field = new javax.swing.JTextField();
+        activity_type_field = new javax.swing.JTextField();
+        activity_desc_field = new javax.swing.JTextField();
+        activity_lang_field = new javax.swing.JTextField();
+        activity_due_date_1_time = new javax.swing.JTextField();
+        activity_due_date_1_field = new javax.swing.JFormattedTextField();
+        activity_individual_checkbox = new javax.swing.JRadioButton();
+        activity_group_checkbox = new javax.swing.JRadioButton();
+        additional_due_date_button = new javax.swing.JButton();
+        activity_solution_button = new javax.swing.JButton();
+        activity_test_inout_button = new javax.swing.JButton();
+        activity_test_outin_field = new javax.swing.JTextField();
+        activity_submit_button = new javax.swing.JButton();
+        activity_solution_field = new javax.swing.JTextField();
+        activity_testcomment_label = new javax.swing.JLabel();
+        activity_test_number_label = new javax.swing.JLabel();
+        activity_test_number_field = new javax.swing.JTextField();
+        activity_student_submissionpath_button = new javax.swing.JButton();
+        activity_student_submissionpath_field = new javax.swing.JTextField();
+        activity_reset_button = new javax.swing.JButton();
+        activity_rubric_tab = new javax.swing.JPanel();
+        rubric_additional_row_button = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        rubric_table = new javax.swing.JTable();
+        rubric_submit_button = new javax.swing.JButton();
 
-        tasks_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
+        activity_name_label.setText("Activity Name");
 
-        jTabbedPane1.addTab("Rubric", jTabbedPane2);
+        activity_type_label.setText("Type");
 
-        jLabel1.setText("jLabel1");
+        activity_desc_label.setText("Description");
 
-        jLabel2.setText("jLabel1");
+        activity_lang_label.setText("Language");
 
-        jLabel3.setText("jLabel1");
+        activity_due_date_1_label.setText("Due Date 1");
 
-        jLabel4.setText("jLabel1");
-
-        jLabel5.setText("jLabel1");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-
-        jTextField5.setText("jTextField5");
-
-        jRadioButton1.setText("Individual");
-
-        jRadioButton2.setText("Group");
-
-        jTextField6.setText("jTextField6");
-
-        jLabel6.setText("jLabel6");
-
-        jFormattedTextField1.setText("jFormattedTextField1");
-
-        jTextField7.setText("jTextField7");
-
-        jButton1.setText("Add Due Date");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        activity_type_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                activity_type_fieldActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Attach Solution");
+        activity_due_date_1_time.setText("23:59");
 
-        jTextField8.setText("jTextField8");
+        activity_individual_checkbox.setText("Individual");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        activity_group_checkbox.setText("Group");
+
+        additional_due_date_button.setText("Additional Due Date");
+
+        activity_solution_button.setText("Attach Solution");
+        activity_solution_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activity_solution_buttonActionPerformed(evt);
+            }
+        });
+
+        activity_test_inout_button.setText("Test output/inputs**");
+        activity_test_inout_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activity_test_inout_buttonActionPerformed(evt);
+            }
+        });
+
+        activity_submit_button.setText("Submit");
+
+        activity_solution_field.setText("File Location...");
+        activity_solution_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activity_solution_fieldActionPerformed(evt);
+            }
+        });
+
+        activity_testcomment_label.setText("** Leave empty if Activity Type is not Programming!");
+        activity_testcomment_label.setToolTipText("");
+
+        activity_test_number_label.setText("Number of Programming Tests");
+
+        activity_test_number_field.setText("0");
+        activity_test_number_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activity_test_number_fieldActionPerformed(evt);
+            }
+        });
+
+        activity_student_submissionpath_button.setText("Student Submission Path");
+        activity_student_submissionpath_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activity_student_submissionpath_buttonActionPerformed(evt);
+            }
+        });
+
+        activity_reset_button.setText("Reset");
+
+        javax.swing.GroupLayout create_activity_tabLayout = new javax.swing.GroupLayout(create_activity_tab);
+        create_activity_tab.setLayout(create_activity_tabLayout);
+        create_activity_tabLayout.setHorizontalGroup(
+            create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(create_activity_tabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, create_activity_tabLayout.createSequentialGroup()
+                        .addComponent(activity_reset_button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(activity_submit_button))
+                    .addGroup(create_activity_tabLayout.createSequentialGroup()
+                        .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                .addComponent(activity_individual_checkbox)
+                                .addGap(10, 10, 10)
+                                .addComponent(activity_group_checkbox))
+                            .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                        .addComponent(activity_due_date_1_label)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(activity_due_date_1_field, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(activity_due_date_1_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(additional_due_date_button))
+                                    .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                        .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(activity_name_label)
+                                            .addComponent(activity_type_label)
+                                            .addComponent(activity_desc_label)
+                                            .addComponent(activity_lang_label))
+                                        .addGap(50, 50, 50)
+                                        .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(activity_lang_field, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                                            .addComponent(activity_desc_field)
+                                            .addComponent(activity_type_field)
+                                            .addComponent(activity_name_field)))
+                                    .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                        .addComponent(activity_test_number_label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(activity_test_number_field, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                .addComponent(activity_student_submissionpath_button)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(activity_student_submissionpath_field))
+                            .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                .addComponent(activity_solution_button)
+                                .addGap(18, 18, 18)
+                                .addComponent(activity_solution_field, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(activity_testcomment_label)
+                            .addGroup(create_activity_tabLayout.createSequentialGroup()
+                                .addComponent(activity_test_inout_button, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(activity_test_outin_field)))
+                        .addGap(0, 80, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        create_activity_tabLayout.setVerticalGroup(
+            create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(create_activity_tabLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_name_label)
+                    .addComponent(activity_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_type_label)
+                    .addComponent(activity_type_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_desc_label)
+                    .addComponent(activity_desc_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_lang_label)
+                    .addComponent(activity_lang_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_individual_checkbox)
+                    .addComponent(activity_group_checkbox))
+                .addGap(8, 8, 8)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_due_date_1_label)
+                    .addComponent(activity_due_date_1_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(activity_due_date_1_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(additional_due_date_button))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_test_number_label, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(activity_test_number_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_test_inout_button)
+                    .addComponent(activity_test_outin_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(activity_testcomment_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_student_submissionpath_button)
+                    .addComponent(activity_student_submissionpath_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_solution_button)
+                    .addComponent(activity_solution_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activity_submit_button)
+                    .addComponent(activity_reset_button))
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Activity", jPanel1);
+        create_activity_pane.addTab("Activity", create_activity_tab);
 
-        javax.swing.GroupLayout tasks_panelLayout = new javax.swing.GroupLayout(tasks_panel);
-        tasks_panel.setLayout(tasks_panelLayout);
-        tasks_panelLayout.setHorizontalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+        rubric_additional_row_button.setText("Additional Row");
+        rubric_additional_row_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rubric_additional_row_buttonActionPerformed(evt);
+            }
+        });
+
+        rubric_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null}
+            },
+            new String [] {
+                "Description", "Max Grade"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(rubric_table);
+
+        rubric_submit_button.setText("Submit");
+
+        javax.swing.GroupLayout activity_rubric_tabLayout = new javax.swing.GroupLayout(activity_rubric_tab);
+        activity_rubric_tab.setLayout(activity_rubric_tabLayout);
+        activity_rubric_tabLayout.setHorizontalGroup(
+            activity_rubric_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(activity_rubric_tabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(activity_rubric_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rubric_additional_row_button)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, activity_rubric_tabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rubric_submit_button)
+                .addContainerGap())
         );
-        tasks_panelLayout.setVerticalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+        activity_rubric_tabLayout.setVerticalGroup(
+            activity_rubric_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(activity_rubric_tabLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(rubric_additional_row_button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addComponent(rubric_submit_button)
+                .addContainerGap())
         );
+
+        create_activity_pane.addTab("Rubric", activity_rubric_tab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(tasks_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(create_activity_pane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(4, 4, 4)
-                    .addComponent(tasks_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(create_activity_pane)
         );
+
+        create_activity_pane.getAccessibleContext().setAccessibleName("create_activity_pane");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void activity_solution_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_solution_buttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_activity_solution_buttonActionPerformed
+
+    private void activity_test_inout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_test_inout_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activity_test_inout_buttonActionPerformed
+
+    private void activity_solution_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_solution_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activity_solution_fieldActionPerformed
+
+    private void activity_type_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_type_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activity_type_fieldActionPerformed
+
+    private void rubric_additional_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rubric_additional_row_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rubric_additional_row_buttonActionPerformed
+
+    private void activity_test_number_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_test_number_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activity_test_number_fieldActionPerformed
+
+    private void activity_student_submissionpath_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_student_submissionpath_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activity_student_submissionpath_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JPanel tasks_panel;
+    private javax.swing.JTextField activity_desc_field;
+    private javax.swing.JLabel activity_desc_label;
+    private javax.swing.JFormattedTextField activity_due_date_1_field;
+    private javax.swing.JLabel activity_due_date_1_label;
+    private javax.swing.JTextField activity_due_date_1_time;
+    private javax.swing.JRadioButton activity_group_checkbox;
+    private javax.swing.JRadioButton activity_individual_checkbox;
+    private javax.swing.JTextField activity_lang_field;
+    private javax.swing.JLabel activity_lang_label;
+    private javax.swing.JTextField activity_name_field;
+    private javax.swing.JLabel activity_name_label;
+    private javax.swing.JButton activity_reset_button;
+    private javax.swing.JPanel activity_rubric_tab;
+    private javax.swing.JButton activity_solution_button;
+    private javax.swing.JTextField activity_solution_field;
+    private javax.swing.JButton activity_student_submissionpath_button;
+    private javax.swing.JTextField activity_student_submissionpath_field;
+    private javax.swing.JButton activity_submit_button;
+    private javax.swing.JButton activity_test_inout_button;
+    private javax.swing.JTextField activity_test_number_field;
+    private javax.swing.JLabel activity_test_number_label;
+    private javax.swing.JTextField activity_test_outin_field;
+    private javax.swing.JLabel activity_testcomment_label;
+    private javax.swing.JTextField activity_type_field;
+    private javax.swing.JLabel activity_type_label;
+    private javax.swing.JButton additional_due_date_button;
+    private javax.swing.JTabbedPane create_activity_pane;
+    private javax.swing.JPanel create_activity_tab;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton rubric_additional_row_button;
+    private javax.swing.JButton rubric_submit_button;
+    private javax.swing.JTable rubric_table;
     // End of variables declaration//GEN-END:variables
 }
