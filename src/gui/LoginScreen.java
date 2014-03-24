@@ -19,7 +19,7 @@ public class LoginScreen extends JFrame {
     private JPasswordField pass_field;
     private JButton forgot_pwd;
     private JButton login_button;
-    private JTextField username;
+    private JTextField username_field;
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JPanel jPanel1;
@@ -40,13 +40,13 @@ public class LoginScreen extends JFrame {
      */
     @SuppressWarnings("unchecked")
     private void initComponents() {
-        jPanel1      = new JPanel();
-        jLabel1      = new JLabel();
-        jLabel2      = new JLabel();
-        pass_field   = new JPasswordField();
-        username     = new JTextField();
-        login_button = new JButton();
-        forgot_pwd   = new JButton();
+        jPanel1        = new JPanel();
+        jLabel1        = new JLabel();
+        jLabel2        = new JLabel();
+        pass_field     = new JPasswordField();
+        username_field = new JTextField();
+        login_button   = new JButton();
+        forgot_pwd     = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("MarkShark - Login");
@@ -82,7 +82,7 @@ public class LoginScreen extends JFrame {
                             .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(username, GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(username_field, GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(login_button, GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -94,7 +94,7 @@ public class LoginScreen extends JFrame {
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(username_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(pass_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -141,7 +141,7 @@ public class LoginScreen extends JFrame {
 	 * If it did, hide the login screen and show the splash page
 	 * according to the user's Role.
 	 */
-	String name = username.getText();
+	String name = username_field.getText();
 	String pass = new String(pass_field.getPassword());
 
 	if(pass.length() < 5) {

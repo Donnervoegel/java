@@ -9,13 +9,13 @@ import types.*;
 
 /**
  * @author Colin
-n */
+ */
 public class MasterFrame extends JFrame {
-    private JPanel  top_bar;
+    private JPanel  top_panel;
     private JPanel  curr_page;
-    private JButton logout;
-    private JButton back;
-    private JLabel  role;
+    private JButton logout_button;
+    private JButton back_button;
+    private JLabel  role_label;
     private JLabel  crumbs;  // This won't be a JLabel later.
     private List<JPanel> pages;
 
@@ -23,11 +23,11 @@ public class MasterFrame extends JFrame {
     // the Account type.
     public MasterFrame(Account a) {
 	// Initialize components.
-	top_bar = new JPanel();
-	logout  = new JButton("Logout");
-	back    = new JButton("Back");
-	role    = new JLabel("Role: Filler...");  // Changes according to `a`.
-	crumbs  = new JLabel("Breadcrumbs here...");
+	top_panel     = new JPanel();
+	logout_button = new JButton("Logout_Button");
+	back_button   = new JButton("Back");
+	role_label    = new JLabel("Role: Filler...");  // Changes according to `a`.
+	crumbs        = new JLabel("Breadcrumbs here...");
 
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -35,39 +35,39 @@ public class MasterFrame extends JFrame {
 	setResizable(true);
 
 	// Set up action listeners
-	back.addActionListener(e -> goBackAction(e));
-	logout.addActionListener(e -> logoutAction(e));
+	back_button.addActionListener(e -> goBackAction(e));
+	logout_button.addActionListener(e -> logoutAction(e));
 
 	// Set up persistent top bar
-	top_bar.setLayout(new GridBagLayout());
+	top_panel.setLayout(new GridBagLayout());
 	GridBagConstraints c = new GridBagConstraints();
 	c.gridx = 0;
 	c.gridy = 0;
 	c.anchor = GridBagConstraints.LINE_START;
-	top_bar.add(crumbs, c);
+	top_panel.add(crumbs, c);
 
 	c.gridx = 2;
 	c.gridy = 0;
 	c.weighty = 1.0;
 	c.anchor = GridBagConstraints.LINE_END;
-	top_bar.add(role, c);
+	top_panel.add(role_label, c);
 
 	c.gridx = 0;
 	c.gridy = 1;
 	c.weighty = 0;
 	c.anchor = GridBagConstraints.LINE_START;
-	top_bar.add(back, c);
+	top_panel.add(back_button, c);
 
 	c.gridx = 2;
 	c.gridy = 1;
 	c.anchor = GridBagConstraints.LINE_END;
 	c.weighty = 1.0;
-	top_bar.add(logout, c);
+	top_panel.add(logout_button, c);
 
 	// Set up bottom panel according to `a`.
 
 	// Render the Frame.
-	add(top_bar);
+	add(top_panel);
 	// addComponent(curr_page);
 	pack();
     }
