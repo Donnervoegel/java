@@ -14,7 +14,6 @@ public abstract class Account
 	
     protected String first_name, last_name;
     protected int accountType;
-    protected int user_type;
     protected String username;
     private String password;
     protected boolean blocked;
@@ -139,7 +138,7 @@ public abstract class Account
     public void setAccountType(int type)
     {
         if(type < 1 || type > MAX_TYPES){
-            user_type = type;
+            accountType = type;
         }else{
             System.out.println("Error: invalid account type");
         }
