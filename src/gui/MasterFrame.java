@@ -1,6 +1,7 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.event.*;
@@ -24,7 +25,7 @@ public class MasterFrame extends JFrame {
     public MasterFrame(Account a) {
 	// Initialize components.
 	top_panel     = new JPanel();
-	logout_button = new JButton("Logout_Button");
+	logout_button = new JButton("Logout");
 	back_button   = new JButton("Back");
 	role_label    = new JLabel("Role: Filler...");  // Changes according to `a`.
 	crumbs        = new JLabel("Breadcrumbs here...");
@@ -33,6 +34,7 @@ public class MasterFrame extends JFrame {
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	setTitle("MarkShark - Blah");  // Changes according to `a`.
 	setResizable(true);
+	setLayout(new GridLayout(2,1));
 
 	// Set up action listeners
 	back_button.addActionListener(e -> goBackAction(e));
@@ -65,10 +67,12 @@ public class MasterFrame extends JFrame {
 	top_panel.add(logout_button, c);
 
 	// Set up bottom panel according to `a`.
+	// Using Instructor for testing purposes
+	curr_page = new LandingPageInstructor();
 
 	// Render the Frame.
 	add(top_panel);
-	// addComponent(curr_page);
+	add(curr_page);
 	pack();
     }
 

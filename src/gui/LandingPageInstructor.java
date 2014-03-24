@@ -79,7 +79,7 @@ public class LandingPageInstructor extends JPanel {
         //         .addContainerGap(83, Short.MAX_VALUE))
         // );
 
-        setSize(new java.awt.Dimension(655, 492));
+	//        setSize(new java.awt.Dimension(655, 492));
     }
 
     private void markingButtonActionPerformed(ActionEvent evt) {
