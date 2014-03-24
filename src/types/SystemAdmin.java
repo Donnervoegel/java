@@ -34,6 +34,6 @@ public class SystemAdmin extends Account
         }else if(type == 5){
             a = new TATMMarker(fn, ln, empID, un, pass);
         }
-        //Update database...
     }
+    
 }
