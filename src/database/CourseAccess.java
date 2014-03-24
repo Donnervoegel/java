@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import types.Activity;
 import types.Course;
 
 /**
@@ -62,9 +63,9 @@ public class CourseAccess {
 	}
 
 	/*
-	 * Method to add a course to the database. Takes the necessary data of a
-	 * course as arguments and inserts a course into the database based off of
-	 * the parameters.
+	 * Method to add a course to the database. Takes a course object as an
+	 * argument, and adds a course with all the details of the course object to
+	 * the database.
 	 */
 	public void createCourse(Course course) {
 		// Build database entries from course object
@@ -84,10 +85,9 @@ public class CourseAccess {
 	}
 
 	/*
-	 * Method to update a course in the database. Takes all the fields of a
-	 * course, along with a specific course ID to access as parameters. Updates
-	 * all the fields of the course with the specified access ID based on the
-	 * arguments passed.
+	 * Method to update a course in the database. Takes a course ID to access,
+	 * and updates all the fields of that course in the database based on the
+	 * course object passed as an argument.
 	 */
 	public void modifyCourse(String accessID, Course course) {
 		// Build database entries from course object
@@ -169,13 +169,22 @@ public class CourseAccess {
 	/*
 	 * Method to add an activity, including all necessary details,
 	 */
-	public void addActivity(String courseID, String activityName,
-			String activityDesc, int activityLang, int activityType,
-			boolean group, String studentSolnPath, String solnPath) {
+	public void addActivity(String courseID, Activity act) {
+		// Build database entries from activity object
+		String activityName = act.getName();
+		String activityDesc = act.getActivityDesc();
+		String studentSolnPath = act.getSolnPath();
+		String activityLang = act.getLanguage();
+		boolean activityType = act.isProgramming();
+		boolean group = act.isGroup();
+		String solnPath = "";
+
+		// Generate the insertion query
 		String query = "INSERT INTO c275g01A.dbo.Activity VALUES ('" + courseID
-				+ "','" + activityName + "','" + activityDesc + "',"
-				+ activityLang + "," + activityType + "," + boolToBit(group)
-				+ ",'" + studentSolnPath + "','" + solnPath + "')";
+				+ "','" + activityName + "','" + activityDesc + "','"
+				+ activityLang + "'," + boolToBit(activityType) + ","
+				+ boolToBit(group) + ",'" + studentSolnPath + "','" + solnPath
+				+ "')";
 		execUpdate(query);
 	}
 
@@ -183,9 +192,17 @@ public class CourseAccess {
 	 * Method to update an activity (specified by name) in a particular course
 	 * specified by the course ID passed as a parameter.
 	 */
-	public void modifyActivity(String courseID, String activityName,
-			String activityDesc, int activityLang, int activityType,
-			boolean group, String studentSolnPath, String solnPath) {
+	public void modifyActivity(String courseID, Activity act) {
+		// Build database entries from activity object
+		String activityName = act.getName();
+		String activityDesc = act.getActivityDesc();
+		String studentSolnPath = act.getSolnPath();
+		String activityLang = act.getLanguage();
+		boolean activityType = act.isProgramming();
+		boolean group = act.isGroup();
+		String solnPath = "";
+
+		// Generate the update query
 		String query = "UPDATE c275g01A.dbo.Activity ActivityName='"
 				+ activityName + "',ActivityDesc='" + activityDesc
 				+ "',ActivityLang=" + activityLang + ",activityType="

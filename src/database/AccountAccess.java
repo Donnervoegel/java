@@ -76,12 +76,14 @@ public class AccountAccess {
 	 * passed as a parameter.
 	 */
 	public void createAccount(Account acct) {
+		// Initialise fields of the account object to create
 		String username = acct.getUsername();
 		String password = acct.getPassword();
 		int empID = acct.getEmpID();
 		String empName = acct.getFirstName() + acct.getLastName();
 		int acctType = acct.getAccountType();
 		boolean blockFlag = acct.getBlocked();
+		
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Account VALUES ('" + username
 				+ "','" + password + "'," + empID + ",'" + empName + "',"
@@ -94,12 +96,14 @@ public class AccountAccess {
 	 * and updates the account with all the fields of the account object passed.
 	 */
 	public void modifyAccount(String accessUsername, Account acct) {
+		// Initialise fields of account object to edit in database
 		String username = acct.getUsername();
 		String password = acct.getPassword();
 		int empID = acct.getEmpID();
 		String empName = acct.getFirstName() + acct.getLastName();
 		int acctType = acct.getAccountType();
 		boolean blockFlag = acct.getBlocked();
+		
 		// Create the update query string
 		String query = "UPDATE c275g01A SET Username = '" + username
 				+ "', Pass = '" + password + ", EmployeeID = " + empID

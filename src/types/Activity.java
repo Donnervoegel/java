@@ -9,8 +9,7 @@ package types;
  */
 public class Activity
 {
-    private static String name, path_solutions, language, due_date;
-    private static int id;
+    private String name, path_solutions, language, due_date, activityDesc;
     private int num_of_tests, num_of_files;
     //isGroup has been included, but it wil lbe empty as this was discontinued
     //in the prioritization meeting 
@@ -18,10 +17,9 @@ public class Activity
     
     private Rubric rubric;
     
-    public Activity(String n, int act_id, String sol, String lang, boolean p, boolean g)
+    public Activity(String n, String sol, String lang, boolean p, boolean g)
     {
         name = n;
-        id = act_id;
         path_solutions = sol;
         language = lang;
         isProgramming = p;
@@ -29,8 +27,15 @@ public class Activity
         num_of_tests = 0;
         isProgramming = false;
         isGroup = false;
-        //update Database
-        
+        //update Database     
+    }
+    
+    public String getActivityDesc() {
+    	return activityDesc;
+    }
+    
+    public String getSolnPath() {
+    	return path_solutions;
     }
     
     public String getName()
@@ -57,18 +62,13 @@ public class Activity
     {
         return isGroup;
     }
-    
-    public int getID()
-    {
-        return id;
-    }
 
     public int getNumOfTests()
     {
         return num_of_tests;
     }
     
-    public static void setDueDate(String date)
+    public void setDueDate(String date)
     {
         due_date = date;
     }
