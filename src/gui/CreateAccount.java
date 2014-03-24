@@ -8,12 +8,12 @@ package gui;
 
 /**
  *
- * @author Pun
+ * @author Normal
  */
-public class CreateAccount extends javax.swing.JFrame {
+public class CreateAccount extends javax.swing.JPanel {
 
     /**
-     * Creates new form LandingPage
+     * Creates new form CreateAccount1
      */
     public CreateAccount() {
         initComponents();
@@ -28,10 +28,6 @@ public class CreateAccount extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        top_panel = new javax.swing.JPanel();
-        role_label = new javax.swing.JLabel();
-        logout_button = new javax.swing.JButton();
-        back_button = new javax.swing.JButton();
         account_creation_header = new javax.swing.JPanel();
         first_name_field = new javax.swing.JTextField();
         last_name_field = new javax.swing.JTextField();
@@ -51,49 +47,6 @@ public class CreateAccount extends javax.swing.JFrame {
         existing_account_separator = new javax.swing.JSeparator();
         ok_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MarkShark - Home");
-        setResizable(false);
-
-        role_label.setText("Role: System Administrator");
-
-        logout_button.setText("Log Out");
-
-        back_button.setText("Back");
-        back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_buttonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout top_panelLayout = new javax.swing.GroupLayout(top_panel);
-        top_panel.setLayout(top_panelLayout);
-        top_panelLayout.setHorizontalGroup(
-            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(top_panelLayout.createSequentialGroup()
-                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(top_panelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logout_button))
-                    .addGroup(top_panelLayout.createSequentialGroup()
-                        .addGap(17, 499, Short.MAX_VALUE)
-                        .addComponent(role_label)))
-                .addContainerGap())
-        );
-        top_panelLayout.setVerticalGroup(
-            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(top_panelLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(role_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logout_button)
-                    .addComponent(back_button))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         account_creation_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Create/Modify an Account:"));
         account_creation_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -143,6 +96,15 @@ public class CreateAccount extends javax.swing.JFrame {
 
         existing_account_separator.setForeground(new java.awt.Color(0, 0, 0));
 
+        ok_button.setText("OK");
+        ok_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ok_buttonActionPerformed(evt);
+            }
+        });
+
+        cancel_button.setText("Cancel");
+
         javax.swing.GroupLayout account_creation_headerLayout = new javax.swing.GroupLayout(account_creation_header);
         account_creation_header.setLayout(account_creation_headerLayout);
         account_creation_headerLayout.setHorizontalGroup(
@@ -153,7 +115,8 @@ public class CreateAccount extends javax.swing.JFrame {
                     .addGroup(account_creation_headerLayout.createSequentialGroup()
                         .addComponent(modify_existing_checkbox, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                        .addComponent(existing_account_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(existing_account_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16))
                     .addComponent(existing_account_separator, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, account_creation_headerLayout.createSequentialGroup()
                         .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,14 +133,19 @@ public class CreateAccount extends javax.swing.JFrame {
                                     .addComponent(first_name_label))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(first_name_field)
-                            .addComponent(last_name_field)
-                            .addComponent(id_field)
-                            .addComponent(account_type_dropdown, 0, 118, Short.MAX_VALUE)
-                            .addComponent(username_field)
-                            .addComponent(passwrd_field))))
-                .addGap(34, 34, 34))
+                        .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(first_name_field)
+                                .addComponent(last_name_field)
+                                .addComponent(id_field)
+                                .addComponent(account_type_dropdown, 0, 118, Short.MAX_VALUE)
+                                .addComponent(username_field)
+                                .addComponent(passwrd_field))
+                            .addGroup(account_creation_headerLayout.createSequentialGroup()
+                                .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cancel_button)))))
+                .addGap(18, 18, 18))
         );
         account_creation_headerLayout.setVerticalGroup(
             account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,63 +181,36 @@ public class CreateAccount extends javax.swing.JFrame {
                     .addComponent(passwrd_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password_generate_button)
                     .addComponent(password_label))
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ok_button)
+                    .addComponent(cancel_button))
+                .addGap(4, 4, 4))
         );
 
-        ok_button.setText("OK");
-        ok_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ok_buttonActionPerformed(evt);
-            }
-        });
+        ok_button.getAccessibleContext().setAccessibleDescription("");
 
-        cancel_button.setText("Cancel");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(top_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancel_button)
-                        .addGap(21, 21, 21))))
+            .addGap(0, 563, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(88, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(top_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ok_button)
-                    .addComponent(cancel_button))
-                .addContainerGap())
+            .addGap(0, 362, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(51, Short.MAX_VALUE)))
         );
-
-        setSize(new java.awt.Dimension(655, 538));
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_back_buttonActionPerformed
-
-    private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ok_buttonActionPerformed
-
-    private void password_generate_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_generate_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_password_generate_buttonActionPerformed
 
     private void first_name_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_first_name_fieldActionPerformed
         // TODO add your handling code here:
@@ -279,20 +220,27 @@ public class CreateAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_account_type_dropdownActionPerformed
 
+    private void password_generate_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_generate_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_generate_buttonActionPerformed
+
     private void modify_existing_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_existing_checkboxActionPerformed
         if (modify_existing_checkbox.isSelected())
-            existing_account_dropdown.setEnabled(true);
+        existing_account_dropdown.setEnabled(true);
         else
-            existing_account_dropdown.setEnabled(false);
-            
+        existing_account_dropdown.setEnabled(false);
+
     }//GEN-LAST:event_modify_existing_checkboxActionPerformed
+
+    private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ok_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel account_creation_header;
     private javax.swing.JComboBox account_type_dropdown;
     private javax.swing.JLabel account_type_label;
-    private javax.swing.JButton back_button;
     private javax.swing.JButton cancel_button;
     private javax.swing.JComboBox existing_account_dropdown;
     private javax.swing.JSeparator existing_account_separator;
@@ -302,14 +250,11 @@ public class CreateAccount extends javax.swing.JFrame {
     private javax.swing.JLabel id_label;
     private javax.swing.JTextField last_name_field;
     private javax.swing.JLabel last_name_label;
-    private javax.swing.JButton logout_button;
     private javax.swing.JCheckBox modify_existing_checkbox;
     private javax.swing.JButton ok_button;
     private javax.swing.JButton password_generate_button;
     private javax.swing.JLabel password_label;
     private javax.swing.JPasswordField passwrd_field;
-    private javax.swing.JLabel role_label;
-    private javax.swing.JPanel top_panel;
     private javax.swing.JTextField username_field;
     private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables

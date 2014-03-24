@@ -8,12 +8,12 @@ package gui;
 
 /**
  *
- * @author Pun
+ * @author Normal
  */
-public class LandingPageAssistAdmin extends javax.swing.JFrame {
+public class LandingPageAssistAdmin extends javax.swing.JPanel {
 
     /**
-     * Creates new form LandingPage
+     * Creates new form LandingPageAssistAdmin1
      */
     public LandingPageAssistAdmin() {
         initComponents();
@@ -28,50 +28,8 @@ public class LandingPageAssistAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        top_panel = new javax.swing.JPanel();
-        role_label = new javax.swing.JLabel();
-        logout_buton = new javax.swing.JButton();
-        back_button = new javax.swing.JButton();
         tasks_panel = new javax.swing.JPanel();
         course_management_button = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MarkShark - Home");
-        setResizable(false);
-
-        role_label.setText("Role: Assistant Admin.");
-
-        logout_buton.setText("Log Out");
-
-        back_button.setText("Back");
-
-        javax.swing.GroupLayout top_panelLayout = new javax.swing.GroupLayout(top_panel);
-        top_panel.setLayout(top_panelLayout);
-        top_panelLayout.setHorizontalGroup(
-            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(top_panelLayout.createSequentialGroup()
-                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(top_panelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logout_buton))
-                    .addGroup(top_panelLayout.createSequentialGroup()
-                        .addGap(17, 506, Short.MAX_VALUE)
-                        .addComponent(role_label)))
-                .addContainerGap())
-        );
-        top_panelLayout.setVerticalGroup(
-            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(top_panelLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(role_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logout_buton)
-                    .addComponent(back_button))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         tasks_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
 
@@ -99,39 +57,35 @@ public class LandingPageAssistAdmin extends javax.swing.JFrame {
                 .addContainerGap(134, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(top_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
+            .addGap(0, 507, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(top_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+            .addGap(0, 309, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(1, 1, 1)
+                    .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-
-        setSize(new java.awt.Dimension(655, 492));
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void course_management_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_management_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_course_management_buttonActionPerformed
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton back_button;
     private javax.swing.JButton course_management_button;
-    private javax.swing.JButton logout_buton;
-    private javax.swing.JLabel role_label;
     private javax.swing.JPanel tasks_panel;
-    private javax.swing.JPanel top_panel;
     // End of variables declaration//GEN-END:variables
 }
