@@ -6,6 +6,8 @@
 
 package gui;
 
+import gui.utils.*;
+
 /**
  *
  * @author colin
@@ -89,7 +91,8 @@ public class LandingPageSysAdmin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manage_database_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manage_database_buttonActionPerformed
-        // TODO add your handling code here:
+	// This finally reaches the MasterFrame
+        System.out.println(GUIUtils.getMasterFrame(this));
     }//GEN-LAST:event_manage_database_buttonActionPerformed
 
 
