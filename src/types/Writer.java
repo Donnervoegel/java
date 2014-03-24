@@ -9,7 +9,7 @@ import java.io.*;
  * @author: Chazz Young
  */
 public class Writer {
-    public void main(ArrayList<String> outputs, String name) {
+    public void write(ArrayList<String> outputs, String name) {
         try {
           File file = new File(name + ".txt");
           BufferedWriter output = new BufferedWriter(new FileWriter(file));
