@@ -120,7 +120,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="170" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="view_grades_button" max="32767" attributes="0"/>
+                      <Component id="activity_management_button" max="32767" attributes="0"/>
                       <Component id="marking_button" min="-2" pref="140" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
@@ -133,7 +133,7 @@
                   <EmptySpace pref="94" max="32767" attributes="0"/>
                   <Component id="marking_button" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="view_grades_button" min="-2" max="-2" attributes="0"/>
+                  <Component id="activity_management_button" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -148,12 +148,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="marking_buttonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="view_grades_button">
+        <Component class="javax.swing.JButton" name="activity_management_button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Viewing Grades"/>
+            <Property name="text" type="java.lang.String" value="Activity Management"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view_grades_buttonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activity_management_buttonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

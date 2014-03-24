@@ -34,7 +34,7 @@ public class LandingPageInstructor extends javax.swing.JFrame {
         back_button = new javax.swing.JButton();
         tasks_panel = new javax.swing.JPanel();
         marking_button = new javax.swing.JButton();
-        view_grades_button = new javax.swing.JButton();
+        activity_management_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MarkShark - Home");
@@ -88,10 +88,10 @@ public class LandingPageInstructor extends javax.swing.JFrame {
             }
         });
 
-        view_grades_button.setText("Viewing Grades");
-        view_grades_button.addActionListener(new java.awt.event.ActionListener() {
+        activity_management_button.setText("Activity Management");
+        activity_management_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view_grades_buttonActionPerformed(evt);
+                activity_management_buttonActionPerformed(evt);
             }
         });
 
@@ -102,7 +102,7 @@ public class LandingPageInstructor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tasks_panelLayout.createSequentialGroup()
                 .addContainerGap(170, Short.MAX_VALUE)
                 .addGroup(tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(view_grades_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(activity_management_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(marking_button, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(161, 161, 161))
         );
@@ -112,7 +112,7 @@ public class LandingPageInstructor extends javax.swing.JFrame {
                 .addContainerGap(94, Short.MAX_VALUE)
                 .addComponent(marking_button)
                 .addGap(30, 30, 30)
-                .addComponent(view_grades_button)
+                .addComponent(activity_management_button)
                 .addGap(98, 98, 98))
         );
 
@@ -147,17 +147,17 @@ public class LandingPageInstructor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_back_buttonActionPerformed
 
-    private void view_grades_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_grades_buttonActionPerformed
+    private void activity_management_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_management_buttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_view_grades_buttonActionPerformed
+    }//GEN-LAST:event_activity_management_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton activity_management_button;
     private javax.swing.JButton back_button;
     private javax.swing.JButton logout_button;
     private javax.swing.JButton marking_button;
     private javax.swing.JLabel role_label;
     private javax.swing.JPanel tasks_panel;
     private javax.swing.JPanel top_panel;
-    private javax.swing.JButton view_grades_button;
     // End of variables declaration//GEN-END:variables
 }

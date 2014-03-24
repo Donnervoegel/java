@@ -27,10 +27,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="TopPanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="top_panel" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="79" max="32767" attributes="0"/>
-              <Component id="Tasks" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
+              <Component id="tasks_panel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -38,16 +38,16 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
+              <Component id="top_panel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Tasks" min="-2" max="-2" attributes="0"/>
+              <Component id="tasks_panel" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="92" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="TopPanel">
+    <Container class="javax.swing.JPanel" name="top_panel">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -56,13 +56,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="59" max="-2" attributes="0"/>
+                          <Component id="back_button" min="-2" pref="59" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Logout" min="-2" max="-2" attributes="0"/>
+                          <Component id="logout_button" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="17" pref="527" max="32767" attributes="0"/>
-                          <Component id="Role" min="-2" max="-2" attributes="0"/>
+                          <Component id="role_label" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -73,11 +73,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Component id="Role" min="-2" max="-2" attributes="0"/>
+                  <Component id="role_label" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Logout" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="logout_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="back_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -85,24 +85,24 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="Role">
+        <Component class="javax.swing.JLabel" name="role_label">
           <Properties>
             <Property name="text" type="java.lang.String" value="Role: Administrator"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Logout">
+        <Component class="javax.swing.JButton" name="logout_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Log Out"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="back_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="Tasks">
+    <Container class="javax.swing.JPanel" name="tasks_panel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -117,8 +117,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ActManage" max="32767" attributes="0"/>
-                      <Component id="Grading" max="32767" attributes="0"/>
+                      <Component id="viewing_button" max="32767" attributes="0"/>
+                      <Component id="grading_button" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="153" max="32767" attributes="0"/>
               </Group>
@@ -128,26 +128,26 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="94" max="32767" attributes="0"/>
-                  <Component id="Grading" min="-2" max="-2" attributes="0"/>
+                  <Component id="grading_button" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="ActManage" min="-2" max="-2" attributes="0"/>
+                  <Component id="viewing_button" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="Grading">
+        <Component class="javax.swing.JButton" name="grading_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Grading"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GradingActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grading_buttonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ActManage">
+        <Component class="javax.swing.JButton" name="viewing_button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Activity Management"/>
+            <Property name="text" type="java.lang.String" value="Viewing"/>
           </Properties>
         </Component>
       </SubComponents>
