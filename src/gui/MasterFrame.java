@@ -67,8 +67,8 @@ public class MasterFrame extends JFrame {
 	top_panel.add(logout_button, c);
 
 	// Set up bottom panel according to `a`.
-	// Using Instructor for testing purposes
-	curr_page = new LandingPageInstructor();
+	// Using SysAdmin for testing purposes
+	curr_page = new LandingPageSysAdmin();
 
 	// Render the Frame.
 	add(top_panel);
