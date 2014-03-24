@@ -24,7 +24,7 @@ public class Rubric
     /**
      * Special case where the rubric is a pass/fail rubric
      */
-    public Rubric(boolean pass, int max)
+    public Rubric(boolean pass)
     {
         items = new ArrayList<RubricItem>(1);
         items.add(new RubricItem("This assignment is pass/fail", 1));
