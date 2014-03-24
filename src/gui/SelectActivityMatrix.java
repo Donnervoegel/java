@@ -8,12 +8,12 @@ package gui;
 
 /**
  *
- * @author Pun
+ * @author Normal
  */
-public class SelectActivityMatrix extends javax.swing.JFrame {
+public class SelectActivityMatrix extends javax.swing.JPanel {
 
     /**
-     * Creates new form LandingPage
+     * Creates new form SelectActivityMatrix1
      */
     public SelectActivityMatrix() {
         initComponents();
@@ -28,65 +28,15 @@ public class SelectActivityMatrix extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        top_panel = new javax.swing.JPanel();
-        role_label = new javax.swing.JLabel();
-        logout_button = new javax.swing.JButton();
-        back_button = new javax.swing.JButton();
         student_matrix_header = new javax.swing.JPanel();
         student_activity_scrollpane = new javax.swing.JScrollPane();
         student_activity_table = new javax.swing.JTable();
-        activity_matrix_scrollbar = new javax.swing.JScrollBar();
-        ok_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MarkShark - Home");
-        setResizable(false);
-
-        role_label.setText("Role: TA");
-
-        logout_button.setText("Log Out");
-
-        back_button.setText("Back");
-        back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_buttonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout top_panelLayout = new javax.swing.GroupLayout(top_panel);
-        top_panel.setLayout(top_panelLayout);
-        top_panelLayout.setHorizontalGroup(
-            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(top_panelLayout.createSequentialGroup()
-                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(top_panelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logout_button))
-                    .addGroup(top_panelLayout.createSequentialGroup()
-                        .addGap(17, 588, Short.MAX_VALUE)
-                        .addComponent(role_label)))
-                .addContainerGap())
-        );
-        top_panelLayout.setVerticalGroup(
-            top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(top_panelLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(role_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(top_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logout_button)
-                    .addComponent(back_button))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        ok_button = new javax.swing.JButton();
 
         student_matrix_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Select the Desired Activity:"));
         student_matrix_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         student_matrix_header.setName(""); // NOI18N
-
-        student_activity_scrollpane.setVerticalScrollBar(activity_matrix_scrollbar);
 
         student_activity_table.setAutoCreateRowSorter(true);
         student_activity_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -133,32 +83,10 @@ public class SelectActivityMatrix extends javax.swing.JFrame {
             }
         });
         student_activity_table.setColumnSelectionAllowed(true);
-        student_activity_table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         student_activity_table.getTableHeader().setReorderingAllowed(false);
         student_activity_scrollpane.setViewportView(student_activity_table);
-        student_activity_table.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (student_activity_table.getColumnModel().getColumnCount() > 0) {
-            student_activity_table.getColumnModel().getColumn(0).setResizable(false);
-            student_activity_table.getColumnModel().getColumn(1).setResizable(false);
-            student_activity_table.getColumnModel().getColumn(2).setResizable(false);
-            student_activity_table.getColumnModel().getColumn(3).setResizable(false);
-            student_activity_table.getColumnModel().getColumn(4).setResizable(false);
-        }
 
-        javax.swing.GroupLayout student_matrix_headerLayout = new javax.swing.GroupLayout(student_matrix_header);
-        student_matrix_header.setLayout(student_matrix_headerLayout);
-        student_matrix_headerLayout.setHorizontalGroup(
-            student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(student_matrix_headerLayout.createSequentialGroup()
-                .addComponent(student_activity_scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(activity_matrix_scrollbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        student_matrix_headerLayout.setVerticalGroup(
-            student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(activity_matrix_scrollbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(student_activity_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-        );
+        cancel_button.setText("Cancel");
 
         ok_button.setText("OK");
         ok_button.addActionListener(new java.awt.event.ActionListener() {
@@ -167,62 +95,59 @@ public class SelectActivityMatrix extends javax.swing.JFrame {
             }
         });
 
-        cancel_button.setText("Cancel");
+        javax.swing.GroupLayout student_matrix_headerLayout = new javax.swing.GroupLayout(student_matrix_header);
+        student_matrix_header.setLayout(student_matrix_headerLayout);
+        student_matrix_headerLayout.setHorizontalGroup(
+            student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(student_matrix_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(student_matrix_headerLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cancel_button))
+                    .addComponent(student_activity_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        student_matrix_headerLayout.setVerticalGroup(
+            student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(student_matrix_headerLayout.createSequentialGroup()
+                .addComponent(student_activity_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(student_matrix_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ok_button)
+                    .addComponent(cancel_button)))
+        );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(top_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancel_button)
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(student_matrix_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(student_matrix_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(top_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(student_matrix_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ok_button)
-                    .addComponent(cancel_button))
                 .addContainerGap())
         );
-
-        setSize(new java.awt.Dimension(655, 492));
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_back_buttonActionPerformed
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ok_buttonActionPerformed
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollBar activity_matrix_scrollbar;
-    private javax.swing.JButton back_button;
     private javax.swing.JButton cancel_button;
-    private javax.swing.JButton logout_button;
     private javax.swing.JButton ok_button;
-    private javax.swing.JLabel role_label;
     private javax.swing.JScrollPane student_activity_scrollpane;
     private javax.swing.JTable student_activity_table;
     private javax.swing.JPanel student_matrix_header;
-    private javax.swing.JPanel top_panel;
     // End of variables declaration//GEN-END:variables
 }
