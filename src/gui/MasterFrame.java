@@ -18,7 +18,7 @@ public class MasterFrame extends JFrame {
     private JButton back_button;
     private JLabel  role_label;
     private JLabel  crumbs;  // This won't be a JLabel later.
-    private List<JPanel> pages;
+    private LinkedList<JPanel> pages;
 
     // This will take an `Account` object and populate itself according to
     // the Account type.
@@ -29,6 +29,7 @@ public class MasterFrame extends JFrame {
 	back_button   = new JButton("Back");
 	role_label    = new JLabel("Role: Filler...");  // Changes according to `a`.
 	crumbs        = new JLabel("Breadcrumbs here...");
+	pages         = new LinkedList<JPanel>();
 
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -82,7 +83,7 @@ public class MasterFrame extends JFrame {
 
     public void movePage(JPanel p) {
 	curr_page.setVisible(false);
-	//pages.add(0, curr_page);  // Should push that page to the Stack.
+	pages.push(curr_page);
 	curr_page = p;
 	add(curr_page);  // Better way to do this?
 	curr_page.setVisible(true);
@@ -90,6 +91,9 @@ public class MasterFrame extends JFrame {
 
     private void goBackAction(ActionEvent e) {
 	System.out.println("Going back.");
+	curr_page.setVisible(false);
+	curr_page = pages.pop();
+	curr_page.setVisible(true);
     }
 
     private void logoutAction(ActionEvent e) {
