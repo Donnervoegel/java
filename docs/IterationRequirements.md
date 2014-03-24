@@ -1,23 +1,23 @@
 **To be Completed for iteration review 1**
 
 - 1.2.1. A system administrator can add new user accounts to the system 
-- 1.2.5. When an account is created the system administrator supplies
+- 1.2.5. ~~When an account is created the system administrator supplies~~
 - 1.2.5.1.	a temporary password
-- 1.2.5.2.	a username
-- 1.2.5.3.	users name
-- 1.2.5.4.	users employee id
-- 1.2.5.5.	the type (role) of the account 
-- 1.2.8. A user with multiple roles requires one account for each role
-- 1.2.9. A system administrator may not access any activities or grades 
-- 1.2.12. TAs/TMs are have identical privileges within the streamlined grading system
-- 1.2.13.  A system administrator may view any or all accounts at any time
-- 1.3.1. A course includes
-- 1.3.1.1.	Course name
-- 1.3.1.2.	Course number`
-- 1.3.1.3.	Start date and end date
-- 1.3.1.4.	Instructor name and employee number
-- 1.3.1.5.	List of TA/TM names and employee numbers
-- 1.3.1.6.	List of students names and student numbers 
+- 1.2.5.2.	~~a username~~
+- 1.2.5.3.	~~users name~~
+- 1.2.5.4.	~~users employee id~~
+- 1.2.5.5.	~~the type (role) of the account~~ 
+- 1.2.8. ~~A user with multiple roles requires one account for each role~~
+- 1.2.9. ~~A system administrator may not access any activities or grades~~ 
+- 1.2.12. ~~TAs/TMs are have identical privileges within the streamlined grading system~~
+- 1.2.13.  A system administrator may view any or all accounts at any time~~
+- 1.3.1. ~~A course includes~~
+- 1.3.1.1.	~~Course name~~
+- 1.3.1.2.	~~Course number~~`
+- 1.3.1.3.	~~Start date and end date~~
+- 1.3.1.4.	~~Instructor name and employee number~~
+- 1.3.1.5.	~~List of TA/TM names and employee numbers~~
+- 1.3.1.6.	~~List of students names and student numbers~~ 
 - 1.3.2. A course may also include
 - 1.3.2.1.	List of activities added by the instructor after the course is created
 - 1.3.2.2.	Student grades for each activity added after the activity is created
@@ -26,11 +26,11 @@
 - 1.3.3.2.	An administrative assistant may add ONLY the parts of the course listed in - - - 1.3.1 when he or she creates a course
 - 1.3.7. Lists of students may be added to a by loading a comma separated file into the streamlined grading system. The csv file will contain a list of students, one line per student. Each line includes student name, comma, student ID
 - 1.4.1. At the time of creation an activity must include
-- 1.4.1.1. Activity name
+- 1.4.1.1. ~~Activity name~~
 - 1.4.1.2.	 Activity solution or solutions
-- 1.4.1.3.	 Activity type
-- 1.4.1.4.	 Activity language (English, French, German, Chinese, C++, Java, Python)
-- 1.4.1.5.	 A flag indicating if the activity is an individual activity or a group activity
+- 1.4.1.3.	 ~~Activity type
+- 1.4.1.4.	 ~~Activity language (English, French, German, Chinese, C++, Java, Python)~~
+- 1.4.1.5.	 ~~A flag indicating if the activity is an individual activity or a group activity~~
 - 1.4.2.   The following must be part of an activity but may be added after the creation of the activity
 - 1.4.2.1.	A rubric 
 - 1.4.2.2.	The number of programming tests to be run using each student’s code.  If the activity is not a programming activity there will be 0 tests.
