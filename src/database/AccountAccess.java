@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import types.Account;
+
 /**
  * Class to access accounts in project SQL database.
  * 
@@ -48,36 +50,38 @@ public class AccountAccess {
 	// NON-STATIC METHODS
 
 	/*
-	 * Method to access a course in the database. Takes a course ID as a
-	 * parameter, and returns a ResultSet object based off of the query. This
-	 * ResultSet can then be used to access information about the specified
-	 * account.
+	 * Method to access an account in the database. The method builds a
+	 * ResultSet containing all the fields of account type, selected based on
+	 * the username entered as a parameter.
 	 */
 	public ResultSet accessAccount(String username) {
-		PreparedStatement prepStatement = null;
-		ResultSet resSet = null;
 		// Create the selection query string
 		String query = "SELECT * FROM c275g01A.dbo.Account WHERE Username = '"
 				+ username + "'";
-
-		establishConnection();
-		try { // Prepare and execute query
-			prepStatement = dbConnection.prepareStatement(query);
-			resSet = prepStatement.executeQuery();
-		} catch (SQLException e) {
-			System.out.println("SQL Exception occured, the state : "
-					+ e.getSQLState() + "\nMessage: " + e.getMessage());
-		}
-		return resSet;
+		return execQuery(query);
 	}
 
 	/*
-	 * Method to add an account to the database. Takes the necessary data of an
-	 * account as arguments and inserts an account into the database based off
-	 * of the parameters.
+	 * Method to return a ResultSet containing the usernames of all the accounts
+	 * in the database.
 	 */
-	public void createAccount(String username, String password, int empID,
-			String empName, int acctType, boolean blockFlag) {
+	public ResultSet accessAllAccounts() {
+		String query = "SELECT Username FROM c275g01A.dbo.account";
+		return execQuery(query);
+	}
+
+	/*
+	 * Method to add an account to the database. Takes an Account object and
+	 * creates an entry in the database matching the variables of the Account
+	 * passed as a parameter.
+	 */
+	public void createAccount(Account acct) {
+		String username = acct.getUsername();
+		String password = acct.getPassword();
+		int empID = acct.getEmpID();
+		String empName = acct.getFirstName() + acct.getLastName();
+		int acctType = acct.getAccountType();
+		boolean blockFlag = acct.getBlocked();
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Account VALUES ('" + username
 				+ "','" + password + "'," + empID + ",'" + empName + "',"
@@ -86,15 +90,18 @@ public class AccountAccess {
 	}
 
 	/*
-	 * Method to update an account in the database. Takes all fields of an
-	 * account, along with a username to query as arguments. All fields will be
-	 * updated to the entered parameters.
+	 * Method to update an account in the database. Takes a username to access,
+	 * and updates the account with all the fields of the account object passed.
 	 */
-	public void modifyAccount(String username, String password, int empID,
-			String empName, int acctType, boolean blockFlag,
-			String accessUsername) {
+	public void modifyAccount(String accessUsername, Account acct) {
+		String username = acct.getUsername();
+		String password = acct.getPassword();
+		int empID = acct.getEmpID();
+		String empName = acct.getFirstName() + acct.getLastName();
+		int acctType = acct.getAccountType();
+		boolean blockFlag = acct.getBlocked();
 		// Create the update query string
-		String query = "UPDATE c275g01A SET Username='" + username
+		String query = "UPDATE c275g01A SET Username = '" + username
 				+ "', Pass = '" + password + ", EmployeeID = " + empID
 				+ ", EmployeeName = '" + empName + "', AccountType = "
 				+ acctType + ", BlockAccountaFlag = " + boolToBit(blockFlag)
@@ -129,6 +136,25 @@ public class AccountAccess {
 			System.out.println("SQL Exception occured, the state : "
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
 		}
+	}
+
+	/*
+	 * Method to execute a query on the database connection and return a result
+	 * set for the query entered as a string argument.
+	 */
+	private ResultSet execQuery(String query) {
+		PreparedStatement prepStatement = null;
+		ResultSet resSet = null;
+
+		establishConnection();
+		try { // Prepare and execute query
+			prepStatement = dbConnection.prepareStatement(query);
+			resSet = prepStatement.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+		return resSet;
 	}
 
 	/*
