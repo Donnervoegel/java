@@ -32,33 +32,21 @@ public abstract class Account
         blocked = false;
     }
     
-    /**
-     * @version 0.0
-     */
     public static String getFirstName()
     {
         return first_name;
     }
     
-    /**
-     * @version 0.0 
-     */
     public static String getLastName()
     {
         return last_name;
     }
     
-    /**
-     * @version 0.0 
-     */
     public String getUsername()
     {
         return username;
     }
     
-    /**
-     * @version 0.0 
-     */
     public int getID()
     {
         return id;
@@ -66,8 +54,7 @@ public abstract class Account
     
     /**
      * @desc:   Returns the string representation of the account type.
-     * @author  Chazz Young (0.0) - 03/16/2014         
-     * @version 0.0 
+     * @author  Chazz Young 
      */
     public String getAccountType()
     {
@@ -90,8 +77,7 @@ public abstract class Account
     
     /**
      * @desc:   Tests to see if the inputted password is correct.
-     * @author  Chazz Young (0.0) - 03/20/2014       
-     * @version 0.0 
+     * @author  Chazz Young  
      */
     public boolean checkPassword(String pass)
     {
@@ -110,9 +96,6 @@ public abstract class Account
         return toReturn;
     }
     
-    /**
-     * @version 0.0 - 03/16/2014
-     */
     public void setUsername(String name)
     {
         username = name;
@@ -121,8 +104,7 @@ public abstract class Account
     /**
      * @desc    Validates the old password and sets the password to the specified new 
      *          password if true
-     * @author  Chazz Young (0.0) - 03/20/2014
-     * @version 0.0
+     * @author  Chazz Young 
      */
     public void setPassword(String old_pass, String new_pass)
     {

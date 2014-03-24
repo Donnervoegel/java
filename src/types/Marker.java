@@ -2,10 +2,10 @@ package types;
 
 
 /**
- * @desc:   The Marker class is used to model the System Administrator account.
+ * @The Marker class is used to simulate the Marker class. It is abstract to give all privileges
+ * to each type of account that is a subclass of Marker.
  * 
- * @author (Chazz Young (0.0) 
- * @version 0.0 - 03/16/2014 --getters/setters
+ * @author (Chazz Young 
  */
 public abstract class Marker extends Account
 {

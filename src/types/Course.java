@@ -16,7 +16,7 @@ public class Course
     private ArrayList<Student> students;
     private ArrayList<Activity> activities;
     
-    public Course( String n, int i, Instructor ins, String start, String end)
+    public Course(String n, int i, Instructor ins, String start, String end)
     {
         name = n;
         id = i;
@@ -94,7 +94,7 @@ public class Course
     }
     
     /**
-     * @desc:  Batch add Students
+     * @desc:   Batch add Students
      *          Takes an ArrayList of Students and searches the 
      *          sorted ArrayList for the given object iteratively
      * @author: Chazz Young
