@@ -16,5 +16,24 @@ public class SystemAdmin extends Account
         super(fn, ln, empID, un, pass, 1);
     }
 
-    
+    /**
+     * @desc:   Creates the Account Object and uplaods to database
+     * @author: Chazz Young
+     */
+    public void createAccount(String fn, String ln, int empID, String un, String pass, int type)
+    {
+        Account a;
+        if(type == 1){
+            a = new SystemAdmin(fn, ln, empID, un, pass);
+        }else if(type == 2){
+            a = new AcademicAdmin(fn, ln, empID, un, pass);
+        }else if(type == 3){
+            a = new AssistantAdmin(fn, ln, empID, un, pass);
+        }else if(type == 4){
+            a = new Instructor(fn, ln, empID, un, pass);
+        }else if(type == 5){
+            a = new TATMMarker(fn, ln, empID, un, pass);
+        }
+        //Update database...
+    }
 }

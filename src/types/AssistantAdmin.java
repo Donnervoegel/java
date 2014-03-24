@@ -4,8 +4,7 @@ package types;
 /**
  * @desc:   The AssistantAdmin class is used to model the Academic Admin Assistant account.
  * 
- * @author (Chazz Young (0.0) 
- * @version 0.0 - 03/16/2014 --getters/setters
+ * @author Chazz Young
  */
 public class AssistantAdmin extends Account
 {
@@ -16,5 +15,9 @@ public class AssistantAdmin extends Account
         super(fn, ln, empID, un, pass, 3);
     }
 
-    
+    public void createCourse(String name, int id, Instructor inst, String start, String end)
+    {
+        Course c = new Course(name, id, inst, start, end);
+        inst.addCourse(c);
+    }
 }
