@@ -1,4 +1,4 @@
-package Login;
+package gui.utils;
 
 import java.util.*;
 import types.*;
