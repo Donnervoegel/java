@@ -18,7 +18,6 @@ public class Rubric
     public Rubric(String file)
     {
         items = new ArrayList<RubricItem>();
-        populateRubric(file);
     }
     
     /**
@@ -30,9 +29,10 @@ public class Rubric
         items.add(new RubricItem("This assignment is pass/fail", 1));
     }
     
-    private void populateRubric(String filepath)
+    public void addItem(String desc, int max)
     {
-        //Input is coming soon...
+        RubricItem r = new RubricItem(desc, max);
+        items.add(r);
     }
 }
 
