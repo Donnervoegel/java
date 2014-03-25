@@ -9,6 +9,13 @@ package types;
  */
 public abstract class Account
 {
+    /*
+    Instructor==1
+    TA/TM==2
+    AcAdmin==3
+    AssAdmin==4
+    SysAdmin==5
+    */
     public enum Type {
 	INSTRUCTOR,
 	TATMMARKER,
@@ -16,12 +23,11 @@ public abstract class Account
 	ASSISTANTADMIN,
 	SYSTEMADMIN
     }
-
+    
     private static final int MAX_FAILS = 5;
-    private static final int MAX_TYPES = 6;
 	
     protected String first_name, last_name;
-    protected int accountType;
+    protected Type accountType;
     protected String username;
     private String password;
     protected boolean blocked;
@@ -29,7 +35,7 @@ public abstract class Account
     
     private int bad_logins;
     
-    public Account(String fn, String ln, int empID, String un, String pass, int ut)
+    public Account(String fn, String ln, int empID, String un, String pass, Type ut)
     {
         first_name = fn;
         last_name = ln;
@@ -61,7 +67,7 @@ public abstract class Account
         return empID;
     }
     
-    public int getAccountType() {
+    public Type getAccountType() {
     	return accountType;
     }
     
@@ -80,15 +86,15 @@ public abstract class Account
     public String getAccountTypeString()
     {
         String toReturn = null;
-        if(accountType == 1){
+        if(accountType == Type.SYSTEMADMIN){
             toReturn = "System Administrator";
-        }else if(accountType == 2){
+        }else if(accountType == Type.ACADEMICADMIN){
             toReturn = "Academic Administrator";
-        }else if(accountType == 3){
+        }else if(accountType == Type.ASSISTANTADMIN){
             toReturn = "Assistant Academic Administrator";
-        }else if(accountType == 4){
+        }else if(accountType == Type.INSTRUCTOR){
             toReturn = "Instructor";
-        }else if(accountType == 5){
+        }else if(accountType == Type.TATMMARKER){
             toReturn = "TA/TM Marker"; 
         }else{
             toReturn = "Error: invalid account type";
@@ -143,13 +149,34 @@ public abstract class Account
      *          pass an integer value.
      * @version 0.0 - 03/16/2014
      */
-    public void setAccountType(int type)
+    public void setAccountType(Type type)
     {
-        if(type < 1 || type > MAX_TYPES){
-            accountType = type;
-        }else{
-            System.out.println("Error: invalid account type");
+        accountType = type;
+    }
+    
+    public int getAccountTypeAsInt()
+    {
+        int typeInt;
+        if (accountType==Type.INSTRUCTOR){
+            typeInt=1;
         }
+        else if (accountType==Type.TATMMARKER){
+            typeInt=2;
+        }
+        else if (accountType==Type.ACADEMICADMIN){
+            typeInt=3;
+        }
+        else if (accountType==Type.ASSISTANTADMIN){
+            typeInt=4;
+        }
+        else if (accountType==Type.SYSTEMADMIN){
+            typeInt=5;
+        }
+        else{
+            System.out.println("Invalid account type");
+            typeInt=0;
+        }
+        return typeInt;
     }
     
     /**

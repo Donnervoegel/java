@@ -86,8 +86,8 @@ public class Course
             @Override
             public int compare(TATMMarker m1, TATMMarker m2)
             {
-                int o1 = m1.getID(); 
-                int o2 = m2.getID();
+                int o1 = m1.getEmpID(); 
+                int o2 = m2.getEmpID();
                 return (o1>o2 ? -1 : (o1==o2 ? 0 : 1));
             }
         });

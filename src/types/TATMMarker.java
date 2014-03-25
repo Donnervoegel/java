@@ -13,7 +13,7 @@ public class TATMMarker extends Marker
     public TATMMarker(String fn, String ln, int empID, String un, String pass)
     
     {
-        super(fn, ln, empID, un, pass, 5);
+        super(fn, ln, empID, un, pass, Type.TATMMARKER);
     }
 
     

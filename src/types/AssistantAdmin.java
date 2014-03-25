@@ -12,7 +12,7 @@ public class AssistantAdmin extends Account
     public AssistantAdmin(String fn, String ln, int empID, String un, String pass)
     
     {
-        super(fn, ln, empID, un, pass, 3);
+        super(fn, ln, empID, un, pass, Type.ASSISTANTADMIN);
     }
 
     public void createCourse(String name, int id, Instructor inst, String start, String end)

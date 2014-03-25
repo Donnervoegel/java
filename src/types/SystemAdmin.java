@@ -13,7 +13,7 @@ public class SystemAdmin extends Account
     public SystemAdmin(String fn, String ln, int empID, String un, String pass)
     
     {
-        super(fn, ln, empID, un, pass, 1);
+        super(fn, ln, empID, un, pass, Type.SYSTEMADMIN);
     }
 
     /**
