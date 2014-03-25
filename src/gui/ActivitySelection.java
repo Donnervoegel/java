@@ -32,7 +32,6 @@ public class ActivitySelection extends javax.swing.JPanel {
         activity_dropdown = new javax.swing.JComboBox();
         activities_label = new javax.swing.JLabel();
         ok_button = new javax.swing.JButton();
-        cancel_button = new javax.swing.JButton();
 
         activity_selection_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Activity Selection"));
         activity_selection_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -54,13 +53,6 @@ public class ActivitySelection extends javax.swing.JPanel {
             }
         });
 
-        cancel_button.setText("Cancel");
-        cancel_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel_buttonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout activity_selection_headerLayout = new javax.swing.GroupLayout(activity_selection_header);
         activity_selection_header.setLayout(activity_selection_headerLayout);
         activity_selection_headerLayout.setHorizontalGroup(
@@ -69,12 +61,9 @@ public class ActivitySelection extends javax.swing.JPanel {
                 .addContainerGap(66, Short.MAX_VALUE)
                 .addComponent(activities_label, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(activity_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(activity_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(activity_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(activity_selection_headerLayout.createSequentialGroup()
-                        .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancel_button)))
+                    .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69))
         );
         activity_selection_headerLayout.setVerticalGroup(
@@ -85,9 +74,7 @@ public class ActivitySelection extends javax.swing.JPanel {
                     .addComponent(activity_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(activities_label))
                 .addGap(18, 18, 18)
-                .addGroup(activity_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ok_button)
-                    .addComponent(cancel_button))
+                .addComponent(ok_button)
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
@@ -121,16 +108,11 @@ public class ActivitySelection extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_dropdownActionPerformed
 
-    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cancel_buttonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel activities_label;
     private javax.swing.JComboBox activity_dropdown;
     private javax.swing.JPanel activity_selection_header;
-    private javax.swing.JButton cancel_button;
     private javax.swing.JButton ok_button;
     // End of variables declaration//GEN-END:variables
 }
