@@ -159,7 +159,7 @@ public class LoginScreen extends JFrame {
         } else if (name.equalsIgnoreCase("instructor")){
             test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
         } else {// ta marker
-            test = new TATMMarker("Joey", "Tester", 9999, "password", "ta");
+            test = new TATM("Joey", "Tester", 9999, "password", "ta");
         }
 
 	if(pass.length() < 5) {

@@ -2,7 +2,7 @@ package types;
 
 
 /**
- * @desc:   The TATMMarker class is used to model the TA/TM Marker account.
+ * @desc:   The TATM class is used to model the TA/TM Marker account.
  * 
  * @author (Chazz Young (0.0) 
  * @version 0.0 - 03/16/2014 --getters/setters

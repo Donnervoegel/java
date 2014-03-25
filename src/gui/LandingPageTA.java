@@ -6,6 +6,7 @@
 
 package gui;
 
+import javax.swing.*;
 import gui.utils.*;
 import types.*;
 
@@ -13,13 +14,13 @@ import types.*;
  *
  * @author Normal
  */
-public class LandingPageTA extends javax.swing.JPanel {
-    private TATMMarker a;
+public class LandingPageTA extends JPanel {
+    private TATM a;
 
     /**
      * Creates new form LandingPageTA1
      */
-    public LandingPageTA(TATMMarker a) {
+    public LandingPageTA(TATM a) {
 	this.a = a;
 
         initComponents();
@@ -34,10 +35,10 @@ public class LandingPageTA extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tasks_panel = new javax.swing.JPanel();
-        marking_button = new javax.swing.JButton();
+        tasks_panel = new JPanel();
+        marking_button = new JButton();
 
-        tasks_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
+        tasks_panel.setBorder(BorderFactory.createTitledBorder("Tasks"));
 
         marking_button.setText("Marking");
         marking_button.addActionListener(new java.awt.event.ActionListener() {
@@ -46,42 +47,42 @@ public class LandingPageTA extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout tasks_panelLayout = new javax.swing.GroupLayout(tasks_panel);
+        GroupLayout tasks_panelLayout = new GroupLayout(tasks_panel);
         tasks_panel.setLayout(tasks_panelLayout);
         tasks_panelLayout.setHorizontalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(tasks_panelLayout.createSequentialGroup()
                 .addGap(165, 165, 165)
-                .addComponent(marking_button, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(marking_button, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(166, Short.MAX_VALUE))
         );
         tasks_panelLayout.setVerticalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(tasks_panelLayout.createSequentialGroup()
                 .addGap(131, 131, 131)
                 .addComponent(marking_button)
                 .addContainerGap(142, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 496, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 341, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -90,7 +91,7 @@ public class LandingPageTA extends javax.swing.JPanel {
     }//GEN-LAST:event_marking_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton marking_button;
-    private javax.swing.JPanel tasks_panel;
+    private JButton marking_button;
+    private JPanel tasks_panel;
     // End of variables declaration//GEN-END:variables
 }

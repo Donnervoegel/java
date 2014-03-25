@@ -54,9 +54,9 @@ public class MasterFrame extends JFrame {
 	} else if (a instanceof SystemAdmin) {
 	    role_label.setText("Role: System Administrator");
 	    curr_page = new LandingPageSysAdmin((SystemAdmin)a);
-	} else if (a instanceof TATMMarker) {
+	} else if (a instanceof TATM) {
 	    role_label.setText("Role: TA/TM");
-	    curr_page = new LandingPageTA((TATMMarker)a);
+	    curr_page = new LandingPageTA((TATM)a);
 	} else {
 	    System.out.println("Unknown account type!! Everyone overboard!! Eject!!");
 	    curr_page = null;  // omg please no.
