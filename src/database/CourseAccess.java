@@ -77,7 +77,7 @@ public class CourseAccess {
 		String courseID = course.getCourseID();
 		String courseName = course.getCourseName();
 		String instructorName = course.getInstructor().getFirstName()
-				+ course.getInstructor().getLastName();
+				+ " " + course.getInstructor().getLastName();
 		int instructorID = course.getInstructor().getEmpID();
 		String startDate = course.getStartDate();
 		String endDate = course.getEndDate();
@@ -294,7 +294,7 @@ public class CourseAccess {
 	/*
 	 * Method to add an activity, including all necessary details,
 	 */
-	public void addActivity(String courseID, Activity act) {
+	public static void addActivity(String courseID, Activity act) {
 		// Build database entries from activity object
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
@@ -456,7 +456,7 @@ public class CourseAccess {
 	 * Method to convert a boolean value to either 0 or 1 to be used as a bit in
 	 * SQL queries.
 	 */
-	private int boolToBit(boolean b) {
+	private static int boolToBit(boolean b) {
 		return b ? 1 : 0;
 	}
 }

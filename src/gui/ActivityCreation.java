@@ -373,7 +373,7 @@ public class ActivityCreation extends javax.swing.JPanel {
         
 //    public Activity(String n, String sol, String lang, boolean p, boolean g)
 
-   Activity new_activity = new Activity(activity_name_field.getText(), activity_desc_field.getText(), activity_solution_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
+   Activity new_activity = new Activity(activity_name_field.getText(), activity_solution_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
    
            CourseAccess.addActivity("sdfsdfsdf",new_activity);
 
