@@ -6,6 +6,7 @@
 
 package gui;
 
+import database.CourseAccess;
 import types.Activity;
 
 /**
@@ -370,8 +371,12 @@ public class ActivityCreation extends javax.swing.JPanel {
 
     private void activity_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_submit_buttonActionPerformed
         
+//    public Activity(String n, String sol, String lang, boolean p, boolean g)
 
-   //     Activity new_activity = new Activity(activity_name_field.getText(), activity_desc_field.getText(), activity_solution_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
+   Activity new_activity = new Activity(activity_name_field.getText(), activity_desc_field.getText(), activity_solution_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
+   
+           CourseAccess.addActivity("sdfsdfsdf",new_activity);
+
 // TODO add your handling code here:
     }//GEN-LAST:event_activity_submit_buttonActionPerformed
 
