@@ -147,6 +147,24 @@ public class LoginScreen extends JFrame {
 	 */
 	String name = username_field.getText();
 	String pass = new String(pass_field.getPassword());
+        
+        Account test;
+        
+        if (name == "sysadmin"){
+            test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
+        }
+        else if (name == "admin"){  
+            test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
+        }
+        else if (name == "assist"){
+            test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
+        }
+        else if (name == "instructor"){
+            test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
+        }
+        else {// ta marker
+            test = new TATMMarker("Joey", "Tester", 9999, "password", "ta");
+        }
 
 	if(pass.length() < 5) {
 	    JOptionPane
@@ -158,7 +176,7 @@ public class LoginScreen extends JFrame {
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
 	    // TODO: This needs to be passed a legit Account object.
-	    master = new MasterFrame(null);
+	    master = new MasterFrame(test);
 	    this.setVisible(false);
 	    master.run();
 	}
