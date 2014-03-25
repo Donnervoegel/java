@@ -154,7 +154,7 @@ public class AccountAccess {
 		boolean blockFlag = acct.getBlocked();
 		
 		// Create the update query string
-		String query = "UPDATE c275g01A SET Username = '" + username
+		String query = "UPDATE c275g01A.dbo.Account SET Username = '" + username
 				+ "', Pass = '" + password + ", EmployeeID = " + empID
 				+ ", EmployeeName = '" + empName + "', AccountType = "
 				+ acctType + ", BlockAccountaFlag = " + boolToBit(blockFlag)
