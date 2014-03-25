@@ -31,6 +31,10 @@ public class LoginScreen extends JFrame {
      */
     public LoginScreen() {
         initComponents();
+        
+        //Add the shark image
+        this.setIconImage(new ImageIcon(getClass().getResource("markshark-1x.png")).getImage()); 
+        
     }
 
     /**
@@ -132,7 +136,7 @@ public class LoginScreen extends JFrame {
 	// Render the Login Screen
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     private void loginButtonActionPerformed(ActionEvent evt) {
 	/*
