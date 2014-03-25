@@ -60,7 +60,7 @@ public class AccountAccess {
 	 * ResultSet containing all the fields of account type, selected based on
 	 * the username entered as a parameter.
 	 */
-	public ResultSet accessAccount(String username) {
+	public static ResultSet accessAccount(String username) {
 		// Create the selection query string
 		String query = "SELECT * FROM c275g01A.dbo.Account WHERE Username = '"
 				+ username + "'";
@@ -74,7 +74,7 @@ public class AccountAccess {
         
         * @author Graeme Smith (just this method)
         */
-        public Account constructAccountObject(String username) {
+        public static Account constructAccountObject(String username) {
             ResultSet result=accessAccount(username);
             Account account=null;
             try {
@@ -103,7 +103,8 @@ public class AccountAccess {
                 }
                 return account;
             } catch (SQLException ex) {
-                Logger.getLogger(AccountAccess.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("SQL Exception occured, the state : "
+					+ ex.getSQLState() + "\nMessage: " + ex.getMessage());
             }
             System.out.println("Returning a null account because something failed while retrieving the account");
             return account;
@@ -194,7 +195,7 @@ public class AccountAccess {
 	 * Method to execute a query on the database connection and return a result
 	 * set for the query entered as a string argument.
 	 */
-	private ResultSet execQuery(String query) {
+	private static ResultSet execQuery(String query) {
 		PreparedStatement prepStatement = null;
 		ResultSet resSet = null;
 

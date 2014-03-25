@@ -72,7 +72,7 @@ public class CourseAccess {
 	 * argument, and adds a course with all the details of the course object to
 	 * the database.
 	 */
-	public void createCourse(Course course) {
+	public static void createCourse(Course course) {
 		// Build database entries from course object
 		String courseID = course.getCourseID();
 		String courseName = course.getCourseName();
@@ -400,7 +400,7 @@ public class CourseAccess {
 	 * Method to execute an update (INSERT, DELETE, UPDATE) query on the
 	 * database connection.
 	 */
-	private void execUpdate(String query) {
+	private static void execUpdate(String query) {
 		PreparedStatement prepStatement = null;
 
 		establishConnection(); // Establish connection to Cypress
