@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="513" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="557" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -81,11 +81,11 @@
                                   <Component id="ta_id_label" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="course_id_label" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="course_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="instructor_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="instructor_username_label" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="118" pref="118" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="instructor_name_field" max="32767" attributes="0"/>
+                                  <Component id="instructor_username_field" max="32767" attributes="0"/>
                                   <Component id="course_name_field" max="32767" attributes="0"/>
                                   <Component id="course_id_field" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
@@ -130,8 +130,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="instructor_name_field" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="instructor_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="instructor_username_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="instructor_username_label" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -182,9 +182,9 @@
             <Property name="text" type="java.lang.String" value="Course ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="instructor_name_label">
+        <Component class="javax.swing.JLabel" name="instructor_username_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Instructor Name"/>
+            <Property name="text" type="java.lang.String" value="Instructor Username"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="instructor_id_label">
@@ -224,9 +224,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="course_id_field">
         </Component>
-        <Component class="javax.swing.JTextField" name="instructor_name_field">
+        <Component class="javax.swing.JTextField" name="instructor_username_field">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instructor_name_fieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instructor_username_fieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="instructor_id_field">
