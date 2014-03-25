@@ -88,9 +88,11 @@ public class CreateCourse extends javax.swing.JPanel {
             }
         });
 
-        course_start_formatfield.setText("DD/MM/YY");
+        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        course_start_formatfield.setText("yyyy/MM/dd");
 
-        course_end_formatfield.setText("DD/MM/YY");
+        course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        course_end_formatfield.setText("yyyy/MM/dd");
         course_end_formatfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 course_end_formatfieldActionPerformed(evt);
@@ -246,10 +248,6 @@ public class CreateCourse extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_instructor_username_fieldActionPerformed
 
-    private void course_end_formatfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_end_formatfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_course_end_formatfieldActionPerformed
-
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancel_buttonActionPerformed
@@ -267,6 +265,10 @@ public class CreateCourse extends javax.swing.JPanel {
     private void choose_file_student_list_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_choose_file_student_list_buttonActionPerformed
+
+    private void course_end_formatfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_end_formatfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_course_end_formatfieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
