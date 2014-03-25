@@ -78,7 +78,7 @@ public class Course
     {
         ArrayList<Activity> a = new ArrayList<Activity>(1);
         a.add(s);
-        updateActivities(a);
+	//        updateActivities(a);
     }
     
     /**
