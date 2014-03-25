@@ -32,13 +32,17 @@ public class CourseSelection extends javax.swing.JPanel {
         course_selection_dropdown = new javax.swing.JComboBox();
         courses_label = new javax.swing.JLabel();
         ok_button = new javax.swing.JButton();
-        cancel_button = new javax.swing.JButton();
 
         course_selection_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Course Selection"));
         course_selection_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         course_selection_header.setName(""); // NOI18N
 
         course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LIFT 101", "NUTR 203", "CARD 201", "GYM 406" }));
+        course_selection_dropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                course_selection_dropdownActionPerformed(evt);
+            }
+        });
 
         courses_label.setText("Courses:");
 
@@ -46,13 +50,6 @@ public class CourseSelection extends javax.swing.JPanel {
         ok_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ok_buttonActionPerformed(evt);
-            }
-        });
-
-        cancel_button.setText("Cancel");
-        cancel_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel_buttonActionPerformed(evt);
             }
         });
 
@@ -64,12 +61,9 @@ public class CourseSelection extends javax.swing.JPanel {
                 .addContainerGap(66, Short.MAX_VALUE)
                 .addComponent(courses_label, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(course_selection_headerLayout.createSequentialGroup()
-                        .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancel_button))
-                    .addComponent(course_selection_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(course_selection_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69))
         );
         course_selection_headerLayout.setVerticalGroup(
@@ -80,9 +74,7 @@ public class CourseSelection extends javax.swing.JPanel {
                     .addComponent(course_selection_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(courses_label))
                 .addGap(18, 18, 18)
-                .addGroup(course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ok_button)
-                    .addComponent(cancel_button))
+                .addComponent(ok_button)
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
@@ -112,13 +104,12 @@ public class CourseSelection extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ok_buttonActionPerformed
 
-    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+    private void course_selection_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_selection_dropdownActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cancel_buttonActionPerformed
+    }//GEN-LAST:event_course_selection_dropdownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancel_button;
     private javax.swing.JComboBox course_selection_dropdown;
     private javax.swing.JPanel course_selection_header;
     private javax.swing.JLabel courses_label;

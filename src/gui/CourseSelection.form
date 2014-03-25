@@ -60,13 +60,9 @@
                   <EmptySpace pref="66" max="32767" attributes="0"/>
                   <Component id="courses_label" min="-2" pref="102" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="ok_button" min="-2" pref="63" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Component id="cancel_button" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="course_selection_dropdown" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="course_selection_dropdown" min="-2" pref="206" max="-2" attributes="0"/>
+                      <Component id="ok_button" min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               </Group>
@@ -81,10 +77,7 @@
                       <Component id="courses_label" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ok_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cancel_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="ok_button" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="101" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -102,6 +95,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="course_selection_dropdownActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="courses_label">
           <Properties>
@@ -114,14 +110,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ok_buttonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="cancel_button">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cancel"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancel_buttonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

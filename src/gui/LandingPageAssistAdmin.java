@@ -35,63 +35,102 @@ public class LandingPageAssistAdmin extends JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tasks_panel = new JPanel();
-        course_management_button = new JButton();
+        course_selection_header = new javax.swing.JPanel();
+        create_course_button = new javax.swing.JButton();
+        modify_course_button = new javax.swing.JButton();
+        delete_course_button = new javax.swing.JButton();
 
-        tasks_panel.setBorder(BorderFactory.createTitledBorder("Tasks"));
+        course_selection_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Course Management"));
+        course_selection_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        course_selection_header.setName(""); // NOI18N
 
-        course_management_button.setText("Course Management");
-        course_management_button.addActionListener(new java.awt.event.ActionListener() {
+        create_course_button.setText("Create New Course");
+        create_course_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                course_management_buttonActionPerformed(evt);
+                create_course_buttonActionPerformed(evt);
             }
         });
 
-        GroupLayout tasks_panelLayout = new GroupLayout(tasks_panel);
-        tasks_panel.setLayout(tasks_panelLayout);
-        tasks_panelLayout.setHorizontalGroup(
-            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(GroupLayout.Alignment.TRAILING, tasks_panelLayout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
-                .addComponent(course_management_button, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
+        modify_course_button.setText("Modify Existing Course");
+        modify_course_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modify_course_buttonActionPerformed(evt);
+            }
+        });
+
+        delete_course_button.setText("Delete a Course");
+        delete_course_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_course_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout course_selection_headerLayout = new javax.swing.GroupLayout(course_selection_header);
+        course_selection_header.setLayout(course_selection_headerLayout);
+        course_selection_headerLayout.setHorizontalGroup(
+            course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, course_selection_headerLayout.createSequentialGroup()
+                .addContainerGap(183, Short.MAX_VALUE)
+                .addGroup(course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(course_selection_headerLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(create_course_button))
+                    .addGroup(course_selection_headerLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(delete_course_button))
+                    .addComponent(modify_course_button))
+                .addGap(169, 169, 169))
         );
-        tasks_panelLayout.setVerticalGroup(
-            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(tasks_panelLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(course_management_button)
-                .addContainerGap(134, Short.MAX_VALUE))
+        course_selection_headerLayout.setVerticalGroup(
+            course_selection_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(course_selection_headerLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(create_course_button)
+                .addGap(18, 18, 18)
+                .addComponent(modify_course_button)
+                .addGap(18, 18, 18)
+                .addComponent(delete_course_button)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        GroupLayout layout = new GroupLayout(this);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 566, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(course_selection_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 309, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 325, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(1, 1, 1)
-                    .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(course_selection_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void course_management_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_management_buttonActionPerformed
+    private void create_course_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_course_buttonActionPerformed
         GUIUtils.getMasterFrame(this).movePage(new CreateCourse());
-    }//GEN-LAST:event_course_management_buttonActionPerformed
+    }//GEN-LAST:event_create_course_buttonActionPerformed
+
+    private void modify_course_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_course_buttonActionPerformed
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+    }//GEN-LAST:event_modify_course_buttonActionPerformed
+
+    private void delete_course_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_course_buttonActionPerformed
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+    }//GEN-LAST:event_delete_course_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JButton course_management_button;
-    private JPanel tasks_panel;
+    private javax.swing.JPanel course_selection_header;
+    private javax.swing.JButton create_course_button;
+    private javax.swing.JButton delete_course_button;
+    private javax.swing.JButton modify_course_button;
     // End of variables declaration//GEN-END:variables
 }
