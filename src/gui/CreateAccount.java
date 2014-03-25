@@ -13,6 +13,9 @@ import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
+import types.*;
+import database.AccountAccess;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -253,7 +256,47 @@ public class CreateAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_modify_existing_checkboxActionPerformed
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        // TODO add your handling code here:
+        //Add modify if case later
+        
+       String account_select = account_type_dropdown.getSelectedItem().toString();
+       System.out.println("Creating " + account_select + " type account.");
+        
+       String first = first_name_field.getText();
+       String last = last_name_field.getText();
+       int id = Integer.parseInt(id_field.getText());
+       String username = username_field.getText();
+       String pass = password_field.getText();
+       
+       Account creation;
+       
+        if (account_select.equalsIgnoreCase("System Admin"))
+            creation = new SystemAdmin(first, last, id, username, pass);
+        
+        else if(account_select.equalsIgnoreCase("Administrator"))
+            creation = new AcademicAdmin(first, last, id, username, pass);
+        
+        else if(account_select.equalsIgnoreCase("Assistant Admin"))
+            creation = new AssistantAdmin(first, last, id, username, pass);
+        
+        else if(account_select.equalsIgnoreCase("Instructor"))
+            creation = new Instructor(first, last, id, username, pass);
+        
+        else if(account_select.equalsIgnoreCase("TA"))
+            creation = new TATM(first, last, id, username, pass);
+       
+        else //Incorrect account type, this should never happen
+        {
+            creation = null;
+            System.out.println("Is it Christmas right now?  Because you have an error message to unwrap.");
+        }
+        
+        System.out.println(creation.toString());
+        
+        //Put the created account in the database
+        AccountAccess.createAccount(creation);
+        
+        GUIUtils.getMasterFrame(this).goBackAction(new ActionEvent(this, 5, null));
+        
     }//GEN-LAST:event_ok_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
