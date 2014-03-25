@@ -129,7 +129,7 @@ public class AccountAccess {
 		String username = acct.getUsername();
 		String password = acct.getPassword();
 		int empID = acct.getEmpID();
-		String empName = acct.getFirstName() + acct.getLastName();
+		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
 		boolean blockFlag = acct.getBlocked();
 		
@@ -149,7 +149,7 @@ public class AccountAccess {
 		String username = acct.getUsername();
 		String password = acct.getPassword();
 		int empID = acct.getEmpID();
-		String empName = acct.getFirstName() + acct.getLastName();
+		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
 		boolean blockFlag = acct.getBlocked();
 		
