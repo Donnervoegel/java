@@ -15,9 +15,9 @@ public class AssistantAdmin extends Account
         super(fn, ln, empID, un, pass, Type.ASSISTANTADMIN);
     }
 
-    public void createCourse(String name, String id, Instructor inst, String start, String end)
+    public void createCourse(String name, String id, Instructor inst, String start, String end, String path)
     {
-        Course c = new Course(name, id, inst, start, end);
+        Course c = new Course(name, id, inst, start, end, path);
         inst.addCourse(c);
     }
 }
