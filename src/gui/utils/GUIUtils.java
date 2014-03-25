@@ -1,7 +1,13 @@
 package gui.utils;
 
-import java.awt.Component;
 import gui.MasterFrame;
+import java.awt.Component;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.InputVerifier;
+import javax.swing.JComponent;
+
+
 
 public abstract class GUIUtils {
     // BUG: If the starting Component is of a higher type than
@@ -23,4 +29,9 @@ public abstract class GUIUtils {
         Integer rand = (int)(Math.random()*90000) + 10000;
         return rand.toString();
     }
+    
+ 
+
+    
+
 }

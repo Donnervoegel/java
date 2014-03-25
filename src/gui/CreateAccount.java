@@ -7,6 +7,12 @@
 package gui;
 
 import gui.utils.GUIUtils;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -20,7 +26,7 @@ public class CreateAccount extends javax.swing.JPanel {
     public CreateAccount() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,6 +124,8 @@ public class CreateAccount extends javax.swing.JPanel {
             }
         });
 
+        id_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#######################"))));
+
         javax.swing.GroupLayout account_creation_headerLayout = new javax.swing.GroupLayout(account_creation_header);
         account_creation_header.setLayout(account_creation_headerLayout);
         account_creation_headerLayout.setHorizontalGroup(
@@ -156,7 +164,7 @@ public class CreateAccount extends javax.swing.JPanel {
                             .addComponent(last_name_field, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(account_type_dropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, 118, Short.MAX_VALUE)
                             .addComponent(username_field, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(id_field)))
+                            .addComponent(id_field, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(account_creation_headerLayout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
