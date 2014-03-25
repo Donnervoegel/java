@@ -103,12 +103,12 @@ public class MasterFrame extends JFrame {
 	c.gridx = 0;
 	c.gridy = 0;
 	c.ipady = 50;
+	c.weightx = 1.0;
 	add(top_panel, c);
 
 	// Constraints for all bottom panels ever.
 	c.gridy = 1;
 	//	c.ipady = 100;
-	c.weightx = 1.0;
 	c.weighty = 1.0;
 	c.gridwidth = 10;
 	add(curr_page, c);
