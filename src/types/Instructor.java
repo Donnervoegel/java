@@ -14,7 +14,7 @@ public class Instructor extends Marker
     public Instructor(String fn, String ln, int empID, String un, String pass)
     
     {
-        super(fn, ln, empID, un, pass, 4);
+        super(fn, ln, empID, un, pass, Type.INSTRUCTOR);
         courses = new ArrayList<Course>();
     }
     

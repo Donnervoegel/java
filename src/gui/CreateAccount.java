@@ -31,7 +31,6 @@ public class CreateAccount extends javax.swing.JPanel {
         account_creation_header = new javax.swing.JPanel();
         first_name_field = new javax.swing.JTextField();
         last_name_field = new javax.swing.JTextField();
-        id_field = new javax.swing.JTextField();
         account_type_dropdown = new javax.swing.JComboBox();
         username_field = new javax.swing.JTextField();
         passwrd_field = new javax.swing.JPasswordField();
@@ -47,6 +46,7 @@ public class CreateAccount extends javax.swing.JPanel {
         existing_account_separator = new javax.swing.JSeparator();
         ok_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
+        id_field = new javax.swing.JFormattedTextField();
 
         account_creation_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Create/Modify an Account:"));
         account_creation_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -110,6 +110,13 @@ public class CreateAccount extends javax.swing.JPanel {
             }
         });
 
+        id_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+        id_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_fieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout account_creation_headerLayout = new javax.swing.GroupLayout(account_creation_header);
         account_creation_header.setLayout(account_creation_headerLayout);
         account_creation_headerLayout.setHorizontalGroup(
@@ -132,24 +139,24 @@ public class CreateAccount extends javax.swing.JPanel {
                             .addGroup(account_creation_headerLayout.createSequentialGroup()
                                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(last_name_label)
-                                    .addComponent(id_label)
                                     .addComponent(account_type_label)
                                     .addComponent(username_label)
-                                    .addComponent(first_name_label))
+                                    .addComponent(first_name_label)
+                                    .addComponent(id_label))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(first_name_field)
-                                .addComponent(last_name_field)
-                                .addComponent(id_field)
-                                .addComponent(account_type_dropdown, 0, 118, Short.MAX_VALUE)
-                                .addComponent(username_field)
-                                .addComponent(passwrd_field))
                             .addGroup(account_creation_headerLayout.createSequentialGroup()
                                 .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancel_button)))))
+                                .addComponent(cancel_button))
+                            .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(id_field, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(first_name_field, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(last_name_field, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(account_type_dropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, 118, Short.MAX_VALUE)
+                                .addComponent(username_field, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(passwrd_field, javax.swing.GroupLayout.Alignment.LEADING)))))
                 .addGap(18, 18, 18))
         );
         account_creation_headerLayout.setVerticalGroup(
@@ -171,8 +178,8 @@ public class CreateAccount extends javax.swing.JPanel {
                     .addComponent(last_name_label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(id_label))
+                    .addComponent(id_label)
+                    .addComponent(id_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(account_type_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,8 +249,14 @@ public class CreateAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_ok_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        // TODO add your handling code here:
+        String first_name=first_name_field.getText();
+        String last_name=last_name_field.getText();
+        
     }//GEN-LAST:event_cancel_buttonActionPerformed
+
+    private void id_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id_fieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -255,7 +268,7 @@ public class CreateAccount extends javax.swing.JPanel {
     private javax.swing.JSeparator existing_account_separator;
     private javax.swing.JTextField first_name_field;
     private javax.swing.JLabel first_name_label;
-    private javax.swing.JTextField id_field;
+    private javax.swing.JFormattedTextField id_field;
     private javax.swing.JLabel id_label;
     private javax.swing.JTextField last_name_field;
     private javax.swing.JLabel last_name_label;

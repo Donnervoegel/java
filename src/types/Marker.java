@@ -10,7 +10,7 @@ package types;
 public abstract class Marker extends Account
 {
 
-    public Marker(String fn, String ln, int empID, String un, String pass, int type)
+    public Marker(String fn, String ln, int empID, String un, String pass, Type type)
     
     {
         super(fn, ln, empID, un, pass, type);
