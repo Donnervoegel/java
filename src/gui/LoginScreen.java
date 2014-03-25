@@ -162,7 +162,7 @@ public class LoginScreen extends JFrame {
             test = new TATM("Joey", "Tester", 9999, "password", "ta");
         }
 
-	if(pass.length() < 5) {
+	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
 	    JOptionPane
 		.showMessageDialog(this, "The password given is too short.");
 	} else if(name.isEmpty()) {

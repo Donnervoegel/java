@@ -19,6 +19,7 @@ public class MasterFrame extends JFrame {
     private JLabel  role_label;
     private JLabel  crumbs;  // This won't be a JLabel later.
     private LinkedList<JPanel> pages;
+    private GridBagConstraints c = new GridBagConstraints();
 
     // This will take an `Account` object and populate itself according to
     // the Account type.
@@ -35,7 +36,7 @@ public class MasterFrame extends JFrame {
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	setTitle("MarkShark Grading System - Home");
 	setResizable(true);
-	setLayout(new GridLayout(2,1));
+	//	setLayout(new GridLayout(2,1));
         back_button.setEnabled(false);  //Grey back button initially
 	//Set shark image icon
         setIconImage(new ImageIcon(getClass()
@@ -68,7 +69,6 @@ public class MasterFrame extends JFrame {
 
 	// Set up persistent top bar
 	top_panel.setLayout(new GridBagLayout());
-	GridBagConstraints c = new GridBagConstraints();
 	//	c.ipadx = 50;
 	c.gridx = 0;
 	c.gridy = 0;
@@ -78,13 +78,14 @@ public class MasterFrame extends JFrame {
 	c.gridx = 9;
 	c.gridy = 0;
 	c.weightx = 1.0;
-	c.weighty = 1.0;
+	//	c.weighty = 1.0;
 	c.anchor = GridBagConstraints.LINE_END;
 	top_panel.add(role_label, c);
 
 	c.gridx = 0;
 	c.gridy = 1;
-	c.weighty = 0;
+	//	c.weighty = 0;
+	c.weightx = 0;
 	c.anchor = GridBagConstraints.LINE_START;
 	top_panel.add(back_button, c);
 
@@ -92,24 +93,25 @@ public class MasterFrame extends JFrame {
 	c.gridy = 1;
 	c.anchor = GridBagConstraints.LINE_END;
 	c.weightx = 1.0;
-	c.weighty = 1.0;
+	//	c.weighty = 1.0;
 	top_panel.add(logout_button, c);
 
-	// // MasterFrame Layout Settings
-	// setLayout(new GridBagLayout());
-	// c = new GridBagConstraints();
-	// c.gridx = 0;
-	// c.gridy = 0;
-	// c.ipady = 50;
-	// add(top_panel, c);
+	// MasterFrame Layout Settings
+	setLayout(new GridBagLayout());
+	c = new GridBagConstraints();
+	c.gridx = 0;
+	c.gridy = 0;
+	c.ipady = 50;
+	add(top_panel, c);
 
-	// c.gridy = 1;
-	// c.ipady = 100;
-	// add(curr_page, c);
+	// Constraints for all bottom panels ever.
+	c.gridy = 1;
+	c.ipady = 100;
+	add(curr_page, c);
 
 	// Render the Frame
-	add(top_panel);
-	add(curr_page);
+	//	add(top_panel);
+	//	add(curr_page);
 	pack();
     }
 
@@ -126,7 +128,7 @@ public class MasterFrame extends JFrame {
 	remove(curr_page);
 	pages.push(curr_page);
 	curr_page = p;
-	add(curr_page);
+	add(curr_page, c);
 	curr_page.setVisible(true);
     }
 
@@ -135,7 +137,7 @@ public class MasterFrame extends JFrame {
 	curr_page.setVisible(false);
 	remove(curr_page);
 	curr_page = pages.pop();
-	add(curr_page);
+	add(curr_page, c);
 	curr_page.setVisible(true);
         
         //if the page stack zero, then grey back button
