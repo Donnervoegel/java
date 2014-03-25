@@ -100,9 +100,8 @@ public class LandingPageInstructor extends JPanel {
     }//GEN-LAST:event_marking_buttonActionPerformed
 
     private void activity_management_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_activity_management_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CreateAccount());
+        GUIUtils.getMasterFrame(this).movePage(new ActivityCreation());
     }//GEN-LAST:event_activity_management_buttonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton activity_management_button;

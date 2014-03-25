@@ -6,13 +6,15 @@
 
 package gui;
 
+import javax.swing.*;
+import gui.utils.*;
 import types.*;
 
 /**
  *
  * @author Normal
  */
-public class LandingPageAssistAdmin extends javax.swing.JPanel {
+public class LandingPageAssistAdmin extends JPanel {
     private AssistantAdmin a;
 
     /**
@@ -33,10 +35,10 @@ public class LandingPageAssistAdmin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tasks_panel = new javax.swing.JPanel();
-        course_management_button = new javax.swing.JButton();
+        tasks_panel = new JPanel();
+        course_management_button = new JButton();
 
-        tasks_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
+        tasks_panel.setBorder(BorderFactory.createTitledBorder("Tasks"));
 
         course_management_button.setText("Course Management");
         course_management_button.addActionListener(new java.awt.event.ActionListener() {
@@ -45,52 +47,51 @@ public class LandingPageAssistAdmin extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout tasks_panelLayout = new javax.swing.GroupLayout(tasks_panel);
+        GroupLayout tasks_panelLayout = new GroupLayout(tasks_panel);
         tasks_panel.setLayout(tasks_panelLayout);
         tasks_panelLayout.setHorizontalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tasks_panelLayout.createSequentialGroup()
+            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, tasks_panelLayout.createSequentialGroup()
                 .addContainerGap(154, Short.MAX_VALUE)
-                .addComponent(course_management_button, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(course_management_button, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
                 .addGap(145, 145, 145))
         );
         tasks_panelLayout.setVerticalGroup(
-            tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            tasks_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(tasks_panelLayout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addComponent(course_management_button)
                 .addContainerGap(134, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 507, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 309, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(1, 1, 1)
-                    .addComponent(tasks_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(tasks_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void course_management_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_management_buttonActionPerformed
-        // TODO add your handling code here:
+        GUIUtils.getMasterFrame(this).movePage(new CreateCourse());
     }//GEN-LAST:event_course_management_buttonActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton course_management_button;
-    private javax.swing.JPanel tasks_panel;
+    private JButton course_management_button;
+    private JPanel tasks_panel;
     // End of variables declaration//GEN-END:variables
 }

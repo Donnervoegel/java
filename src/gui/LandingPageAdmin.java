@@ -6,6 +6,7 @@
 
 package gui;
 
+import gui.utils.*;
 import types.*;
 
 /**
@@ -97,11 +98,11 @@ public class LandingPageAdmin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void grading_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grading_buttonActionPerformed
-        // TODO add your handling code here:
+        GUIUtils.nothing();
     }//GEN-LAST:event_grading_buttonActionPerformed
 
     private void viewing_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewing_buttonActionPerformed
-        // TODO add your handling code here:
+	GUIUtils.nothing();
     }//GEN-LAST:event_viewing_buttonActionPerformed
 
 

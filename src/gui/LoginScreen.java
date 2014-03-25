@@ -147,22 +147,18 @@ public class LoginScreen extends JFrame {
 	 */
 	String name = username_field.getText();
 	String pass = new String(pass_field.getPassword());
-        
         Account test;
-        
+
+	// FOR TESTING PURPOSES ONLY
         if (name.equalsIgnoreCase("sysadmin")){
             test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
-        }
-        else if (name.equalsIgnoreCase("admin")){  
+        } else if (name.equalsIgnoreCase("admin")){
             test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
-        }
-        else if (name.equalsIgnoreCase("assist")){
+        } else if (name.equalsIgnoreCase("assist")){
             test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
-        }
-        else if (name.equalsIgnoreCase("instructor")){
+        } else if (name.equalsIgnoreCase("instructor")){
             test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
-        }
-        else {// ta marker
+        } else {// ta marker
             test = new TATMMarker("Joey", "Tester", 9999, "password", "ta");
         }
 

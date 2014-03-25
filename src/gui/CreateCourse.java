@@ -10,12 +10,12 @@ package gui;
  *
  * @author Normal
  */
-public class CreateCoursePg extends javax.swing.JPanel {
+public class CreateCourse extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateCoursePg1
      */
-    public CreateCoursePg() {
+    public CreateCourse() {
         initComponents();
     }
 

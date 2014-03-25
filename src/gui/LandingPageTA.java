@@ -6,6 +6,7 @@
 
 package gui;
 
+import gui.utils.*;
 import types.*;
 
 /**
@@ -85,9 +86,8 @@ public class LandingPageTA extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void marking_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marking_buttonActionPerformed
-        // TODO add your handling code here:
+        GUIUtils.nothing();
     }//GEN-LAST:event_marking_buttonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton marking_button;
