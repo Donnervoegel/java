@@ -10,11 +10,11 @@ package types;
 public abstract class Account
 {
     /*
-    Instructor==1
-    TA/TM==2
-    AcAdmin==3
-    AssAdmin==4
-    SysAdmin==5
+    Instructor==4
+    TA/TM==5
+    AcAdmin==2
+    AssAdmin==3
+    SysAdmin==1
     */
     public enum Type {
 	INSTRUCTOR,
@@ -158,19 +158,19 @@ public abstract class Account
     {
         int typeInt;
         if (accountType==Type.INSTRUCTOR){
-            typeInt=1;
-        }
-        else if (accountType==Type.TATMMARKER){
-            typeInt=2;
-        }
-        else if (accountType==Type.ACADEMICADMIN){
-            typeInt=3;
-        }
-        else if (accountType==Type.ASSISTANTADMIN){
             typeInt=4;
         }
-        else if (accountType==Type.SYSTEMADMIN){
+        else if (accountType==Type.TATMMARKER){
             typeInt=5;
+        }
+        else if (accountType==Type.ACADEMICADMIN){
+            typeInt=2;
+        }
+        else if (accountType==Type.ASSISTANTADMIN){
+            typeInt=3;
+        }
+        else if (accountType==Type.SYSTEMADMIN){
+            typeInt=1;
         }
         else{
             System.out.println("Invalid account type");
