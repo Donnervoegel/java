@@ -6,9 +6,9 @@
 
 package gui;
 
+import gui.utils.LoginModule;
 import javax.swing.*;
 
-import Login.LoginModule;
 
 import java.awt.event.*;
 

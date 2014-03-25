@@ -8,6 +8,7 @@ package gui;
 
 import database.AccountAccess;
 import database.CourseAccess;
+import javax.swing.JFileChooser;
 import types.Course;
 import types.Instructor;
 
@@ -142,7 +143,7 @@ public class CreateCourse extends javax.swing.JPanel {
                             .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(ta_name_label)
                                 .addComponent(instructor_id_label))
-                            .addGap(112, 112, 112)
+                            .addGap(137, 137, 137)
                             .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(instructor_id_field)
                                 .addComponent(ta_name_field)))
@@ -265,11 +266,24 @@ public class CreateCourse extends javax.swing.JPanel {
         //Add the TA to the TA table
         CourseAccess.addTA(course_id_field.getText(), Integer.parseInt(ta_id_field.getText()), ta_name_field.getText());
         
+        //Add the CSV file
+        
         
     }//GEN-LAST:event_submit_buttonActionPerformed
 
     private void choose_file_student_list_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
-        // TODO add your handling code here:
+       JFileChooser chooser = new JFileChooser();
+    chooser.setCurrentDirectory(new java.io.File("."));
+    chooser.setDialogTitle("choosertitle");
+    chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    chooser.setAcceptAllFileFilterUsed(false);
+
+    if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+    System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+    System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+} else {
+    System.out.println("No Selection ");
+}
     }//GEN-LAST:event_choose_file_student_list_buttonActionPerformed
 
     private void course_end_formatfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_end_formatfieldActionPerformed

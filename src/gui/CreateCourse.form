@@ -70,7 +70,7 @@
                                   <Component id="ta_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="instructor_id_label" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="112" pref="112" max="-2" attributes="0"/>
+                              <EmptySpace min="137" pref="137" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="instructor_id_field" max="32767" attributes="0"/>
                                   <Component id="ta_name_field" max="32767" attributes="0"/>
