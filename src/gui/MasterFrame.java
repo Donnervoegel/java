@@ -7,6 +7,7 @@ import java.awt.GridBagConstraints;
 import java.awt.event.*;
 import java.util.*;
 import types.*;
+import java.awt.event.*;
 
 /**
  * @author Colin
@@ -65,8 +66,17 @@ public class MasterFrame extends JFrame {
 	}
 
 	// Set up action listeners
-	back_button.addActionListener(e -> goBackAction(e));
-	logout_button.addActionListener(e -> logoutAction(e));
+	back_button.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			goBackAction(e);
+		}
+	});
+	
+	logout_button.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			logoutAction(e);
+		}
+	});
 
 	// Set up persistent top bar
 	top_panel.setLayout(new GridBagLayout());
