@@ -6,6 +6,9 @@
 
 package gui;
 
+import types.Course;
+import types.Instructor;
+
 /**
  *
  * @author Normal
@@ -48,8 +51,8 @@ public class CreateCourse extends javax.swing.JPanel {
         course_end_formatfield = new javax.swing.JFormattedTextField();
         stud_list_file_location_field = new javax.swing.JTextField();
         choose_file_student_list_button = new javax.swing.JButton();
+        submit_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
-        submit_course = new javax.swing.JButton();
 
         create_course_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Create A Course"));
 
@@ -101,17 +104,17 @@ public class CreateCourse extends javax.swing.JPanel {
             }
         });
 
-        cancel_button.setText("Submit");
-        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+        submit_button.setText("Submit");
+        submit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel_buttonActionPerformed(evt);
+                submit_buttonActionPerformed(evt);
             }
         });
 
-        submit_course.setText("Cancel");
-        submit_course.addActionListener(new java.awt.event.ActionListener() {
+        cancel_button.setText("Cancel");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submit_courseActionPerformed(evt);
+                cancel_buttonActionPerformed(evt);
             }
         });
 
@@ -123,22 +126,6 @@ public class CreateCourse extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, create_course_panelLayout.createSequentialGroup()
-                            .addComponent(course_name_label)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(course_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, create_course_panelLayout.createSequentialGroup()
-                            .addComponent(instructor_name_label)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(instructor_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(create_course_panelLayout.createSequentialGroup()
-                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ta_id_label)
-                                .addComponent(course_id_label))
-                            .addGap(133, 133, 133)
-                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(course_id_field)
-                                .addComponent(ta_id_field)))
                         .addGroup(create_course_panelLayout.createSequentialGroup()
                             .addComponent(course_start_label)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -151,21 +138,35 @@ public class CreateCourse extends javax.swing.JPanel {
                             .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(ta_name_label)
                                 .addComponent(instructor_id_label))
-                            .addGap(117, 117, 117)
+                            .addGap(112, 112, 112)
                             .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(instructor_id_field)
-                                .addComponent(ta_name_field))))
+                                .addComponent(ta_name_field)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, create_course_panelLayout.createSequentialGroup()
+                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ta_id_label)
+                                .addComponent(course_id_label)
+                                .addComponent(course_name_label)
+                                .addComponent(instructor_name_label))
+                            .addGap(118, 118, 118)
+                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(instructor_name_field)
+                                .addComponent(course_name_field)
+                                .addComponent(course_id_field)
+                                .addGroup(create_course_panelLayout.createSequentialGroup()
+                                    .addComponent(ta_id_field, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(create_course_panelLayout.createSequentialGroup()
                         .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(create_course_panelLayout.createSequentialGroup()
                                 .addComponent(stud_list_label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(stud_list_file_location_field, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(submit_course))
+                            .addComponent(submit_button))
                         .addGap(18, 18, 18)
                         .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cancel_button)
-                            .addComponent(choose_file_student_list_button))))
+                            .addComponent(choose_file_student_list_button)
+                            .addComponent(cancel_button, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         create_course_panelLayout.setVerticalGroup(
@@ -208,8 +209,8 @@ public class CreateCourse extends javax.swing.JPanel {
                     .addComponent(choose_file_student_list_button))
                 .addGap(18, 18, 18)
                 .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancel_button)
-                    .addComponent(submit_course))
+                    .addComponent(submit_button)
+                    .addComponent(cancel_button))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -247,13 +248,17 @@ public class CreateCourse extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_course_end_formatfieldActionPerformed
 
-    private void submit_courseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_courseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_submit_courseActionPerformed
-
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancel_buttonActionPerformed
+
+    private void submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_buttonActionPerformed
+        String instructors_name = course_id_field.getText();
+        
+        Instructor instructor_taken = constructAccountObject(instructors_name);
+        
+        Course new_course = new Course(course_name_field.getText(), course_id_field.getText(), instructor_taken, course_start_formatfield.getText(), course_end_formatfield.getText());
+    }//GEN-LAST:event_submit_buttonActionPerformed
 
     private void choose_file_student_list_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
         // TODO add your handling code here:
@@ -278,10 +283,14 @@ public class CreateCourse extends javax.swing.JPanel {
     private javax.swing.JLabel instructor_name_label;
     private javax.swing.JTextField stud_list_file_location_field;
     private javax.swing.JLabel stud_list_label;
-    private javax.swing.JButton submit_course;
+    private javax.swing.JButton submit_button;
     private javax.swing.JTextField ta_id_field;
     private javax.swing.JLabel ta_id_label;
     private javax.swing.JTextField ta_name_field;
     private javax.swing.JLabel ta_name_label;
     // End of variables declaration//GEN-END:variables
+
+    private Instructor constructAccountObject(String instructors_name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

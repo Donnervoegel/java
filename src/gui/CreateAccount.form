@@ -90,7 +90,7 @@
                               <Component id="password_field" alignment="0" max="32767" attributes="0"/>
                               <Component id="first_name_field" alignment="0" max="32767" attributes="0"/>
                               <Component id="last_name_field" alignment="0" max="32767" attributes="0"/>
-                              <Component id="account_type_dropdown" alignment="0" pref="118" max="32767" attributes="0"/>
+                              <Component id="account_type_dropdown" alignment="0" max="32767" attributes="0"/>
                               <Component id="username_field" alignment="0" max="32767" attributes="0"/>
                               <Component id="id_field" alignment="0" max="32767" attributes="0"/>
                           </Group>

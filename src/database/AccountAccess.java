@@ -123,7 +123,7 @@ public class AccountAccess {
 	 * creates an entry in the database matching the variables of the Account
 	 * passed as a parameter.
 	 */
-	public void createAccount(Account acct) {
+	public static void createAccount(Account acct) {
 		// Initialise fields of the account object to create
 		String username = acct.getUsername();
 		String password = acct.getPassword();
@@ -176,7 +176,7 @@ public class AccountAccess {
 	 * Method to execute an update (INSERT, DELETE, UPDATE) query on the
 	 * database connection.
 	 */
-	private void execUpdate(String query) {
+	private static void execUpdate(String query) {
 		PreparedStatement prepStatement = null;
 
 		establishConnection(); // Establish connection to Cypress
@@ -213,7 +213,7 @@ public class AccountAccess {
 	 * Method to convert a boolean value to either 0 or 1 to be used as a bit in
 	 * SQL queries.
 	 */
-	private int boolToBit(boolean b) {
+	private static int boolToBit(boolean b) {
 		return b ? 1 : 0;
 	}
 }

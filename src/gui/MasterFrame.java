@@ -136,7 +136,7 @@ public class MasterFrame extends JFrame {
 	curr_page.setVisible(true);
     }
 
-    private void goBackAction(ActionEvent e) {
+    public void goBackAction(ActionEvent e) {
 	System.out.println("Going back.");
 	curr_page.setVisible(false);
 	remove(curr_page);
