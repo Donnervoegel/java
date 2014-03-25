@@ -9,17 +9,21 @@ package gui;
 import gui.utils.*;
 import javax.swing.*;
 import java.awt.event.*;
+import types.*;
 
 /**
  *
  * @author colin
  */
 public class LandingPageSysAdmin extends JPanel {
+    private SystemAdmin a;
 
     /**
-     * Creates new form LandingPageSysAdmin2
+     * Creates new form LandingPageSysAdmin
      */
-    public LandingPageSysAdmin() {
+    public LandingPageSysAdmin(SystemAdmin a) {
+	this.a = a;
+
         initComponents();
     }
 

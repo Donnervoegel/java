@@ -27,15 +27,40 @@ public class MasterFrame extends JFrame {
 	top_panel     = new JPanel();
 	logout_button = new JButton("Logout");
 	back_button   = new JButton("Back");
-	role_label    = new JLabel("Role: Filler...");  // Changes according to `a`.
+	role_label    = new JLabel();  // Changes according to `a`.
 	crumbs        = new JLabel("Breadcrumbs here...");
 	pages         = new LinkedList<JPanel>();
 
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	setTitle("MarkShark - Blah");  // Changes according to `a`.
+	setTitle("MarkShark Grading System - Home");
 	setResizable(true);
 	setLayout(new GridLayout(2,1));
+        back_button.setEnabled(false);  //Grey back button initially
+	//Set shark image icon
+        setIconImage(new ImageIcon(getClass()
+				   .getResource("markshark-1x.png")).getImage());
+
+	// Dynamic display of Landing Page, Role, etc.
+	if (a instanceof AcademicAdmin) {
+	    role_label.setText("Role: Academic Administrator");
+	    curr_page = new LandingPageAdmin((AcademicAdmin)a);
+	} else if (a instanceof AssistantAdmin) {
+	    role_label.setText("Role: Assistant Academic Administrator");
+	    curr_page = new LandingPageAssistAdmin((AssistantAdmin)a);
+	} else if (a instanceof Instructor) {
+	    role_label.setText("Role: Instructor");
+	    curr_page = new LandingPageInstructor((Instructor)a);
+	} else if (a instanceof SystemAdmin) {
+	    role_label.setText("Role: System Administrator");
+	    curr_page = new LandingPageSysAdmin((SystemAdmin)a);
+	} else if (a instanceof TATMMarker) {
+	    role_label.setText("Role: TA/TM");
+	    curr_page = new LandingPageTA((TATMMarker)a);
+	} else {
+	    System.out.println("Unknown account type!! Everyone overboard!! Eject!!");
+	    curr_page = null;  // omg please no.
+	}
 
 	// Set up action listeners
 	back_button.addActionListener(e -> goBackAction(e));
@@ -67,20 +92,10 @@ public class MasterFrame extends JFrame {
 	c.weighty = 1.0;
 	top_panel.add(logout_button, c);
 
-	// Set up bottom panel according to `a`.
-	// Using SysAdmin for testing purposes
-	curr_page = new LandingPageSysAdmin();
-
 	// Render the Frame.
 	add(top_panel);
 	add(curr_page);
 	pack();
-        
-        //Grey back button initially
-        back_button.setEnabled(false);
-        
-        //Set shark image icon
-         this.setIconImage(new ImageIcon(getClass().getResource("markshark-1x.png")).getImage()); 
     }
 
     public void run() {
@@ -88,7 +103,6 @@ public class MasterFrame extends JFrame {
     }
 
     public void movePage(JPanel p) {
-	
         //if length of pages is zero 
         if (pages.isEmpty())
             back_button.setEnabled(true);
@@ -99,7 +113,6 @@ public class MasterFrame extends JFrame {
 	curr_page = p;
 	add(curr_page);
 	curr_page.setVisible(true);
-        
     }
 
     private void goBackAction(ActionEvent e) {
@@ -111,10 +124,8 @@ public class MasterFrame extends JFrame {
 	curr_page.setVisible(true);
         
         //if the page stack zero, then grey back button
-        
         if (pages.isEmpty())
             back_button.setEnabled(false);
-            
     }
 
     private void logoutAction(ActionEvent e) {

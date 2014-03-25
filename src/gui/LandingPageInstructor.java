@@ -8,6 +8,7 @@ package gui;
 
 import javax.swing.*;
 import java.awt.event.*;
+import types.*;
 
 /**
  *
@@ -17,11 +18,14 @@ public class LandingPageInstructor extends JPanel {
     private JButton activity_management_button;
     private JButton marking_button;
     private JPanel tasks_panel;
+    private Instructor a;
 
     /**
      * Creates new form LandingPage
      */
-    public LandingPageInstructor() {
+    public LandingPageInstructor(Instructor a) {
+	this.a = a;
+
         initComponents();
     }
 

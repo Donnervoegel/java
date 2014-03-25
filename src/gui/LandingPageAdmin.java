@@ -6,16 +6,21 @@
 
 package gui;
 
+import types.*;
+
 /**
  *
  * @author Ian
  */
 public class LandingPageAdmin extends javax.swing.JPanel {
+    private AcademicAdmin a;
 
     /**
      * Creates new form LandingPageAdmin1
      */
-    public LandingPageAdmin() {
+    public LandingPageAdmin(AcademicAdmin a) {
+	this.a = a;
+
         initComponents();
     }
 

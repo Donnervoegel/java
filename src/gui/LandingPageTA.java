@@ -6,16 +6,21 @@
 
 package gui;
 
+import types.*;
+
 /**
  *
  * @author Normal
  */
 public class LandingPageTA extends javax.swing.JPanel {
+    private TATMMarker a;
 
     /**
      * Creates new form LandingPageTA1
      */
-    public LandingPageTA() {
+    public LandingPageTA(TATMMarker a) {
+	this.a = a;
+
         initComponents();
     }
 
