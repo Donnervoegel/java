@@ -2,7 +2,7 @@
 
 - 1.2.1. A system administrator can add new user accounts to the system 
 - 1.2.5. ~~When an account is created the system administrator supplies~~
-- 1.2.5.1.	a temporary password
+- 1.2.5.1.	~~a temporary password~~
 - 1.2.5.2.	~~a username~~
 - 1.2.5.3.	~~users name~~
 - 1.2.5.4.	~~users employee id~~
