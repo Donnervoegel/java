@@ -346,7 +346,7 @@ public class CourseAccess {
 	 * Method to add a teaching assistant (or tutor marker) to a specified
 	 * course including their employee ID and name.
 	 */
-	public void addTA(String courseID, int empID, String empName) {
+	public static void addTA(String courseID, int empID, String empName) {
 		String query = "INSERT INTO c275g01A.dbo.TeachingAssistant VALUES ('"
 				+ courseID + "'," + empID + ",'" + empName + "')";
 		execUpdate(query);

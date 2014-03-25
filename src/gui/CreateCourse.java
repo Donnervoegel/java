@@ -259,7 +259,13 @@ public class CreateCourse extends javax.swing.JPanel {
         
         Course new_course = new Course(course_name_field.getText(), course_id_field.getText(), instructor_taken, course_start_formatfield.getText(), course_end_formatfield.getText());
         
+        //Add the course to course db
         CourseAccess.createCourse(new_course);
+        
+        //Add the TA to the TA table
+        CourseAccess.addTA(course_id_field.getText(), Integer.parseInt(ta_id_field.getText()), ta_name_field.getText());
+        
+        
     }//GEN-LAST:event_submit_buttonActionPerformed
 
     private void choose_file_student_list_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
