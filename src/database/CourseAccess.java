@@ -287,13 +287,14 @@ public class CourseAccess {
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
 		String solnPath = "";
+		int numTests = act.getNumOfTests();
 
 		// Generate the insertion query
 		String query = "INSERT INTO c275g01A.dbo.Activity VALUES ('" + courseID
 				+ "','" + activityName + "','" + activityDesc + "','"
 				+ activityLang + "'," + boolToBit(activityType) + ","
 				+ boolToBit(group) + ",'" + studentSolnPath + "','" + solnPath
-				+ "')";
+				+ "'," + numTests + ")";
 		execUpdate(query);
 	}
 
