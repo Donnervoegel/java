@@ -20,7 +20,7 @@ public abstract class GUIUtils {
     
     public static String generatePassword()
     {
-        Integer rand = ((int) Math.random() * 90000) + 10000;
+        Integer rand = (int)(Math.random()*90000) + 10000;
         return rand.toString();
     }
 }
