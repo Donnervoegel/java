@@ -11,6 +11,7 @@ import database.CourseAccess;
 import static java.lang.System.in;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import types.Course;
 import types.Instructor;
 import types.TextAnalyzer;
@@ -262,7 +263,9 @@ public class CreateCourse extends javax.swing.JPanel {
 
         Instructor instructor_taken;
         instructor_taken = (Instructor) AccountAccess.constructAccountObject(instructor_username_field.getText());
-        
+        if(instructor_taken == null) {
+            JOptionPane.showMessageDialog(this, "Invalid instructor username, please re-enter");
+        } else {
         Course new_course = new Course(course_name_field.getText(), course_id_field.getText(), instructor_taken, course_start_formatfield.getText(), course_end_formatfield.getText());
         
         //Add the course to course db
@@ -285,8 +288,8 @@ public class CreateCourse extends javax.swing.JPanel {
             //Push the student to the database
             CourseAccess.addStudent(student_name, Integer.parseInt(student_id), course_id_field.getText());
         }
-        
-        //Redirect back to the page NO REDIRECT YET
+        }
+        //Redirect back to the page NO REDIRECT AS OF YET
         
     }//GEN-LAST:event_submit_buttonActionPerformed
 
