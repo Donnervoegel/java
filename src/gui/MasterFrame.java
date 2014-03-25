@@ -35,7 +35,7 @@ public class MasterFrame extends JFrame {
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	setTitle("MarkShark Grading System - Home");
-	setResizable(true);
+	setResizable(false);
 	setSize(700,700);
 	//	setLayout(new GridLayout(2,1));
         back_button.setEnabled(false);  //Grey back button initially
@@ -134,6 +134,7 @@ public class MasterFrame extends JFrame {
 	curr_page = p;
 	add(curr_page, c);
 	curr_page.setVisible(true);
+	pack();
     }
 
     public void goBackAction(ActionEvent e) {
@@ -143,6 +144,7 @@ public class MasterFrame extends JFrame {
 	curr_page = pages.pop();
 	add(curr_page, c);
 	curr_page.setVisible(true);
+	pack();
         
         //if the page stack zero, then grey back button
         if (pages.isEmpty())
