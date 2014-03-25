@@ -1,6 +1,7 @@
 package types;
 
 import java.util.*;
+
 /**
  * @desc:   The Course class is used to model the course object. A course can
  *          only be created by an AssitantAdmin.
@@ -10,30 +11,30 @@ import java.util.*;
 public class Course
 {
     private String courseName, startDate, endDate, courseID;
-	private Instructor instructor;
+    private Instructor instructor;
     private ArrayList<TATMMarker> markers;
     private ArrayList<Student> students;
     private ArrayList<Activity> activities;
     
     public String getCourseName() {
-  		return courseName;
-  	}
+	return courseName;
+    }
 
-  	public String getStartDate() {
-  		return startDate;
-  	}
+    public String getStartDate() {
+	return startDate;
+    }
 
-  	public String getEndDate() {
-  		return endDate;
-  	}
+    public String getEndDate() {
+	return endDate;
+    }
 
-  	public String getCourseID() {
-  		return courseID;
-  	}
+    public String getCourseID() {
+	return courseID;
+    }
 
-  	public Instructor getInstructor() {
-  		return instructor;
-  	}
+    public Instructor getInstructor() {
+	return instructor;
+    }
     
     public Course(String n, String id, Instructor ins, String start, String end)
     {
@@ -151,6 +152,7 @@ public class Course
      *          sorted ArrayList for the given object iteratively
      * @author: Chazz Young
      */
+    /*
     public void updateActivities(ArrayList<Activity> t)
     {
         for(Activity i : t){
@@ -175,6 +177,6 @@ public class Course
                 return (o1>o2 ? -1 : (o1==o2 ? 0 : 1));
             }
         });
-    }
+	}*/  // Commenting out for now to fix broken compiling
     
 }
