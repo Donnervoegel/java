@@ -150,16 +150,16 @@ public class LoginScreen extends JFrame {
         
         Account test;
         
-        if (name == "sysadmin"){
+        if (name.equalsIgnoreCase("sysadmin")){
             test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
         }
-        else if (name == "admin"){  
+        else if (name.equalsIgnoreCase("admin")){  
             test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
         }
-        else if (name == "assist"){
+        else if (name.equalsIgnoreCase("assist")){
             test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
         }
-        else if (name == "instructor"){
+        else if (name.equalsIgnoreCase("instructor")){
             test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
         }
         else {// ta marker
