@@ -6,6 +6,8 @@
 
 package gui;
 
+import types.Activity;
+
 /**
  *
  * @author Ian
@@ -367,7 +369,10 @@ public class ActivityCreation extends javax.swing.JPanel {
     }//GEN-LAST:event_activity_reset_buttonActionPerformed
 
     private void activity_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_submit_buttonActionPerformed
-        // TODO add your handling code here:
+        
+
+   //     Activity new_activity = new Activity(activity_name_field.getText(), activity_desc_field.getText(), activity_solution_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
+// TODO add your handling code here:
     }//GEN-LAST:event_activity_submit_buttonActionPerformed
 
 

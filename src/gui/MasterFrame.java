@@ -35,7 +35,7 @@ public class MasterFrame extends JFrame {
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	setTitle("MarkShark Grading System - Home");
-	setResizable(true);
+	setResizable(false);
 	setSize(700,700);
 	//	setLayout(new GridLayout(2,1));
         back_button.setEnabled(false);  //Grey back button initially
@@ -44,19 +44,19 @@ public class MasterFrame extends JFrame {
 				   .getResource("markshark-1x.png")).getImage());
 
 	// Dynamic display of Landing Page, Role, etc.
-	if (a instanceof AcademicAdmin) {
+	if (a.getAccountType() == Account.Type.ACADEMICADMIN) {
 	    role_label.setText("Role: Academic Administrator");
 	    curr_page = new LandingPageAdmin((AcademicAdmin)a);
-	} else if (a instanceof AssistantAdmin) {
+	} else if (a.getAccountType() == Account.Type.ASSISTANTADMIN) {
 	    role_label.setText("Role: Assistant Academic Administrator");
 	    curr_page = new LandingPageAssistAdmin((AssistantAdmin)a);
-	} else if (a instanceof Instructor) {
+	} else if (a.getAccountType() == Account.Type.INSTRUCTOR) {
 	    role_label.setText("Role: Instructor");
 	    curr_page = new LandingPageInstructor((Instructor)a);
-	} else if (a instanceof SystemAdmin) {
+	} else if (a.getAccountType() == Account.Type.SYSTEMADMIN) {
 	    role_label.setText("Role: System Administrator");
 	    curr_page = new LandingPageSysAdmin((SystemAdmin)a);
-	} else if (a instanceof TATM) {
+	} else if (a.getAccountType() == Account.Type.TATMMARKER) {
 	    role_label.setText("Role: TA/TM");
 	    curr_page = new LandingPageTA((TATM)a);
 	} else {
@@ -103,12 +103,12 @@ public class MasterFrame extends JFrame {
 	c.gridx = 0;
 	c.gridy = 0;
 	c.ipady = 50;
+	c.weightx = 1.0;
 	add(top_panel, c);
 
 	// Constraints for all bottom panels ever.
 	c.gridy = 1;
 	//	c.ipady = 100;
-	c.weightx = 1.0;
 	c.weighty = 1.0;
 	c.gridwidth = 10;
 	add(curr_page, c);
@@ -134,6 +134,7 @@ public class MasterFrame extends JFrame {
 	curr_page = p;
 	add(curr_page, c);
 	curr_page.setVisible(true);
+	pack();
     }
 
     public void goBackAction(ActionEvent e) {
@@ -143,6 +144,7 @@ public class MasterFrame extends JFrame {
 	curr_page = pages.pop();
 	add(curr_page, c);
 	curr_page.setVisible(true);
+	pack();
         
         //if the page stack zero, then grey back button
         if (pages.isEmpty())

@@ -1,19 +1,7 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import types.Account;
-import types.SystemAdmin;
-import types.AcademicAdmin;
-import types.AssistantAdmin;
-import types.Instructor;
-import types.TATM;
+import java.sql.*;
+import types.*;
 
 /**
  * Class to access accounts in project SQL database.
@@ -60,7 +48,7 @@ public class AccountAccess {
 	 * ResultSet containing all the fields of account type, selected based on
 	 * the username entered as a parameter.
 	 */
-	public ResultSet accessAccount(String username) {
+	public static ResultSet accessAccount(String username) {
 		// Create the selection query string
 		String query = "SELECT * FROM c275g01A.dbo.Account WHERE Username = '"
 				+ username + "'";
@@ -74,7 +62,7 @@ public class AccountAccess {
         
         * @author Graeme Smith (just this method)
         */
-        public Account constructAccountObject(String username) {
+        public static Account constructAccountObject(String username) {
             ResultSet result=accessAccount(username);
             Account account=null;
             try {
@@ -103,7 +91,8 @@ public class AccountAccess {
                 }
                 return account;
             } catch (SQLException ex) {
-                Logger.getLogger(AccountAccess.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("SQL Exception occured, the state : "
+					+ ex.getSQLState() + "\nMessage: " + ex.getMessage());
             }
             System.out.println("Returning a null account because something failed while retrieving the account");
             return account;
@@ -128,7 +117,7 @@ public class AccountAccess {
 		String username = acct.getUsername();
 		String password = acct.getPassword();
 		int empID = acct.getEmpID();
-		String empName = acct.getFirstName() + acct.getLastName();
+		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
 		boolean blockFlag = acct.getBlocked();
 		
@@ -148,12 +137,12 @@ public class AccountAccess {
 		String username = acct.getUsername();
 		String password = acct.getPassword();
 		int empID = acct.getEmpID();
-		String empName = acct.getFirstName() + acct.getLastName();
+		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
 		boolean blockFlag = acct.getBlocked();
 		
 		// Create the update query string
-		String query = "UPDATE c275g01A SET Username = '" + username
+		String query = "UPDATE c275g01A.dbo.Account SET Username = '" + username
 				+ "', Pass = '" + password + ", EmployeeID = " + empID
 				+ ", EmployeeName = '" + empName + "', AccountType = "
 				+ acctType + ", BlockAccountaFlag = " + boolToBit(blockFlag)
@@ -194,7 +183,7 @@ public class AccountAccess {
 	 * Method to execute a query on the database connection and return a result
 	 * set for the query entered as a string argument.
 	 */
-	private ResultSet execQuery(String query) {
+	private static ResultSet execQuery(String query) {
 		PreparedStatement prepStatement = null;
 		ResultSet resSet = null;
 
