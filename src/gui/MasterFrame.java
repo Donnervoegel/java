@@ -44,19 +44,19 @@ public class MasterFrame extends JFrame {
 				   .getResource("markshark-1x.png")).getImage());
 
 	// Dynamic display of Landing Page, Role, etc.
-	if (a instanceof AcademicAdmin) {
+	if (a.getAccountType() == Account.Type.ACADEMICADMIN) {
 	    role_label.setText("Role: Academic Administrator");
 	    curr_page = new LandingPageAdmin((AcademicAdmin)a);
-	} else if (a instanceof AssistantAdmin) {
+	} else if (a.getAccountType() == Account.Type.ASSISTANTADMIN) {
 	    role_label.setText("Role: Assistant Academic Administrator");
 	    curr_page = new LandingPageAssistAdmin((AssistantAdmin)a);
-	} else if (a instanceof Instructor) {
+	} else if (a.getAccountType() == Account.Type.INSTRUCTOR) {
 	    role_label.setText("Role: Instructor");
 	    curr_page = new LandingPageInstructor((Instructor)a);
-	} else if (a instanceof SystemAdmin) {
+	} else if (a.getAccountType() == Account.Type.SYSTEMADMIN) {
 	    role_label.setText("Role: System Administrator");
 	    curr_page = new LandingPageSysAdmin((SystemAdmin)a);
-	} else if (a instanceof TATM) {
+	} else if (a.getAccountType() == Account.Type.TATMMARKER) {
 	    role_label.setText("Role: TA/TM");
 	    curr_page = new LandingPageTA((TATM)a);
 	} else {

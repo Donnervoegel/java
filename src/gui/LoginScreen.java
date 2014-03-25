@@ -7,7 +7,11 @@
 package gui;
 
 import javax.swing.*;
+
+import Login.LoginModule;
+
 import java.awt.event.*;
+
 import types.*;
 
 /**
@@ -148,19 +152,21 @@ public class LoginScreen extends JFrame {
 	String name = username_field.getText();
 	String pass = new String(pass_field.getPassword());
         Account test;
+        test = LoginModule.login(name,pass);
+        System.out.println(test);
 
-	// FOR TESTING PURPOSES ONLY
-        if (name.equalsIgnoreCase("sysadmin")){
-            test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
-        } else if (name.equalsIgnoreCase("admin")){
-            test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
-        } else if (name.equalsIgnoreCase("assist")){
-            test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
-        } else if (name.equalsIgnoreCase("instructor")){
-            test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
-        } else {// ta marker
-            test = new TATM("Joey", "Tester", 9999, "password", "ta");
-        }
+//	 FOR TESTING PURPOSES ONLY
+//        if (name.equalsIgnoreCase("sysadmin")){
+//            test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
+//        } else if (name.equalsIgnoreCase("admin")){
+//            test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
+//        } else if (name.equalsIgnoreCase("assist")){
+//            test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
+//        } else if (name.equalsIgnoreCase("instructor")){
+//            test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
+//        } else {// ta marker
+//            test = new TATM("Joey", "Tester", 9999, "password", "ta");
+//        }
 
 	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
 	    JOptionPane
@@ -168,7 +174,9 @@ public class LoginScreen extends JFrame {
 	} else if(name.isEmpty()) {
 	    JOptionPane
 		.showMessageDialog(this, "No user name given.");
-	} else {
+	} else if(test == null) {
+		JOptionPane.showMessageDialog(this, "Invalid username/password combo");
+    } else {
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
 	    // TODO: This needs to be passed a legit Account object.
