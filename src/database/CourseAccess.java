@@ -77,7 +77,7 @@ public class CourseAccess {
 		String courseID = course.getCourseID();
 		String courseName = course.getCourseName();
 		String instructorName = course.getInstructor().getFirstName()
-				+ course.getInstructor().getLastName();
+				+ " " + course.getInstructor().getLastName();
 		int instructorID = course.getInstructor().getEmpID();
 		String startDate = course.getStartDate();
 		String endDate = course.getEndDate();
