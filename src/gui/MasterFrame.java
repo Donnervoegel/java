@@ -69,13 +69,15 @@ public class MasterFrame extends JFrame {
 	// Set up persistent top bar
 	top_panel.setLayout(new GridBagLayout());
 	GridBagConstraints c = new GridBagConstraints();
+	//	c.ipadx = 50;
 	c.gridx = 0;
 	c.gridy = 0;
 	c.anchor = GridBagConstraints.LINE_START;
 	top_panel.add(crumbs, c);
 
-	c.gridx = 2;
+	c.gridx = 9;
 	c.gridy = 0;
+	c.weightx = 1.0;
 	c.weighty = 1.0;
 	c.anchor = GridBagConstraints.LINE_END;
 	top_panel.add(role_label, c);
@@ -86,13 +88,26 @@ public class MasterFrame extends JFrame {
 	c.anchor = GridBagConstraints.LINE_START;
 	top_panel.add(back_button, c);
 
-	c.gridx = 2;
+	c.gridx = 9;
 	c.gridy = 1;
 	c.anchor = GridBagConstraints.LINE_END;
+	c.weightx = 1.0;
 	c.weighty = 1.0;
 	top_panel.add(logout_button, c);
 
-	// Render the Frame.
+	// // MasterFrame Layout Settings
+	// setLayout(new GridBagLayout());
+	// c = new GridBagConstraints();
+	// c.gridx = 0;
+	// c.gridy = 0;
+	// c.ipady = 50;
+	// add(top_panel, c);
+
+	// c.gridy = 1;
+	// c.ipady = 100;
+	// add(curr_page, c);
+
+	// Render the Frame
 	add(top_panel);
 	add(curr_page);
 	pack();
