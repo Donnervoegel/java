@@ -11,7 +11,7 @@ public class Activity
 {
     private String name, path_solutions, due_date, activityDesc;
     private int num_of_tests, num_of_files, language;
-    //isGroup has been included, but it wil lbe empty as this was discontinued
+    //isGroup has been included, but it will be empty as this was discontinued
     //in the prioritization meeting 
     private boolean isProgramming, isGroup;
     

@@ -2,7 +2,7 @@ package types;
 
 import java.util.*;
 /**
- * @desc:   The AcademicAdmin class is used to model the Academic Administrator account.
+ * @desc:   The Instructor class is used to model the Instructor account.
  * 
  * @author 
  */

@@ -2,7 +2,7 @@ package types;
 
 
 /**
- * @desc:   The Abstract Account class is used to hold all atributes
+ * @desc:   The Abstract Account class is used to hold all attributes
  *          and methods of the Account object
  * @author  Chazz Young 
  */

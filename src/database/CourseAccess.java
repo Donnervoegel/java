@@ -1,13 +1,18 @@
 package database;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import types.Activity;
 import types.Course;
+import types.Instructor;
+import types.Student;
+import types.TATM;
 
 /**
  * Class to access courses in project SQL database.
@@ -119,6 +124,110 @@ public class CourseAccess {
 		execUpdate(query); // Execute the deletion query
 	}
 
+	/*
+	 * Method to create a Course object populated
+	 * from the database given a courseID.
+	 * Uses cID as the courseID, since it is the key value.
+	 */
+	@SuppressWarnings("unused")
+	public Course constructCourseObject(String cID) {
+		// Method variables
+		Course course = null;
+		ResultSet rs = null;
+		// Course variables
+		String courseName = null, courseID = null, instructorName = null;
+		int instructorID;
+		Date startDate = null, endDate= null;
+		Instructor ins = null;
+		// TeachingAssistant variables
+		ArrayList<TATM> markers = new ArrayList<TATM>();
+		int taEID;
+		String taEName = null;
+		// Students variables
+		ArrayList<Student> students = new ArrayList<Student>();
+		int sID;
+		String sName = null;
+		// Activities variables
+        ArrayList<Activity> activities = new ArrayList<Activity>();
+        String aName = null, aDesc = null, sSolnPath = null, solnPath = null;
+        int aLang, aType;
+        boolean groupAct;
+		// Course table
+		rs = accessCourse(cID);
+		try {
+			rs.next();
+			// Listed loosely in Course constructor's order
+			courseName = rs.getNString("CourseName");
+			courseID = cID; //rs.getNString("CourseID");
+			instructorName = rs.getNString("InstructorName");
+			instructorID = rs.getInt("InstructorID");
+			startDate = rs.getDate("StartDate"); // What is the format for the date?
+			endDate = rs.getDate("EndDate");
+            String[]names=instructorName.split("\\s+");
+            String fname=names[0];
+            String lname=names[1];
+            ins = new Instructor(fname, lname, instructorID, null, null);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//Now to put it all together
+		course = new Course(courseName, cID, ins, startDate.toString(), endDate.toString());
+		// TeachingAssistant table
+		rs = accessTAs(cID);
+		try {
+			while(rs.next()){
+				taEID = rs.getInt("EmployeeID");
+				taEName = rs.getNString("EmployeeName");
+                String[]names=taEName.split("\\s+");
+                String fname=names[0];
+                String lname=names[1];
+				TATM temp = new TATM(fname, lname, taEID, null, null); // Why does the system need to load their username and password?
+				course.addMarker(temp);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// Students table
+		rs = accessStudentList(cID);
+		try {
+			while(rs.next()){
+				sID = rs.getInt("StudentID");
+				sName = rs.getNString("StudentName");
+                String[]names=sName.split("\\s+");
+                String fname=names[0];
+                String lname=names[1];
+                Student temp = new Student();
+                course.addStudent(temp);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// Activities table
+		rs = accessCourseActivities(cID);
+		try {
+			while(rs.next()){
+				aName = rs.getNString("ActivityName");
+				aDesc = rs.getNString("ActivityDesc");
+				sSolnPath = rs.getNString("StudentSolnPath");
+				solnPath = rs.getNString("SolnPath"); // Activity only accepts 1 path
+				aLang = rs.getInt("ActivityLang");
+				aType = rs.getInt("ActivityType");
+				groupAct = rs.getBoolean("GroupAct");
+				boolean isProgramming = (aType == 0); // 0 is programming, 1 is essay, 2 is problem set?
+				Activity temp = new Activity(aName, sSolnPath, aLang, isProgramming, groupAct);
+				course.addActivity(temp);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// c is a complete
+		return course;
+	}
+	
 	/*
 	 * Method to access the student list for a specified course. Will return the
 	 * student IDs and names of the student list for the course.
