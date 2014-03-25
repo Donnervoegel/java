@@ -6,6 +6,8 @@
 
 package gui;
 
+import types.Activity;
+
 /**
  *
  * @author Ian
@@ -355,7 +357,7 @@ public class ActivityCreation extends javax.swing.JPanel {
     }//GEN-LAST:event_activity_test_number_fieldActionPerformed
 
     private void activity_student_submissionpath_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_student_submissionpath_buttonActionPerformed
-        // TODO add your handling code here:
+        // Open dialog box to get file place
     }//GEN-LAST:event_activity_student_submissionpath_buttonActionPerformed
 
     private void additional_due_date_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additional_due_date_buttonActionPerformed
@@ -367,7 +369,10 @@ public class ActivityCreation extends javax.swing.JPanel {
     }//GEN-LAST:event_activity_reset_buttonActionPerformed
 
     private void activity_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_submit_buttonActionPerformed
-        // TODO add your handling code here:
+
+Activity new_activity;
+new_activity = new Activity(activity_name_field.getText(), activity_student_submissionpath_field.getText(), activity_lang_field.getText(),activity_individual_checkbox.isSelected(), activity_group_checkbox.isSelected(), activity_student_submissionpath_field.getText(), activity_desc_field.getText(), activity_due_date_1_field.getText(), activity_due_date_1_time.getText(), activity_test_outin_field.getText());
+
     }//GEN-LAST:event_activity_submit_buttonActionPerformed
 
 
