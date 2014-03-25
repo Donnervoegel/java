@@ -5,8 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import types.Account;
+import types.SystemAdmin;
+import types.AcademicAdmin;
+import types.AssistantAdmin;
+import types.Instructor;
+import types.TATM;
 
 /**
  * Class to access accounts in project SQL database.
@@ -22,7 +29,6 @@ public class AccountAccess {
 	// ATTRIBUTES - CLASS VARIABLES
 
 	private static Connection dbConnection; // The connection to the database
-
 	// STATIC METHODS
 
 	/*
@@ -60,6 +66,48 @@ public class AccountAccess {
 				+ username + "'";
 		return execQuery(query);
 	}
+        /*
+        Method that useses accessAccount() to access an account, then return
+        an Account object constructed from the ResultSet.
+        Untested, must verify it works.
+        Account type is set to TA/TM if an improper type is retrieved.
+        
+        * @author Graeme Smith (just this method)
+        */
+        public Account constructAccountObject(String username) {
+            ResultSet result=accessAccount(username);
+            Account account=null;
+            try {
+                result.next();
+                String uname=result.getNString(1);
+                String pass=result.getNString(2);
+                int employee_id=result.getInt(3);
+                String employee_name=result.getNString(4);
+                int type=result.getInt(5);
+                String[]names=employee_name.split("\\s+");
+                String fname=names[0];
+                String lname=names[1];
+                if (type==1){
+                    account=new SystemAdmin(fname, lname, employee_id, uname, pass);
+                } else if (type==2){
+                    account=new AcademicAdmin(fname, lname, employee_id, uname, pass);
+                } else if (type==3){
+                    account=new AssistantAdmin(fname, lname, employee_id, uname, pass);
+                } else if (type==4){
+                    account=new Instructor(fname, lname, employee_id, uname, pass);
+                } else if (type==5){
+                    account=new TATM(fname, lname, employee_id, uname, pass);
+                } else {
+                    account=new TATM(fname, lname, employee_id, uname, pass);
+                    System.out.println("There was an error with account type; account type set to TA/TM");
+                }
+                return account;
+            } catch (SQLException ex) {
+                Logger.getLogger(AccountAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("Returning a null account because something failed while retrieving the account");
+            return account;
+        }
 
 	/*
 	 * Method to return a ResultSet containing the usernames of all the accounts
