@@ -4,8 +4,7 @@ package types;
 /**
  * @desc:   The Abstract Account class is used to hold all atributes
  *          and methods of the Account object
- * @author  Chazz Young (0.0) - 03/15/2014
- * @version 0.0  -- getters/setters
+ * @author  Chazz Young 
  */
 public abstract class Account
 {
@@ -147,7 +146,6 @@ public abstract class Account
      * @desc:   Although the dropdown menu to select the account type will
      *          be represented by strings, the dropdown menu will actually
      *          pass an integer value.
-     * @version 0.0 - 03/16/2014
      */
     public void setAccountType(Type type)
     {
@@ -179,9 +177,6 @@ public abstract class Account
         return typeInt;
     }
     
-    /**
-     * @version 0.0 
-     */
     public void unblock()
     {
         blocked = false;
