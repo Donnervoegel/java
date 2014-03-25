@@ -32,7 +32,7 @@ public class SystemAdmin extends Account
         }else if(type == 4){
             a = new Instructor(fn, ln, empID, un, pass);
         }else if(type == 5){
-            a = new TATMMarker(fn, ln, empID, un, pass);
+            a = new TATM(fn, ln, empID, un, pass);
         }
         //Update database...
     }

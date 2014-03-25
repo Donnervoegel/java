@@ -12,7 +12,7 @@ public class Course
 {
     private String courseName, startDate, endDate, courseID;
     private Instructor instructor;
-    private ArrayList<TATMMarker> markers;
+    private ArrayList<TATM> markers;
     private ArrayList<Student> students;
     private ArrayList<Activity> activities;
     
@@ -43,7 +43,7 @@ public class Course
         instructor = ins;
         startDate = start;
         endDate = end;
-        markers = new ArrayList<TATMMarker>();
+        markers = new ArrayList<TATM>();
         students = new ArrayList<Student>();
         activities = new ArrayList<Activity>();
     }
@@ -52,9 +52,9 @@ public class Course
      * @desc:   Single add marker
      * @author: Chazz Young
      */
-    public void addMarker(TATMMarker m)
+    public void addMarker(TATM m)
     {
-        ArrayList<TATMMarker> a = new ArrayList<TATMMarker>(1);
+        ArrayList<TATM> a = new ArrayList<TATM>(1);
         a.add(m);
         updateMarkers(a);
     }
@@ -83,13 +83,13 @@ public class Course
     
     /**
      * @desc:   Batch add Markers
-     *          Takes an ArrayList of TATMMarkers and searches the 
+     *          Takes an ArrayList of TATMs and searches the 
      *          sorted ArrayList for the given object iteratively
      * @author: Chazz Young
      */
-    public void updateMarkers(ArrayList<TATMMarker> t)
+    public void updateMarkers(ArrayList<TATM> t)
     {
-        for(TATMMarker i : t){
+        for(TATM i : t){
             //Checks to see if it is in markers
             boolean c = markers.contains(i);
             if(c == true){
@@ -102,9 +102,9 @@ public class Course
         //This code is based off of 
         //http://programmingbulls.com/java-sorting-integer-arraylist-using-collectionsso
         //Sorting
-        Collections.sort(markers, new Comparator<TATMMarker>() {
+        Collections.sort(markers, new Comparator<TATM>() {
             @Override
-            public int compare(TATMMarker m1, TATMMarker m2)
+            public int compare(TATM m1, TATM m2)
             {
                 int o1 = m1.getEmpID(); 
                 int o2 = m2.getEmpID();
