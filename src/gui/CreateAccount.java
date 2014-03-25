@@ -6,6 +6,8 @@
 
 package gui;
 
+import gui.utils.GUIUtils;
+
 /**
  *
  * @author Normal
@@ -33,7 +35,6 @@ public class CreateAccount extends javax.swing.JPanel {
         last_name_field = new javax.swing.JTextField();
         account_type_dropdown = new javax.swing.JComboBox();
         username_field = new javax.swing.JTextField();
-        passwrd_field = new javax.swing.JPasswordField();
         password_generate_button = new javax.swing.JButton();
         first_name_label = new javax.swing.JLabel();
         last_name_label = new javax.swing.JLabel();
@@ -47,6 +48,7 @@ public class CreateAccount extends javax.swing.JPanel {
         ok_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
         id_field = new javax.swing.JFormattedTextField();
+        password_field = new javax.swing.JTextField();
 
         account_creation_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Create/Modify an Account:"));
         account_creation_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -117,6 +119,12 @@ public class CreateAccount extends javax.swing.JPanel {
             }
         });
 
+        password_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password_fieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout account_creation_headerLayout = new javax.swing.GroupLayout(account_creation_header);
         account_creation_header.setLayout(account_creation_headerLayout);
         account_creation_headerLayout.setHorizontalGroup(
@@ -126,7 +134,7 @@ public class CreateAccount extends javax.swing.JPanel {
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(account_creation_headerLayout.createSequentialGroup()
                         .addComponent(modify_existing_checkbox, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(existing_account_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16))
                     .addComponent(existing_account_separator, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -145,18 +153,18 @@ public class CreateAccount extends javax.swing.JPanel {
                                     .addComponent(id_label))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(account_creation_headerLayout.createSequentialGroup()
-                                .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancel_button))
-                            .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(id_field, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(first_name_field, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(last_name_field, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(account_type_dropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, 118, Short.MAX_VALUE)
-                                .addComponent(username_field, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(passwrd_field, javax.swing.GroupLayout.Alignment.LEADING)))))
+                        .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(password_field, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(id_field, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(first_name_field, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(last_name_field, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(account_type_dropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, 118, Short.MAX_VALUE)
+                            .addComponent(username_field, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(account_creation_headerLayout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cancel_button)))
                 .addGap(18, 18, 18))
         );
         account_creation_headerLayout.setVerticalGroup(
@@ -190,9 +198,9 @@ public class CreateAccount extends javax.swing.JPanel {
                     .addComponent(username_label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwrd_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password_generate_button)
-                    .addComponent(password_label))
+                    .addComponent(password_label)
+                    .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ok_button)
@@ -206,21 +214,17 @@ public class CreateAccount extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(88, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 362, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(51, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(account_creation_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -233,7 +237,7 @@ public class CreateAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_account_type_dropdownActionPerformed
 
     private void password_generate_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_generate_buttonActionPerformed
-        // TODO add your handling code here:
+        password_field.setText(GUIUtils.generatePassword());
     }//GEN-LAST:event_password_generate_buttonActionPerformed
 
     private void modify_existing_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_existing_checkboxActionPerformed
@@ -258,6 +262,10 @@ public class CreateAccount extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_id_fieldActionPerformed
 
+    private void password_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_fieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel account_creation_header;
@@ -274,9 +282,9 @@ public class CreateAccount extends javax.swing.JPanel {
     private javax.swing.JLabel last_name_label;
     private javax.swing.JCheckBox modify_existing_checkbox;
     private javax.swing.JButton ok_button;
+    private javax.swing.JTextField password_field;
     private javax.swing.JButton password_generate_button;
     private javax.swing.JLabel password_label;
-    private javax.swing.JPasswordField passwrd_field;
     private javax.swing.JTextField username_field;
     private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables

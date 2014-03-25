@@ -78,6 +78,9 @@ public class MasterFrame extends JFrame {
         
         //Grey back button initially
         back_button.setEnabled(false);
+        
+        //Set shark image icon
+         this.setIconImage(new ImageIcon(getClass().getResource("markshark-1x.png")).getImage()); 
     }
 
     public void run() {
