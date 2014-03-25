@@ -36,6 +36,7 @@ public class MasterFrame extends JFrame {
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	setTitle("MarkShark Grading System - Home");
 	setResizable(true);
+	setSize(700,700);
 	//	setLayout(new GridLayout(2,1));
         back_button.setEnabled(false);  //Grey back button initially
 	//Set shark image icon
@@ -84,7 +85,7 @@ public class MasterFrame extends JFrame {
 
 	c.gridx = 0;
 	c.gridy = 1;
-	//	c.weighty = 0;
+	c.weighty = 1.0;
 	c.weightx = 0;
 	c.anchor = GridBagConstraints.LINE_START;
 	top_panel.add(back_button, c);
@@ -106,7 +107,10 @@ public class MasterFrame extends JFrame {
 
 	// Constraints for all bottom panels ever.
 	c.gridy = 1;
-	c.ipady = 100;
+	//	c.ipady = 100;
+	c.weightx = 1.0;
+	c.weighty = 1.0;
+	c.gridwidth = 10;
 	add(curr_page, c);
 
 	// Render the Frame
