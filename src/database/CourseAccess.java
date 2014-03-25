@@ -98,7 +98,7 @@ public class CourseAccess {
 		// Build database entries from course object
 		String courseID = course.getCourseID();
 		String courseName = course.getCourseName();
-		String instructorName = course.getInstructor().getFirstName()
+		String instructorName = course.getInstructor().getFirstName() + " "
 				+ course.getInstructor().getLastName();
 		int instructorID = course.getInstructor().getEmpID();
 		String startDate = course.getStartDate();
@@ -125,9 +125,8 @@ public class CourseAccess {
 	}
 
 	/*
-	 * Method to create a Course object populated
-	 * from the database given a courseID.
-	 * Uses cID as the courseID, since it is the key value.
+	 * Method to create a Course object populated from the database given a
+	 * courseID. Uses cID as the courseID, since it is the key value.
 	 */
 	@SuppressWarnings("unused")
 	public Course constructCourseObject(String cID) {
@@ -137,7 +136,7 @@ public class CourseAccess {
 		// Course variables
 		String courseName = null, courseID = null, instructorName = null;
 		int instructorID;
-		Date startDate = null, endDate= null;
+		Date startDate = null, endDate = null;
 		Instructor ins = null;
 		// TeachingAssistant variables
 		ArrayList<TATM> markers = new ArrayList<TATM>();
@@ -148,41 +147,54 @@ public class CourseAccess {
 		int sID;
 		String sName = null;
 		// Activities variables
-        ArrayList<Activity> activities = new ArrayList<Activity>();
-        String aName = null, aDesc = null, sSolnPath = null, solnPath = null;
-        int aLang, aType;
-        boolean groupAct;
+		ArrayList<Activity> activities = new ArrayList<Activity>();
+		String aName = null, aDesc = null, sSolnPath = null, solnPath = null;
+		String aLang;
+		int aType;
+		boolean groupAct;
 		// Course table
 		rs = accessCourse(cID);
 		try {
 			rs.next();
 			// Listed loosely in Course constructor's order
 			courseName = rs.getNString("CourseName");
-			courseID = cID; //rs.getNString("CourseID");
+			courseID = cID; // rs.getNString("CourseID");
 			instructorName = rs.getNString("InstructorName");
 			instructorID = rs.getInt("InstructorID");
-			startDate = rs.getDate("StartDate"); // What is the format for the date?
+			startDate = rs.getDate("StartDate"); // What is the format for the
+													// date?
 			endDate = rs.getDate("EndDate");
-            String[]names=instructorName.split("\\s+");
-            String fname=names[0];
-            String lname=names[1];
-            ins = new Instructor(fname, lname, instructorID, null, null);
+			String[] names = instructorName.split("\\s+");
+			String fname = names[0];
+			String lname = names[1];
+			ins = new Instructor(fname, lname, instructorID, null, null);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//Now to put it all together
-		course = new Course(courseName, cID, ins, startDate.toString(), endDate.toString());
+		// Now to put it all together
+		course = new Course(courseName, cID, ins, startDate.toString(),
+				endDate.toString());
 		// TeachingAssistant table
 		rs = accessTAs(cID);
 		try {
-			while(rs.next()){
+			while (rs.next()) {
 				taEID = rs.getInt("EmployeeID");
 				taEName = rs.getNString("EmployeeName");
-                String[]names=taEName.split("\\s+");
-                String fname=names[0];
-                String lname=names[1];
-				TATM temp = new TATM(fname, lname, taEID, null, null); // Why does the system need to load their username and password?
+				String[] names = taEName.split("\\s+");
+				String fname = names[0];
+				String lname = names[1];
+				TATM temp = new TATM(fname, lname, taEID, null, null); // Why
+																		// does
+																		// the
+																		// system
+																		// need
+																		// to
+																		// load
+																		// their
+																		// username
+																		// and
+																		// password?
 				course.addMarker(temp);
 			}
 		} catch (SQLException e) {
@@ -192,14 +204,14 @@ public class CourseAccess {
 		// Students table
 		rs = accessStudentList(cID);
 		try {
-			while(rs.next()){
+			while (rs.next()) {
 				sID = rs.getInt("StudentID");
 				sName = rs.getNString("StudentName");
-                String[]names=sName.split("\\s+");
-                String fname=names[0];
-                String lname=names[1];
-                Student temp = new Student();
-                course.addStudent(temp);
+				String[] names = sName.split("\\s+");
+				String fname = names[0];
+				String lname = names[1];
+				Student temp = new Student();
+				course.addStudent(temp);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -208,16 +220,20 @@ public class CourseAccess {
 		// Activities table
 		rs = accessCourseActivities(cID);
 		try {
-			while(rs.next()){
+			while (rs.next()) {
 				aName = rs.getNString("ActivityName");
 				aDesc = rs.getNString("ActivityDesc");
 				sSolnPath = rs.getNString("StudentSolnPath");
-				solnPath = rs.getNString("SolnPath"); // Activity only accepts 1 path
-				aLang = rs.getInt("ActivityLang");
+				solnPath = rs.getNString("SolnPath"); // Activity only accepts 1
+														// path
+				aLang = rs.getNString("ActivityLang");
 				aType = rs.getInt("ActivityType");
 				groupAct = rs.getBoolean("GroupAct");
-				boolean isProgramming = (aType == 0); // 0 is programming, 1 is essay, 2 is problem set?
-				Activity temp = new Activity(aName, sSolnPath, aLang, isProgramming, groupAct);
+				boolean isProgramming = (aType == 0); // 0 is programming, 1 is
+														// essay, 2 is problem
+														// set?
+				Activity temp = new Activity(aName, sSolnPath, aLang,
+						isProgramming, groupAct);
 				course.addActivity(temp);
 			}
 		} catch (SQLException e) {
@@ -227,7 +243,7 @@ public class CourseAccess {
 		// c is a complete
 		return course;
 	}
-	
+
 	/*
 	 * Method to access the student list for a specified course. Will return the
 	 * student IDs and names of the student list for the course.
@@ -283,7 +299,7 @@ public class CourseAccess {
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
 		String studentSolnPath = act.getSolnPath();
-		int activityLang = act.getLanguage();
+		String activityLang = act.getLanguage();
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
 		String solnPath = "";
@@ -307,10 +323,11 @@ public class CourseAccess {
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
 		String studentSolnPath = act.getSolnPath();
-		int activityLang = act.getLanguage();
+		String activityLang = act.getLanguage();
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
 		String solnPath = "";
+		int numTests = act.getNumOfTests();
 
 		// Generate the update query
 		String query = "UPDATE c275g01A.dbo.Activity ActivityName='"
@@ -318,7 +335,8 @@ public class CourseAccess {
 				+ "',ActivityLang=" + activityLang + ",activityType="
 				+ activityType + ",GroupAct=" + boolToBit(group)
 				+ ",StudentSolnPath='" + studentSolnPath + "',SolnPath='"
-				+ solnPath + "' WHERE CourseID = '" + courseID + "'";
+				+ solnPath + "',NumTest=" + numTests + " WHERE CourseID = '"
+				+ courseID + "'";
 		execUpdate(query);
 	}
 
