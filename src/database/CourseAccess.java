@@ -257,7 +257,7 @@ public class CourseAccess {
 	/*
 	 * Method to clear the student list when updating it with a new .csv file.
 	 */
-	public void clearStudentList(String courseID) {
+	public static void clearStudentList(String courseID) {
 		String query = "DELETE FROM c275g01A.dbo.Student WHERE CourseID = '"
 				+ courseID + "'";
 		execUpdate(query);
@@ -266,7 +266,7 @@ public class CourseAccess {
 	/*
 	 * Method to add a student to the student list for a particular course.
 	 */
-	public void addStudent(String studentName, int studentID, String courseID) {
+	public static void addStudent(String studentName, int studentID, String courseID) {
 		String query = "INSERT INTO c275g01A.dbo.Student VALUES ('"
 				+ studentName + "'," + studentID + ",'" + courseID + "')";
 		execUpdate(query);

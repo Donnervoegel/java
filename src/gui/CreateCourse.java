@@ -8,9 +8,12 @@ package gui;
 
 import database.AccountAccess;
 import database.CourseAccess;
+import static java.lang.System.in;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import types.Course;
 import types.Instructor;
+import types.TextAnalyzer;
 
 /**
  *
@@ -241,6 +244,8 @@ public class CreateCourse extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    ArrayList<String> accounts_list; //The list of accounts in arraylist string format
+    
     private void course_name_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_name_fieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_course_name_fieldActionPerformed
@@ -267,23 +272,49 @@ public class CreateCourse extends javax.swing.JPanel {
         CourseAccess.addTA(course_id_field.getText(), Integer.parseInt(ta_id_field.getText()), ta_name_field.getText());
         
         //Add the CSV file
+        CourseAccess.clearStudentList(course_id_field.getText());
+        String student_name;
+        String student_id;
         
+        for (String i : accounts_list)
+        {
+            String [] arr= i.split(", ");
+            student_name = arr[0];
+            student_id = arr[1];
+            
+            //Push the student to the database
+            CourseAccess.addStudent(student_name, Integer.parseInt(student_id), course_id_field.getText());
+        }
+        
+        //Redirect back to the page NO REDIRECT YET
         
     }//GEN-LAST:event_submit_buttonActionPerformed
 
+     //Purpose is to assign the values of the text file to global variable accounts_list
+     //From http://stackoverflow.com/questions/10621687/how-to-get-full-path-directory-from-file-choosers
     private void choose_file_student_list_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
-       JFileChooser chooser = new JFileChooser();
+    JFileChooser chooser = new JFileChooser();
     chooser.setCurrentDirectory(new java.io.File("."));
     chooser.setDialogTitle("choosertitle");
-    chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-    chooser.setAcceptAllFileFilterUsed(false);
+    chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+    chooser.setAcceptAllFileFilterUsed(true);
+    
+    String path_container;
 
     if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
     System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+    path_container = chooser.getCurrentDirectory().toString();
+    stud_list_file_location_field.setText(path_container);
+    accounts_list = TextAnalyzer.getInput(path_container);
+    
     System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
-} else {
+    } 
+    
+    else {
     System.out.println("No Selection ");
-}
+    accounts_list = null; //Set the array list accounts_list to null if nothing initiated.
+    }
+    
     }//GEN-LAST:event_choose_file_student_list_buttonActionPerformed
 
     private void course_end_formatfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_end_formatfieldActionPerformed
