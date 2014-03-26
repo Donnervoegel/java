@@ -38,10 +38,10 @@ public class LoginModule {
 			return null;
 		}
 		
-		if (acctPW == password)
+		if (acctPW.equals(password))
 			return acct;
 		else
 			System.out.println("Failed login");
-		return acct;
+		return null;
 	}
 }

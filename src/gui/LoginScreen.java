@@ -152,21 +152,21 @@ public class LoginScreen extends JFrame {
 	String name = username_field.getText();
 	String pass = new String(pass_field.getPassword());
         Account test;
-        test = LoginModule.login(name,pass);
-        System.out.println(test);
 
-//	 FOR TESTING PURPOSES ONLY
-//        if (name.equalsIgnoreCase("sysadmin")){
-//            test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
-//        } else if (name.equalsIgnoreCase("admin")){
-//            test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
-//        } else if (name.equalsIgnoreCase("assist")){
-//            test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
-//        } else if (name.equalsIgnoreCase("instructor")){
-//            test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
-//        } else {// ta marker
-//            test = new TATM("Joey", "Tester", 9999, "password", "ta");
-//        }
+        //	 FOR TESTING PURPOSES ONLY
+        if (name.equalsIgnoreCase("sysadmin")){
+            test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
+        } else if (name.equalsIgnoreCase("admin")){
+            test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
+        } else if (name.equalsIgnoreCase("assist")){
+            test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
+        } else if (name.equalsIgnoreCase("instructor")){
+            test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
+        } else if (name.equalsIgnoreCase("tatm") ){// ta marker
+            test = new TATM("Joey", "Tester", 9999, "password", "ta");
+        } else {
+        	test = LoginModule.login(name,pass);
+        }
 
 	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
 	    JOptionPane
