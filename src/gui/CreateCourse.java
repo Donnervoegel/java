@@ -306,7 +306,8 @@ public class CreateCourse extends javax.swing.JPanel {
 
     if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
     System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
-    path_container = chooser.getCurrentDirectory().toString();
+    path_container = chooser.getSelectedFile().toString();
+    
     stud_list_file_location_field.setText(path_container);
     accounts_list = TextAnalyzer.getInput(path_container);
     
