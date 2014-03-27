@@ -10,8 +10,7 @@ import database.AccountAccess;
 import database.CourseAccess;
 import static java.lang.System.in;
 import java.util.ArrayList;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import types.Course;
 import types.Instructor;
 import types.TextAnalyzer;
@@ -20,10 +19,10 @@ import types.TextAnalyzer;
  *
  * @author Normal
  */
-public class CreateCourse extends javax.swing.JPanel {
+public class CreateCourse extends JPanel {
 
     /**
-     * Creates new form CreateCoursePg1
+     * Creates new form CreateCourse
      */
     public CreateCourse() {
         initComponents();
@@ -38,30 +37,30 @@ public class CreateCourse extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        create_course_panel = new javax.swing.JPanel();
-        course_name_label = new javax.swing.JLabel();
-        course_id_label = new javax.swing.JLabel();
-        instructor_username_label = new javax.swing.JLabel();
-        instructor_id_label = new javax.swing.JLabel();
-        ta_name_label = new javax.swing.JLabel();
-        ta_id_label = new javax.swing.JLabel();
-        course_start_label = new javax.swing.JLabel();
-        stud_list_label = new javax.swing.JLabel();
-        course_end_label = new javax.swing.JLabel();
-        course_name_field = new javax.swing.JTextField();
-        course_id_field = new javax.swing.JTextField();
-        instructor_username_field = new javax.swing.JTextField();
-        instructor_id_field = new javax.swing.JTextField();
-        ta_name_field = new javax.swing.JTextField();
-        ta_id_field = new javax.swing.JTextField();
-        course_start_formatfield = new javax.swing.JFormattedTextField();
-        course_end_formatfield = new javax.swing.JFormattedTextField();
-        stud_list_file_location_field = new javax.swing.JTextField();
-        choose_file_student_list_button = new javax.swing.JButton();
-        submit_button = new javax.swing.JButton();
-        cancel_button = new javax.swing.JButton();
+        create_course_panel = new JPanel();
+        course_name_label = new JLabel();
+        course_id_label = new JLabel();
+        instructor_username_label = new JLabel();
+        instructor_id_label = new JLabel();
+        ta_name_label = new JLabel();
+        ta_id_label = new JLabel();
+        course_start_label = new JLabel();
+        stud_list_label = new JLabel();
+        course_end_label = new JLabel();
+        course_name_field = new JTextField();
+        course_id_field = new JTextField();
+        instructor_username_field = new JTextField();
+        instructor_id_field = new JTextField();
+        ta_name_field = new JTextField();
+        ta_id_field = new JTextField();
+        course_start_formatfield = new JFormattedTextField();
+        course_end_formatfield = new JFormattedTextField();
+        stud_list_file_location_field = new JTextField();
+        choose_file_student_list_button = new JButton();
+        submit_button = new JButton();
+        cancel_button = new JButton();
 
-        create_course_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Create A Course"));
+        create_course_panel.setBorder(BorderFactory.createTitledBorder("Create A Course"));
 
         course_name_label.setText("Course Name");
 
@@ -93,10 +92,10 @@ public class CreateCourse extends javax.swing.JPanel {
             }
         });
 
-        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        course_start_formatfield.setFormatterFactory(new text.DefaultFormatterFactory(new text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
         course_start_formatfield.setText("yyyy/MM/dd");
 
-        course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        course_end_formatfield.setFormatterFactory(new text.DefaultFormatterFactory(new text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
         course_end_formatfield.setText("yyyy/MM/dd");
         course_end_formatfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,121 +126,121 @@ public class CreateCourse extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout create_course_panelLayout = new javax.swing.GroupLayout(create_course_panel);
+        GroupLayout create_course_panelLayout = new GroupLayout(create_course_panel);
         create_course_panel.setLayout(create_course_panelLayout);
         create_course_panelLayout.setHorizontalGroup(
-            create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(create_course_panelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                         .addGroup(create_course_panelLayout.createSequentialGroup()
                             .addComponent(course_start_label)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(course_start_formatfield, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(course_start_formatfield, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(course_end_label)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(course_end_formatfield, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(course_end_formatfield, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE))
                         .addGroup(create_course_panelLayout.createSequentialGroup()
-                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(ta_name_label)
                                 .addComponent(instructor_id_label))
                             .addGap(137, 137, 137)
-                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(instructor_id_field)
                                 .addComponent(ta_name_field)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, create_course_panelLayout.createSequentialGroup()
-                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.LEADING, create_course_panelLayout.createSequentialGroup()
+                            .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(ta_id_label)
                                 .addComponent(course_id_label)
                                 .addComponent(course_name_label)
                                 .addComponent(instructor_username_label))
                             .addGap(118, 118, 118)
-                            .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(instructor_username_field)
                                 .addComponent(course_name_field)
                                 .addComponent(course_id_field)
                                 .addGroup(create_course_panelLayout.createSequentialGroup()
-                                    .addComponent(ta_id_field, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ta_id_field, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(create_course_panelLayout.createSequentialGroup()
-                        .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(create_course_panelLayout.createSequentialGroup()
                                 .addComponent(stud_list_label)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(stud_list_file_location_field, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(stud_list_file_location_field, GroupLayout.PREFERRED_SIZE, 256, GroupLayout.PREFERRED_SIZE))
                             .addComponent(submit_button))
                         .addGap(18, 18, 18)
-                        .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(choose_file_student_list_button)
-                            .addComponent(cancel_button, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(cancel_button, GroupLayout.Alignment.TRAILING))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         create_course_panelLayout.setVerticalGroup(
-            create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(create_course_panelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(course_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(course_name_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(course_name_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(course_id_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(course_id_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(course_id_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(instructor_username_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(instructor_username_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(instructor_username_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(instructor_id_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(instructor_id_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(instructor_id_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ta_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(ta_name_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(ta_name_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(ta_id_label)
-                    .addComponent(ta_id_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ta_id_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(course_start_label)
-                    .addComponent(course_start_formatfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(course_start_formatfield, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(course_end_label)
-                    .addComponent(course_end_formatfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(course_end_formatfield, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(stud_list_label)
-                    .addComponent(stud_list_file_location_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stud_list_file_location_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(choose_file_student_list_button))
                 .addGap(18, 18, 18)
-                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(create_course_panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(submit_button)
                     .addComponent(cancel_button))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 557, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(create_course_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(create_course_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 349, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(create_course_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(create_course_panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -327,29 +326,27 @@ public class CreateCourse extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancel_button;
-    private javax.swing.JButton choose_file_student_list_button;
-    private javax.swing.JFormattedTextField course_end_formatfield;
-    private javax.swing.JLabel course_end_label;
-    private javax.swing.JTextField course_id_field;
-    private javax.swing.JLabel course_id_label;
-    private javax.swing.JTextField course_name_field;
-    private javax.swing.JLabel course_name_label;
-    private javax.swing.JFormattedTextField course_start_formatfield;
-    private javax.swing.JLabel course_start_label;
-    private javax.swing.JPanel create_course_panel;
-    private javax.swing.JTextField instructor_id_field;
-    private javax.swing.JLabel instructor_id_label;
-    private javax.swing.JTextField instructor_username_field;
-    private javax.swing.JLabel instructor_username_label;
-    private javax.swing.JTextField stud_list_file_location_field;
-    private javax.swing.JLabel stud_list_label;
-    private javax.swing.JButton submit_button;
-    private javax.swing.JTextField ta_id_field;
-    private javax.swing.JLabel ta_id_label;
-    private javax.swing.JTextField ta_name_field;
-    private javax.swing.JLabel ta_name_label;
+    private JButton cancel_button;
+    private JButton choose_file_student_list_button;
+    private JFormattedTextField course_end_formatfield;
+    private JLabel course_end_label;
+    private JTextField course_id_field;
+    private JLabel course_id_label;
+    private JTextField course_name_field;
+    private JLabel course_name_label;
+    private JFormattedTextField course_start_formatfield;
+    private JLabel course_start_label;
+    private JPanel create_course_panel;
+    private JTextField instructor_id_field;
+    private JLabel instructor_id_label;
+    private JTextField instructor_username_field;
+    private JLabel instructor_username_label;
+    private JTextField stud_list_file_location_field;
+    private JLabel stud_list_label;
+    private JButton submit_button;
+    private JTextField ta_id_field;
+    private JLabel ta_id_label;
+    private JTextField ta_name_field;
+    private JLabel ta_name_label;
     // End of variables declaration//GEN-END:variables
-
-  
 }

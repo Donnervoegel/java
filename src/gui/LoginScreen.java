@@ -6,12 +6,12 @@
 
 package gui;
 
-import login.Login;
+
 import javax.swing.*;
-
-
 import java.awt.event.*;
 
+import gui.utils.*;
+import login.Login;
 import types.*;
 
 /**
@@ -34,11 +34,10 @@ public class LoginScreen extends JFrame {
      * Creates new form LoginScreen
      */
     public LoginScreen() {
-        initComponents();
-        
         //Add the shark image
-        this.setIconImage(new ImageIcon(getClass().getResource("markshark-1x.png")).getImage()); 
-        
+        setIconImage(new ImageIcon(getClass()
+				   .getResource("markshark-1x.png")).getImage());
+        initComponents();
     }
 
     /**
@@ -165,7 +164,7 @@ public class LoginScreen extends JFrame {
         } else if (name.equalsIgnoreCase("tatm") ){// ta marker
             test = new TATM("Joey", "Tester", 9999, "password", "ta");
         } else {
-	    test = Login.login(name,pass);
+	    test = Login.login(name, pass);
         }
 
 	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
@@ -176,7 +175,7 @@ public class LoginScreen extends JFrame {
 		.showMessageDialog(this, "No user name given.");
 	} else if(test == null) {
 		JOptionPane.showMessageDialog(this, "Invalid username/password combo");
-    } else {
+	} else {
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
 	    // TODO: This needs to be passed a legit Account object.
@@ -190,6 +189,6 @@ public class LoginScreen extends JFrame {
 	/*
 	 * Doesn't have to be dealt with yet.
 	 */
-        System.out.println("Forgot password!");
+	GUIUtils.nothing();
     }
 }
