@@ -16,9 +16,9 @@ public class AssistantAdmin extends Account
         list_of_courses = new ArrayList<Course>();
     }
 
-    public void createCourse(String name, String id, Instructor inst, String start, String end, String path)
+    public void createCourse(String name, String id, Instructor inst, String start, String end)
     {
-        Course c = new Course(name, id, inst, start, end, path);
+        Course c = new Course(name, id, inst, start, end);
         inst.addCourse(c);
         list_of_courses.add(c);
     }

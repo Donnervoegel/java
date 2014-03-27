@@ -16,7 +16,7 @@ public class Course
     private ArrayList<Student> students;
     private ArrayList<Activity> activities;
     
-    public Course(String n, String id, Instructor ins, String start, String end, String path)
+    public Course(String n, String id, Instructor ins, String start, String end)
     {
         courseName = n;
         courseID = id;
@@ -25,21 +25,6 @@ public class Course
         endDate = end;
         markers = new ArrayList<TATM>();
         students = new ArrayList<Student>();
-        TextAnalyzer reader = new TextAnalyzer();
-        try{
-            ArrayList<String> toAdd = new ArrayList<String>();
-            ArrayList<Student> stad = new ArrayList<Student>();
-            for(String t : toAdd){
-                String[] fields = t.split(", ");
-                String name = fields[0];
-                int stid = Integer.parseInt(fields[1]);
-                Student s = new Student(name, stid);
-                stad.add(s);
-            }
-            updateStudents(stad);
-        }catch(Exception e){
-            
-        }
         activities = new ArrayList<Activity>();
     }
     
