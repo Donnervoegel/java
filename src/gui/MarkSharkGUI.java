@@ -17,19 +17,24 @@ public class MarkSharkGUI {
              UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
          } catch (ClassNotFoundException ex) {
              Logger.getLogger(LoginScreen.class.getName())
-		 .log(Level.SEVERE, null, ex);
+    		 .log(Level.SEVERE, null, ex);
          } catch (InstantiationException ex) {
              Logger.getLogger(LoginScreen.class.getName())
-		 .log(Level.SEVERE, null, ex);
+    		 .log(Level.SEVERE, null, ex);
          } catch (IllegalAccessException ex) {
              Logger.getLogger(LoginScreen.class.getName())
-		 .log(Level.SEVERE, null, ex);
+    		 .log(Level.SEVERE, null, ex);
          } catch (UnsupportedLookAndFeelException ex) {
              Logger.getLogger(LoginScreen.class.getName())
-		 .log(Level.SEVERE, null, ex);
+    		 .log(Level.SEVERE, null, ex);
          }
 
-	 // Display the Login Page
-	 login.setVisible(true);
+    	 // Display the Login Page
+    	 login.setVisible(true);
+    }
+    
+    public static void main()
+    {
+        (new MarkSharkGUI()).startGUI();
     }
 }

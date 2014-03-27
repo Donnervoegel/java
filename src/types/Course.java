@@ -16,26 +16,6 @@ public class Course
     private ArrayList<Student> students;
     private ArrayList<Activity> activities;
     
-    public String getCourseName() {
-	return courseName;
-    }
-
-    public String getStartDate() {
-	return startDate;
-    }
-
-    public String getEndDate() {
-	return endDate;
-    }
-
-    public String getCourseID() {
-	return courseID;
-    }
-
-    public Instructor getInstructor() {
-	return instructor;
-    }
-    
     public Course(String n, String id, Instructor ins, String start, String end)
     {
         courseName = n;
@@ -46,6 +26,26 @@ public class Course
         markers = new ArrayList<TATM>();
         students = new ArrayList<Student>();
         activities = new ArrayList<Activity>();
+    }
+    
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public String getCourseID() {
+        return courseID;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
     }
     
     /**
@@ -78,7 +78,7 @@ public class Course
     {
         ArrayList<Activity> a = new ArrayList<Activity>(1);
         a.add(s);
-	//        updateActivities(a);
+        //        updateActivities(a);
     }
     
     /**
@@ -138,10 +138,9 @@ public class Course
             @Override
             public int compare(Student s1, Student s2)
             {
-//                 int o1 = s1.getID(); 
-//                 int o2 = s2.getID();
-//                 return (o1>o2 ? -1 : (o1==o2 ? 0 : 1));
-                return 5;
+                int o1 = s1.getID(); 
+                int o2 = s2.getID();
+                return (o1>o2 ? -1 : (o1==o2 ? 0 : 1));
             }
         });
     }
@@ -177,6 +176,6 @@ public class Course
                 return (o1>o2 ? -1 : (o1==o2 ? 0 : 1));
             }
         });
-	}*/  // Commenting out for now to fix broken compiling
+    }*/  // Commenting out for now to fix broken compiling
     
 }
