@@ -1,15 +1,15 @@
-package gui.utils;
+package login;
 
 import java.util.*;
 import types.*;
 import database.*;
 
 /**
- * @desc: The LoginModule is used to validate that a user exists and passes that
+ * @desc: The Login is used to validate that a user exists and passes that
  *        user into the GUI.
  * @author: Chazz Young
  */
-public class LoginModule {
+public class Login {
 	/*
 	 * private ArrayList<Account> accounts;
 	 * 
@@ -27,21 +27,21 @@ public class LoginModule {
 	 */
 
 	public static Account login(String username, String password) {
-		Account acct = null;
-		String acctPW = "";
+	    Account acct = null;
+	    String acctPW = "";
 
-		acct = AccountAccess.constructAccountObject(username);
+	    acct = AccountAccess.constructAccountObject(username);
 		
-		try {
-			acctPW = acct.getPassword();
-		} catch (Exception e) {
-			return null;
-		}
-		
-		if (acctPW.equals(password))
-			return acct;
-		else
-			System.out.println("Failed login");
+	    try {
+		acctPW = acct.getPassword();
+	    } catch (Exception e) {
 		return null;
+	    }
+		
+	    if (acctPW.equals(password))
+		return acct;
+
+	    System.out.println("Failed login");
+	    return null;
 	}
 }

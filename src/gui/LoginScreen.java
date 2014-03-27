@@ -6,7 +6,7 @@
 
 package gui;
 
-import gui.utils.LoginModule;
+import login.Login;
 import javax.swing.*;
 
 
@@ -165,7 +165,7 @@ public class LoginScreen extends JFrame {
         } else if (name.equalsIgnoreCase("tatm") ){// ta marker
             test = new TATM("Joey", "Tester", 9999, "password", "ta");
         } else {
-        	test = LoginModule.login(name,pass);
+	    test = Login.login(name,pass);
         }
 
 	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
