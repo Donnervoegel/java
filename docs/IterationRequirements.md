@@ -65,11 +65,11 @@
 
 - 1.2.2. A system administrator can modify user accounts 
 - 1.2.4. A system administrator can block or unblock an account 
-- 1.2.6. A user is blocked after 5 incorrect attempts to log in
+- 1.2.6. ~~A user is blocked after 5 incorrect attempts to log in~~
 - 1.2.6.1.	A user that has been blocked must obtain a new temporary password from the system administrator 
 - 1.2.7. Any user can change their own password 
 - 1.3.4. An administrative assistant can modify a course, ONLY the parts of the course listed in 1.3.1 may be modified by the administrative assistant
-- 1.3.8. An administrative assistant may modified the list of students in a course after the initial list of students is added to the course by loading an updated comma separated file. The updated csv file will contain an updated list of students in the course including all students presently in the course.  
+- 1.3.8. ~~An administrative assistant may modified the list of students in a course after the initial list of students is added to the course by loading an updated comma separated file. The updated csv file will contain an updated list of students in the course including all students presently in the course.  ~~
 - 1.4.3.   The following items may be part of an activity and may be added after the activity is created
 - 1.4.3.5.	A list of tests containing a description of each test (Only if the activity is a programming activity, otherwise there are 0 tests and no list)
 - 1.4.3.6.	An environment in which programming assignments are to be tested (Only if the activity is a programming activity, otherwise blank or none)
@@ -86,8 +86,8 @@
 - 1.5.3. The instructor may update (modify) an activity at any time after it is created
 - 1.5.4. Instructors are automatically assigned to all submissions,  for all activities,  for all courses they are assigned to
 - 1.5.5. TAs/TMs and instructors are all markers 
-- 1.5.6. An instructor MAY assign a subset of submissions for a particular activity to a particular TA/TM or to a group of TAs/TMs. 
-- 1.5.6.4.	 If the instructor makes such assignments, only the assigned TA’s/TM’s may view, grade, re-grade, or modify grades for their assigned submissions
+- 1.5.6. ~~An instructor MAY assign a subset of submissions for a particular activity to a particular TA/TM or to a group of TAs/TMs. ~~
+- 1.5.6.4.	 ~~If the instructor makes such assignments, only the assigned TA’s/TM’s may view, grade, re-grade, or modify grades for their assigned submissions~~
 - 1.5.6.5.	If the instructor does not make specific assignments, the default is for all TAs / TMs assigned to the course to be assigned to grade all submissions
 - 1.5.7. Markers may grade their assigned submissions for an activity
 - 1.6.1. Instructors are automatically assigned to all submissions,  for all activities,  for all courses they are assigned to
