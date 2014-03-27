@@ -143,14 +143,14 @@ public class LoginScreen extends JFrame {
     }// </editor-fold>                        
 
     private void loginButtonActionPerformed(ActionEvent evt) {
-	/*
-	 * Pass the user name and password to the login system.
-	 * The login system will indicate whether the login succeeded.
-	 * If it did, hide the login screen and show the splash page
-	 * according to the user's Role.
-	 */
-	String name = username_field.getText();
-	String pass = new String(pass_field.getPassword());
+    	/*
+    	 * Pass the user name and password to the login system.
+    	 * The login system will indicate whether the login succeeded.
+    	 * If it did, hide the login screen and show the splash page
+    	 * according to the user's Role.
+    	 */
+    	String name = username_field.getText();
+    	String pass = new String(pass_field.getPassword());
         Account test;
 
         //	 FOR TESTING PURPOSES ONLY
@@ -167,29 +167,29 @@ public class LoginScreen extends JFrame {
         } else {
         	test = LoginModule.login(name,pass);
         }
-
-	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
-	    JOptionPane
-		.showMessageDialog(this, "The password given is too short.");
-	} else if(name.isEmpty()) {
-	    JOptionPane
-		.showMessageDialog(this, "No user name given.");
-	} else if(test == null) {
-		JOptionPane.showMessageDialog(this, "Invalid username/password combo");
-    } else {
-	    System.out.println("Logging in as " + name +
-			       " with password `" + pass + "`");
-	    // TODO: This needs to be passed a legit Account object.
-	    master = new MasterFrame(test);
-	    this.setVisible(false);
-	    master.run();
-	}
+    
+    	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
+    	    JOptionPane
+    		.showMessageDialog(this, "The password given is too short.");
+    	} else if(name.isEmpty()) {
+    	    JOptionPane
+    		.showMessageDialog(this, "No user name given.");
+    	} else if(test == null) {
+    		JOptionPane.showMessageDialog(this, "Invalid username/password combo");
+        } else {
+    	    System.out.println("Logging in as " + name +
+    			       " with password `" + pass + "`");
+    	    // TODO: This needs to be passed a legit Account object.
+    	    master = new MasterFrame(test);
+    	    this.setVisible(false);
+    	    master.run();
+    	}
     }
 
     private void forgotPassActionPerformed(ActionEvent evt) {
-	/*
-	 * Doesn't have to be dealt with yet.
-	 */
+    	/*
+    	 * Doesn't have to be dealt with yet.
+    	 */
         System.out.println("Forgot password!");
     }
 }

@@ -258,16 +258,16 @@ public class CreateAccount extends javax.swing.JPanel {
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
         //Add modify if case later
         
-       String account_select = account_type_dropdown.getSelectedItem().toString();
-       System.out.println("Creating " + account_select + " type account.");
+        String account_select = account_type_dropdown.getSelectedItem().toString();
+        System.out.println("Creating " + account_select + " type account.");
         
-       String first = first_name_field.getText();
-       String last = last_name_field.getText();
-       int id = Integer.parseInt(id_field.getText());
-       String username = username_field.getText();
-       String pass = password_field.getText();
+        String first = first_name_field.getText();
+        String last = last_name_field.getText();
+        int id = Integer.parseInt(id_field.getText());
+        String username = username_field.getText();
+        String pass = password_field.getText();
        
-       Account creation;
+        Account creation;
        
         if (account_select.equalsIgnoreCase("System Admin"))
             creation = new SystemAdmin(first, last, id, username, pass);
