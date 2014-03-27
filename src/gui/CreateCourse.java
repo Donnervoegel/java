@@ -115,10 +115,10 @@ public class CreateCourse extends JPanel {
             }
         });
 
-        course_start_formatfield.setFormatterFactory(new text.DefaultFormatterFactory(new text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
         course_start_formatfield.setText("yyyy/MM/dd");
 
-        course_end_formatfield.setFormatterFactory(new text.DefaultFormatterFactory(new text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
         course_end_formatfield.setText("yyyy/MM/dd");
         course_end_formatfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
