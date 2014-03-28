@@ -6,16 +6,20 @@
 
 package gui;
 
+import gui.types.*;
+
 /**
  *
  * @author Normal
  */
-public class SelectActivityMatrix extends javax.swing.JPanel {
+public class SelectActivityMatrix extends MSPanel {
 
     /**
      * Creates new form SelectActivityMatrix1
      */
     public SelectActivityMatrix() {
+	super("Activity Selection");
+
         initComponents();
     }
 

@@ -8,19 +8,21 @@ package gui;
 
 import javax.swing.*;
 import gui.utils.*;
+import gui.types.*;
 import types.*;
 
 /**
  *
  * @author Normal
  */
-public class LandingPageAssistAdmin extends JPanel {
+public class LandingPageAssistAdmin extends MSPanel {
     private AssistantAdmin a;
 
     /**
      * Creates new form LandingPageAssistAdmin1
      */
     public LandingPageAssistAdmin(AssistantAdmin a) {
+	super("Assistant Academic Administrator");
 	this.a = a;
 
         initComponents();

@@ -9,20 +9,23 @@ package gui;
 import database.CourseAccess;
 import gui.utils.GUIUtils;
 import types.Activity;
+import gui.types.*;
 
 /**
  *
  * @author Ian
  */
-public class ActivityCreation extends javax.swing.JPanel {
+public class ActivityCreation extends MSPanel {
+    private String courseid;
 
     /**
      * Creates new form ActivityCreation
      */
-    public ActivityCreation(String coursetemp) {
-        
-        String courseid;
-        courseid = coursetemp;
+    // TODO: Pretty sure this isn't correct.
+    public ActivityCreation(String courseid) {
+	super("Activity Modification");
+
+        this.courseid = courseid;
         initComponents();
     }
 

@@ -7,6 +7,7 @@
 package gui;
 
 import gui.utils.GUIUtils;
+import gui.types.*;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,12 +22,14 @@ import java.awt.event.ActionEvent;
  *
  * @author Normal
  */
-public class CreateAccount extends javax.swing.JPanel {
+public class CreateAccount extends MSPanel {
 
     /**
-     * Creates new form CreateAccount1
+     * Creates new form CreateAccount
      */
     public CreateAccount() {
+	super("Account Management");
+
         initComponents();
     }
     

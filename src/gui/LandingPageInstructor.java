@@ -7,6 +7,7 @@
 package gui;
 
 import gui.utils.*;
+import gui.types.*;
 import javax.swing.*;
 import java.awt.event.*;
 import types.*;
@@ -15,13 +16,14 @@ import types.*;
  *
  * @author colin
  */
-public class LandingPageInstructor extends JPanel {
+public class LandingPageInstructor extends MSPanel {
     private Instructor a;
 
     /**
      * Creates new form LandingPageSysAdmin
      */
     public LandingPageInstructor(Instructor a) {
+	super("Instructor");
 	this.a = a;
 
         initComponents();

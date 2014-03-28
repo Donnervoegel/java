@@ -8,19 +8,22 @@ package gui;
 
 import database.CourseAccess;
 import gui.utils.GUIUtils;
+import gui.types.*;
 
 /**
  *
  * @author Normal
  */
-public class ActivitySelection extends javax.swing.JPanel {
+public class ActivitySelection extends MSPanel {
 
     String coursetemp;
 
     /**
-     * Creates new form ActivitySelection1
+     * Creates new form ActivitySelection
      */
     public ActivitySelection() {
+	super("Activity Selection");
+
         initComponents();
     }
 
