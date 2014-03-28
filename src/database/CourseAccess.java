@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.ComboBoxModel;
+
 import types.Activity;
 import types.Course;
 import types.Instructor;
@@ -56,11 +58,52 @@ public class CourseAccess {
 	// NON-STATIC METHODS
 
 	/*
+	 * Method to return the list of courses by course ID to be used in a course
+	 * selection dropdown box.
+	 */
+	public static Object[] accessCourseList() {
+		ArrayList<String> courseIDs = new ArrayList<String>();
+		String query = "SELECT CourseID FROM c275g01A.dbo.Course";
+		ResultSet res = execQuery(query);
+		try {
+			while (res.next()) {
+				courseIDs.add(res.getNString(1));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return courseIDs.toArray();
+	}
+
+	/*
+	 * Method to return the list of courses by course ID to be used in a course
+	 * selection dropdown box for a specific instructor.
+	 */
+	public String[] accessCourseList(int instID) {
+		ArrayList<String> courseIDs = new ArrayList<String>();
+		String query = "SELECT CourseID FROM c275g01A.dbo.Course WHERE InstructorID = '"
+				+ instID + "'";
+		ResultSet res = execQuery(query);
+		try {
+			while (res.next()) {
+				courseIDs.add(res.getNString(1));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return (String[]) courseIDs.toArray();
+	}
+
+	/*
 	 * Method to access a course in the database based off of course ID. This
 	 * method returns a ResultSet object that can be used to access the data in
 	 * a course.
 	 */
-	public ResultSet accessCourse(String courseID) {
+	public static ResultSet accessCourse(String courseID) {
 		// Create the selection query string
 		String query = "SELECT * FROM c275g01A.dbo.Course WHERE CourseID = '"
 				+ courseID + "'";
@@ -76,8 +119,8 @@ public class CourseAccess {
 		// Build database entries from course object
 		String courseID = course.getCourseID();
 		String courseName = course.getCourseName();
-		String instructorName = course.getInstructor().getFirstName()
-				+ " " + course.getInstructor().getLastName();
+		String instructorName = course.getInstructor().getFirstName() + " "
+				+ course.getInstructor().getLastName();
 		int instructorID = course.getInstructor().getEmpID();
 		String startDate = course.getStartDate();
 		String endDate = course.getEndDate();
@@ -94,7 +137,7 @@ public class CourseAccess {
 	 * and updates all the fields of that course in the database based on the
 	 * course object passed as an argument.
 	 */
-	public void modifyCourse(String accessID, Course course) {
+	public static void modifyCourse(String accessID, Course course) {
 		// Build database entries from course object
 		String courseID = course.getCourseID();
 		String courseName = course.getCourseName();
@@ -105,7 +148,7 @@ public class CourseAccess {
 		String endDate = course.getEndDate();
 
 		// Create the update query string
-		String query = "UPDATE c275g01A.dbo.Course CourseID='" + courseID
+		String query = "UPDATE c275g01A.dbo.Course SET CourseID='" + courseID
 				+ "',CourseName='" + courseName + "',InstructorName='"
 				+ instructorName + "',InstructorID=" + instructorID
 				+ ",StartDate='" + startDate + "',EndDate='" + endDate
@@ -117,7 +160,7 @@ public class CourseAccess {
 	 * Method to delete a course from the database. Takes a course ID as the
 	 * parameter and removes the specified course from the database.
 	 */
-	public void deleteCourse(String courseID) {
+	public static void deleteCourse(String courseID) {
 		// Create the deletion query string
 		String query = "DELETE FROM c275g01A.dbo.Course WHERE CourseID = '"
 				+ courseID + "'";
@@ -129,7 +172,7 @@ public class CourseAccess {
 	 * courseID. Uses cID as the courseID, since it is the key value.
 	 */
 	@SuppressWarnings("unused")
-	public Course constructCourseObject(String cID) {
+	public static Course constructCourseObject(String cID) {
 		// Method variables
 		Course course = null;
 		ResultSet rs = null;
@@ -161,12 +204,11 @@ public class CourseAccess {
 			courseID = cID; // rs.getNString("CourseID");
 			instructorName = rs.getNString("InstructorName");
 			instructorID = rs.getInt("InstructorID");
-			startDate = rs.getDate("StartDate"); // What is the format for the
-													// date?
+			startDate = rs.getDate("StartDate"); 
 			endDate = rs.getDate("EndDate");
 			String[] names = instructorName.split("\\s+");
 			String fname = names[0];
-			String lname = names[1];
+			String lname = "";
 			ins = new Instructor(fname, lname, instructorID, null, null);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -177,68 +219,61 @@ public class CourseAccess {
 				endDate.toString());
 		// TeachingAssistant table
 		rs = accessTAs(cID);
-		try {
-			while (rs.next()) {
-				taEID = rs.getInt("EmployeeID");
-				taEName = rs.getNString("EmployeeName");
-				String[] names = taEName.split("\\s+");
-				String fname = names[0];
-				String lname = names[1];
-				TATM temp = new TATM(fname, lname, taEID, null, null); // Why
-																		// does
-																		// the
-																		// system
-																		// need
-																		// to
-																		// load
-																		// their
-																		// username
-																		// and
-																		// password?
-				course.addMarker(temp);
+		if (rs != null) {
+			try {
+				while (rs.next()) {
+					taEID = rs.getInt("EmployeeID");
+					taEName = rs.getNString("EmployeeName");
+					String[] names = taEName.split("\\s+");
+					String fname = names[0];
+					String lname = names[1];
+					TATM temp = new TATM(fname, lname, taEID, null, null);
+					course.addMarker(temp);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		// Students table
 		rs = accessStudentList(cID);
-		try {
-			while (rs.next()) {
-				sID = rs.getInt("StudentID");
-				sName = rs.getNString("StudentName");
-				String[] names = sName.split("\\s+");
-				String fname = names[0];
-				String lname = names[1];
-				Student temp = new Student();
-				course.addStudent(temp);
+		if (rs != null) {
+			try {
+				while (rs.next()) {
+					sID = rs.getInt("StudentID");
+					sName = rs.getNString("StudentName");
+					String[] names = sName.split("\\s+");
+					String fname = names[0];
+					String lname = names[1];
+					Student temp = new Student();
+					course.addStudent(temp);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		// Activities table
 		rs = accessCourseActivities(cID);
-		try {
-			while (rs.next()) {
-				aName = rs.getNString("ActivityName");
-				aDesc = rs.getNString("ActivityDesc");
-				sSolnPath = rs.getNString("StudentSolnPath");
-				solnPath = rs.getNString("SolnPath"); // Activity only accepts 1
-														// path
-				aLang = rs.getNString("ActivityLang");
-				aType = rs.getInt("ActivityType");
-				groupAct = rs.getBoolean("GroupAct");
-				boolean isProgramming = (aType == 0); // 0 is programming, 1 is
-														// essay, 2 is problem
-														// set?
-				Activity temp = new Activity(aName, sSolnPath, aLang,
-						isProgramming, groupAct);
-				course.addActivity(temp);
+		if (rs != null) {
+			try {
+				while (rs.next()) {
+					aName = rs.getNString("ActivityName");
+					aDesc = rs.getNString("ActivityDesc");
+					sSolnPath = rs.getNString("StudentSolnPath");
+					solnPath = rs.getNString("SolnPath"); 
+					aLang = rs.getNString("ActivityLang");
+					aType = rs.getInt("ActivityType");
+					groupAct = rs.getBoolean("GroupAct");
+					boolean isProgramming = (aType == 0); 
+					Activity temp = new Activity(aName, sSolnPath, aLang,
+							isProgramming, groupAct);
+					course.addActivity(temp);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		// c is a complete
 		return course;
@@ -248,7 +283,7 @@ public class CourseAccess {
 	 * Method to access the student list for a specified course. Will return the
 	 * student IDs and names of the student list for the course.
 	 */
-	public ResultSet accessStudentList(String courseID) {
+	public static ResultSet accessStudentList(String courseID) {
 		String query = "SELECT StudentID,StudentName FROM c275g01A.dbo.Student "
 				+ "WHERE CourseID = '" + courseID + "'";
 		return execQuery(query);
@@ -266,7 +301,8 @@ public class CourseAccess {
 	/*
 	 * Method to add a student to the student list for a particular course.
 	 */
-	public static void addStudent(String studentName, int studentID, String courseID) {
+	public static void addStudent(String studentName, int studentID,
+			String courseID) {
 		String query = "INSERT INTO c275g01A.dbo.Student VALUES ('"
 				+ studentName + "'," + studentID + ",'" + courseID + "')";
 		execUpdate(query);
@@ -275,7 +311,7 @@ public class CourseAccess {
 	/*
 	 * Method to access the list of activities for a particular course.
 	 */
-	public ResultSet accessCourseActivities(String courseID) {
+	public static ResultSet accessCourseActivities(String courseID) {
 		String query = "SELECT * FROM c275g01A.dbo.Activity WHERE CourseID = '"
 				+ courseID + "'";
 		return execQuery(query);
@@ -330,7 +366,7 @@ public class CourseAccess {
 		int numTests = act.getNumOfTests();
 
 		// Generate the update query
-		String query = "UPDATE c275g01A.dbo.Activity ActivityName='"
+		String query = "UPDATE c275g01A.dbo.Activity SET ActivityName='"
 				+ activityName + "',ActivityDesc='" + activityDesc
 				+ "',ActivityLang=" + activityLang + ",activityType="
 				+ activityType + ",GroupAct=" + boolToBit(group)
@@ -354,8 +390,8 @@ public class CourseAccess {
 	 * Method to list the teaching assistant(s) or tutor marker(s) for the
 	 * specified course.
 	 */
-	public ResultSet accessTAs(String courseID) {
-		String query = "SELECT EmployeeID, EmployeeName FROM c275g01A.dbo.Activity WHERE CourseID = '"
+	public static ResultSet accessTAs(String courseID) {
+		String query = "SELECT EmployeeID, EmployeeName FROM c275g01A.dbo.TeachingAssistant WHERE CourseID = '"
 				+ courseID + "'";
 		return execQuery(query);
 	}
@@ -437,7 +473,7 @@ public class CourseAccess {
 	 * Method to execute a query on the database connection and return a result
 	 * set for the query entered as a string argument.
 	 */
-	private ResultSet execQuery(String query) {
+	private static ResultSet execQuery(String query) {
 		PreparedStatement prepStatement = null;
 		ResultSet resSet = null;
 

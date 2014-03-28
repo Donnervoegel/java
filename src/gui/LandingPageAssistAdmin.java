@@ -120,11 +120,11 @@ public class LandingPageAssistAdmin extends JPanel {
     }//GEN-LAST:event_create_course_buttonActionPerformed
 
     private void modify_course_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_course_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(true));
     }//GEN-LAST:event_modify_course_buttonActionPerformed
 
     private void delete_course_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_course_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(false));
     }//GEN-LAST:event_delete_course_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
