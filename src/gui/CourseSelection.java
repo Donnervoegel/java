@@ -6,6 +6,9 @@
 
 package gui;
 
+import gui.utils.GUIUtils;
+
+
 /**
  *
  * @author Normal
@@ -101,7 +104,11 @@ public class CourseSelection extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        // TODO add your handling code here:
+        String courseid;
+        courseid = course_selection_dropdown.getSelectedItem().toString(); //needs to be changed
+        GUIUtils.getMasterFrame(this).movePage(new ActivityCreation(courseid));
+
+
     }//GEN-LAST:event_ok_buttonActionPerformed
 
     private void course_selection_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_selection_dropdownActionPerformed
