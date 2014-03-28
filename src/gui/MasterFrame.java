@@ -7,19 +7,19 @@ import java.awt.GridBagConstraints;
 import java.awt.event.*;
 import java.util.*;
 import types.*;
-import java.awt.event.*;
+import gui.types.*;
 
 /**
  * @author Colin
  */
 public class MasterFrame extends JFrame {
     private JPanel  top_panel;
-    private JPanel  curr_page;
+    private MSPanel curr_page;
     private JButton logout_button;
     private JButton back_button;
     private JLabel  role_label;
     private JLabel  crumbs;  // This won't be a JLabel later.
-    private LinkedList<JPanel> pages;
+    private LinkedList<MSPanel> pages;
     private GridBagConstraints c = new GridBagConstraints();
 
     // This will take an `Account` object and populate itself according to
@@ -31,11 +31,10 @@ public class MasterFrame extends JFrame {
 	back_button   = new JButton("Back");
 	role_label    = new JLabel();  // Changes according to `a`.
 	crumbs        = new JLabel("Breadcrumbs here...");
-	pages         = new LinkedList<JPanel>();
+	pages         = new LinkedList<MSPanel>();
 
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	setTitle("MarkShark Grading System - Home");
 	setResizable(false);
 	setSize(700,700);
 	//	setLayout(new GridLayout(2,1));
@@ -124,8 +123,7 @@ public class MasterFrame extends JFrame {
 	add(curr_page, c);
 
 	// Render the Frame
-	//	add(top_panel);
-	//	add(curr_page);
+	setTitle("MarkShark Grading System - " + curr_page.getPanelTitle());
 	pack();
     }
 
@@ -133,7 +131,7 @@ public class MasterFrame extends JFrame {
 	this.setVisible(true);
     }
 
-    public void movePage(JPanel p) {
+    public void movePage(MSPanel p) {
         //if length of pages is zero 
         if (pages.isEmpty())
             back_button.setEnabled(true);
@@ -142,9 +140,7 @@ public class MasterFrame extends JFrame {
 	remove(curr_page);
 	pages.push(curr_page);
 	curr_page = p;
-	add(curr_page, c);
-	curr_page.setVisible(true);
-	pack();
+	showPage(curr_page);
     }
 
     public void goBackAction(ActionEvent e) {
@@ -152,13 +148,20 @@ public class MasterFrame extends JFrame {
 	curr_page.setVisible(false);
 	remove(curr_page);
 	curr_page = pages.pop();
-	add(curr_page, c);
-	curr_page.setVisible(true);
-	pack();
+	showPage(curr_page);
         
         //if the page stack zero, then grey back button
         if (pages.isEmpty())
             back_button.setEnabled(false);
+    }
+
+    private void showPage(MSPanel p) {
+	add(p, c);
+	p.setVisible(true);
+	setTitle("MarkShark Grading System - " + p.getPanelTitle());
+	pack();
+
+	System.out.println("Moving to: " + p.getPanelTitle());
     }
 
     private void logoutAction(ActionEvent e) {
