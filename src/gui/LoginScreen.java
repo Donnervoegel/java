@@ -66,11 +66,18 @@ public class LoginScreen extends JFrame {
 
         pass_field.setToolTipText("");
 
-	// <3 Java 8
-        forgot_pwd.addActionListener(evt -> forgotPassActionPerformed(evt));
+        forgot_pwd.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    forgotPassActionPerformed(e);
+		}
+	    });
 
-        login_button.setText("Log In");
-        login_button.addActionListener(evt -> loginButtonActionPerformed(evt));
+	login_button.setText("Log In");
+	login_button.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    loginButtonActionPerformed(e);
+		}
+	    });
 
 	// Flurry of generated code
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
