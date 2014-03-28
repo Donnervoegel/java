@@ -103,7 +103,7 @@ public class LandingPageInstructor extends MSPanel {
     }//GEN-LAST:event_marking_buttonActionPerformed
 
     private void activity_management_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_activity_management_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new ActivityCreation());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
     }//GEN-LAST:event_activity_management_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
