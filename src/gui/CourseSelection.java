@@ -127,12 +127,23 @@ public class CourseSelection extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+
 	private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ok_buttonActionPerformed
 		String test = course_selection_dropdown.getSelectedItem().toString();
 		System.out.println(test);
 		Course course = database.CourseAccess.constructCourseObject(test);
 		GUIUtils.getMasterFrame(this).movePage(new CreateCourse(course));
 	}// GEN-LAST:event_ok_buttonActionPerformed
+
+	// Ian's method
+    /*private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
+        String courseid;
+        courseid = course_selection_dropdown.getSelectedItem().toString(); //needs to be changed
+        GUIUtils.getMasterFrame(this).movePage(new ActivityCreation(courseid));
+
+
+    }//GEN-LAST:event_ok_buttonActionPerformed*/
+
 
 	private void ok_delete_buttonActionPerformed(ActionEvent evt) {
 		String toDelete = course_selection_dropdown.getSelectedItem()
