@@ -98,14 +98,16 @@ public class LandingPageInstructor extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void marking_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_marking_buttonActionPerformed
-
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(MARKING, a));
     }//GEN-LAST:event_marking_buttonActionPerformed
 
     private void activity_management_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_activity_management_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(ACT_MANAGE, a));
     }//GEN-LAST:event_activity_management_buttonActionPerformed
 
+    private static final int MARKING = 3;
+    private static final int ACT_MANAGE = 4;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton activity_management_button;
     private javax.swing.JButton marking_button;

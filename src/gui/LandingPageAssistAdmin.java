@@ -122,13 +122,16 @@ public class LandingPageAssistAdmin extends MSPanel {
     }//GEN-LAST:event_create_course_buttonActionPerformed
 
     private void modify_course_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_course_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(true));
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(MODIFY_COURSE, a));
     }//GEN-LAST:event_modify_course_buttonActionPerformed
 
     private void delete_course_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_course_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(false));
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(DELETE_COURSE, a));
     }//GEN-LAST:event_delete_course_buttonActionPerformed
 
+    private static final int MODIFY_COURSE = 1;
+    private static final int DELETE_COURSE = 2;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel course_selection_header;
     private javax.swing.JButton create_course_button;

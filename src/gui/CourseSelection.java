@@ -7,9 +7,8 @@
 package gui;
 
 import java.awt.event.ActionEvent;
-
 import javax.swing.JOptionPane;
-
+import types.Account;
 import types.Course;
 import gui.utils.GUIUtils;
 import gui.types.*;
@@ -24,30 +23,60 @@ public class CourseSelection extends MSPanel {
      */
     public CourseSelection() {
 	super("Course Selection");
-
         initComponents();
     }
 	
     /**
      * Creates new form CourseSelection1
      */
-    public CourseSelection(boolean modify) {
+    public CourseSelection(int page, Account acct) {
 	super("Course Selection");
 
-	if (modify) {
-	    initComponents();
-	} else {
-	    initComponents();
+	switch(page) {
+	case 1:
+		initComponents();
+		break;
+	case 2:
+		initComponents();
 
-	    for (java.awt.event.ActionListener act : ok_button
-		     .getActionListeners())
-		ok_button.removeActionListener(act);
+		for (java.awt.event.ActionListener act : ok_button
+				.getActionListeners())
+			ok_button.removeActionListener(act);
 
-	    ok_button.addActionListener(new java.awt.event.ActionListener() {
-		    public void actionPerformed(java.awt.event.ActionEvent evt) {
-			ok_delete_buttonActionPerformed(evt);
-		    }
+		ok_button.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				ok_delete_buttonActionPerformed(evt);
+			}
 		});
+		break;
+	case 3:
+		initComponents();
+		
+		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(acct.getEmpID())));
+
+		for (java.awt.event.ActionListener act : ok_button
+				.getActionListeners())
+			ok_button.removeActionListener(act);
+		ok_button.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				ok_actListCourse_buttonActionPerformed(evt);
+			}
+		});
+		break;
+	case 4:
+		initComponents();
+
+		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(acct.getEmpID())));
+		
+		for (java.awt.event.ActionListener act : ok_button
+				.getActionListeners())
+			ok_button.removeActionListener(act);
+		ok_button.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				ok_createAct_buttonActionPerformed(evt);
+			}
+		});
+		break;
 	}
     }
 
@@ -138,16 +167,11 @@ public class CourseSelection extends MSPanel {
 		Course course = database.CourseAccess.constructCourseObject(test);
 		GUIUtils.getMasterFrame(this).movePage(new CreateCourse(course));
 	}// GEN-LAST:event_ok_buttonActionPerformed
-
-	// Ian's method
-    /*private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        String courseid;
-        courseid = course_selection_dropdown.getSelectedItem().toString(); //needs to be changed
+	
+    private void ok_createAct_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
+        String courseid = course_selection_dropdown.getSelectedItem().toString(); //needs to be changed
         GUIUtils.getMasterFrame(this).movePage(new ActivityCreation(courseid));
-
-
-    }//GEN-LAST:event_ok_buttonActionPerformed*/
-
+    }//GEN-LAST:event_ok_buttonActionPerformed
 
 	private void ok_delete_buttonActionPerformed(ActionEvent evt) {
 		String toDelete = course_selection_dropdown.getSelectedItem()
@@ -160,6 +184,10 @@ public class CourseSelection extends MSPanel {
 			// GO BACK TO LANDING PAGE
 			course_selection_dropdown.removeItem(toDelete);
 		}
+	}
+	
+	private void ok_actListCourse_buttonActionPerformed(ActionEvent evt) {
+		
 	}
 
 	private void course_selection_dropdownActionPerformed(
