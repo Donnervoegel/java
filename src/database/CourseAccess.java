@@ -1,20 +1,8 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.swing.ComboBoxModel;
-
-import types.Activity;
-import types.Course;
-import types.Instructor;
-import types.Student;
-import types.TATM;
+import types.*;
+import java.sql.*;
 
 /**
  * Class to access courses in project SQL database.
@@ -81,7 +69,7 @@ public class CourseAccess {
 	 * Method to return the list of courses by course ID to be used in a course
 	 * selection dropdown box for a specific instructor.
 	 */
-	public String[] accessCourseList(int instID) {
+	public static Object[] accessCourseList(int instID) {
 		ArrayList<String> courseIDs = new ArrayList<String>();
 		String query = "SELECT CourseID FROM c275g01A.dbo.Course WHERE InstructorID = '"
 				+ instID + "'";
@@ -95,7 +83,7 @@ public class CourseAccess {
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
 		}
 
-		return (String[]) courseIDs.toArray();
+		return courseIDs.toArray();
 	}
 
 	/*
@@ -218,7 +206,7 @@ public class CourseAccess {
 		course = new Course(courseName, cID, ins, startDate.toString(),
 				endDate.toString());
 		// TeachingAssistant table
-		rs = accessTAs(cID);
+		/*rs = accessTAs(cID);
 		if (rs != null) {
 			try {
 				while (rs.next()) {
@@ -234,7 +222,7 @@ public class CourseAccess {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}*/
 		// Students table
 		rs = accessStudentList(cID);
 		if (rs != null) {
