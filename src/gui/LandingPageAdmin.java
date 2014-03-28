@@ -98,11 +98,11 @@ public class LandingPageAdmin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void grading_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grading_buttonActionPerformed
-        //GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
     }//GEN-LAST:event_grading_buttonActionPerformed
 
     private void viewing_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewing_buttonActionPerformed
-        //GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
     }//GEN-LAST:event_viewing_buttonActionPerformed
 
 

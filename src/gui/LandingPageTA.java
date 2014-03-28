@@ -87,7 +87,7 @@ public class LandingPageTA extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void marking_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marking_buttonActionPerformed
-        //GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
     }//GEN-LAST:event_marking_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

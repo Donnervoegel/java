@@ -22,6 +22,13 @@ public class CourseSelection extends javax.swing.JPanel {
 	/**
 	 * Creates new form CourseSelection1
 	 */
+	public CourseSelection() {
+		initComponents();
+	}
+	
+	/**
+	 * Creates new form CourseSelection1
+	 */
 	public CourseSelection(boolean modify) {
 		if (modify) {
 			initComponents();
