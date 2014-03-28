@@ -34,9 +34,4 @@ public abstract class GUIUtils {
 	//System.out.println("Password generated: " + pass);
 	return pass;
     }
-    
- 
-
-    
-
 }
