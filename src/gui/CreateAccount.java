@@ -61,6 +61,7 @@ public class CreateAccount extends MSPanel {
         cancel_button = new javax.swing.JButton();
         password_field = new javax.swing.JTextField();
         id_field = new javax.swing.JFormattedTextField();
+        delete_account_button = new javax.swing.JButton();
 
         account_creation_header.setBorder(javax.swing.BorderFactory.createTitledBorder("Create/Modify an Account:"));
         account_creation_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -132,6 +133,14 @@ public class CreateAccount extends MSPanel {
 
         id_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#######################"))));
 
+        delete_account_button.setText("Delete Account");
+        delete_account_button.setEnabled(false);
+        delete_account_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_account_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout account_creation_headerLayout = new javax.swing.GroupLayout(account_creation_header);
         account_creation_header.setLayout(account_creation_headerLayout);
         account_creation_headerLayout.setHorizontalGroup(
@@ -139,12 +148,6 @@ public class CreateAccount extends MSPanel {
             .addGroup(account_creation_headerLayout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(account_creation_headerLayout.createSequentialGroup()
-                        .addComponent(modify_existing_checkbox, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(existing_account_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addComponent(existing_account_separator, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, account_creation_headerLayout.createSequentialGroup()
                         .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(account_creation_headerLayout.createSequentialGroup()
@@ -168,15 +171,26 @@ public class CreateAccount extends MSPanel {
                             .addComponent(password_field, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(first_name_field, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(last_name_field, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(account_type_dropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, 118, Short.MAX_VALUE)
+                            .addComponent(account_type_dropdown, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(username_field, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(id_field, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(account_creation_headerLayout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addComponent(ok_button, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cancel_button)))
+                        .addComponent(cancel_button))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, account_creation_headerLayout.createSequentialGroup()
+                        .addComponent(modify_existing_checkbox, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(existing_account_dropdown, 0, 120, Short.MAX_VALUE)
+                            .addComponent(delete_account_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)))
                 .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, account_creation_headerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(existing_account_separator)
+                .addContainerGap())
         );
         account_creation_headerLayout.setVerticalGroup(
             account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,6 +200,8 @@ public class CreateAccount extends MSPanel {
                     .addComponent(modify_existing_checkbox)
                     .addComponent(existing_account_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(delete_account_button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(existing_account_separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -253,9 +269,15 @@ public class CreateAccount extends MSPanel {
 
     private void modify_existing_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modify_existing_checkboxActionPerformed
         if (modify_existing_checkbox.isSelected())
+        {
         existing_account_dropdown.setEnabled(true);
+        delete_account_button.setEnabled(true);
+        }
         else
-        existing_account_dropdown.setEnabled(false);      
+        {
+        existing_account_dropdown.setEnabled(false);     
+        delete_account_button.setEnabled(false);
+        }
     }//GEN-LAST:event_modify_existing_checkboxActionPerformed
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
@@ -309,8 +331,12 @@ public class CreateAccount extends MSPanel {
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     private void password_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_fieldActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
     }//GEN-LAST:event_password_fieldActionPerformed
+
+    private void delete_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_account_buttonActionPerformed
+        // TODO add your handling code here:  Add functionality for delete account
+    }//GEN-LAST:event_delete_account_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -318,6 +344,7 @@ public class CreateAccount extends MSPanel {
     private javax.swing.JComboBox account_type_dropdown;
     private javax.swing.JLabel account_type_label;
     private javax.swing.JButton cancel_button;
+    private javax.swing.JButton delete_account_button;
     private javax.swing.JComboBox existing_account_dropdown;
     private javax.swing.JSeparator existing_account_separator;
     private javax.swing.JTextField first_name_field;
