@@ -7,6 +7,7 @@
 package gui;
 
 import gui.utils.*;
+import gui.types.*;
 import javax.swing.*;
 import java.awt.event.*;
 import types.*;
@@ -15,13 +16,14 @@ import types.*;
  *
  * @author colin
  */
-public class LandingPageInstructor extends JPanel {
+public class LandingPageInstructor extends MSPanel {
     private Instructor a;
 
     /**
      * Creates new form LandingPageSysAdmin
      */
     public LandingPageInstructor(Instructor a) {
+	super("Instructor");
 	this.a = a;
 
         initComponents();
@@ -101,7 +103,7 @@ public class LandingPageInstructor extends JPanel {
     }//GEN-LAST:event_marking_buttonActionPerformed
 
     private void activity_management_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_activity_management_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new ActivityCreation());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
     }//GEN-LAST:event_activity_management_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

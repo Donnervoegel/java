@@ -6,8 +6,12 @@
 
 package gui;
 
+
 import javax.swing.*;
 import java.awt.event.*;
+
+import gui.utils.*;
+import login.Login;
 import types.*;
 
 /**
@@ -30,11 +34,10 @@ public class LoginScreen extends JFrame {
      * Creates new form LoginScreen
      */
     public LoginScreen() {
-        initComponents();
-        
         //Add the shark image
-        this.setIconImage(new ImageIcon(getClass().getResource("markshark-1x.png")).getImage()); 
-        
+        setIconImage(new ImageIcon(getClass()
+				   .getResource("markshark-1x.png")).getImage());
+        initComponents();
     }
 
     /**
@@ -63,11 +66,18 @@ public class LoginScreen extends JFrame {
 
         pass_field.setToolTipText("");
 
-	// <3 Java 8
-        forgot_pwd.addActionListener(evt -> forgotPassActionPerformed(evt));
+        forgot_pwd.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    forgotPassActionPerformed(e);
+		}
+	    });
 
-        login_button.setText("Log In");
-        login_button.addActionListener(evt -> loginButtonActionPerformed(evt));
+	login_button.setText("Log In");
+	login_button.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    loginButtonActionPerformed(e);
+		}
+	    });
 
 	// Flurry of generated code
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
@@ -149,7 +159,7 @@ public class LoginScreen extends JFrame {
 	String pass = new String(pass_field.getPassword());
         Account test;
 
-	// FOR TESTING PURPOSES ONLY
+        //	 FOR TESTING PURPOSES ONLY
         if (name.equalsIgnoreCase("sysadmin")){
             test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
         } else if (name.equalsIgnoreCase("admin")){
@@ -158,8 +168,10 @@ public class LoginScreen extends JFrame {
             test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
         } else if (name.equalsIgnoreCase("instructor")){
             test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
-        } else {// ta marker
+        } else if (name.equalsIgnoreCase("tatm") ){// ta marker
             test = new TATM("Joey", "Tester", 9999, "password", "ta");
+        } else {
+	    test = Login.login(name, pass);
         }
 
 	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
@@ -168,6 +180,8 @@ public class LoginScreen extends JFrame {
 	} else if(name.isEmpty()) {
 	    JOptionPane
 		.showMessageDialog(this, "No user name given.");
+	} else if(test == null) {
+		JOptionPane.showMessageDialog(this, "Invalid username/password combo");
 	} else {
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
@@ -182,6 +196,6 @@ public class LoginScreen extends JFrame {
 	/*
 	 * Doesn't have to be dealt with yet.
 	 */
-        System.out.println("Forgot password!");
+	GUIUtils.nothing();
     }
 }

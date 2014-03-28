@@ -1,19 +1,7 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import types.Account;
-import types.SystemAdmin;
-import types.AcademicAdmin;
-import types.AssistantAdmin;
-import types.Instructor;
-import types.TATM;
+import java.sql.*;
+import types.*;
 
 /**
  * Class to access accounts in project SQL database.

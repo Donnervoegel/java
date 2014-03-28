@@ -6,18 +6,26 @@
 
 package gui;
 
+import database.CourseAccess;
+import gui.utils.GUIUtils;
 import types.Activity;
+import gui.types.*;
 
 /**
  *
  * @author Ian
  */
-public class ActivityCreation extends javax.swing.JPanel {
+public class ActivityCreation extends MSPanel {
+    private String courseid;
 
     /**
      * Creates new form ActivityCreation
      */
-    public ActivityCreation() {
+    // TODO: Pretty sure this isn't correct.
+    public ActivityCreation(String courseid) {
+	super("Activity Modification");
+
+        this.courseid = courseid;
         initComponents();
     }
 
@@ -370,8 +378,12 @@ public class ActivityCreation extends javax.swing.JPanel {
 
     private void activity_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_submit_buttonActionPerformed
         
+//    public Activity(String n, String sol, String lang, boolean p, boolean g)
 
-        Activity new_acivity = new Activity(activity_name_field.getText(), activity_desc_field.getText(), activity_solution_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
+   Activity new_activity = new Activity(activity_name_field.getText(), activity_solution_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
+   
+   CourseAccess.addActivity(courseid,new_activity); // need to be able to get course added here from some public variable!
+
 // TODO add your handling code here:
     }//GEN-LAST:event_activity_submit_buttonActionPerformed
 

@@ -8,19 +8,21 @@ package gui;
 
 import javax.swing.*;
 import gui.utils.*;
+import gui.types.*;
 import types.*;
 
 /**
  *
  * @author Normal
  */
-public class LandingPageTA extends JPanel {
+public class LandingPageTA extends MSPanel {
     private TATM a;
 
     /**
-     * Creates new form LandingPageTA1
+     * Creates new form LandingPageTA
      */
     public LandingPageTA(TATM a) {
+	super("TA/TM");
 	this.a = a;
 
         initComponents();

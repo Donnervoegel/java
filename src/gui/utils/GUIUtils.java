@@ -6,8 +6,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
-
-
+import java.security.SecureRandom;
+import java.math.BigInteger;
 
 public abstract class GUIUtils {
     // BUG: If the starting Component is of a higher type than
@@ -23,15 +23,15 @@ public abstract class GUIUtils {
     public static void nothing() {
 	System.out.println("Do nothing.");
     }
-    
+
+    // 32 = 2^5, and 30 % 5 == 0
+    // And each character is 5 bits.
     public static String generatePassword()
     {
-        Integer rand = (int)(Math.random()*90000) + 10000;
-        return rand.toString();
+	SecureRandom random = new SecureRandom();
+	String pass = new BigInteger(30, random).toString(32);
+
+	//System.out.println("Password generated: " + pass);
+	return pass;
     }
-    
- 
-
-    
-
 }

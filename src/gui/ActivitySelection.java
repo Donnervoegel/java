@@ -6,16 +6,24 @@
 
 package gui;
 
+import database.CourseAccess;
+import gui.utils.GUIUtils;
+import gui.types.*;
+
 /**
  *
  * @author Normal
  */
-public class ActivitySelection extends javax.swing.JPanel {
+public class ActivitySelection extends MSPanel {
+
+    String coursetemp;
 
     /**
-     * Creates new form ActivitySelection1
+     * Creates new form ActivitySelection
      */
     public ActivitySelection() {
+	super("Activity Selection");
+
         initComponents();
     }
 
@@ -101,7 +109,14 @@ public class ActivitySelection extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        // TODO add your handling code here:
+
+//delete selected activity.
+  
+
+        
+
+
+
     }//GEN-LAST:event_ok_buttonActionPerformed
 
     private void activity_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_dropdownActionPerformed
