@@ -22,6 +22,7 @@ import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.text.MaskFormatter;
 import types.*;
 
@@ -85,6 +86,16 @@ public class CreateAccount extends MSPanel {
         	existing_account_dropdown.addItem(item);
         
         
+    }
+    
+    private void ClearFields()
+    {
+        first_name_field.setText("");
+        last_name_field.setText("");
+        id_field.setText("");
+        account_type_dropdown.setSelectedIndex(-1);
+        username_field.setText("");
+        password_field.setText("");
     }
     
     /**
@@ -334,6 +345,18 @@ public class CreateAccount extends MSPanel {
         existing_account_dropdown.setEnabled(true);
         delete_account_button.setEnabled(true);
         block_account_checkbox.setEnabled(true);
+        
+        //Populate fields with information from user
+        String account_username = (String) existing_account_dropdown.getSelectedItem();
+        Account fill_acct = AccountAccess.constructAccountObject(account_username);
+        
+        first_name_field.setText(fill_acct.getFirstName());
+        last_name_field.setText(fill_acct.getLastName());
+        id_field.setValue(fill_acct.getEmpID());
+        account_type_dropdown.setSelectedIndex(fill_acct.getAccountTypeAsInt()-1);
+        username_field.setText(fill_acct.getUsername());
+        password_field.setText(fill_acct.getPassword()); 
+        block_account_checkbox.setSelected(fill_acct.getBlocked());
         }
         
         else
@@ -341,27 +364,21 @@ public class CreateAccount extends MSPanel {
         block_account_checkbox.setEnabled(false);
         existing_account_dropdown.setEnabled(false);     
         delete_account_button.setEnabled(false);
+        
+        ClearFields();
         }
     }//GEN-LAST:event_modify_existing_checkboxActionPerformed
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        //Add modify if case later
-        
-       if (modify_existing_checkbox.isSelected())
-       {
-           //Add modify account code here
-       }
-       else { 
-       String account_select = account_type_dropdown.getSelectedItem().toString();
-       System.out.println("Creating " + account_select + " type account.");
         
        String first = first_name_field.getText();
        String last = last_name_field.getText();
        int id = Integer.parseInt(id_field.getText());
        String username = username_field.getText();
        String pass = password_field.getText();
-       
-       Account creation;
+        
+        Account creation;
+        String account_select = account_type_dropdown.getSelectedItem().toString();
        
         if (account_select.equalsIgnoreCase("System Admin"))
             creation = new SystemAdmin(first, last, id, username, pass);
@@ -384,9 +401,16 @@ public class CreateAccount extends MSPanel {
             System.out.println("Is it Christmas right now?  Because you have an error message to unwrap.");
         }
         
-        System.out.println(creation.toString());
-        
-        //Put the created account in the database
+       if (modify_existing_checkbox.isSelected())
+       {
+                 
+           AccountAccess.modifyAccount(username, creation);
+           System.out.println("Account " + username_field.getText() + " modified.");
+       }
+       else { 
+       
+       System.out.println("Creating " + account_select + " type account.");
+     
         AccountAccess.createAccount(creation);
         
        }
@@ -406,8 +430,14 @@ public class CreateAccount extends MSPanel {
     }//GEN-LAST:event_password_fieldActionPerformed
 
     private void delete_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_account_buttonActionPerformed
-        // DOES NOT IMPLEMENT CHECK TO SEE IF ACCOUNT IS IN DB
-        AccountAccess.deleteAccount(username_field.getText());
+        
+        boolean confirm = false;
+        // Location for a popup confirm menu      
+        
+        AccountAccess.deleteAccount(existing_account_dropdown.getSelectedItem().toString());
+        ClearFields();
+        PopulateExistingAccountBox();
+        
     }//GEN-LAST:event_delete_account_buttonActionPerformed
 
 

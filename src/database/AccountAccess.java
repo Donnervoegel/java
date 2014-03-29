@@ -132,7 +132,7 @@ public class AccountAccess {
 	 * Method to update an account in the database. Takes a username to access,
 	 * and updates the account with all the fields of the account object passed.
 	 */
-	public void modifyAccount(String accessUsername, Account acct) {
+	public static void modifyAccount(String accessUsername, Account acct) {
 		// Initialise fields of account object to edit in database
 		String username = acct.getUsername();
 		String password = acct.getPassword();
