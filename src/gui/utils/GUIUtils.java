@@ -1,11 +1,10 @@
 package gui.utils;
 
 import gui.MasterFrame;
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.InputVerifier;
-import javax.swing.JComponent;
+import javax.swing.*;
 import java.security.SecureRandom;
 import java.math.BigInteger;
 
@@ -18,6 +17,26 @@ public abstract class GUIUtils {
 	} else {
 	    return getMasterFrame(c.getParent());
 	}
+    }
+
+    public static void centerFrame(JFrame f) {
+	GraphicsEnvironment env = GraphicsEnvironment
+	    .getLocalGraphicsEnvironment();
+	GraphicsDevice[] allDevices = env.getScreenDevices();
+	int topLeftX, topLeftY, screenX, screenY, windowPosX, windowPosY;
+
+	topLeftX = allDevices[0].getDefaultConfiguration().getBounds().x;
+	topLeftY = allDevices[0].getDefaultConfiguration().getBounds().y;
+	screenX  = allDevices[0].getDefaultConfiguration().getBounds().width;
+	screenY  = allDevices[0].getDefaultConfiguration().getBounds().height;
+
+	windowPosX = ((screenX - f.getWidth())  / 2) + topLeftX;
+	windowPosY = ((screenY - f.getHeight()) / 2) + topLeftY;
+
+	System.out.println(windowPosX);
+	System.out.println(windowPosY);
+
+	f.setLocation(windowPosX, windowPosY);
     }
 
     public static void nothing() {
