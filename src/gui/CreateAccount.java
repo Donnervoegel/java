@@ -34,13 +34,12 @@ public class CreateAccount extends MSPanel {
     /**
      * Creates new form CreateAccount
      */
-    public CreateAccount() {
+    public CreateAccount() throws SQLException {
 	super("Account Management");
 
         initComponents();
         
         //Populate Jcombobox with all of the user accounts
-        existing_account_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.AccountAccess.accessAllAccounts().getArray(1)));
         
         
     }
