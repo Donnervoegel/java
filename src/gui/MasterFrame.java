@@ -7,6 +7,7 @@ import java.awt.GridBagConstraints;
 import java.awt.event.*;
 import java.util.*;
 import types.*;
+import gui.utils.*;
 import gui.types.*;
 
 /**
@@ -124,11 +125,13 @@ public class MasterFrame extends JFrame {
 
 	// Render the Frame
 	setTitle("MarkShark Grading System - " + curr_page.getPanelTitle());
+	setLocationRelativeTo(null);
 	pack();
     }
 
     public void run() {
 	this.setVisible(true);
+	GUIUtils.centerFrame(this);  // Doesn't work?
     }
 
     public void movePage(MSPanel p) {

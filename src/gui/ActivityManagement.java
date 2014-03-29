@@ -23,7 +23,7 @@ public class ActivityManagement extends MSPanel {
      * Creates new form LandingPageSysAdmin
      */
     public ActivityManagement(Instructor a) {
-	super("Instructor");
+	super("Activity Management");
 	this.a = a;
 
         initComponents();
