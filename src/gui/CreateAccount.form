@@ -28,7 +28,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="account_creation_header" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,6 +50,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="existing_account_separator" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -95,7 +100,10 @@
                           <Component id="cancel_button" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="modify_existing_checkbox" min="-2" pref="162" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="modify_existing_checkbox" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="block_account_checkbox" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="existing_account_dropdown" pref="120" max="32767" attributes="0"/>
@@ -105,11 +113,6 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="existing_account_separator" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -122,10 +125,13 @@
                       <Component id="existing_account_dropdown" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="delete_account_button" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="delete_account_button" min="-2" max="-2" attributes="0"/>
+                      <Component id="block_account_checkbox" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="existing_account_separator" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="first_name_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="first_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -241,15 +247,7 @@
         <Component class="javax.swing.JComboBox" name="existing_account_dropdown">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
-                <StringItem index="0" value="jtoering"/>
-                <StringItem index="1" value="cyoung"/>
-                <StringItem index="2" value="gsmith"/>
-                <StringItem index="3" value="cwoodbury"/>
-                <StringItem index="4" value="mbalaski"/>
-                <StringItem index="5" value="ipun"/>
-                <StringItem index="6" value="slaboucane"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -300,6 +298,12 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="delete_account_buttonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="block_account_checkbox">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Block Account"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

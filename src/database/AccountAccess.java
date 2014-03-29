@@ -102,7 +102,7 @@ public class AccountAccess {
 	 * Method to return a ResultSet containing the usernames of all the accounts
 	 * in the database.
 	 */
-	public ResultSet accessAllAccounts() {
+	public static ResultSet accessAllAccounts() {
 		String query = "SELECT Username FROM c275g01A.dbo.account";
 		return execQuery(query);
 	}
@@ -154,7 +154,7 @@ public class AccountAccess {
 	 * Method to delete an account from the database. Takes a username as an
 	 * argument and removes the account with that username from the database.
 	 */
-	public void deleteAccount(String username) {
+	public static void deleteAccount(String username) {
 		// Create the deletion query string
 		String query = "DELETE FROM c275g01A.dbo.Account WHERE Username = '"
 				+ username + "'";
