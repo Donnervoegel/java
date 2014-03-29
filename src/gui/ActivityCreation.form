@@ -48,11 +48,6 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="activity_reset_button" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="activity_submit_button" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -106,12 +101,17 @@
                                   </Group>
                                   <Component id="activity_testcomment_label" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="activity_test_inout_button" min="-2" pref="133" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="activity_test_inout_button" min="-2" pref="167" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="activity_test_outin_field" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="activity_submit_button" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="activity_reset_button" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -177,8 +177,8 @@
                       </Group>
                       <EmptySpace pref="77" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="activity_submit_button" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="activity_reset_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="activity_submit_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -257,7 +257,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="activity_test_inout_button">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Test output/inputs**"/>
+                <Property name="text" type="java.lang.String" value="Test output/inputs"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activity_test_inout_buttonActionPerformed"/>
@@ -302,13 +302,16 @@
             </Component>
             <Component class="javax.swing.JButton" name="activity_student_submissionpath_button">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Student Submission Path"/>
+                <Property name="text" type="java.lang.String" value="Path to Student Submission"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activity_student_submissionpath_buttonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="activity_student_submissionpath_field">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="File Location..."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="activity_reset_button">
               <Properties>
@@ -333,13 +336,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="rubric_submit_button" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="494" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="78" max="32767" attributes="0"/>
                           </Group>
