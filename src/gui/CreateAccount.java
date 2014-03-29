@@ -34,7 +34,7 @@ public class CreateAccount extends MSPanel {
     /**
      * Creates new form CreateAccount
      */
-    public CreateAccount() throws SQLException {
+    public CreateAccount() {
 	super("Account Management");
 
         initComponents();
