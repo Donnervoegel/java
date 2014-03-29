@@ -40,7 +40,7 @@ public class CreateAccount extends MSPanel {
         initComponents();
         
         //Populate Jcombobox with all of the user accounts
-        //ResultSet accounts_resultset = AccountAccess.accessAllAccounts();
+        existing_account_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.AccountAccess.accessAllAccounts().getArray(1)));
         
         
     }
@@ -222,7 +222,7 @@ public class CreateAccount extends MSPanel {
                     .addComponent(block_account_checkbox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(existing_account_separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(first_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(first_name_label))
@@ -247,7 +247,7 @@ public class CreateAccount extends MSPanel {
                     .addComponent(password_generate_button)
                     .addComponent(password_label)
                     .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(account_creation_headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ok_button)
                     .addComponent(cancel_button))
