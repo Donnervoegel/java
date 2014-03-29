@@ -38,6 +38,7 @@
     & & Colin W. &\\
     & & Markus B.&\\
     & & Jordan T. &\\
+    & & Chazz Y. &\\
     \hline
   \end{tabular}
 \end{center}
@@ -104,7 +105,7 @@ private void loginButtonActionPerformed(ActionEvent evt) {
 
 \subsection{Flow Chart}
 % Develop a flow chart for your method based on the blocks of code the method was broken into in the previous step
-\centerline{\includegraphics[scale=1.1]{../images/8-white}}
+\centerline{\includegraphics[scale=1.1]{../images/Whitebox_Testing_Diagram}}
 
 \subsection{Coverage}
 % Comment on the types of coverage needed to test the method
@@ -135,10 +136,11 @@ Statement coverage is sufficient, because all blocks have exactly one input bran
 Unit test method \textit{loginButtonActionPerformed( )} of the LoginScreen class using White Box testing strategy (statement coverage: START-1-2-4-6-7-EXIT)
 
 \subsubsection{Requirement Number}
+
 \#6
 
-
 \subsubsection{Testing Procedure}
+
 Enter a username and password both of length > 5, "username" and "password".  Click the Log in button.
 
 \subsubsection{Evaluation}
@@ -163,6 +165,7 @@ An error message should pop up saying "Invalid username/password combo," the use
 \centerline{\includegraphics[scale=1]{../images/EquivalenceClass_LAN}}
 \centerline{\includegraphics[scale=1]{../images/EquivalenceClass_Server}}
 \centerline{\includegraphics[scale=1]{../images/EquivalenceClass_SQL}}
+>>>>>>> a367350445bdffb9a49dcc53c905778715eb9cd3
 
 \subsection{Choosing Inputs}
 % Describe how you would choose representative input values to test this method
@@ -188,9 +191,10 @@ Input values would come from valid and invalid equivalence classes.  Many of the
     11 & Yes & Running & Null\\
     12 & Yes & Running & Returns 0 tuples\\
     13 & Yes & Running & Returns 1 tuple of degree 1\\
-    14 & Yes & Running & Returns 1 tuple of degree more than 1\\
+    14 & Yes & Running & Returns 1 tuple of degree *\\
     15 & Yes & Running & Returns many tuples of degree 1\\
-    16 & Yes & Running & Returns many tuples of degree more than 1\\
+    16 & Yes & Running & Returns many tuples of degree *\\
+    17 & Yes & Running & tuples contain null values\\
     \hline
   \end{tabular}
 \end{center}
@@ -205,8 +209,8 @@ Input values would come from valid and invalid equivalence classes.  Many of the
 Unit test CourseAccess class method \textit{execQuery( )} using Black box testing strategy
 
 \subsubsection{Requirement Number}
-\# 11.3.1
 
+\# 11.3.1
 
 \subsubsection{Inputs}
 \begin{itemize}
@@ -221,6 +225,7 @@ Call \textit{execQuery}("SELECT * FROM c275g01A.dbo.Account WHERE Username = 'jT
 \subsubsection{Evaluation}
 \begin{verbatim}
 private static void testExecQueryWithAccount( ){
+
 	ResultSet result = execQuery("SELECT * FROM c275g01A.dbo.Account WHERE Username = 'jtoering'");
 	try {
     	result.next();
@@ -244,6 +249,7 @@ jtoering
 99999
 Jordan Toering
 4
+0
 \end{verbatim}
 
 \subsubsection{Actual Behaviours and Results}
@@ -251,5 +257,3 @@ Jordan Toering
 <Added at test time>
 
 \end{document}
-
-% Fix <>'s
