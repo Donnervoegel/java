@@ -114,7 +114,7 @@ public class ActivityCreation extends MSPanel {
             }
         });
 
-        activity_test_inout_button.setText("Test output/inputs**");
+        activity_test_inout_button.setText("Test output/inputs");
         activity_test_inout_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activity_test_inout_buttonActionPerformed(evt);
@@ -147,12 +147,14 @@ public class ActivityCreation extends MSPanel {
             }
         });
 
-        activity_student_submissionpath_button.setText("Student Submission Path");
+        activity_student_submissionpath_button.setText("Path to Student Submission");
         activity_student_submissionpath_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activity_student_submissionpath_buttonActionPerformed(evt);
             }
         });
+
+        activity_student_submissionpath_field.setText("File Location...");
 
         activity_reset_button.setText("Reset");
         activity_reset_button.addActionListener(new java.awt.event.ActionListener() {
@@ -168,10 +170,6 @@ public class ActivityCreation extends MSPanel {
             .addGroup(create_activity_tabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, create_activity_tabLayout.createSequentialGroup()
-                        .addComponent(activity_reset_button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(activity_submit_button))
                     .addGroup(create_activity_tabLayout.createSequentialGroup()
                         .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(create_activity_tabLayout.createSequentialGroup()
@@ -215,10 +213,14 @@ public class ActivityCreation extends MSPanel {
                                 .addComponent(activity_solution_field, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(activity_testcomment_label)
                             .addGroup(create_activity_tabLayout.createSequentialGroup()
-                                .addComponent(activity_test_inout_button, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(activity_test_inout_button, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(activity_test_outin_field)))
-                        .addGap(0, 80, Short.MAX_VALUE)))
+                        .addGap(0, 80, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, create_activity_tabLayout.createSequentialGroup()
+                        .addComponent(activity_submit_button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(activity_reset_button)))
                 .addContainerGap())
         );
         create_activity_tabLayout.setVerticalGroup(
@@ -270,8 +272,8 @@ public class ActivityCreation extends MSPanel {
                     .addComponent(activity_solution_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(activity_submit_button)
-                    .addComponent(activity_reset_button))
+                    .addComponent(activity_reset_button)
+                    .addComponent(activity_submit_button))
                 .addContainerGap())
         );
 
@@ -335,12 +337,12 @@ public class ActivityCreation extends MSPanel {
         activity_rubric_tabLayout.setHorizontalGroup(
             activity_rubric_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(activity_rubric_tabLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(activity_rubric_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, activity_rubric_tabLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(rubric_submit_button))
                     .addGroup(activity_rubric_tabLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 78, Short.MAX_VALUE)))
                 .addContainerGap())
