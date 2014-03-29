@@ -1,6 +1,6 @@
 package types;
 
-
+import java.util.ArrayList;
 /**
  * Write a description of class Activity here.
  * 
@@ -15,6 +15,8 @@ public class Activity
     //in the prioritization meeting 
     private boolean isProgramming, isGroup;
     
+    private ArrayList<ProgrammingTest> tests;
+    
     private Rubric rubric;
     
     public Activity(String n, String sol, String lang, boolean p, boolean g)
@@ -27,8 +29,11 @@ public class Activity
         num_of_tests = 0;
         isProgramming = false;
         isGroup = false;
+        tests = new ArrayList<ProgrammingTest>();
         //update Database     
     }
+    
+    //Getters
     
     public String getActivityDesc() {
     	return activityDesc;
@@ -68,14 +73,34 @@ public class Activity
         return num_of_tests;
     }
     
+    public ArrayList<ProgrammingTest> getTests()
+    {
+        return tests;
+    }
+    
+    //Setters
+    
     public void setDueDate(String date)
     {
         due_date = date;
     }
     
-    public void setIsProgramming(boolean b)
+    public void addProgrammingTest(String test, String console, String solution, String desc)
     {
-        isProgramming = b;
+        ProgrammingTest p = new ProgrammingTest(test, console, solution, desc);
+        tests.add(p);
+        isProgramming = true;
+    }
+    
+    public void addMultipleTests(ArrayList<ProgrammingTest> t)
+    {
+        for(ProgrammingTest p : t){
+            if(tests.contains(p)){
+                //do nothing
+            }else{
+             tests.add(p);
+            }
+        }
     }
     
     public void setIsGroup(boolean b)
