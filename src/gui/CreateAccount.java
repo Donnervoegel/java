@@ -39,7 +39,50 @@ public class CreateAccount extends MSPanel {
 
         initComponents();
         
+        PopulateExistingAccountBox();
+        
+        
+    }
+    
+    private void PopulateExistingAccountBox(){
+        
         //Populate Jcombobox with all of the user accounts
+        ResultSet account_rs = database.AccountAccess.accessAllAccounts();
+        Boolean row_valid = false;
+               
+        try {
+			row_valid = account_rs.next();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        
+        ArrayList<String> account_list = new ArrayList<String>();
+        
+        if (row_valid)
+        {
+        	String temp_account;
+        	
+	        while(row_valid){
+	        	try {
+	        	temp_account = account_rs.getString("Username");
+	        	account_list.add(temp_account);
+				row_valid = account_rs.next();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        
+	        }
+	        
+        }
+        else
+        	System.out.println("Accounts Database is empty, what a lonely school!");
+        
+        existing_account_dropdown.removeAllItems();
+        
+        for (String item : account_list)
+        	existing_account_dropdown.addItem(item);
         
         
     }
