@@ -38,6 +38,7 @@
     & & Colin W. &\\
     & & Markus B.&\\
     & & Jordan T. &\\
+    & & Chazz Y. &\\
     \hline
   \end{tabular}
 \end{center}
@@ -135,10 +136,11 @@ Statement coverage is sufficient, because all blocks have exactly one input bran
 Unit test method \textit{loginButtonActionPerformed( )} of the LoginScreen class using White Box testing strategy (statement coverage: START-1-2-4-6-7-EXIT)
 
 \subsubsection{Requirement Number}
-\#
+
+\#6
 
 \subsubsection{Testing Procedure}
-% >
+
 Enter a username and password both of length > 5, "username" and "password".  Click the Log in button.
 
 \subsubsection{Evaluation}
@@ -158,7 +160,12 @@ An error message should pop up saying "Invalid username/password combo," the use
 \textit{execQuery(String) : ResultSet} executes an SQL query provided as the String argument, and returns the ResultSet storing the query's response.  The database connection details are defined in another function; they currently require the program to be run on the the Server's local network.  The database also must be operational.
 
 \subsection{Equivalence Classes}
-Describe the equivalence classes for each of the inputs and preconditions of this method
+% Describe the equivalence classes for each of the inputs and preconditions of this method
+
+\centerline{\includegraphics[scale=1]{../images/EquivalenceClass_LAN}}
+\centerline{\includegraphics[scale=1]{../images/EquivalenceClass_Server}}
+\centerline{\includegraphics[scale=1]{../images/EquivalenceClass_SQL}}
+>>>>>>> a367350445bdffb9a49dcc53c905778715eb9cd3
 
 \subsection{Choosing Inputs}
 % Describe how you would choose representative input values to test this method
@@ -202,7 +209,8 @@ Input values would come from valid and invalid equivalence classes.  Many of the
 Unit test CourseAccess class method \textit{execQuery( )} using Black box testing strategy
 
 \subsubsection{Requirement Number}
-\#
+
+\# 11.3.1
 
 \subsubsection{Inputs}
 \begin{itemize}
@@ -217,7 +225,8 @@ Call \textit{execQuery}("SELECT * FROM c275g01A.dbo.Account WHERE Username = 'jT
 \subsubsection{Evaluation}
 \begin{verbatim}
 private static void testExecQueryWithAccount( ){
-	ResultSet result={execQuery}("SELECT * FROM c275g01A.dbo.Account WHERE Username = 'jtoering'");
+
+	ResultSet result = execQuery("SELECT * FROM c275g01A.dbo.Account WHERE Username = 'jtoering'");
 	try {
     	result.next();
 	    System.out.println(result.getNString(1));
@@ -226,8 +235,9 @@ private static void testExecQueryWithAccount( ){
 	    System.out.println(result.getNString(4));
 	    System.out.println(int type=result.getInt(5));
 	    } catch (SQLException ex) {
-    	    System.out.println("SQL Exception occured, the state : "
-                + ex.getSQLState() + "\nMessage: " + ex.getMessage());
+  	        System.out.println("SQL Exception occured, the state : "
+	   	    + ex.getSQLState() + "\nMessage: "
+	   	    + ex.getMessage());
         }
 }
 \end{verbatim}
@@ -247,7 +257,3 @@ Jordan Toering
 <Added at test time>
 
 \end{document}
-
-% Fix <>'s
-% Get Requirement #'s 1.6.3, 2.5.3
-% Draw up equivalence classes 2.2
