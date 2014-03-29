@@ -10,3 +10,5 @@
 /src/nbproject/private
 /dist/
 /bin
+*.ctxt
+*.bluej
