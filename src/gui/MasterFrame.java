@@ -14,6 +14,7 @@ import gui.types.*;
  * @author Colin
  */
 public class MasterFrame extends JFrame {
+    private Account a;
     private JFrame login_screen;
     private JPanel  top_panel;
     private MSPanel curr_page;
@@ -29,6 +30,7 @@ public class MasterFrame extends JFrame {
     // the Account type.
     public MasterFrame(Account a, JFrame ls) {
 	// Initialize components.
+	this.a          = a;
 	login_screen    = ls;
 	top_panel       = new JPanel();
 	logout_button   = new JButton("Logout");
@@ -181,7 +183,7 @@ public class MasterFrame extends JFrame {
     }
     public void settingsAction(ActionEvent e) {
 	// Show the settings page.
-	GUIUtils.nothing();
+	movePage(new SettingsPage(a));
     }
 
     private void logoutAction(ActionEvent e) {
