@@ -414,10 +414,12 @@ public class CreateAccount extends MSPanel {
 	if (modify_existing_checkbox.isSelected()) {
            creation.setBlocked(block_value);
     	   AccountAccess.modifyAccount(username, creation);
-           System.out.println("Account " + username_field.getText() + " modified.");
+           System.out
+	       .println("Account " + username_field.getText() + " modified.");
 	} else {
 	    System.out.println("Creating " + account_select + " type account.");
 	    AccountAccess.createAccount(creation);
+	    JOptionPane.showMessageDialog(this, "Account Created: " + username_field.getText());
 	}
         
         GUIUtils.getMasterFrame(this)
@@ -430,11 +432,13 @@ public class CreateAccount extends MSPanel {
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     private void delete_account_buttonActionPerformed(ActionEvent evt) {        
-        boolean confirm = false;
-        // Location for a popup confirm menu      
-        AccountAccess.deleteAccount(existing_account_dropdown
+        int confirm;
+	confirm = JOptionPane.showConfirmDialog(this, "Delete account \"" + username_field.getText() + "\"?");
+	if (confirm == JOptionPane.OK_OPTION) {
+	    AccountAccess.deleteAccount(existing_account_dropdown
 				    .getSelectedItem().toString());
-        populateExistingAccountBox();
+	    populateExistingAccountBox();
+	}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
