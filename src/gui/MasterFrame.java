@@ -15,7 +15,7 @@ import gui.types.*;
  */
 public class MasterFrame extends JFrame {
     private Account a;
-    private JFrame login_screen;
+    private LoginScreen login_screen;
     private JPanel  top_panel;
     private MSPanel curr_page;
     private JButton logout_button;
@@ -28,7 +28,7 @@ public class MasterFrame extends JFrame {
 
     // This will take an `Account` object and populate itself according to
     // the Account type.
-    public MasterFrame(Account a, JFrame ls) {
+    public MasterFrame(Account a, LoginScreen ls) {
 	// Initialize components.
 	this.a          = a;
 	login_screen    = ls;
@@ -191,6 +191,7 @@ public class MasterFrame extends JFrame {
 	// TODO: Write to the system log?
 	//processWindowEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 	setVisible(false);
+	login_screen.clearFields();
 	login_screen.setVisible(true);
     }
 }

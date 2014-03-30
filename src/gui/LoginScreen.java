@@ -198,4 +198,9 @@ public class LoginScreen extends JFrame {
 	 */
 	GUIUtils.nothing();
     }
+
+    public void clearFields() {
+	username_field.setText("");
+	pass_field.setText("");
+    }
 }
