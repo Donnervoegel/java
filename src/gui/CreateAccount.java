@@ -40,8 +40,7 @@ public class CreateAccount extends MSPanel {
 
         initComponents();
         
-        PopulateExistingAccountBox();
-        
+        PopulateExistingAccountBox();       
         
     }
     
@@ -93,7 +92,7 @@ public class CreateAccount extends MSPanel {
         first_name_field.setText("");
         last_name_field.setText("");
         id_field.setText("");
-        account_type_dropdown.setSelectedIndex(-1);
+        account_type_dropdown.setSelectedIndex(0);
         username_field.setText("");
         password_field.setText("");
     }
@@ -173,6 +172,11 @@ public class CreateAccount extends MSPanel {
         });
 
         existing_account_dropdown.setEnabled(false);
+        existing_account_dropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                existing_account_dropdownActionPerformed(evt);
+            }
+        });
 
         existing_account_separator.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -439,6 +443,10 @@ public class CreateAccount extends MSPanel {
         PopulateExistingAccountBox();
         
     }//GEN-LAST:event_delete_account_buttonActionPerformed
+
+    private void existing_account_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existing_account_dropdownActionPerformed
+       
+    }//GEN-LAST:event_existing_account_dropdownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
