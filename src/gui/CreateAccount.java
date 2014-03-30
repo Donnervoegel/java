@@ -172,6 +172,11 @@ public class CreateAccount extends MSPanel {
         });
 
         existing_account_dropdown.setEnabled(false);
+        existing_account_dropdown.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                existing_account_dropdownMouseReleased(evt);
+            }
+        });
         existing_account_dropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 existing_account_dropdownActionPerformed(evt);
@@ -445,8 +450,12 @@ public class CreateAccount extends MSPanel {
     }//GEN-LAST:event_delete_account_buttonActionPerformed
 
     private void existing_account_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existing_account_dropdownActionPerformed
-       
+       //Potentially not used
     }//GEN-LAST:event_existing_account_dropdownActionPerformed
+
+    private void existing_account_dropdownMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_existing_account_dropdownMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_existing_account_dropdownMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
