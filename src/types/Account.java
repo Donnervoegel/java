@@ -1,6 +1,5 @@
 package types;
 
-
 /**
  * @desc:   The Abstract Account class is used to hold all attributes
  *          and methods of the Account object
@@ -31,11 +30,9 @@ public abstract class Account
     private String password;
     protected boolean blocked;
     protected int empID;
-    
     private int bad_logins;
     
-    public Account(String fn, String ln, int empID, String un, String pass, Type ut)
-    {
+    public Account(String fn, String ln, int empID, String un, String pass, Type ut) {
         first_name = fn;
         last_name = ln;
         this.empID = empID;
@@ -46,27 +43,23 @@ public abstract class Account
         blocked = false;
     }
     
-    public void setBlocked(boolean blocked){
+    public void setBlocked(boolean blocked) {
     	this.blocked = blocked;
     }
     
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return first_name;
     }
     
-    public String getLastName()
-    {
+    public String getLastName() {
         return last_name;
     }
     
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
     
-    public int getEmpID()
-    {
+    public int getEmpID() {
         return empID;
     }
     
@@ -89,17 +82,17 @@ public abstract class Account
     public String getAccountTypeString()
     {
         String toReturn = null;
-        if(accountType == Type.SYSTEMADMIN){
+        if(accountType == Type.SYSTEMADMIN) {
             toReturn = "System Administrator";
-        }else if(accountType == Type.ACADEMICADMIN){
+        } else if(accountType == Type.ACADEMICADMIN) {
             toReturn = "Academic Administrator";
-        }else if(accountType == Type.ASSISTANTADMIN){
+        } else if(accountType == Type.ASSISTANTADMIN) {
             toReturn = "Assistant Academic Administrator";
-        }else if(accountType == Type.INSTRUCTOR){
+        } else if(accountType == Type.INSTRUCTOR) {
             toReturn = "Instructor";
-        }else if(accountType == Type.TATMMARKER){
+        } else if(accountType == Type.TATMMARKER) {
             toReturn = "TA/TM Marker"; 
-        }else{
+        } else {
             toReturn = "Error: invalid account type";
         }
         return toReturn;
@@ -109,13 +102,12 @@ public abstract class Account
      * @desc:   Tests to see if the inputted password is correct.
      * @author  Chazz Young  
      */
-    public boolean checkPassword(String pass)
-    {
+    public boolean checkPassword(String pass) {
         boolean toReturn = false;
-        if(password.matches(pass)){
+        if(password.matches(pass)) {
             bad_logins = 0;
             toReturn = true;
-        }else{
+        } else {
             bad_logins++;
             if(bad_logins >= MAX_FAILS){
                 System.out.println("This account has been blocked due to the repeated number of failed logins.");
@@ -126,8 +118,7 @@ public abstract class Account
         return toReturn;
     }
     
-    public void setUsername(String name)
-    {
+    public void setUsername(String name) {
         username = name;
     }
     
@@ -144,38 +135,35 @@ public abstract class Account
      *          be represented by strings, the dropdown menu will actually
      *          pass an integer value.
      */
-    public void setAccountType(Type type)
-    {
+    public void setAccountType(Type type) {
         accountType = type;
     }
     
-    public int getAccountTypeAsInt()
-    {
+    public int getAccountTypeAsInt() {
         int typeInt;
-        if (accountType==Type.INSTRUCTOR){
-            typeInt=4;
+        if (accountType==Type.INSTRUCTOR) {
+            typeInt = 4;
         }
-        else if (accountType==Type.TATMMARKER){
-            typeInt=5;
+        else if (accountType==Type.TATMMARKER) {
+            typeInt = 5;
         }
-        else if (accountType==Type.ACADEMICADMIN){
-            typeInt=2;
+        else if (accountType==Type.ACADEMICADMIN) {
+            typeInt = 2;
         }
-        else if (accountType==Type.ASSISTANTADMIN){
-            typeInt=3;
+        else if (accountType==Type.ASSISTANTADMIN) {
+            typeInt = 3;
         }
-        else if (accountType==Type.SYSTEMADMIN){
-            typeInt=1;
+        else if (accountType==Type.SYSTEMADMIN) {
+            typeInt = 1;
         }
         else{
             System.out.println("Invalid account type");
-            typeInt=0;
+            typeInt = 0;
         }
         return typeInt;
     }
     
-    public void unblock()
-    {
+    public void unblock() {
         blocked = false;
     }
 }
