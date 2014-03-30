@@ -19,6 +19,7 @@ public class MasterFrame extends JFrame {
     private MSPanel curr_page;
     private JButton logout_button;
     private JButton back_button;
+    private JButton settings_button;
     private JLabel  role_label;
     private JLabel  crumbs;  // This won't be a JLabel later.
     private LinkedList<MSPanel> pages;
@@ -28,13 +29,14 @@ public class MasterFrame extends JFrame {
     // the Account type.
     public MasterFrame(Account a, JFrame ls) {
 	// Initialize components.
-	login_screen  = ls;
-	top_panel     = new JPanel();
-	logout_button = new JButton("Logout");
-	back_button   = new JButton("Back");
-	role_label    = new JLabel();  // Changes according to `a`.
-	crumbs        = new JLabel("Breadcrumbs here...");
-	pages         = new LinkedList<MSPanel>();
+	login_screen    = ls;
+	top_panel       = new JPanel();
+	logout_button   = new JButton("Logout");
+	back_button     = new JButton("Back");
+	settings_button = new JButton("Settings");
+	role_label      = new JLabel();  // Changes according to `a`.
+	crumbs          = new JLabel("Breadcrumbs here...");
+	pages           = new LinkedList<MSPanel>();
 
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -70,15 +72,21 @@ public class MasterFrame extends JFrame {
 	// Set up action listeners
 	back_button.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			goBackAction(e);
+		    goBackAction(e);
 		}
-	});
+	    });
 	
 	logout_button.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			logoutAction(e);
+		    logoutAction(e);
 		}
-	});
+	    });
+
+	settings_button.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    settingsAction(e);
+		}
+	    });
 
 	// Set up persistent top bar
 	top_panel.setLayout(new GridBagLayout());
@@ -102,10 +110,13 @@ public class MasterFrame extends JFrame {
 	c.anchor = GridBagConstraints.LINE_START;
 	top_panel.add(back_button, c);
 
-	c.gridx = 9;
+	c.gridx = 1;
+	top_panel.add(settings_button, c);
+
+	c.gridx = 2;
 	c.gridy = 1;
 	c.anchor = GridBagConstraints.LINE_END;
-	c.weightx = 1.0;
+	//	c.weightx = 1.0;
 	//	c.weighty = 1.0;
 	top_panel.add(logout_button, c);
 
@@ -148,6 +159,15 @@ public class MasterFrame extends JFrame {
 	showPage(curr_page);
     }
 
+    private void showPage(MSPanel p) {
+	add(p, c);
+	p.setVisible(true);
+	setTitle("MarkShark Grading System - " + p.getPanelTitle());
+	pack();
+
+	System.out.println("Moving to: " + p.getPanelTitle());
+    }
+
     public void goBackAction(ActionEvent e) {
 	System.out.println("Going back.");
 	curr_page.setVisible(false);
@@ -159,14 +179,9 @@ public class MasterFrame extends JFrame {
         if (pages.isEmpty())
             back_button.setEnabled(false);
     }
-
-    private void showPage(MSPanel p) {
-	add(p, c);
-	p.setVisible(true);
-	setTitle("MarkShark Grading System - " + p.getPanelTitle());
-	pack();
-
-	System.out.println("Moving to: " + p.getPanelTitle());
+    public void settingsAction(ActionEvent e) {
+	// Show the settings page.
+	GUIUtils.nothing();
     }
 
     private void logoutAction(ActionEvent e) {
