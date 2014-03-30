@@ -143,9 +143,9 @@ public class AccountAccess {
 		
 		// Create the update query string
 		String query = "UPDATE c275g01A.dbo.Account SET Username = '" + username
-				+ "', Pass = '" + password + ", EmployeeID = " + empID
+				+ "', Pass = '" + password + "', EmployeeID = " + empID
 				+ ", EmployeeName = '" + empName + "', AccountType = "
-				+ acctType + ", BlockAccountaFlag = " + boolToBit(blockFlag)
+				+ acctType + ", BlockAccountFlag = " + boolToBit(blockFlag)
 				+ "WHERE Username = '" + accessUsername + "'";
 		execUpdate(query); // Execute the update query
 	}
