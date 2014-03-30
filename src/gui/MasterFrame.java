@@ -14,6 +14,7 @@ import gui.types.*;
  * @author Colin
  */
 public class MasterFrame extends JFrame {
+    private JFrame login_screen;
     private JPanel  top_panel;
     private MSPanel curr_page;
     private JButton logout_button;
@@ -25,8 +26,9 @@ public class MasterFrame extends JFrame {
 
     // This will take an `Account` object and populate itself according to
     // the Account type.
-    public MasterFrame(Account a) {
+    public MasterFrame(Account a, JFrame ls) {
 	// Initialize components.
+	login_screen  = ls;
 	top_panel     = new JPanel();
 	logout_button = new JButton("Logout");
 	back_button   = new JButton("Back");
@@ -170,6 +172,8 @@ public class MasterFrame extends JFrame {
     private void logoutAction(ActionEvent e) {
 	System.out.println("Logging out...");
 	// TODO: Write to the system log?
-	this.processWindowEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+	//processWindowEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+	setVisible(false);
+	login_screen.setVisible(true);
     }
 }

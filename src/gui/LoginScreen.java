@@ -186,7 +186,7 @@ public class LoginScreen extends JFrame {
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
 	    // TODO: This needs to be passed a legit Account object.
-	    master = new MasterFrame(test);
+	    master = new MasterFrame(test, this);
 	    this.setVisible(false);
 	    master.run();
 	}
