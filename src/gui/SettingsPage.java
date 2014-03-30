@@ -6,6 +6,8 @@
 
 package gui;
 
+import database.AccountAccess;
+
 import javax.swing.*;
 import java.awt.event.*;
 import gui.utils.*;
@@ -93,7 +95,8 @@ public class SettingsPage extends MSPanel {
 	} else if (newP.isEmpty() || newP2.isEmpty()) {
 	    JOptionPane.showMessageDialog(this, "Empty passwords are not allowed.");
 	} else {
-	    // TODO: Database call.
+	    a.setPassword(newP);
+	    AccountAccess.modifyAccount(a.getUsername(), a);
 	    System.out.println("Password changed to " + newP);
 	}
     }//GEN-LAST:event_confirm_buttonActionPerformed

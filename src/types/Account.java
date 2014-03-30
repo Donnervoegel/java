@@ -132,18 +132,11 @@ public abstract class Account
     }
     
     /**
-     * @desc    Validates the old password and sets the password to the specified new 
-     *          password if true
+     * @desc    Sets the new password.
      * @author  Chazz Young 
      */
-    public void setPassword(String old_pass, String new_pass)
-    {
-        boolean can_set = checkPassword(old_pass);
-        if(can_set == true){
-            password = new_pass;
-        }else{
-            System.out.println("Error: the specified old password is invalid."); 
-        }
+    public void setPassword(String new_pass) {
+	password = new_pass;
     }
     
     /**
