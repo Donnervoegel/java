@@ -93,7 +93,7 @@ public class CreateAccount extends MSPanel {
         first_name_field.setText("");
         last_name_field.setText("");
         id_field.setText("");
-        account_type_dropdown.setSelectedIndex(-1);
+        account_type_dropdown.setSelectedIndex(0);
         username_field.setText("");
         password_field.setText("");
     }
