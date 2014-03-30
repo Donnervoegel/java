@@ -46,6 +46,10 @@ public abstract class Account
         blocked = false;
     }
     
+    public void setBlocked(boolean blocked){
+    	this.blocked = blocked;
+    }
+    
     public String getFirstName()
     {
         return first_name;

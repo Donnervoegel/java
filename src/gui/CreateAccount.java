@@ -9,7 +9,9 @@ package gui;
 import database.AccountAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
+
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,12 +20,14 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.text.MaskFormatter;
+
 import types.*;
 
 /**
@@ -42,6 +46,14 @@ public class CreateAccount extends MSPanel {
         
         PopulateExistingAccountBox();       
         
+        //Listener for combobox changes
+        
+        existing_account_dropdown.addActionListener (new ActionListener () {
+            public void actionPerformed(ActionEvent e) {
+            	PopulateExistingAccountBox();
+            	FillFieldsFromSelection();
+            }
+        });
     }
     
     private void PopulateExistingAccountBox(){
@@ -77,7 +89,10 @@ public class CreateAccount extends MSPanel {
 	        
         }
         else
+        {
+        	modify_existing_checkbox.setEnabled(false);
         	System.out.println("Accounts Database is empty, what a lonely school!");
+        }
         
         existing_account_dropdown.removeAllItems();
         
@@ -92,7 +107,6 @@ public class CreateAccount extends MSPanel {
         first_name_field.setText("");
         last_name_field.setText("");
         id_field.setText("");
-        account_type_dropdown.setSelectedIndex(0);
         username_field.setText("");
         password_field.setText("");
     }
@@ -172,11 +186,6 @@ public class CreateAccount extends MSPanel {
         });
 
         existing_account_dropdown.setEnabled(false);
-        existing_account_dropdown.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                existing_account_dropdownMouseReleased(evt);
-            }
-        });
         existing_account_dropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 existing_account_dropdownActionPerformed(evt);
@@ -356,7 +365,21 @@ public class CreateAccount extends MSPanel {
         block_account_checkbox.setEnabled(true);
         
         //Populate fields with information from user
-        String account_username = (String) existing_account_dropdown.getSelectedItem();
+        FillFieldsFromSelection();
+        }
+        
+        else
+        {
+        block_account_checkbox.setEnabled(false);
+        existing_account_dropdown.setEnabled(false);     
+        delete_account_button.setEnabled(false);
+        
+        }
+    }//GEN-LAST:event_modify_existing_checkboxActionPerformed
+
+    private void FillFieldsFromSelection()
+    {
+    	String account_username = (String) existing_account_dropdown.getSelectedItem();
         Account fill_acct = AccountAccess.constructAccountObject(account_username);
         
         first_name_field.setText(fill_acct.getFirstName());
@@ -366,18 +389,8 @@ public class CreateAccount extends MSPanel {
         username_field.setText(fill_acct.getUsername());
         password_field.setText(fill_acct.getPassword()); 
         block_account_checkbox.setSelected(fill_acct.getBlocked());
-        }
-        
-        else
-        {
-        block_account_checkbox.setEnabled(false);
-        existing_account_dropdown.setEnabled(false);     
-        delete_account_button.setEnabled(false);
-        
-        ClearFields();
-        }
-    }//GEN-LAST:event_modify_existing_checkboxActionPerformed
-
+    }
+    
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
         
        String first = first_name_field.getText();
@@ -385,6 +398,7 @@ public class CreateAccount extends MSPanel {
        int id = Integer.parseInt(id_field.getText());
        String username = username_field.getText();
        String pass = password_field.getText();
+       Boolean block_value = block_account_checkbox.isSelected();
         
         Account creation;
         String account_select = account_type_dropdown.getSelectedItem().toString();
@@ -413,7 +427,8 @@ public class CreateAccount extends MSPanel {
        if (modify_existing_checkbox.isSelected())
        {
                  
-           AccountAccess.modifyAccount(username, creation);
+           creation.setBlocked(block_value);
+    	   AccountAccess.modifyAccount(username, creation);
            System.out.println("Account " + username_field.getText() + " modified.");
        }
        else { 
@@ -429,34 +444,27 @@ public class CreateAccount extends MSPanel {
     }//GEN-LAST:event_ok_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        String first_name=first_name_field.getText();
-        String last_name=last_name_field.getText();
-        
+       
+    	GUIUtils.getMasterFrame(this).goBackAction(new ActionEvent(this, 5, null));
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     private void password_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_fieldActionPerformed
         // TODO add your handling code here: 
     }//GEN-LAST:event_password_fieldActionPerformed
 
-    private void delete_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_account_buttonActionPerformed
+    private void delete_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         
         boolean confirm = false;
         // Location for a popup confirm menu      
         
         AccountAccess.deleteAccount(existing_account_dropdown.getSelectedItem().toString());
-        ClearFields();
+        
         PopulateExistingAccountBox();
         
-    }//GEN-LAST:event_delete_account_buttonActionPerformed
-
-    private void existing_account_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existing_account_dropdownActionPerformed
-       //Potentially not used
-    }//GEN-LAST:event_existing_account_dropdownActionPerformed
-
-    private void existing_account_dropdownMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_existing_account_dropdownMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_existing_account_dropdownMouseReleased
-
+        
+        }
+    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel account_creation_header;
