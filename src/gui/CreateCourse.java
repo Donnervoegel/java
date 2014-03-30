@@ -13,11 +13,13 @@ import static java.lang.System.in;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import java.awt.event.*;
 
 import types.Course;
 import types.Instructor;
 import types.TextAnalyzer;
 import gui.types.*;
+import gui.utils.*;
 
 /**
  * 
@@ -46,11 +48,11 @@ public class CreateCourse extends MSPanel {
 	course_start_formatfield.setText(course.getStartDate());
 	course_end_formatfield.setText(course.getEndDate());
 
-	for(java.awt.event.ActionListener act : submit_button.getActionListeners()) 
+	for(ActionListener act : submit_button.getActionListeners()) 
 	    submit_button.removeActionListener(act);
 
-	submit_button.addActionListener(new java.awt.event.ActionListener() {
-		public void actionPerformed(java.awt.event.ActionEvent evt) {
+	submit_button.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent evt) {
 		    submit_modify_buttonActionPerformed(evt, course.getCourseID());
 		}
 	    });
@@ -107,25 +109,13 @@ public class CreateCourse extends MSPanel {
 
         course_end_label.setText("Course End Date");
 
-        course_name_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                course_name_fieldActionPerformed(evt);
-            }
-        });
-
-        instructor_username_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                instructor_username_fieldActionPerformed(evt);
-            }
-        });
-
         course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
         course_start_formatfield.setText("yyyy/MM/dd");
 
         course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
         course_end_formatfield.setText("yyyy/MM/dd");
-        course_end_formatfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        course_end_formatfield.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 course_end_formatfieldActionPerformed(evt);
             }
         });
@@ -133,22 +123,22 @@ public class CreateCourse extends MSPanel {
         stud_list_file_location_field.setText("File Location...");
 
         choose_file_student_list_button.setText("Choose File");
-        choose_file_student_list_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        choose_file_student_list_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 choose_file_student_list_buttonActionPerformed(evt);
             }
         });
 
         submit_button.setText("Submit");
-        submit_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        submit_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 submit_buttonActionPerformed(evt);
             }
         });
 
         cancel_button.setText("Cancel");
-        cancel_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cancel_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 cancel_buttonActionPerformed(evt);
             }
         });
@@ -273,21 +263,12 @@ public class CreateCourse extends MSPanel {
 
 	ArrayList<String> accounts_list; // The list of accounts in arraylist string
 										// format
-
-	private void course_name_fieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_course_name_fieldActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_course_name_fieldActionPerformed
-
-	private void instructor_username_fieldActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_instructor_username_fieldActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_instructor_username_fieldActionPerformed
-
-	private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cancel_buttonActionPerformed
-		// TODO add your handling code here:
+	private void cancel_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_cancel_buttonActionPerformed
+	    GUIUtils.getMasterFrame(this)
+		.goBackAction(new ActionEvent(this, 5, null));
 	}// GEN-LAST:event_cancel_buttonActionPerformed
 
-	private void submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_submit_buttonActionPerformed
+	private void submit_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_submit_buttonActionPerformed
 
 		Instructor instructor_taken;
 		instructor_taken = (Instructor) AccountAccess
@@ -329,7 +310,7 @@ public class CreateCourse extends MSPanel {
 
 	}// GEN-LAST:event_submit_buttonActionPerformed
 	
-	private void submit_modify_buttonActionPerformed(java.awt.event.ActionEvent evt, String courseIDToModify) {
+	private void submit_modify_buttonActionPerformed(ActionEvent evt, String courseIDToModify) {
 		Instructor instructor_taken;
 		instructor_taken = (Instructor) AccountAccess
 				.constructAccountObject(instructor_username_field.getText());
@@ -375,7 +356,7 @@ public class CreateCourse extends MSPanel {
 	// From
 	// http://stackoverflow.com/questions/10621687/how-to-get-full-path-directory-from-file-choosers
 	private void choose_file_student_list_buttonActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
+			ActionEvent evt) {// GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(new java.io.File("."));
 		chooser.setDialogTitle("choosertitle");
@@ -404,8 +385,7 @@ public class CreateCourse extends MSPanel {
 
 	}// GEN-LAST:event_choose_file_student_list_buttonActionPerformed
 
-	private void course_end_formatfieldActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_course_end_formatfieldActionPerformed
+	private void course_end_formatfieldActionPerformed(ActionEvent evt) {// GEN-FIRST:event_course_end_formatfieldActionPerformed
 		// TODO add your handling code here:
 	}// GEN-LAST:event_course_end_formatfieldActionPerformed
 
