@@ -40,9 +40,7 @@ public class CreateAccount extends MSPanel {
 
         initComponents();
         
-        PopulateExistingAccountBox();
-        existing_account_dropdown.setSelectedIndex(0);
-        
+        PopulateExistingAccountBox();       
         
     }
     
@@ -447,18 +445,7 @@ public class CreateAccount extends MSPanel {
     }//GEN-LAST:event_delete_account_buttonActionPerformed
 
     private void existing_account_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existing_account_dropdownActionPerformed
-        
-        String account_username = (String) existing_account_dropdown.getSelectedItem();
-        Account fill_acct = AccountAccess.constructAccountObject(account_username);
-        
-        first_name_field.setText(fill_acct.getFirstName());
-        last_name_field.setText(fill_acct.getLastName());
-        id_field.setValue(fill_acct.getEmpID());
-        account_type_dropdown.setSelectedIndex(fill_acct.getAccountTypeAsInt()-1);
-        username_field.setText(fill_acct.getUsername());
-        password_field.setText(fill_acct.getPassword()); 
-        block_account_checkbox.setSelected(fill_acct.getBlocked());
-        
+       
     }//GEN-LAST:event_existing_account_dropdownActionPerformed
 
 
