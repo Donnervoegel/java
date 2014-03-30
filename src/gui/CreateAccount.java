@@ -41,6 +41,7 @@ public class CreateAccount extends MSPanel {
         initComponents();
         
         PopulateExistingAccountBox();
+        existing_account_dropdown.setSelectedIndex(0);
         
         
     }
