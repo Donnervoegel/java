@@ -95,9 +95,13 @@ public class SettingsPage extends MSPanel {
 	} else if (newP.isEmpty() || newP2.isEmpty()) {
 	    JOptionPane.showMessageDialog(this, "Empty passwords are not allowed.");
 	} else {
-	    a.setPassword(newP);
-	    AccountAccess.modifyAccount(a.getUsername(), a);
-	    System.out.println("Password changed to " + newP);
+	    int choice = JOptionPane.showConfirmDialog(this, "Really reset password?");
+
+	    if (choice == JOptionPane.OK_OPTION) {
+		a.setPassword(newP);
+		AccountAccess.modifyAccount(a.getUsername(), a);
+		System.out.println("Password changed to " + newP);
+	    }
 	}
     }//GEN-LAST:event_confirm_buttonActionPerformed
 
