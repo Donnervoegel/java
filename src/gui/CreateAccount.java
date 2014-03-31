@@ -392,7 +392,7 @@ public class CreateAccount extends MSPanel {
         account_type_dropdown.setSelectedIndex(fill_acct.getAccountTypeAsInt()-1);
         username_field.setText(fill_acct.getUsername());
         password_field.setText(fill_acct.getPassword()); 
-        block_account_checkbox.setSelected(fill_acct.getBlocked());
+        block_account_checkbox.setSelected(fill_acct.isBlocked());
         }
      }
     

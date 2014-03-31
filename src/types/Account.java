@@ -67,7 +67,7 @@ public abstract class Account
     	return accountType;
     }
     
-    public boolean getBlocked() {
+    public boolean isBlocked() {
     	return blocked;
     }
     

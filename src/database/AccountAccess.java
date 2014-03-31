@@ -119,7 +119,7 @@ public class AccountAccess {
 		int empID = acct.getEmpID();
 		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
-		boolean blockFlag = acct.getBlocked();
+		boolean blockFlag = acct.isBlocked();
 		
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Account VALUES ('" + username
@@ -139,7 +139,7 @@ public class AccountAccess {
 		int empID = acct.getEmpID();
 		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
-		boolean blockFlag = acct.getBlocked();
+		boolean blockFlag = acct.isBlocked();
 		
 		// Create the update query string
 		String query = "UPDATE c275g01A.dbo.Account SET Username = '" + username
