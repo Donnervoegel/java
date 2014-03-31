@@ -55,7 +55,7 @@ public class AccountAccess {
 				+ username + "'";
 		return execQuery(query);
 	}
-	
+
 	public static Object[] accessAccountList() {
 		ArrayList<String> accounts = new ArrayList<String>();
 		String query = "SELECT Username FROM c275g01A.dbo.Account";
@@ -70,6 +70,55 @@ public class AccountAccess {
 		}
 
 		return accounts.toArray();
+	}
+
+	public static Object[] accessAllTAs() {
+		ArrayList<String> accounts = new ArrayList<String>();
+		String query = "SELECT EmployeeName,EmployeeID FROM "
+				+ "c275g01A.dbo.Account WHERE AccountType = 5";
+		ResultSet res = execQuery(query);
+		try {
+			while (res.next()) {
+				accounts.add(res.getNString(1) + " - " + res.getNString(2));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return accounts.toArray();
+	}
+
+	public static Object[] accessAllInstructors() {
+		ArrayList<String> accounts = new ArrayList<String>();
+		String query = "SELECT EmployeeName,EmployeeID FROM "
+				+ "c275g01A.dbo.Account WHERE AccountType = 4";
+		ResultSet res = execQuery(query);
+		try {
+			while (res.next()) {
+				accounts.add(res.getNString(1) + " - " + res.getNString(2));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return accounts.toArray();
+	}
+
+	public static Account constructAccountFromID(int empID) {
+		Account a = null;
+		String query = "SELECT * FROM c275g01A.dbo.Account WHERE EmployeeID = "
+				+ empID;
+		ResultSet res = execQuery(query);
+		try {
+			res.next();
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return a;
 	}
 
 	/*
@@ -164,7 +213,7 @@ public class AccountAccess {
 		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
 		boolean blockFlag = acct.isBlocked();
-		
+
 		// Create the update query string
 		String query = "UPDATE c275g01A.dbo.Account SET Username = '"
 				+ username + "', Pass = '" + password + "', EmployeeID = "

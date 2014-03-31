@@ -468,7 +468,7 @@ public class CourseAccess {
 	 * Method to add a rubric item to the database for a specific activity in a
 	 * specific course.
 	 */
-	public void addRubricItem(String courseID, String activityName,
+	public static void addRubricItem(String courseID, String activityName,
 			String rubricItem, float maxGrade) {
 		String query = "INSERT INTO c275g01A.dbo.Rubric VALUES ('" + courseID
 				+ "','" + activityName + "','" + rubricItem + "'," + maxGrade
