@@ -28,7 +28,6 @@ public class AccountAccess {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("No JDBC driver found, exiting.");
-			System.exit(0);
 		}
 
 		try { // Connect to Cypress
@@ -37,7 +36,6 @@ public class AccountAccess {
 							+ " user = c275g01; password = TAA2Md7nGrPj2LjN");
 		} catch (SQLException e) {
 			System.out.println("Connection failed, exiting.");
-			System.exit(0);
 		}
 	}
 
