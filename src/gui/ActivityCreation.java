@@ -24,9 +24,9 @@ import types.Activity;
  */
 public class ActivityCreation extends MSPanel {
     private String courseid;
-    Object [][] data = null; 
-    String[] columnNames = new String[2]; //table column names
-    
+
+    String[] columnNames =new String[] {"Description", "Max Grade"};
+    Object data [][] = new Object[1][2]; 
     /**
      * Creates new form ActivityCreation
      */
@@ -108,9 +108,8 @@ public class ActivityCreation extends MSPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         rubric_table = new javax.swing.JTable();
         rubric_submit_button = new javax.swing.JButton();
-        Start_table_button = new javax.swing.JButton();
         Edit_row_button = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        delete_row_button = new javax.swing.JButton();
 
         activity_name_label.setText("Activity Name");
 
@@ -345,13 +344,6 @@ public class ActivityCreation extends MSPanel {
             }
         });
 
-        Start_table_button.setText("Start");
-        Start_table_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Start_table_buttonActionPerformed(evt);
-            }
-        });
-
         Edit_row_button.setText("Edit Row");
         Edit_row_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -359,10 +351,10 @@ public class ActivityCreation extends MSPanel {
             }
         });
 
-        jButton1.setText("Delete row");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        delete_row_button.setText("Delete row");
+        delete_row_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                delete_row_buttonActionPerformed(evt);
             }
         });
 
@@ -381,9 +373,8 @@ public class ActivityCreation extends MSPanel {
                         .addGap(0, 78, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(activity_rubric_tabLayout.createSequentialGroup()
-                .addComponent(Start_table_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(delete_row_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Edit_row_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,9 +387,8 @@ public class ActivityCreation extends MSPanel {
                 .addGap(25, 25, 25)
                 .addGroup(activity_rubric_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rubric_additional_row_button)
-                    .addComponent(Start_table_button)
                     .addComponent(Edit_row_button)
-                    .addComponent(jButton1))
+                    .addComponent(delete_row_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
@@ -439,8 +429,12 @@ public class ActivityCreation extends MSPanel {
     }//GEN-LAST:event_activity_type_fieldActionPerformed
 
     private void rubric_additional_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rubric_additional_row_buttonActionPerformed
-      
+
+
         
+     if (data[0][1]!= null)  
+     {
+        System.out.println("im in here");
         Object [][] temp = new Object [data.length+1][2]; //hold the first datapoint in a temp object
         for (int i=0; i<data.length; i++){ //grab rest of data into the temp object
             for (int j=0;j <2; j++){
@@ -450,7 +444,15 @@ public class ActivityCreation extends MSPanel {
        temp[data.length][0] = JOptionPane.showInputDialog ("Enter Rubric Description");
        temp[data.length][1] = JOptionPane.showInputDialog ("Enter Max Grade");
        data = temp; //make data = temp so we have new data
-       rubric_table.setModel(new DefaultTableModel(data, columnNames));  
+       rubric_table.setModel(new DefaultTableModel(data, columnNames)); 
+     }
+     else{
+       Object [][] temp = new Object [1][2];  
+       temp[0][0] = JOptionPane.showInputDialog ("Enter Rubric Description");
+       temp[0][1] = JOptionPane.showInputDialog ("Enter Max Grade");
+       data = temp; //make data = temp so we have new data
+       rubric_table.setModel(new DefaultTableModel(data, columnNames)); 
+     }
     }//GEN-LAST:event_rubric_additional_row_buttonActionPerformed
 
     private void activity_test_number_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_test_number_fieldActionPerformed
@@ -488,19 +490,6 @@ public class ActivityCreation extends MSPanel {
 		CourseAccess.modifyActivity(courseID, actName, new_activity);
 	}
 
-    private void Start_table_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Start_table_buttonActionPerformed
- // sets the table as default following my rules above
-       columnNames =new String[] {"Description", "Max Grade"};
-       data = new Object[1][2]; //fields for the data entry
-       data[0][0] = JOptionPane.showInputDialog ("Enter Rubric Description");
-       data[0][1] = JOptionPane.showInputDialog ("Enter Max Grade");
-       rubric_table.setModel(new DefaultTableModel(data, columnNames));
-       
-       
- // This button could be instatiated outside of this button. If anyone can find out the place to put this that would be great.
- // I want this to be run right when i get to this page!!!!
-    }//GEN-LAST:event_Start_table_buttonActionPerformed
-
     private void Edit_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_row_buttonActionPerformed
        if (rubric_table.getSelectedRow() >=0){ 
             String desc = JOptionPane.showInputDialog ("Enter Rubric Description"); // get new values
@@ -513,7 +502,7 @@ public class ActivityCreation extends MSPanel {
        }
     }//GEN-LAST:event_Edit_row_buttonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void delete_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_row_buttonActionPerformed
         int deleterow = rubric_table.getSelectedRow();
         Object[][] temp = new Object[data.length-1][2]; //shrink the datasize by 1 since were going to lose a row
 
@@ -521,7 +510,7 @@ public class ActivityCreation extends MSPanel {
             temp[i][0] = data[i][0];
             temp[i][1] = data[i][1];
         }
-        for (int i=0; i<deleterow+1;i++){ //this will add all the rubric details after the selected delete row
+        for (int i=deleterow+1; i<data.length;i++){ //this will add all the rubric details after the selected delete row
             temp[i-1][0] = data[i][0];
             temp[i-1][1] = data[i][0];
         }
@@ -529,7 +518,8 @@ public class ActivityCreation extends MSPanel {
         data = temp; // reassign data with the temp
         rubric_table.setModel(new DefaultTableModel(data, columnNames)); //set the new table
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_delete_row_buttonActionPerformed
 
     private void rubric_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rubric_submit_buttonActionPerformed
             int entrynum = rubric_table.getRowCount(); //Get number of entries. Not sure if this works, should though.
@@ -537,7 +527,7 @@ public class ActivityCreation extends MSPanel {
           String desc =rubric_table.getValueAt(i, 0).toString(); //gets the description
           String MaxGrade = rubric_table.getValueAt(i, 1).toString(); //gets max grade, needs toconvert to FLOAT!!
           //* NEED METHOD HERE 
-       //   courseaccessitem.addRubricitem(courseID, activityname, desc, MaxGrade);
+      // courseaccess.addRubricitem(courseID, actName, desc, MaxGrade);
        // need references to activity name and courseID to work!
       }
       JOptionPane.showMessageDialog(this, "Rubric Submitted.");
@@ -549,7 +539,6 @@ public class ActivityCreation extends MSPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Edit_row_button;
-    private javax.swing.JButton Start_table_button;
     private javax.swing.JTextField activity_desc_field;
     private javax.swing.JLabel activity_desc_label;
     private javax.swing.JFormattedTextField activity_due_date_1_field;
@@ -578,7 +567,7 @@ public class ActivityCreation extends MSPanel {
     private javax.swing.JButton additional_due_date_button;
     private javax.swing.JTabbedPane create_activity_pane;
     private javax.swing.JPanel create_activity_tab;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton delete_row_button;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton rubric_additional_row_button;
     private javax.swing.JButton rubric_submit_button;
