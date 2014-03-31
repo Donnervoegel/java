@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 
 import database.CourseAccess;
 import gui.types.*;
-import gui.utils.GUIUtils;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -477,7 +476,10 @@ public class ActivityCreation extends MSPanel {
 
    Activity new_activity = new Activity(activity_name_field.getText(), activity_student_submissionpath_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
    
-   CourseAccess.addActivity(courseid,new_activity); // need to be able to get course added here from some public variable!
+   CourseAccess.addActivity(courseid,new_activity);
+   
+   JOptionPane.showMessageDialog(this, "Activity submitted.");
+// need to be able to get course added here from some public variable!
 
 // TODO add your handling code here:
     }//GEN-LAST:event_activity_submit_buttonActionPerformed
@@ -487,7 +489,10 @@ public class ActivityCreation extends MSPanel {
 		
     	Activity new_activity = new Activity(activity_name_field.getText(), activity_student_submissionpath_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
     	
-		CourseAccess.modifyActivity(courseID, actName, new_activity);
+        CourseAccess.modifyActivity(courseID, actName, new_activity);
+                
+        JOptionPane.showMessageDialog(this, "Activity modified.");
+
 	}
 
     private void Edit_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_row_buttonActionPerformed
