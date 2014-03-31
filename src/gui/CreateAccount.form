@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -251,9 +251,6 @@
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="existing_account_dropdownActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="existing_account_separator">
           <Properties>
@@ -282,9 +279,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="password_field">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="password_fieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="id_field">
           <Properties>
