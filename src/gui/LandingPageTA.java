@@ -89,9 +89,11 @@ public class LandingPageTA extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void marking_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marking_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(TA_MARKING, a));
     }//GEN-LAST:event_marking_buttonActionPerformed
 
+    private static final int TA_MARKING = 7;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton marking_button;
     private JPanel tasks_panel;

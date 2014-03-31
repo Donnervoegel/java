@@ -33,55 +33,89 @@ public class CourseSelection extends MSPanel {
      * Creates new form CourseSelection1
      */
     public CourseSelection(int page, Account acct) {
-	super("Course Selection");
-	this.a = acct;
-	
-	switch(page) {
-	case 1: // Course Selection for Course Modification
-		initComponents();
-		break;
-	case 2: // Course Selection for Course Deletion
-		initComponents();
+    	super("Course Selection");
+    	this.a = acct;
 
-		for (java.awt.event.ActionListener act : ok_button
-				.getActionListeners())
-			ok_button.removeActionListener(act);
+    	switch (page) {
+    	case 1: // Course Selection for Course Modification
+    		initComponents();
+    		break;
+    	case 2: // Course Selection for Course Deletion
+    		initComponents();
 
-		ok_button.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				ok_deleteCourse_buttonActionPerformed(evt);
-			}
-		});
-		break;
-	case 3: // Course Selection for Activity Marking
-		initComponents();
-		
-		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(a.getEmpID())));
+    		for (java.awt.event.ActionListener act : ok_button
+    				.getActionListeners())
+    			ok_button.removeActionListener(act);
 
-		for (java.awt.event.ActionListener act : ok_button
-				.getActionListeners())
-			ok_button.removeActionListener(act);
-		ok_button.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				ok_actListCourse_buttonActionPerformed(evt);
-			}
-		});
-		break;
-	case 4: // Course Selection for Activity Modification
-		initComponents();
+    		ok_button.addActionListener(new java.awt.event.ActionListener() {
+    			public void actionPerformed(java.awt.event.ActionEvent evt) {
+    				ok_deleteCourse_buttonActionPerformed(evt);
+    			}
+    		});
+    		break;
+    	case 3: // Course Selection for Instructor Marking
+    		initComponents();
 
-		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(a.getEmpID())));
-		
-		for (java.awt.event.ActionListener act : ok_button
-				.getActionListeners())
-			ok_button.removeActionListener(act);
-		ok_button.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				ok_activityManagement_buttonActionPerformed(evt);
-			}
-		});
-		break;
-	}
+    		course_selection_dropdown
+    		.setModel(new javax.swing.DefaultComboBoxModel(
+    				database.CourseAccess.accessCourseList(a.getEmpID())));
+
+    		for (java.awt.event.ActionListener act : ok_button
+    				.getActionListeners())
+    			ok_button.removeActionListener(act);
+    		ok_button.addActionListener(new java.awt.event.ActionListener() {
+    			public void actionPerformed(java.awt.event.ActionEvent evt) {
+    				ok_actListCourse_buttonActionPerformed(evt);
+    			}
+    		});
+    		break;
+    	case 4: // Course Selection for Activity Modification
+    		initComponents();
+
+    		course_selection_dropdown
+    		.setModel(new javax.swing.DefaultComboBoxModel(
+    				database.CourseAccess.accessCourseList(a.getEmpID())));
+
+    		for (java.awt.event.ActionListener act : ok_button
+    				.getActionListeners())
+    			ok_button.removeActionListener(act);
+    		ok_button.addActionListener(new java.awt.event.ActionListener() {
+    			public void actionPerformed(java.awt.event.ActionEvent evt) {
+    				ok_activityManagement_buttonActionPerformed(evt);
+    			}
+    		});
+    		break;
+    	case 5: // Course Selection for Admin Grading
+    		initComponents();
+
+    		for (java.awt.event.ActionListener act : ok_button
+    				.getActionListeners())
+    			ok_button.removeActionListener(act);
+    		ok_button.addActionListener(new java.awt.event.ActionListener() {
+    			public void actionPerformed(java.awt.event.ActionEvent evt) {
+    				ok_grading_buttonActionPerformed(evt);
+    			}
+    		});
+    		break;
+    	case 6: // Course Selection for Admin Viewing
+    		break;
+    	case 7: // Course Selection for TA Marking
+    		initComponents();
+
+    		course_selection_dropdown
+    		.setModel(new javax.swing.DefaultComboBoxModel(
+    				database.CourseAccess.accessCourseListTA(a.getEmpID())));
+
+    		for (java.awt.event.ActionListener act : ok_button
+    				.getActionListeners())
+    			ok_button.removeActionListener(act);
+    		ok_button.addActionListener(new java.awt.event.ActionListener() {
+    			public void actionPerformed(java.awt.event.ActionEvent evt) {
+    				ok_actListCourse_buttonActionPerformed(evt);
+    			}
+    		});
+    		break;
+    	}
     }
 
     /**
@@ -191,7 +225,13 @@ public class CourseSelection extends MSPanel {
 	}
 	
 	private void ok_actListCourse_buttonActionPerformed(ActionEvent evt) {
-		
+		String courseID = course_selection_dropdown.getSelectedItem().toString();
+		GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(courseID));
+	}
+	
+	private void ok_grading_buttonActionPerformed(ActionEvent evt) {
+		String courseID = course_selection_dropdown.getSelectedItem().toString();
+		GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(courseID));
 	}
 
 	private void course_selection_dropdownActionPerformed(

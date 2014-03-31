@@ -40,12 +40,17 @@ public class CreateAccount extends MSPanel {
 
         initComponents();
         
-        populateExistingAccountBox();
+        existing_account_dropdown
+		.setModel(new javax.swing.DefaultComboBoxModel(
+				database.AccountAccess.accessAccountList()));
         
         
         if (existing_account_dropdown.getItemCount() == 0)
         {
+        	modify_existing_checkbox.setEnabled(false);
             existing_account_dropdown.setEnabled(false);
+            delete_account_button.setEnabled(false);
+            ClearFields();
             System.out.println("ERROR NOTHING IN DROPDOWN");
         }
         
@@ -59,57 +64,6 @@ public class CreateAccount extends MSPanel {
         });
         
        }
-    
-       
-    private void populateExistingAccountBox(){
-        
-        //Populate Jcombobox with all of the user accounts
-        ResultSet account_rs = database.AccountAccess.accessAllAccounts();
-        Boolean row_valid = false;
-        
-               
-        try {
-			row_valid = account_rs.next();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-        
-        ArrayList<String> account_list = new ArrayList<String>();
-        
-        if (row_valid)
-        {
-        	String temp_account;
-        	
-	        while(row_valid){
-	        	try {
-	        	temp_account = account_rs.getString("Username");
-	        	account_list.add(temp_account);
-				row_valid = account_rs.next();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        
-	        }
-	        
-        }
-        else
-        {
-        	modify_existing_checkbox.setEnabled(false);
-                block_account_checkbox.setEnabled(false);
-                delete_account_button.setEnabled(false);
-                ClearFields();
-        	System.out.println("Accounts Database is empty, what a lonely school!");
-        }
-        
-        existing_account_dropdown.removeAllItems();
-        
-        for (String item : account_list)
-        	existing_account_dropdown.addItem(item);
-        
-        
-    }
     
     private void ClearFields()
     {
@@ -445,20 +399,21 @@ public class CreateAccount extends MSPanel {
 	GUIUtils.getMasterFrame(this).goBack();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
-    private void delete_account_buttonActionPerformed(ActionEvent evt) {        
-        int marker = existing_account_dropdown.getSelectedIndex();
-        
-        int confirm;
-	confirm = JOptionPane.showConfirmDialog(this, "Delete account \"" + username_field.getText() + "\"?");
-	if (confirm == JOptionPane.OK_OPTION) {
-	    AccountAccess.deleteAccount(existing_account_dropdown
-				    .getSelectedItem().toString());
-            
-            existing_account_dropdown.remove(marker);
-            populateExistingAccountBox();
-	    
+	private void delete_account_buttonActionPerformed(ActionEvent evt) {
+		String account = existing_account_dropdown.getSelectedItem().toString();
+
+		int confirm = JOptionPane.showConfirmDialog(this, "Delete account \""
+				+ username_field.getText() + "\"?", "",
+				JOptionPane.YES_NO_OPTION);
+		if (confirm == 0) {
+			AccountAccess.deleteAccount(account);
+			ClearFields();
+			existing_account_dropdown.removeAll();
+			existing_account_dropdown
+    		.setModel(new javax.swing.DefaultComboBoxModel(
+    				database.AccountAccess.accessAccountList()));
+		}
 	}
-        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel account_creation_header;

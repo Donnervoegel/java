@@ -100,14 +100,16 @@ public class LandingPageAdmin extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void grading_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grading_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(GRADING, a));
     }//GEN-LAST:event_grading_buttonActionPerformed
 
     private void viewing_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewing_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(VIEWING, a));
     }//GEN-LAST:event_viewing_buttonActionPerformed
 
-
+    private static final int GRADING = 5;
+    private static final int VIEWING = 6;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton grading_button;
     private javax.swing.JPanel tasks_panel;

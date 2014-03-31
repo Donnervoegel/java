@@ -55,6 +55,16 @@ public class ActivitySelection extends MSPanel {
     		break;
     	case 3: // Activity Selection for Marking
     		initComponents();
+    		
+    		for (java.awt.event.ActionListener act : ok_button
+    				.getActionListeners())
+    			ok_button.removeActionListener(act);
+
+    		ok_button.addActionListener(new java.awt.event.ActionListener() {
+    			public void actionPerformed(java.awt.event.ActionEvent evt) {
+    				ok_markActivity_buttonActionPerformed(evt);
+    			}
+    		});
     		break;
     	}
     }
@@ -156,6 +166,11 @@ public class ActivitySelection extends MSPanel {
 			// GO BACK TO LANDING PAGE?
 			activity_dropdown.removeItem(toDelete);
 		}
+	}
+    
+	private void ok_markActivity_buttonActionPerformed(ActionEvent evt) {
+		String activityName = activity_dropdown.getSelectedItem().toString();
+		
 	}
 
     private void activity_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_dropdownActionPerformed

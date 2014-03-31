@@ -1,6 +1,8 @@
 package database;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 import types.*;
 
 /**
@@ -17,6 +19,7 @@ public class AccountAccess {
 	// ATTRIBUTES - CLASS VARIABLES
 
 	private static Connection dbConnection; // The connection to the database
+
 	// STATIC METHODS
 
 	/*
@@ -52,51 +55,72 @@ public class AccountAccess {
 				+ username + "'";
 		return execQuery(query);
 	}
-        /*
-        Method that useses accessAccount() to access an account, then return
-        an Account object constructed from the ResultSet.
-        Untested, must verify it works.
-        Account type is set to TA/TM if an improper type is retrieved.
-        
-        * @author Graeme Smith (just this method)
-        */
-        public static Account constructAccountObject(String username) {
-            ResultSet result=accessAccount(username);
-            Account account=null;
-            try {
-                result.next();
-                String uname=result.getNString(1);
-                String pass=result.getNString(2);
-                int employee_id=result.getInt(3);
-                String employee_name=result.getNString(4);
-                int type=result.getInt(5);
-                String[]names=employee_name.split("\\s+");
-                String fname=names[0];
-                String lname=names[1];
-                Boolean blocked = result.getBoolean(6);
-                if (type==1){
-                    account=new SystemAdmin(fname, lname, employee_id, uname, pass);
-                } else if (type==2){
-                    account=new AcademicAdmin(fname, lname, employee_id, uname, pass);
-                } else if (type==3){
-                    account=new AssistantAdmin(fname, lname, employee_id, uname, pass);
-                } else if (type==4){
-                    account=new Instructor(fname, lname, employee_id, uname, pass);
-                } else if (type==5){
-                    account=new TATM(fname, lname, employee_id, uname, pass);
-                } else {
-                    account=new TATM(fname, lname, employee_id, uname, pass);
-                    System.out.println("There was an error with account type; account type set to TA/TM");
-                }
-                account.setBlocked(blocked);
-                return account;
-            } catch (SQLException ex) {
-                System.out.println("SQL Exception occured, the state : "
+	
+	public static Object[] accessAccountList() {
+		ArrayList<String> accounts = new ArrayList<String>();
+		String query = "SELECT Username FROM c275g01A.dbo.Account";
+		ResultSet res = execQuery(query);
+		try {
+			while (res.next()) {
+				accounts.add(res.getNString(1));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return accounts.toArray();
+	}
+
+	/*
+	 * Method that useses accessAccount() to access an account, then return an
+	 * Account object constructed from the ResultSet. Untested, must verify it
+	 * works. Account type is set to TA/TM if an improper type is retrieved.
+	 * 
+	 * @author Graeme Smith (just this method)
+	 */
+	public static Account constructAccountObject(String username) {
+		ResultSet result = accessAccount(username);
+		Account account = null;
+		try {
+			result.next();
+			String uname = result.getNString(1);
+			String pass = result.getNString(2);
+			int employee_id = result.getInt(3);
+			String employee_name = result.getNString(4);
+			int type = result.getInt(5);
+			String[] names = employee_name.split("\\s+");
+			String fname = names[0];
+			String lname = names[1];
+			Boolean blocked = result.getBoolean(6);
+			if (type == 1) {
+				account = new SystemAdmin(fname, lname, employee_id, uname,
+						pass);
+			} else if (type == 2) {
+				account = new AcademicAdmin(fname, lname, employee_id, uname,
+						pass);
+			} else if (type == 3) {
+				account = new AssistantAdmin(fname, lname, employee_id, uname,
+						pass);
+			} else if (type == 4) {
+				account = new Instructor(fname, lname, employee_id, uname, pass);
+			} else if (type == 5) {
+				account = new TATM(fname, lname, employee_id, uname, pass);
+			} else {
+				account = new TATM(fname, lname, employee_id, uname, pass);
+				System.out
+						.println("There was an error with account type; account type set to TA/TM");
+			}
+			account.setBlocked(blocked);
+			return account;
+		} catch (SQLException ex) {
+			System.out.println("SQL Exception occured, the state : "
 					+ ex.getSQLState() + "\nMessage: " + ex.getMessage());
-            }
-            System.out.println("Returning a null account because something failed while retrieving the account");
-            return account;
-        }
+		}
+		System.out
+				.println("Returning a null account because something failed while retrieving the account");
+		return account;
+	}
 
 	/*
 	 * Method to return a ResultSet containing the usernames of all the accounts
@@ -120,7 +144,7 @@ public class AccountAccess {
 		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
 		boolean blockFlag = acct.getBlocked();
-		
+
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Account VALUES ('" + username
 				+ "','" + password + "'," + empID + ",'" + empName + "',"
@@ -140,11 +164,11 @@ public class AccountAccess {
 		String empName = acct.getFirstName() + " " + acct.getLastName();
 		int acctType = acct.getAccountTypeAsInt();
 		boolean blockFlag = acct.getBlocked();
-		
+
 		// Create the update query string
-		String query = "UPDATE c275g01A.dbo.Account SET Username = '" + username
-				+ "', Pass = '" + password + "', EmployeeID = " + empID
-				+ ", EmployeeName = '" + empName + "', AccountType = "
+		String query = "UPDATE c275g01A.dbo.Account SET Username = '"
+				+ username + "', Pass = '" + password + "', EmployeeID = "
+				+ empID + ", EmployeeName = '" + empName + "', AccountType = "
 				+ acctType + ", BlockAccountFlag = " + boolToBit(blockFlag)
 				+ "WHERE Username = '" + accessUsername + "'";
 		execUpdate(query); // Execute the update query

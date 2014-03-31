@@ -109,11 +109,11 @@ public class CreateCourse extends MSPanel {
 
         course_end_label.setText("Course End Date");
 
-        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
-        course_start_formatfield.setText("yyyy/MM/dd");
+        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        course_start_formatfield.setText("yyyy-MM-dd");
 
-        course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
-        course_end_formatfield.setText("yyyy/MM/dd");
+        course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        course_end_formatfield.setText("yyyy-MM-dd");
         course_end_formatfield.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 course_end_formatfieldActionPerformed(evt);
@@ -335,6 +335,7 @@ public class CreateCourse extends MSPanel {
 			String student_name;
 			String student_id;
 
+			if(accounts_list != null)
 			for (String i : accounts_list) {
 				String[] arr = i.split(", ");
 				student_name = arr[0];

@@ -86,6 +86,23 @@ public class CourseAccess {
 		return courseIDs.toArray();
 	}
 
+	public static Object[] accessCourseListTA(int emplID) {
+		ArrayList<String> courseIDs = new ArrayList<String>();
+		String query = "SELECT CourseID FROM c275g01A.dbo.TeachingAssistant WHERE EmployeeID = '"
+				+ emplID + "'";
+		ResultSet res = execQuery(query);
+		try {
+			while (res.next()) {
+				courseIDs.add(res.getNString(1));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return courseIDs.toArray();
+	}
+
 	/*
 	 * Method to access a course in the database based off of course ID. This
 	 * method returns a ResultSet object that can be used to access the data in
