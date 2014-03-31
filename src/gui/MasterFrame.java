@@ -180,10 +180,16 @@ public class MasterFrame extends JFrame {
         //if the page stack zero, then grey back button
         if (pages.isEmpty())
             back_button.setEnabled(false);
+
+	// Turn the Settings button back on if it was off.
+	if (!settings_button.isEnabled())
+	    settings_button.setEnabled(true);
     }
     public void settingsAction(ActionEvent e) {
 	// Show the settings page.
 	movePage(new SettingsPage(a));
+
+	settings_button.setEnabled(false);
     }
 
     private void logoutAction(ActionEvent e) {
