@@ -157,46 +157,44 @@ public class LoginScreen extends JFrame {
 	 */
 	String name = username_field.getText();
 	String pass = new String(pass_field.getPassword());
-        Account test;
+        Account acct;
 
         //	 FOR TESTING PURPOSES ONLY
         if (name.equalsIgnoreCase("sysadmin")){
-            test = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
+            acct = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
         } else if (name.equalsIgnoreCase("admin")){
-            test = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
+            acct = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
         } else if (name.equalsIgnoreCase("assist")){
-            test = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
+            acct = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
         } else if (name.equalsIgnoreCase("instructor")){
-            test = new Instructor("Joey", "Tester", 9999, "password", "instructor");
+            acct = new Instructor("Joey", "Tester", 9999, "password", "instructor");
         } else if (name.equalsIgnoreCase("tatm") ){// ta marker
-            test = new TATM("Joey", "Tester", 9999, "password", "ta");
+            acct = new TATM("Joey", "Tester", 9999, "password", "ta");
         } else {
-	    test = Login.login(name, pass);
+	    acct = Login.login(name, pass);
         }
 
-	if(pass.length() < 0) {  // Temporary! Should be 5 or so.
+	if (pass.length() < 0) {  // Temporary! Should be 5 or so.
 	    JOptionPane
 		.showMessageDialog(this, "The password given is too short.");
-	} else if(name.isEmpty()) {
+	} else if (name.isEmpty()) {
 	    JOptionPane
 		.showMessageDialog(this, "No user name given.");
-	} else if(test == null) {
+	} else if (acct.isBlocked()) {
+	    JOptionPane.showMessageDialog(this, "This account is blocked.");
+	} else if (acct == null) {
 		JOptionPane.showMessageDialog(this, "Invalid username/password combo");
 	} else {
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
-	    // TODO: This needs to be passed a legit Account object.
-	    master = new MasterFrame(test, this);
+	    master = new MasterFrame(acct, this);
 	    this.setVisible(false);
 	    master.run();
 	}
     }
 
     private void forgotPassActionPerformed(ActionEvent evt) {
-	/*
-	 * Doesn't have to be dealt with yet.
-	 */
-	GUIUtils.nothing();
+	JOptionPane.showMessageDialog(this, "Go talk to a System Administrator.");
     }
 
     public void clearFields() {
