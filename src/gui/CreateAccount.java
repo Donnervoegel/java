@@ -97,6 +97,9 @@ public class CreateAccount extends MSPanel {
         else
         {
         	modify_existing_checkbox.setEnabled(false);
+                block_account_checkbox.setEnabled(false);
+                delete_account_button.setEnabled(false);
+                ClearFields();
         	System.out.println("Accounts Database is empty, what a lonely school!");
         }
         
@@ -375,7 +378,12 @@ public class CreateAccount extends MSPanel {
 
     private void fillFieldsFromSelection()
     {
-    	String account_username = (String) existing_account_dropdown.getSelectedItem();
+    	if (existing_account_dropdown.getSelectedIndex() == -1)
+            System.out.println("No valid index selected, nothing to print.");
+        
+        else {
+        
+        String account_username = (String) existing_account_dropdown.getSelectedItem();
         Account fill_acct = AccountAccess.constructAccountObject(account_username);
         
         first_name_field.setText(fill_acct.getFirstName());
@@ -385,7 +393,8 @@ public class CreateAccount extends MSPanel {
         username_field.setText(fill_acct.getUsername());
         password_field.setText(fill_acct.getPassword()); 
         block_account_checkbox.setSelected(fill_acct.getBlocked());
-    }
+        }
+     }
     
     private void ok_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
        String first = first_name_field.getText();
@@ -437,14 +446,16 @@ public class CreateAccount extends MSPanel {
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     private void delete_account_buttonActionPerformed(ActionEvent evt) {        
+        int marker = existing_account_dropdown.getSelectedIndex();
+        
         int confirm;
 	confirm = JOptionPane.showConfirmDialog(this, "Delete account \"" + username_field.getText() + "\"?");
 	if (confirm == JOptionPane.OK_OPTION) {
 	    AccountAccess.deleteAccount(existing_account_dropdown
 				    .getSelectedItem().toString());
             
+            existing_account_dropdown.remove(marker);
             populateExistingAccountBox();
-            existing_account_dropdown.setSelectedIndex(0);
 	    
 	}
         }
