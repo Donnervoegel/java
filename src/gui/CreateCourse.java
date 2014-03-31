@@ -264,8 +264,7 @@ public class CreateCourse extends MSPanel {
 	ArrayList<String> accounts_list; // The list of accounts in arraylist string
 										// format
 	private void cancel_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_cancel_buttonActionPerformed
-	    GUIUtils.getMasterFrame(this)
-		.goBackAction(new ActionEvent(this, 5, null));
+	    GUIUtils.getMasterFrame(this).goBack();
 	}// GEN-LAST:event_cancel_buttonActionPerformed
 
 	private void submit_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_submit_buttonActionPerformed

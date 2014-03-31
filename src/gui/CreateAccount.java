@@ -429,13 +429,11 @@ public class CreateAccount extends MSPanel {
 	    JOptionPane.showMessageDialog(this, "Account Created: " + username_field.getText());
 	}
         
-        GUIUtils.getMasterFrame(this)
-	    .goBackAction(new ActionEvent(this, 5, null));
+        GUIUtils.getMasterFrame(this).goBack();
     }//GEN-LAST:event_ok_buttonActionPerformed
     
     private void cancel_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-    	GUIUtils.getMasterFrame(this)
-	    .goBackAction(new ActionEvent(this, 5, null));
+	GUIUtils.getMasterFrame(this).goBack();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     private void delete_account_buttonActionPerformed(ActionEvent evt) {        

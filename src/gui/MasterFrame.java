@@ -170,7 +170,12 @@ public class MasterFrame extends JFrame {
 	System.out.println("Moving to: " + p.getPanelTitle());
     }
 
-    public void goBackAction(ActionEvent e) {
+    // An easier interface for navigating backward.
+    public void goBack() {
+	goBackAction(null);
+    }
+
+    private void goBackAction(ActionEvent e) {
 	System.out.println("Going back.");
 	curr_page.setVisible(false);
 	remove(curr_page);
