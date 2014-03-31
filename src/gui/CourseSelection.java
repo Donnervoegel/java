@@ -7,9 +7,12 @@
 package gui;
 
 import java.awt.event.ActionEvent;
+
 import javax.swing.JOptionPane;
+
 import types.Account;
 import types.Course;
+import types.Instructor;
 import gui.utils.GUIUtils;
 import gui.types.*;
 
@@ -31,12 +34,13 @@ public class CourseSelection extends MSPanel {
      */
     public CourseSelection(int page, Account acct) {
 	super("Course Selection");
-
+	this.a = acct;
+	
 	switch(page) {
-	case 1:
+	case 1: // Course Selection for Course Modification
 		initComponents();
 		break;
-	case 2:
+	case 2: // Course Selection for Course Deletion
 		initComponents();
 
 		for (java.awt.event.ActionListener act : ok_button
@@ -45,14 +49,14 @@ public class CourseSelection extends MSPanel {
 
 		ok_button.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				ok_delete_buttonActionPerformed(evt);
+				ok_deleteCourse_buttonActionPerformed(evt);
 			}
 		});
 		break;
-	case 3:
+	case 3: // Course Selection for Activity Marking
 		initComponents();
 		
-		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(acct.getEmpID())));
+		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(a.getEmpID())));
 
 		for (java.awt.event.ActionListener act : ok_button
 				.getActionListeners())
@@ -63,17 +67,17 @@ public class CourseSelection extends MSPanel {
 			}
 		});
 		break;
-	case 4:
+	case 4: // Course Selection for Activity Modification
 		initComponents();
 
-		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(acct.getEmpID())));
+		course_selection_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessCourseList(a.getEmpID())));
 		
 		for (java.awt.event.ActionListener act : ok_button
 				.getActionListeners())
 			ok_button.removeActionListener(act);
 		ok_button.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				ok_createAct_buttonActionPerformed(evt);
+				ok_activityManagement_buttonActionPerformed(evt);
 			}
 		});
 		break;
@@ -168,12 +172,12 @@ public class CourseSelection extends MSPanel {
 		GUIUtils.getMasterFrame(this).movePage(new CreateCourse(course));
 	}// GEN-LAST:event_ok_buttonActionPerformed
 	
-    private void ok_createAct_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
+    private void ok_activityManagement_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
         String courseid = course_selection_dropdown.getSelectedItem().toString(); //needs to be changed
-        GUIUtils.getMasterFrame(this).movePage(new ActivityCreation(courseid));
+        GUIUtils.getMasterFrame(this).movePage(new ActivityManagement(courseid, (Instructor) a));
     }//GEN-LAST:event_ok_buttonActionPerformed
 
-	private void ok_delete_buttonActionPerformed(ActionEvent evt) {
+	private void ok_deleteCourse_buttonActionPerformed(ActionEvent evt) {
 		String toDelete = course_selection_dropdown.getSelectedItem()
 				.toString();
 		int check = JOptionPane.showConfirmDialog(this,
@@ -195,6 +199,8 @@ public class CourseSelection extends MSPanel {
 		// TODO add your handling code here:
 	}// GEN-LAST:event_course_selection_dropdownActionPerformed
 
+	private Account a;
+	
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JComboBox course_selection_dropdown;
 	private javax.swing.JPanel course_selection_header;

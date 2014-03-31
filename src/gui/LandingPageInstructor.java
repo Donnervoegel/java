@@ -104,11 +104,11 @@ public class LandingPageInstructor extends MSPanel {
     private void activity_management_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_activity_management_buttonActionPerformed
         //GUIUtils.getMasterFrame(this).movePage(new CourseSelection(ACT_MANAGE, a));
         //for Markus : perhaps needs instructor passed through? 
-        GUIUtils.getMasterFrame(this).movePage(new ActivityManagement(a)); // added a here, could be wrong
+        GUIUtils.getMasterFrame(this).movePage(new CourseSelection(ACTIVITY_MANAGEMENT, a)); // added a here, could be wrong
     }//GEN-LAST:event_activity_management_buttonActionPerformed
 
     private static final int MARKING = 3;
-    private static final int ACT_MANAGE = 4;
+    private static final int ACTIVITY_MANAGEMENT = 4;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton activity_management_button;

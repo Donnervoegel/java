@@ -6,6 +6,11 @@
 
 package gui;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JOptionPane;
+
+import types.Activity;
 import database.CourseAccess;
 import gui.utils.GUIUtils;
 import gui.types.*;
@@ -15,16 +20,43 @@ import gui.types.*;
  * @author Normal
  */
 public class ActivitySelection extends MSPanel {
-
-    String coursetemp;
+    String courseID;
 
     /**
      * Creates new form ActivitySelection
      */
-    public ActivitySelection() {
+    public ActivitySelection(String courseID) {
 	super("Activity Selection");
 
+		this.courseID = courseID;
         initComponents();
+    }
+    
+    public ActivitySelection(int page, String courseID) {
+    	super("Activity Selection");
+    	this.courseID = courseID;
+    	
+    	switch(page) {
+    	case 1: // Activity Selection for Modification
+    		initComponents();
+    		break;
+    	case 2: // Activity Selection for Deletion
+    		initComponents();
+
+    		for (java.awt.event.ActionListener act : ok_button
+    				.getActionListeners())
+    			ok_button.removeActionListener(act);
+
+    		ok_button.addActionListener(new java.awt.event.ActionListener() {
+    			public void actionPerformed(java.awt.event.ActionEvent evt) {
+    				ok_deleteActivity_buttonActionPerformed(evt);
+    			}
+    		});
+    		break;
+    	case 3: // Activity Selection for Marking
+    		initComponents();
+    		break;
+    	}
     }
 
     /**
@@ -45,7 +77,7 @@ public class ActivitySelection extends MSPanel {
         activity_selection_header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         activity_selection_header.setName(""); // NOI18N
 
-        activity_dropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activity 1", "Activity 2", "Activity 3", "Activity 4" }));
+        activity_dropdown.setModel(new javax.swing.DefaultComboBoxModel(database.CourseAccess.accessActivityList(courseID)));
         activity_dropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activity_dropdownActionPerformed(evt);
@@ -109,20 +141,26 @@ public class ActivitySelection extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-
-//delete selected activity.
-  
-
-        
-
-
-
+    	String activityName = activity_dropdown.getSelectedItem().toString();
+		Activity act = database.CourseAccess.constructActivityObject(courseID, activityName);
+		GUIUtils.getMasterFrame(this).movePage(new ActivityCreation(courseID, act));
     }//GEN-LAST:event_ok_buttonActionPerformed
+
+    private void ok_deleteActivity_buttonActionPerformed(ActionEvent evt) {
+		String toDelete = activity_dropdown.getSelectedItem().toString();
+		int check = JOptionPane.showConfirmDialog(this,
+				"Delete activity " + toDelete + "?",
+				"", JOptionPane.YES_NO_OPTION);
+		if(check == 0) {
+			database.CourseAccess.deleteActivity(courseID, toDelete);
+			// GO BACK TO LANDING PAGE?
+			activity_dropdown.removeItem(toDelete);
+		}
+	}
 
     private void activity_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_dropdownActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_dropdownActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel activities_label;

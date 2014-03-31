@@ -18,13 +18,15 @@ import types.*;
  */
 public class ActivityManagement extends MSPanel {
     private Instructor a;
+    private String courseID;
 
     /**
      * Creates new form LandingPageSysAdmin
      */
-    public ActivityManagement(Instructor a) {
+    public ActivityManagement(String courseID, Instructor a) {
 	super("Activity Management");
 	this.a = a;
+	this.courseID = courseID;
 
         initComponents();
     }
@@ -113,21 +115,24 @@ public class ActivityManagement extends MSPanel {
     private void create_activity_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_create_activity_buttonActionPerformed
         // For Markus : Toggles here
 
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new ActivityCreation(courseID));
     }//GEN-LAST:event_create_activity_buttonActionPerformed
 
     private void modify_activity_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_modify_activity_buttonActionPerformed
                // For Markus : Toggles here
 
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(MODIFY_ACTIVITY, courseID));
     }//GEN-LAST:event_modify_activity_buttonActionPerformed
 
     private void delete_activity_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_activity_buttonActionPerformed
         // For Markus : Toggles here
         
-        GUIUtils.getMasterFrame(this).movePage(new CourseSelection());
+        GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(DELETE_ACTIVITY, courseID));
     }//GEN-LAST:event_delete_activity_buttonActionPerformed
 
+    private static final int MODIFY_ACTIVITY = 1;
+    private static final int DELETE_ACTIVITY = 2;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton create_activity_button;
     private javax.swing.JButton delete_activity_button;

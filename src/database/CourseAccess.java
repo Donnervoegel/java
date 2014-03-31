@@ -1,7 +1,9 @@
 package database;
 
 import java.util.ArrayList;
+
 import types.*;
+
 import java.sql.*;
 
 /**
@@ -190,7 +192,7 @@ public class CourseAccess {
 			courseID = cID; // rs.getNString("CourseID");
 			instructorName = rs.getNString("InstructorName");
 			instructorID = rs.getInt("InstructorID");
-			startDate = rs.getDate("StartDate"); 
+			startDate = rs.getDate("StartDate");
 			endDate = rs.getDate("EndDate");
 			String[] names = instructorName.split("\\s+");
 			String fname = names[0];
@@ -204,23 +206,15 @@ public class CourseAccess {
 		course = new Course(courseName, cID, ins, startDate.toString(),
 				endDate.toString());
 		// TeachingAssistant table
-		/*rs = accessTAs(cID);
-		if (rs != null) {
-			try {
-				while (rs.next()) {
-					taEID = rs.getInt("EmployeeID");
-					taEName = rs.getNString("EmployeeName");
-					String[] names = taEName.split("\\s+");
-					String fname = names[0];
-					String lname = names[1];
-					TATM temp = new TATM(fname, lname, taEID, null, null);
-					course.addMarker(temp);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}*/
+		/*
+		 * rs = accessTAs(cID); if (rs != null) { try { while (rs.next()) {
+		 * taEID = rs.getInt("EmployeeID"); taEName =
+		 * rs.getNString("EmployeeName"); String[] names =
+		 * taEName.split("\\s+"); String fname = names[0]; String lname =
+		 * names[1]; TATM temp = new TATM(fname, lname, taEID, null, null);
+		 * course.addMarker(temp); } } catch (SQLException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); } }
+		 */
 		// Students table
 		rs = accessStudentList(cID);
 		if (rs != null) {
@@ -247,11 +241,11 @@ public class CourseAccess {
 					aName = rs.getNString("ActivityName");
 					aDesc = rs.getNString("ActivityDesc");
 					sSolnPath = rs.getNString("StudentSolnPath");
-					solnPath = rs.getNString("SolnPath"); 
+					solnPath = rs.getNString("SolnPath");
 					aLang = rs.getNString("ActivityLang");
 					aType = rs.getInt("ActivityType");
 					groupAct = rs.getBoolean("GroupAct");
-					boolean isProgramming = (aType == 0); 
+					boolean isProgramming = (aType == 0);
 					Activity temp = new Activity(aName, sSolnPath, aLang,
 							isProgramming, groupAct);
 					course.addActivity(temp);
@@ -303,14 +297,55 @@ public class CourseAccess {
 		return execQuery(query);
 	}
 
+	public static Object[] accessActivityList(String courseID) {
+		ArrayList<String> activities = new ArrayList<String>();
+		String query = "SELECT * FROM c275g01A.dbo.Activity WHERE CourseID = '"
+				+ courseID + "'";
+		ResultSet res = execQuery(query);
+
+		try {
+			while (res.next()) {
+				activities.add(res.getNString("ActivityName"));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+
+		return activities.toArray();
+	}
+
 	/*
 	 * Method to access a particular activity by combination of course ID and
 	 * name.
 	 */
-	public ResultSet accessActivity(String courseID, String activityName) {
+	public static ResultSet accessActivity(String courseID, String activityName) {
 		String query = "SELECT * FROM c275g01A.dbo.Activity WHERE CourseID = '"
 				+ courseID + "' AND ActivityName = '" + activityName + "'";
 		return execQuery(query);
+	}
+
+	public static Activity constructActivityObject(String courseID,
+			String activityName) {
+		ResultSet res = accessActivity(courseID, activityName);
+		Activity temp = null;
+		try {
+			res.next();
+			String aName = res.getNString("ActivityName");
+			// String aDesc = res.getNString("ActivityDesc");
+			String sSolnPath = res.getNString("StudentSolnPath");
+			// String solnPath = res.getNString("SolnPath");
+			String aLang = res.getNString("ActivityLang");
+			int aType = res.getInt("ActivityType");
+			boolean groupAct = res.getBoolean("GroupAct");
+			boolean isProgramming = (aType == 0);
+			temp = new Activity(aName, sSolnPath, aLang, isProgramming,
+					groupAct);
+		} catch (SQLException e) {
+			System.out.println("SQL Exception occured, the state : "
+					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+		}
+		return temp;
 	}
 
 	/*
@@ -340,7 +375,8 @@ public class CourseAccess {
 	 * Method to update an activity (specified by name) in a particular course
 	 * specified by the course ID passed as a parameter.
 	 */
-	public void modifyActivity(String courseID, Activity act) {
+	public static void modifyActivity(String courseID, String accessName,
+			Activity act) {
 		// Build database entries from activity object
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
@@ -354,11 +390,11 @@ public class CourseAccess {
 		// Generate the update query
 		String query = "UPDATE c275g01A.dbo.Activity SET ActivityName='"
 				+ activityName + "',ActivityDesc='" + activityDesc
-				+ "',ActivityLang=" + activityLang + ",activityType="
-				+ activityType + ",GroupAct=" + boolToBit(group)
+				+ "',ActivityLang='" + activityLang + "',activityType="
+				+ boolToBit(activityType) + ",GroupAct=" + boolToBit(group)
 				+ ",StudentSolnPath='" + studentSolnPath + "',SolnPath='"
-				+ solnPath + "',NumTest=" + numTests + " WHERE CourseID = '"
-				+ courseID + "'";
+				+ solnPath + "',NumTests=" + numTests + " WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + accessName + "'";
 		execUpdate(query);
 	}
 
@@ -366,7 +402,7 @@ public class CourseAccess {
 	 * Method to remove a specified activity from a course (also specified) by
 	 * name and course ID.
 	 */
-	public void deleteActivity(String courseID, String activityName) {
+	public static void deleteActivity(String courseID, String activityName) {
 		String query = "DELETE FROM c275g01A.dbo.Activity WHERE CourseID = '"
 				+ courseID + "' AND ActivityName = '" + activityName + "'";
 		execUpdate(query);
