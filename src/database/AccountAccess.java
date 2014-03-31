@@ -73,6 +73,7 @@ public class AccountAccess {
                 String[]names=employee_name.split("\\s+");
                 String fname=names[0];
                 String lname=names[1];
+                Boolean blocked = result.getBoolean(6);
                 if (type==1){
                     account=new SystemAdmin(fname, lname, employee_id, uname, pass);
                 } else if (type==2){
@@ -87,6 +88,7 @@ public class AccountAccess {
                     account=new TATM(fname, lname, employee_id, uname, pass);
                     System.out.println("There was an error with account type; account type set to TA/TM");
                 }
+                account.setBlocked(blocked);
                 return account;
             } catch (SQLException ex) {
                 System.out.println("SQL Exception occured, the state : "

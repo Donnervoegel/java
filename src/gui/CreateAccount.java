@@ -44,10 +44,10 @@ public class CreateAccount extends MSPanel {
         
         
         if (existing_account_dropdown.getItemCount() == 0)
+        {
+            existing_account_dropdown.setEnabled(false);
             System.out.println("ERROR NOTHING IN DROPDOWN");
-       
-        else    
-            fillFieldsFromSelection();
+        }
         
         //Manually added listener for combobox changes
         existing_account_dropdown.addActionListener (new ActionListener () {
@@ -66,6 +66,7 @@ public class CreateAccount extends MSPanel {
         //Populate Jcombobox with all of the user accounts
         ResultSet account_rs = database.AccountAccess.accessAllAccounts();
         Boolean row_valid = false;
+        
                
         try {
 			row_valid = account_rs.next();
@@ -364,10 +365,11 @@ public class CreateAccount extends MSPanel {
         
         else
         {
+        block_account_checkbox.setSelected(false);
         block_account_checkbox.setEnabled(false);
         existing_account_dropdown.setEnabled(false);     
         delete_account_button.setEnabled(false);
-        
+        ClearFields();
         }
     }//GEN-LAST:event_modify_existing_checkboxActionPerformed
 
@@ -442,9 +444,12 @@ public class CreateAccount extends MSPanel {
 	if (confirm == JOptionPane.OK_OPTION) {
 	    AccountAccess.deleteAccount(existing_account_dropdown
 				    .getSelectedItem().toString());
-	    populateExistingAccountBox();
+            
+            populateExistingAccountBox();
+            existing_account_dropdown.setSelectedIndex(0);
+	    
 	}
-    }
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel account_creation_header;
