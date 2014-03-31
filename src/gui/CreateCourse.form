@@ -16,25 +16,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="557" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="create_course_panel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <Component id="create_course_panel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="349" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="create_course_panel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="create_course_panel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,73 +46,85 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="course_start_label" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="course_start_formatfield" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="course_end_label" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="course_end_formatfield" min="-2" pref="131" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ta_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="instructor_id_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="137" pref="137" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="instructor_id_field" max="32767" attributes="0"/>
-                                  <Component id="ta_name_field" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="submit_button" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="stud_list_label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="stud_list_file_location_field" min="-2" pref="250" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ta_id_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="course_id_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="course_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="instructor_username_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="choose_file_student_list_button" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="118" pref="118" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="instructor_username_field" max="32767" attributes="0"/>
-                                  <Component id="course_name_field" max="32767" attributes="0"/>
-                                  <Component id="course_id_field" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="ta_id_field" min="-2" pref="264" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="cancel_button" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="stud_list_label" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="stud_list_file_location_field" min="-2" pref="256" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="submit_button" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="course_start_label" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="choose_file_student_list_button" min="-2" max="-2" attributes="0"/>
-                              <Component id="cancel_button" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="course_start_formatfield" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="course_end_label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="course_end_formatfield" min="-2" pref="131" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="ta_field" pref="188" max="32767" attributes="0"/>
+                                      <Component id="instructor_field" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="course_id_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="course_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="instructor_username_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="ta_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="course_id_field" alignment="0" max="32767" attributes="0"/>
+                              <Component id="course_name_field" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="ta_combo" alignment="1" pref="200" max="32767" attributes="0"/>
+                              <Component id="instructor_combo" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="course_name_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="course_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,23 +136,15 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="instructor_username_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="instructor_username_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="instructor_combo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="instructor_field" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="instructor_id_field" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="instructor_id_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ta_name_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ta_name_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ta_id_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ta_id_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ta_combo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ta_field" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -161,12 +159,11 @@
                       <Component id="stud_list_file_location_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="choose_file_student_list_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="submit_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cancel_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -184,22 +181,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="instructor_username_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Instructor Username"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="instructor_id_label">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Instructor ID"/>
+            <Property name="text" type="java.lang.String" value="Instructor"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="ta_name_label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="TA/Marker Name"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="ta_id_label">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="TA/Marker ID"/>
+            <Property name="text" type="java.lang.String" value="TA/Marker"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="course_start_label">
@@ -223,17 +210,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="course_id_field">
-        </Component>
-        <Component class="javax.swing.JTextField" name="instructor_username_field">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instructor_username_fieldActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="instructor_id_field">
-        </Component>
-        <Component class="javax.swing.JTextField" name="ta_name_field">
-        </Component>
-        <Component class="javax.swing.JTextField" name="ta_id_field">
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="course_start_formatfield">
           <Properties>
@@ -282,6 +258,34 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancel_buttonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="instructor_combo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="ta_combo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="instructor_field">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ta_field">
         </Component>
       </SubComponents>
     </Container>

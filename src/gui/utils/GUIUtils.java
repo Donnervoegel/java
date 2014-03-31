@@ -33,9 +33,6 @@ public abstract class GUIUtils {
 	windowPosX = ((screenX - f.getWidth())  / 2) + topLeftX;
 	windowPosY = ((screenY - f.getHeight()) / 2) + topLeftY;
 
-	System.out.println(windowPosX);
-	System.out.println(windowPosY);
-
 	f.setLocation(windowPosX, windowPosY);
     }
 

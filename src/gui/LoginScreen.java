@@ -19,7 +19,6 @@ import types.*;
  * @author Pun
  */
 public class LoginScreen extends JFrame {
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private JPasswordField pass_field;
     private JButton forgot_pwd;
     private JButton login_button;
@@ -28,7 +27,6 @@ public class LoginScreen extends JFrame {
     private JLabel jLabel2;
     private JPanel jPanel1;
     private MasterFrame master;
-    // End of variables declaration//GEN-END:variables
 
     /**
      * Creates new form LoginScreen
