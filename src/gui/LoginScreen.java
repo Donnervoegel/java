@@ -193,10 +193,7 @@ public class LoginScreen extends JFrame {
     }
 
     private void forgotPassActionPerformed(ActionEvent evt) {
-	/*
-	 * Doesn't have to be dealt with yet.
-	 */
-	GUIUtils.nothing();
+	JOptionPane.showMessageDialog(this, "Go talk to a System Administrator.");
     }
 
     public void clearFields() {
