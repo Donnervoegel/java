@@ -163,39 +163,44 @@ public class LoginScreen extends JFrame {
 	String pass = new String(password_field.getPassword());
         Account acct;
         boolean login = false;
+	boolean backdoor = false;
         int attempts = 0;
 
-        //	 FOR TESTING PURPOSES ONLY
         if (name.equalsIgnoreCase("sysadmin")){
-        	login = true;
+	    backdoor = true;
+	    login = true;
             acct = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
         } else if (name.equalsIgnoreCase("admin")){
-        	login = true;
+	    backdoor = true;
+	    login = true;
             acct = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
         } else if (name.equalsIgnoreCase("assist")){
-        	login = true;
+	    backdoor = true;
+	    login = true;
             acct = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
         } else if (name.equalsIgnoreCase("instructor")){
-        	login = true;
+	    backdoor = true;
+	    login = true;
             acct = new Instructor("Joey", "Tester", 9999, "password", "instructor");
-        } else if (name.equalsIgnoreCase("tatm") ){// ta marker
-        	login = true;
+        } else if (name.equalsIgnoreCase("tatm") ){
+	    backdoor = true;
+	    login = true;
             acct = new TATM("Joey", "Tester", 9999, "password", "ta");
         } else {
-        	login = Login.login(name, pass);
-        	acct = AccountAccess.constructAccountObject(name);
+	    backdoor = true;
+	    login = Login.login(name, pass);
+	    acct = AccountAccess.constructAccountObject(name);
         }
 
-	if (acct == null) {
-	    JOptionPane.showMessageDialog(this, "Invalid username/password combo");
-	} else if (acct.isBlocked()) {
+	if (acct != null && acct.isBlocked()) {
 	    JOptionPane.showMessageDialog(this, "This account is blocked.");
-
 	} else if (!login) {
-		attempts = AccountAccess.failedLogin(name);
-		JOptionPane.showMessageDialog(this, "Invalid username/password combo. Attempts left: " + (5 - attempts));
+	    attempts = AccountAccess.failedLogin(name);
+	    JOptionPane.showMessageDialog(this, "Invalid username/password combo. Attempts left: " + (5 - attempts));
 	} else {
+	    if (!backdoor)
 		AccountAccess.successfulLogin(name);
+
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
 	    master = new MasterFrame(acct, this);
