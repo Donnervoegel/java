@@ -74,7 +74,7 @@ public class AccountAccess {
 
 	public static Object[] accessAllTAsNames() {
 		ArrayList<String> accounts = new ArrayList<String>();
-		String query = "SELECT EmployeeName FROM " 
+		String query = "SELECT EmployeeName FROM "
 				+ "c275g01A.dbo.Account WHERE AccountType = 5";
 		ResultSet res = execQuery(query);
 		try {
@@ -89,15 +89,16 @@ public class AccountAccess {
 		return accounts.toArray();
 	}
 
-     public static int accessTAID(String taname) { //really broken so far
+	public static int accessTAID(String taname) { // really broken so far
 		int taid = 0;
-		String query = "SELECT EmployeeID FROM " 
-				+ "c275g01A.dbo.Account WHERE AccountType = 5 AND EmployeeName= '" + taname +"'";
+		String query = "SELECT EmployeeID FROM "
+				+ "c275g01A.dbo.Account WHERE AccountType = 5 AND EmployeeName= '"
+				+ taname + "'";
 		ResultSet res = execQuery(query);
 		try {
 			while (res.next()) {
 				taid = res.getInt(1);
-                                System.out.println("The TA ID is: " + res.getInt(1));
+				System.out.println("The TA ID is: " + res.getInt(1));
 			}
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
@@ -105,9 +106,8 @@ public class AccountAccess {
 		}
 
 		return taid;
- }
-    
-        
+	}
+
 	public static Object[] accessAllInstructorsNames() {
 		ArrayList<String> accounts = new ArrayList<String>();
 		String query = "SELECT EmployeeName FROM "
@@ -124,16 +124,19 @@ public class AccountAccess {
 
 		return accounts.toArray();
 	}
-        
-         public static int accessInstructorID(String instructorname) { //really broken so far
-		int instructid = 0; 
-		String query = "SELECT EmployeeID FROM " 
-				+ "c275g01A.dbo.Account WHERE AccountType = 4 AND EmployeeName= '" + instructorname +"'";
+
+	public static int accessInstructorID(String instructorname) { // really
+																	// broken so
+																	// far
+		int instructid = 0;
+		String query = "SELECT EmployeeID FROM "
+				+ "c275g01A.dbo.Account WHERE AccountType = 4 AND EmployeeName= '"
+				+ instructorname + "'";
 		ResultSet res = execQuery(query);
 		try {
 			while (res.next()) {
 				instructid = res.getInt(1);
-                                
+
 			}
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
@@ -141,9 +144,7 @@ public class AccountAccess {
 		}
 
 		return instructid;
- }
-    
-                  
+	}
 
 	public static Account constructAccountFromID(int empID) {
 		Account a = null;
@@ -196,8 +197,8 @@ public class AccountAccess {
 				account = new TATM(fname, lname, employee_id, uname, pass);
 			} else {
 				account = new TATM(fname, lname, employee_id, uname, pass);
-				System.out
-						.println("There was an error with account type; account type set to TA/TM");
+				System.out.println("There was an error with account type; "
+						+ "account type set to TA/TM");
 			}
 			account.setBlocked(blocked);
 			return account;
@@ -205,8 +206,8 @@ public class AccountAccess {
 			System.out.println("SQL Exception occured, the state : "
 					+ ex.getSQLState() + "\nMessage: " + ex.getMessage());
 		}
-		System.out
-				.println("Returning a null account because something failed while retrieving the account");
+		System.out.println("Returning a null account because something "
+				+ "failed while retrieving the account");
 		return account;
 	}
 
@@ -236,7 +237,7 @@ public class AccountAccess {
 		// Create the insertion query string
 		String query = "INSERT INTO c275g01A.dbo.Account VALUES ('" + username
 				+ "','" + password + "'," + empID + ",'" + empName + "',"
-				+ acctType + "," + boolToBit(blockFlag) + ")";
+				+ acctType + "," + boolToBit(blockFlag) + ", 0)";
 		execUpdate(query); // Execute the insertion update
 	}
 
@@ -348,8 +349,4 @@ public class AccountAccess {
 		return b ? 1 : 0;
 	}
 
-        
-        
-        
-        
 }
