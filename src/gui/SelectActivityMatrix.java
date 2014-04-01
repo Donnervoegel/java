@@ -6,6 +6,7 @@
 
 package gui;
 
+import database.GradeAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
 import java.sql.Array;
@@ -150,14 +151,12 @@ public class SelectActivityMatrix extends MSPanel {
         
         String c_id = c.getCourseID();
         Activity act = database.CourseAccess.constructActivityObject(c_id, assignment_select_dropdown.getSelectedItem().toString());
-    //    int student_id = FUNCTION THAT TAKES STUDENT NAME AND OUTPUTS THEIR ID FROM DB;
-        
-        
-        //Uncomment when functional
-    //    if (ACTIVITY CODE CONDITION) //Activity is code
-    //        GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id));
-    //    else //Activity is not code
-    //        GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id));
+        int student_id = GradeAccess.getStudentID(student_select_dropdown.getSelectedItem().toString());
+       
+        if (act.isProgramming()) //Activity is code
+            GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id));
+        else //Activity is not code
+            GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id));
     }//GEN-LAST:event_ok_buttonActionPerformed
 
 

@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class to access grades in project SQL database.
@@ -45,6 +47,21 @@ public class GradeAccess {
 
 	// NON-STATIC METHODS
 
+        public static int getStudentID(String stud_name) {
+                String query = "SELECT StudentID FROM c275g01A.dbo.Student WHERE StudentName = '" + stud_name + "'";
+                        ResultSet rs = execQuery(query);
+                        int student_id = 666; //If you get this value, you'll know the database didn't find anything.
+                       
+              try {
+                rs.next();
+                student_id = rs.getInt(1);
+            } catch (SQLException ex) {
+                Logger.getLogger(GradeAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                       
+                       return student_id;
+        }
+        
 	public static ResultSet accessGrades(String courseID, String actName) {
 		String query = "SELECT Grade FROM c275g01A.dbo.Grades WHERE"
 				+ " CourseID = '" + courseID + "',ActivityName = '" + actName
