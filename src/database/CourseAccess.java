@@ -249,8 +249,9 @@ public class CourseAccess {
 					aType = rs.getBoolean("ActivityType");
 					groupAct = rs.getBoolean("GroupAct");
 					int numTests = rs.getInt("NumTests");
+					String dueDate = rs.getNString("DueDate");
 					Activity temp = new Activity(aName, aDesc, sSolnPath,
-							solnPath, aLang, aType, groupAct, numTests);
+							solnPath, aLang, dueDate, aType, groupAct, numTests);
 					course.addActivity(temp);
 				}
 			} catch (SQLException e) {
@@ -339,11 +340,12 @@ public class CourseAccess {
 			String sSolnPath = res.getNString("StudentSolnPath");
 			String solnPath = res.getNString("SolnPath");
 			String aLang = res.getNString("ActivityLang");
+			String dueDate = res.getDate("DueDate").toString();
 			boolean aType = res.getBoolean("ActivityType");
 			boolean groupAct = res.getBoolean("GroupAct");
 			int numTests = res.getInt("NumTests");
 			temp = new Activity(aName, aDesc, sSolnPath, solnPath, aLang,
-					aType, groupAct, numTests);
+					dueDate, aType, groupAct, numTests);
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
@@ -364,13 +366,14 @@ public class CourseAccess {
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
 		int numTests = act.getNumOfTests();
+		String dueDate = act.getDueDate();
 
 		// Generate the insertion query
 		String query = "INSERT INTO c275g01A.dbo.Activity VALUES ('" + courseID
 				+ "','" + activityName + "','" + activityDesc + "','"
 				+ activityLang + "'," + boolToBit(activityType) + ","
 				+ boolToBit(group) + ",'" + studentSolnPath + "','" + solnPath
-				+ "'," + numTests + ")";
+				+ "'," + numTests + ",'" + dueDate + "')";
 		execUpdate(query);
 	}
 
@@ -389,6 +392,7 @@ public class CourseAccess {
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
 		int numTests = act.getNumOfTests();
+		String dueDate = act.getDueDate();
 
 		// Generate the update query
 		String query = "UPDATE c275g01A.dbo.Activity SET ActivityName='"
@@ -396,8 +400,9 @@ public class CourseAccess {
 				+ "',ActivityLang='" + activityLang + "',activityType="
 				+ boolToBit(activityType) + ",GroupAct=" + boolToBit(group)
 				+ ",StudentSolnPath='" + studentSolnPath + "',SolnPath='"
-				+ solnPath + "',NumTests=" + numTests + " WHERE CourseID = '"
-				+ courseID + "' AND ActivityName = '" + accessName + "'";
+				+ solnPath + "',NumTests=" + numTests + ",DueDate = '"
+				+ dueDate + "' WHERE CourseID = '" + courseID
+				+ "' AND ActivityName = '" + accessName + "'";
 		execUpdate(query);
 	}
 

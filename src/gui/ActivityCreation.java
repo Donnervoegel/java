@@ -145,6 +145,9 @@ public class ActivityCreation extends MSPanel {
         activity_lang_label.setText("Language");
 
         activity_due_date_1_label.setText("Due Date 1");
+        
+        activity_due_date_1_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        activity_due_date_1_field.setText("yyyy-MM-dd");
 
         Object[] types = {"Essay/Problem Set","Programming"};
         activity_type_combo.setModel(new javax.swing.DefaultComboBoxModel(types));
@@ -625,6 +628,7 @@ public class ActivityCreation extends MSPanel {
 				activity_student_submissionpath_field.getText(),
 				activity_solution_field.getText(),
 				activity_lang_field.getText(),
+				activity_due_date_1_field.getText(),
 				prog, group,
 				Integer.parseInt(activity_test_number_field.getText()));
 		CourseAccess.addActivity(courseid, new_activity);
@@ -657,6 +661,7 @@ public class ActivityCreation extends MSPanel {
 				activity_student_submissionpath_field.getText(),
 				activity_solution_field.getText(),
 				activity_lang_field.getText(),
+				activity_due_date_1_field.getText(),
 				prog, group,
 				Integer.parseInt(activity_test_number_field.getText()));
 
