@@ -49,16 +49,19 @@ public class ActivityCreation extends MSPanel {
     	activity_name_field.setText(act.getName());
     	activity_desc_field.setText(act.getActivityDesc());
     	activity_lang_field.setText(act.getLanguage());
+    	activity_student_submissionpath_field.setText(act.getStudentSubPath());
     	activity_solution_field.setText(act.getSolnPath());
     	activity_due_date_1_field.setText(act.getDueDate());
+    	
     	if(act.isGroup())
     		activity_group_checkbox.doClick();
     	else
     		activity_individual_checkbox.doClick();
-    	if(act.isProgramming())
-    		activity_type_field.setText("Programming");
+    	
+    	if(act.isProgramming()) 
+    		activity_type_combo.setSelectedIndex(1);
     	else
-    		activity_type_field.setText("Essay/Problem Set");
+    		activity_type_combo.setSelectedIndex(0);
     		
     	for(ActionListener actLis : activity_submit_button.getActionListeners()) 
     		activity_submit_button.removeActionListener(actLis);
@@ -70,8 +73,10 @@ public class ActivityCreation extends MSPanel {
     	});
     	
     	Object[][] temp = CourseAccess.accessRubricItems(courseID, act.getName());
-    	data = temp;
-    	rubric_table.setModel(new DefaultTableModel(data, columnNames));
+		if (temp.length != 0) {
+			data = temp;
+			rubric_table.setModel(new DefaultTableModel(data, columnNames));
+		}
 	}
 
 	/**
@@ -92,7 +97,7 @@ public class ActivityCreation extends MSPanel {
         activity_lang_label = new javax.swing.JLabel();
         activity_due_date_1_label = new javax.swing.JLabel();
         activity_name_field = new javax.swing.JTextField();
-        activity_type_field = new javax.swing.JTextField();
+        activity_type_combo = new javax.swing.JComboBox();
         activity_desc_field = new javax.swing.JTextField();
         activity_lang_field = new javax.swing.JTextField();
         activity_due_date_1_time = new javax.swing.JTextField();
@@ -131,9 +136,11 @@ public class ActivityCreation extends MSPanel {
 
         activity_due_date_1_label.setText("Due Date 1");
 
-        activity_type_field.addActionListener(new java.awt.event.ActionListener() {
+        Object[] types = {"Essay/Problem Set","Programming"};
+        activity_type_combo.setModel(new javax.swing.DefaultComboBoxModel(types));
+        activity_type_combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                activity_type_fieldActionPerformed(evt);
+                activity_type_comboActionPerformed(evt);
             }
         });
 
@@ -249,7 +256,7 @@ public class ActivityCreation extends MSPanel {
                                         .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(activity_lang_field, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                                             .addComponent(activity_desc_field)
-                                            .addComponent(activity_type_field)
+                                            .addComponent(activity_type_combo)
                                             .addComponent(activity_name_field)))
                                     .addGroup(create_activity_tabLayout.createSequentialGroup()
                                         .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -295,7 +302,7 @@ public class ActivityCreation extends MSPanel {
                 .addGap(18, 18, 18)
                 .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activity_type_label)
-                    .addComponent(activity_type_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(activity_type_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activity_desc_label)
@@ -505,9 +512,24 @@ public class ActivityCreation extends MSPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_solution_fieldActionPerformed
 
-    private void activity_type_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_type_fieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_activity_type_fieldActionPerformed
+    private void activity_type_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_type_comboActionPerformed
+        if(activity_type_combo.getSelectedItem().toString().equalsIgnoreCase("Essay/Problem Set")) {
+        	activity_test_in_button.setEnabled(false);
+        	activity_test_in_field.setEnabled(false);
+        	activity_test_in_field.setText("");
+        	activity_test_out_button.setEnabled(false);
+        	activity_test_out_field.setEnabled(false);
+        	activity_test_out_field.setText("");
+        	activity_test_number_field.setEnabled(false);
+        	activity_test_number_field.setText("0");
+        } else {
+        	activity_test_in_button.setEnabled(true);
+        	activity_test_in_field.setEnabled(true);
+        	activity_test_out_button.setEnabled(true);
+        	activity_test_out_field.setEnabled(true);
+        	activity_test_number_field.setEnabled(true);
+        }
+    }//GEN-LAST:event_activity_type_comboActionPerformed
 
 	private void rubric_additional_row_buttonActionPerformed(
 			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rubric_additional_row_buttonActionPerformed
@@ -539,38 +561,34 @@ public class ActivityCreation extends MSPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_test_number_fieldActionPerformed
 
-    private void activity_student_submissionpath_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_student_submissionpath_buttonActionPerformed
+	private void activity_student_submissionpath_buttonActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_activity_student_submissionpath_buttonActionPerformed
 
+		JFileChooser chooser = new JFileChooser();
+		chooser.setCurrentDirectory(new java.io.File("."));
+		chooser.setDialogTitle("choosertitle");
+		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		chooser.setAcceptAllFileFilterUsed(true);
 
+		String path_container;
 
+		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+			System.out.println("getCurrentDirectory(): "
+					+ chooser.getCurrentDirectory());
+			path_container = chooser.getSelectedFile().toString();
 
-	JFileChooser chooser = new JFileChooser();
-	chooser.setCurrentDirectory(new java.io.File("."));
-	chooser.setDialogTitle("choosertitle");
-	chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-	chooser.setAcceptAllFileFilterUsed(true);
-	
-	String path_container;
-	
-	if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-	    System.out.println("getCurrentDirectory(): "
-			       + chooser.getCurrentDirectory());
-	    path_container = chooser.getSelectedFile().toString();
-	    
-	    activity_student_submissionpath_field.setText(path_container);
-	    filepath_temp = TextAnalyzer.getInput(path_container);
-	    
-	    System.out.println("getSelectedFile() : "
-			       + chooser.getSelectedFile());
-	} else {
-	    System.out.println("No Selection");
-	    filepath_temp = null; // Set the array list filepath_temp to null if
-	    // nothing initiated.
-	}
+			activity_student_submissionpath_field.setText(path_container);
+			filepath_temp = TextAnalyzer.getInput(path_container);
 
+			System.out.println("getSelectedFile() : "
+					+ chooser.getSelectedFile());
+		} else {
+			System.out.println("No Selection");
+			filepath_temp = null; // Set the array list filepath_temp to null if
+			// nothing initiated.
+		}
 
-
-    }//GEN-LAST:event_activity_student_submissionpath_buttonActionPerformed
+	}//GEN-LAST:event_activity_student_submissionpath_buttonActionPerformed
 
     private void additional_due_date_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additional_due_date_buttonActionPerformed
         // TODO add your handling code here:
@@ -580,29 +598,58 @@ public class ActivityCreation extends MSPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_reset_buttonActionPerformed
 
-    private void activity_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_submit_buttonActionPerformed
-        
-//    public Activity(String n, String sol, String lang, boolean p, boolean g)
+	private void activity_submit_buttonActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_activity_submit_buttonActionPerformed
+		// public Activity(String n, String sol, String lang, boolean p, boolean g)
+		boolean prog; boolean group;
+		if(activity_type_combo.getSelectedItem().toString().equalsIgnoreCase("Programming"))
+			prog = true;
+		else
+			prog = false;
+		if(activity_group_checkbox.isSelected())
+			group = true;
+		else
+			group = false;
+			
+		Activity new_activity = new Activity(activity_name_field.getText(),
+				activity_desc_field.getText(),
+				activity_student_submissionpath_field.getText(),
+				activity_solution_field.getText(),
+				activity_lang_field.getText(),
+				prog, group,
+				Integer.parseInt(activity_test_number_field.getText()));
 
-   Activity new_activity = new Activity(activity_name_field.getText(), activity_student_submissionpath_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
-   
-   CourseAccess.addActivity(courseid,new_activity);
-   
-   JOptionPane.showMessageDialog(this, "Activity submitted.");
-// need to be able to get course added here from some public variable!
+		CourseAccess.addActivity(courseid, new_activity);
 
-// TODO add your handling code here:
-    }//GEN-LAST:event_activity_submit_buttonActionPerformed
-    
-    private void activity_submitModify_buttonActionPerformed(ActionEvent evt,
+		JOptionPane.showMessageDialog(this, "Activity submitted.");
+		GUIUtils.getMasterFrame(this).goBack();
+	}// GEN-LAST:event_activity_submit_buttonActionPerformed
+
+	private void activity_submitModify_buttonActionPerformed(ActionEvent evt,
 			String courseID, String actName) {
-		
-    	Activity new_activity = new Activity(activity_name_field.getText(), activity_student_submissionpath_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
-    	
-        CourseAccess.modifyActivity(courseID, actName, new_activity);
-                
-        JOptionPane.showMessageDialog(this, "Activity modified.");
 
+		boolean prog; boolean group;
+		if(activity_type_combo.getSelectedItem().toString().equalsIgnoreCase("Programming"))
+			prog = true;
+		else
+			prog = false;
+		if(activity_group_checkbox.isSelected())
+			group = true;
+		else
+			group = false;
+
+		Activity new_activity = new Activity(activity_name_field.getText(),
+				activity_desc_field.getText(),
+				activity_student_submissionpath_field.getText(),
+				activity_solution_field.getText(),
+				activity_lang_field.getText(),
+				prog, group,
+				Integer.parseInt(activity_test_number_field.getText()));
+
+		CourseAccess.modifyActivity(courseID, actName, new_activity);
+
+		JOptionPane.showMessageDialog(this, "Activity modified.");
+		GUIUtils.getMasterFrame(this).goBack();
 	}
 
     private void Edit_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_row_buttonActionPerformed
@@ -707,7 +754,7 @@ public class ActivityCreation extends MSPanel {
     private javax.swing.JButton activity_test_out_button;
     private javax.swing.JTextField activity_test_out_field;
     private javax.swing.JLabel activity_testcomment_label;
-    private javax.swing.JTextField activity_type_field;
+    private javax.swing.JComboBox activity_type_combo;
     private javax.swing.JLabel activity_type_label;
     private javax.swing.JButton additional_due_date_button;
     private javax.swing.JTabbedPane create_activity_pane;

@@ -198,8 +198,7 @@ public class CourseAccess {
 		ArrayList<Activity> activities = new ArrayList<Activity>();
 		String aName = null, aDesc = null, sSolnPath = null, solnPath = null;
 		String aLang;
-		int aType;
-		boolean groupAct;
+		boolean groupAct, aType;
 		// Course table
 		rs = accessCourse(cID);
 		try {
@@ -269,11 +268,11 @@ public class CourseAccess {
 					sSolnPath = rs.getNString("StudentSolnPath");
 					solnPath = rs.getNString("SolnPath");
 					aLang = rs.getNString("ActivityLang");
-					aType = rs.getInt("ActivityType");
+					aType = rs.getBoolean("ActivityType");
 					groupAct = rs.getBoolean("GroupAct");
-					boolean isProgramming = (aType == 0);
-					Activity temp = new Activity(aName, sSolnPath, aLang,
-							isProgramming, groupAct);
+					int numTests = rs.getInt("NumTests");
+					Activity temp = new Activity(aName, aDesc, sSolnPath, solnPath, aLang,
+							aType, groupAct, numTests);
 					course.addActivity(temp);
 				}
 			} catch (SQLException e) {
@@ -358,15 +357,15 @@ public class CourseAccess {
 		try {
 			res.next();
 			String aName = res.getNString("ActivityName");
-			// String aDesc = res.getNString("ActivityDesc");
+			String aDesc = res.getNString("ActivityDesc");
 			String sSolnPath = res.getNString("StudentSolnPath");
-			// String solnPath = res.getNString("SolnPath");
+			String solnPath = res.getNString("SolnPath");
 			String aLang = res.getNString("ActivityLang");
-			int aType = res.getInt("ActivityType");
+			boolean aType = res.getBoolean("ActivityType");
 			boolean groupAct = res.getBoolean("GroupAct");
-			boolean isProgramming = (aType == 0);
-			temp = new Activity(aName, sSolnPath, aLang, isProgramming,
-					groupAct);
+			int numTests = res.getInt("NumTests");
+			temp = new Activity(aName, aDesc, sSolnPath, solnPath, aLang, aType,
+					groupAct, numTests);
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
@@ -381,11 +380,11 @@ public class CourseAccess {
 		// Build database entries from activity object
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
-		String studentSolnPath = act.getSolnPath();
+		String studentSolnPath = act.getStudentSubPath();
+		String solnPath = act.getSolnPath();
 		String activityLang = act.getLanguage();
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
-		String solnPath = "";
 		int numTests = act.getNumOfTests();
 
 		// Generate the insertion query
@@ -406,11 +405,11 @@ public class CourseAccess {
 		// Build database entries from activity object
 		String activityName = act.getName();
 		String activityDesc = act.getActivityDesc();
-		String studentSolnPath = act.getSolnPath();
+		String studentSolnPath = act.getStudentSubPath();
+		String solnPath = act.getSolnPath();
 		String activityLang = act.getLanguage();
 		boolean activityType = act.isProgramming();
 		boolean group = act.isGroup();
-		String solnPath = "";
 		int numTests = act.getNumOfTests();
 
 		// Generate the update query

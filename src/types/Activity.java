@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Activity
 {
-    private String name, path_solutions, due_date, activityDesc, language;
+    private String name, solnPath, studentSubPath , due_date, activityDesc, language;
     private int num_of_tests, num_of_files;
     //isGroup has been included, but it will be empty as this was discontinued
     //in the prioritization meeting 
@@ -19,16 +19,18 @@ public class Activity
     
     private Rubric rubric;
     
-    public Activity(String n, String sol, String lang, boolean p, boolean g)
+    public Activity(String n, String desc, String studPath, String soln, String lang, boolean p, boolean g, int numTests)
     {
         name = n;
-        path_solutions = sol;
+        activityDesc = desc;
+        studentSubPath = studPath;
+        solnPath = soln;
         language = lang;
         isProgramming = p;
         isGroup = g;
-        num_of_tests = 0;
-        isProgramming = false;
-        isGroup = false;
+        num_of_tests = numTests;
+        isProgramming = p;
+        isGroup = g;
         tests = new ArrayList<ProgrammingTest>();
         //update Database     
     }
@@ -39,8 +41,12 @@ public class Activity
     	return activityDesc;
     }
     
+    public String getStudentSubPath() {
+    	return studentSubPath;
+    }
+    
     public String getSolnPath() {
-    	return path_solutions;
+    	return solnPath;
     }
     
     public String getName()
@@ -112,7 +118,7 @@ public class Activity
      * @desc:   Creates a rubric depending on teh flag isPassFail
      * @author: Chazz Young
      */
-    public void addRubric(boolean isPassFail)
+    /*public void addRubric(boolean isPassFail)
     {
         Rubric r;
         if(isPassFail == true){
@@ -121,5 +127,5 @@ public class Activity
             String path = (path_solutions + "/Rubric.txt");
             r = new Rubric(path);
         }
-    }
+    }*/
 }
