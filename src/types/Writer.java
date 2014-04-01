@@ -9,9 +9,9 @@ import java.io.*;
  * @author: Chazz Young
  */
 public class Writer {
-    public void write(ArrayList<String> outputs, String name) {
+    public void write(ArrayList<String> outputs, String path, String name) {
         try {
-          File file = new File(name + ".txt");
+          File file = new File(path + name + ".txt");
           BufferedWriter output = new BufferedWriter(new FileWriter(file));
           for(String s : outputs){
                 output.write(s);
