@@ -78,6 +78,81 @@ public abstract class GUIUtils {
 		}
        return list;             
     }
+
+    /**
+    * @desc:   This method is used by the Instructor to generate a csv file containing the 
+    *          grades for a given activity. It takes data from the database and converts it
+    *          into a .txt file which is saved to the specified path with the given name.
+    * @author: Chazz Young
+    */
+    public static void generateGradeCSV(String courseID, String actName, String path, String name)
+    {
+        //Get grades from database
+        ResultSet grade_rs = database.GradeAccess.accessGrades(courseID, actName);
+        boolean row_valid = false;
+        
+        //Check to see if the database connection was successful
+        try {
+            row_valid = grade_rs.next();
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        
+        //Initialize grades to return
+        ArrayList<String> grades = new ArrayList<String>();
+        
+        if (row_valid){
+            //Initialize temp values to store line info for the csv file
+            int student = 0;
+            float grade = 0.0f;
+            float total = 0.0f;
+            String toAdd;
+            
+            //Set first line to begin
+            try{
+                student = grade_rs.getInt("StudentID");
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            toAdd = Integer.toString(student);
+            
+            //Populate the ArrayList<String> of lines to add
+            while(row_valid){
+                try {
+                    //For each student, add grade (rounded to 2 decimal places) to line
+                    //e.g. 12345, 6.25, 12.00, 88.50, 2.00, 106.25
+                    if(student == grade_rs.getInt("StudentID")){//add another grade to line
+                        grade = grade_rs.getFloat("Grade");
+                        total += grade;
+                        grade = Math.round(student*100)/100;
+                        toAdd = toAdd + ", " + Float.toString(grade);
+                        row_valid = grade_rs.next();
+                    }else{//Add total to end of line, reset line, and initialize next line
+                        toAdd = (toAdd + ", " + total);
+                        grades.add(toAdd);
+                        toAdd = "";
+                        student = grade_rs.getInt("StudentID");
+                        grade = grade_rs.getFloat("Grade");
+                        grade = Math.round(student*100)/100;
+                        toAdd = (Integer.toString(student) + ", " + grade);
+                        row_valid = grade_rs.next();
+                    }
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            
+            //Write the ArrayList<String> to a file
+            (new Writer()).write(grades, path, name);
+        }else{
+            System.out.println("Error. Either there was an error connecting to the database");
+            System.out.println("or one of teh specified fields is invalid.");
+        }
+            
+    }
             
 
 }
