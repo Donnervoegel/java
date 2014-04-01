@@ -234,6 +234,36 @@ public class AccountAccess {
 		execUpdate(query); // Execute the deletion query
 	}
 
+	public static int failedLogin(String username) {
+		String query = "SELECT PWAttempts FROM c275g01A.dbo.Account WHERE Username = '"
+				+ username + "'";
+		ResultSet res = execQuery(query);
+		int attempts = 0;
+		try {
+			res.next();
+			attempts = res.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		attempts++;
+		if (attempts < 5) {
+			query = "UPDATE c275g01A.dbo.Account SET PWAttempts = " + attempts
+					+ " WHERE Username = '" + username + "'";
+		} else {
+			query = "UPDATE c275g01A.dbo.Account SET PWAttempts = " + attempts
+					+ ", BlockAccountFlag = 1 WHERE Username = '" + username
+					+ "'";
+		}
+		execQuery(query);
+		return attempts;
+	}
+
+	public static void successfulLogin(String username) {
+		String query = "UPDATE c275g01A.dbo.Account SET PWAttempts = 0 WHERE Username = '"
+				+ username + "'";
+		execUpdate(query);
+	}
+
 	/*
 	 * Method to execute an update (INSERT, DELETE, UPDATE) query on the
 	 * database connection.

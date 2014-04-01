@@ -356,7 +356,7 @@ public class CreateAccount extends MSPanel {
        int id = Integer.parseInt(id_field.getText());
        String username = username_field.getText();
        String pass = password_field.getText();
-       Boolean block_value = block_account_checkbox.isSelected();
+       boolean block_value = block_account_checkbox.isSelected();
        Account creation;
        String account_select = account_type_dropdown
 	   .getSelectedItem().toString();
@@ -384,6 +384,8 @@ public class CreateAccount extends MSPanel {
 	if (modify_existing_checkbox.isSelected()) {
            creation.setBlocked(block_value);
     	   AccountAccess.modifyAccount(username, creation);
+    	   if(!block_value) 
+    		   AccountAccess.successfulLogin(username);
            System.out
 	       .println("Account " + username_field.getText() + " modified.");
 	} else {

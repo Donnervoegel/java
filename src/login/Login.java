@@ -26,22 +26,23 @@ public class Login {
 	 * }else{ break; } } } return toReturn; }
 	 */
 
-	public static Account login(String username, String password) {
-	    Account acct = null;
-	    String acctPW = "";
+	public static boolean login(String username, String password) {
+		Account acct = null;
+		String acctPW = "";
 
-	    acct = AccountAccess.constructAccountObject(username);
-		
-	    try {
-		acctPW = acct.getPassword();
-	    } catch (Exception e) {
-		return null;
-	    }
-		
-	    if (acctPW.equals(password))
-		return acct;
+		acct = AccountAccess.constructAccountObject(username);
 
-	    System.out.println("Failed login");
-	    return null;
+		try {
+			acctPW = acct.getPassword();
+		} catch (Exception e) {
+			System.out.println("No account");
+		}
+
+		if (acctPW.equals(password)) {
+			return true;
+		}
+
+		System.out.println("Failed login");
+		return false;
 	}
 }

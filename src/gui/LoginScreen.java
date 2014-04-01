@@ -8,6 +8,9 @@ package gui;
 
 
 import javax.swing.*;
+
+import database.AccountAccess;
+
 import java.awt.event.*;
 
 import gui.utils.*;
@@ -156,20 +159,28 @@ public class LoginScreen extends JFrame {
 	String name = username_field.getText();
 	String pass = new String(pass_field.getPassword());
         Account acct;
+        boolean login = false;
+        int attempts = 0;
 
         //	 FOR TESTING PURPOSES ONLY
         if (name.equalsIgnoreCase("sysadmin")){
+        	login = true;
             acct = new SystemAdmin("Joey", "Tester", 9999, "password", "sysadmin");
         } else if (name.equalsIgnoreCase("admin")){
+        	login = true;
             acct = new AcademicAdmin("Joey", "Tester", 9999, "password", "admin");
         } else if (name.equalsIgnoreCase("assist")){
+        	login = true;
             acct = new AssistantAdmin("Joey", "Tester", 9999, "password", "assist");
         } else if (name.equalsIgnoreCase("instructor")){
+        	login = true;
             acct = new Instructor("Joey", "Tester", 9999, "password", "instructor");
         } else if (name.equalsIgnoreCase("tatm") ){// ta marker
+        	login = true;
             acct = new TATM("Joey", "Tester", 9999, "password", "ta");
         } else {
-	    acct = Login.login(name, pass);
+        	login = Login.login(name, pass);
+        	acct = AccountAccess.constructAccountObject(name);
         }
 
 	if (pass.length() < 0) {  // Temporary! Should be 5 or so.
@@ -180,9 +191,11 @@ public class LoginScreen extends JFrame {
 		.showMessageDialog(this, "No user name given.");
 	} else if (acct.isBlocked()) {
 	    JOptionPane.showMessageDialog(this, "This account is blocked.");
-	} else if (acct == null) {
-		JOptionPane.showMessageDialog(this, "Invalid username/password combo");
+	} else if (!login) {
+		attempts = AccountAccess.failedLogin(name);
+		JOptionPane.showMessageDialog(this, "Invalid username/password combo. Attempts left: " + (5 - attempts));
 	} else {
+		AccountAccess.successfulLogin(name);
 	    System.out.println("Logging in as " + name +
 			       " with password `" + pass + "`");
 	    master = new MasterFrame(acct, this);
