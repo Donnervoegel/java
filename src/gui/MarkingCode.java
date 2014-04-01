@@ -32,9 +32,9 @@ import types.Activity;
  */
 
 
-public class Marking_Code extends MSPanel {
+public class MarkingCode extends MSPanel {
 
-     public Marking_Code(final String courseID, final Activity act, final int stud_id) {
+     public MarkingCode(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
         
@@ -42,26 +42,26 @@ public class Marking_Code extends MSPanel {
         //Populate textpanes with sample and solution
         FileReader reader = null;
         try {
-            reader = new FileReader("gui.utils.activity_test_submission.txt");
+            reader = new FileReader("gui.utils.ActivityTestSubmission.txt");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            submission_text_area.read(reader, "gui.utils.activity_test_submission.txt");
+            submission_text_area.read(reader, "gui.utils.ActivityTestSubmission.txt");
         } catch (IOException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         FileReader reader2 = null;
         try {
-            reader2 = new FileReader("gui.utils.activity_test_submission.txt");
+            reader2 = new FileReader("gui.utils.ActivityTestSolution.txt");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            submission_text_area.read(reader2, "gui.utils.activity_test_submission.txt");
+            solution_text_area.read(reader2, "gui.utils.ActivityTestSolution.txt");
         } catch (IOException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         //Populate the Rubric Table code below this:

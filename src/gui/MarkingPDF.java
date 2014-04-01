@@ -32,9 +32,9 @@ import types.Activity;
  */
 
 
-public class Marking_PDF extends MSPanel {
+public class MarkingPDF extends MSPanel {
 
-     public Marking_PDF(final String courseID, final Activity act, final int stud_id) {
+     public MarkingPDF(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
         
