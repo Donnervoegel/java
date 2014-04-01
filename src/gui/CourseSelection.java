@@ -240,7 +240,7 @@ public class CourseSelection extends MSPanel {
 	
 	private void ok_actListCourse_buttonActionPerformed(ActionEvent evt) {
 		String courseID = course_selection_dropdown.getSelectedItem().toString();
-		GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(courseID));
+		GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(3, courseID));
 	}
 	
 	private void ok_grading_buttonActionPerformed(ActionEvent evt) {

@@ -89,7 +89,7 @@
                   <Component id="jScrollPane1" min="-2" pref="464" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="max_grade_field" pref="48" max="32767" attributes="0"/>
+                      <Component id="max_grade_field" pref="51" max="32767" attributes="0"/>
                       <Component id="slash_label" max="32767" attributes="0"/>
                       <Component id="grade_field" alignment="1" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
@@ -110,9 +110,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="1">
-                    <Column editable="true" title="Description" type="java.lang.String"/>
+                    <Column editable="false" title="Description" type="java.lang.String"/>
                     <Column editable="true" title="Grade" type="java.lang.Integer"/>
-                    <Column editable="true" title="Max Grade" type="java.lang.Integer"/>
+                    <Column editable="false" title="Max Grade" type="java.lang.Integer"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

@@ -24,6 +24,8 @@ import types.TextAnalyzer;
 /**
  *
  * @author Ian
+ * 
+ * Comment from Graeme: all activities are hard coded to programming for now
  */
 public class ActivityCreation extends MSPanel {
     private String courseid;
@@ -565,11 +567,11 @@ public class ActivityCreation extends MSPanel {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_activity_submit_buttonActionPerformed
-    
+    //all activities are made as programming activities for now
     private void activity_submitModify_buttonActionPerformed(ActionEvent evt,
 			String courseID, String actName) {
 		
-    	Activity new_activity = new Activity(activity_name_field.getText(), activity_student_submissionpath_field.getText(), activity_lang_field.getText(),activity_group_checkbox.isSelected(), activity_individual_checkbox.isSelected());
+    	Activity new_activity = new Activity(activity_name_field.getText(), activity_student_submissionpath_field.getText(), activity_lang_field.getText(),true, activity_individual_checkbox.isSelected());
     	
         CourseAccess.modifyActivity(courseID, actName, new_activity);
                 

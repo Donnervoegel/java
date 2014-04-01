@@ -29,6 +29,7 @@ public class SelectActivityMatrix extends MSPanel {
     /**
      * Creates new form SelectActivityMatrix1
      */
+    private Course c;
     public SelectActivityMatrix(Course course) {
 	super("Activity Selection");
 
@@ -37,18 +38,20 @@ public class SelectActivityMatrix extends MSPanel {
         initComponents();
         
         //Populate student dropdowns
+        System.out.println("Accessing Student List");
         ResultSet student_list = database.CourseAccess.accessStudentList(course.getCourseID());
-        ArrayList<String> student_names = GUIUtils.generateArrayFromResultSet(student_list, 1);
+        System.out.println("Making ArrayList of student names");
+        //ArrayList<String> student_names = GUIUtils.generateArrayFromResultSet(student_list, 1);
+        String[] names={"Graeme"};
 		        
-        student_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(student_names.toArray()));
+        student_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(names));//student_names.toArray()));
         
         //Populate assignment dropdown based on the student
         Object[] assignment_list = database.CourseAccess.accessActivityList(course.getCourseID());
-        String[] assignment_list_string = (String[])assignment_list;
-        assignment_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(assignment_list_string));
+        //String[] assignment_list_string = (String[])assignment_list;
+        assignment_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(assignment_list));
     }
 
-    private Course c;
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,9 +154,9 @@ public class SelectActivityMatrix extends MSPanel {
         
         String c_id = c.getCourseID();
         Activity act = database.CourseAccess.constructActivityObject(c_id, assignment_select_dropdown.getSelectedItem().toString());
-        int student_id = GradeAccess.getStudentID(student_select_dropdown.getSelectedItem().toString());
+        int student_id = 6;//GradeAccess.getStudentID(student_select_dropdown.getSelectedItem().toString());
        
-        if (act.isProgramming()) //Activity is code
+        if (!act.isProgramming()) //Activity is code
             GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id));
         else //Activity is not code
             GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id));

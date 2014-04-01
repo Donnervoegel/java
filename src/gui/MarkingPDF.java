@@ -37,7 +37,7 @@ public class MarkingPDF extends MSPanel {
      public MarkingPDF(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
-        
+        System.out.println("Tis a pdf");
         //Some PDF Solution Implemented Below
         
         //Populate the Rubric Table code below this:
