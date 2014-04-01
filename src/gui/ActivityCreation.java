@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 
 import database.CourseAccess;
 import gui.types.*;
+import gui.utils.GUIUtils;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -64,6 +65,10 @@ public class ActivityCreation extends MSPanel {
     			activity_submitModify_buttonActionPerformed(evt, courseID, act.getName());
     		}
     	});
+    	
+    	Object[][] temp = CourseAccess.accessRubricItems(courseID, act.getName());
+    	data = temp;
+    	rubric_table.setModel(new DefaultTableModel(data, columnNames));
 	}
 
 	/**
@@ -339,7 +344,7 @@ public class ActivityCreation extends MSPanel {
         rubric_submit_button.setText("Submit");
         rubric_submit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rubric_submit_buttonActionPerformed(evt);
+                rubric_submit_buttonActionPerformed(evt, courseid, activity_name_field.getText());
             }
         });
 
@@ -427,32 +432,31 @@ public class ActivityCreation extends MSPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_type_fieldActionPerformed
 
-    private void rubric_additional_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rubric_additional_row_buttonActionPerformed
-
-
-        
-     if (data[0][1]!= null)  
-     {
-        System.out.println("im in here");
-        Object [][] temp = new Object [data.length+1][2]; //hold the first datapoint in a temp object
-        for (int i=0; i<data.length; i++){ //grab rest of data into the temp object
-            for (int j=0;j <2; j++){
-                temp[i][j]= data[i][j];
-            }
-        }
-       temp[data.length][0] = JOptionPane.showInputDialog ("Enter Rubric Description");
-       temp[data.length][1] = JOptionPane.showInputDialog ("Enter Max Grade");
-       data = temp; //make data = temp so we have new data
-       rubric_table.setModel(new DefaultTableModel(data, columnNames)); 
-     }
-     else{
-       Object [][] temp = new Object [1][2];  
-       temp[0][0] = JOptionPane.showInputDialog ("Enter Rubric Description");
-       temp[0][1] = JOptionPane.showInputDialog ("Enter Max Grade");
-       data = temp; //make data = temp so we have new data
-       rubric_table.setModel(new DefaultTableModel(data, columnNames)); 
-     }
-    }//GEN-LAST:event_rubric_additional_row_buttonActionPerformed
+	private void rubric_additional_row_buttonActionPerformed(
+			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rubric_additional_row_buttonActionPerformed
+		if (data[0][1] != null) {
+			System.out.println("im in here");
+			Object[][] temp = new Object[data.length + 1][2]; // hold the first datapoint in a temp object
+			for (int i = 0; i < data.length; i++) { // grab rest of data into the temp object
+				for (int j = 0; j < 2; j++) {
+					temp[i][j] = data[i][j];
+				}
+			}
+			temp[data.length][0] = JOptionPane
+					.showInputDialog("Enter Rubric Description");
+			temp[data.length][1] = JOptionPane
+					.showInputDialog("Enter Max Grade");
+			data = temp; // make data = temp so we have new data
+			rubric_table.setModel(new DefaultTableModel(data, columnNames));
+		} else {
+			Object[][] temp = new Object[1][2];
+			temp[0][0] = JOptionPane
+					.showInputDialog("Enter Rubric Description");
+			temp[0][1] = JOptionPane.showInputDialog("Enter Max Grade");
+			data = temp; // make data = temp so we have new data
+			rubric_table.setModel(new DefaultTableModel(data, columnNames));
+		}
+	}// GEN-LAST:event_rubric_additional_row_buttonActionPerformed
 
     private void activity_test_number_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_test_number_fieldActionPerformed
         // TODO add your handling code here:
@@ -517,29 +521,29 @@ public class ActivityCreation extends MSPanel {
         }
         for (int i=deleterow+1; i<data.length;i++){ //this will add all the rubric details after the selected delete row
             temp[i-1][0] = data[i][0];
-            temp[i-1][1] = data[i][0];
+            temp[i-1][1] = data[i][1];
         }
-
+        
         data = temp; // reassign data with the temp
         rubric_table.setModel(new DefaultTableModel(data, columnNames)); //set the new table
-
-
     }//GEN-LAST:event_delete_row_buttonActionPerformed
 
-    private void rubric_submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rubric_submit_buttonActionPerformed
-            int entrynum = rubric_table.getRowCount(); //Get number of entries. Not sure if this works, should though.
-      for (int i=0; i<entrynum; i++){
-          String desc =rubric_table.getValueAt(i, 0).toString(); //gets the description
-          String MaxGrade = rubric_table.getValueAt(i, 1).toString(); //gets max grade, needs toconvert to FLOAT!!
-          //* NEED METHOD HERE 
-      // courseaccess.addRubricitem(courseID, actName, desc, MaxGrade);
-       // need references to activity name and courseID to work!
-      }
-      JOptionPane.showMessageDialog(this, "Rubric Submitted.");
-
-
-
-    }//GEN-LAST:event_rubric_submit_buttonActionPerformed
+	private void rubric_submit_buttonActionPerformed(
+			java.awt.event.ActionEvent evt, String courseID, String actName) {// GEN-FIRST:event_rubric_submit_buttonActionPerformed
+		int entrynum = rubric_table.getRowCount(); 
+		CourseAccess.deleteRubric(courseID, actName);
+		for (int i = 0; i < entrynum; i++) {
+			String desc = rubric_table.getValueAt(i, 0).toString();
+			// gets the description
+			float MaxGrade = Float.parseFloat(rubric_table.getValueAt(i, 1).toString());
+			// gets max grade, needs toconvert to FLOAT!!
+			// * NEED METHOD HERE
+			data[i][0] = desc; data[i][1] = MaxGrade;
+			CourseAccess.addRubricItem(courseID, actName, desc, MaxGrade);
+			// need references to activity name and courseID to work!
+		}
+		JOptionPane.showMessageDialog(this, "Rubric Submitted.");
+	}// GEN-LAST:event_rubric_submit_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

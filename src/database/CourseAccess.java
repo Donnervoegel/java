@@ -458,10 +458,32 @@ public class CourseAccess {
 	/*
 	 * Method to access the rubric for a specific activity in a course.
 	 */
-	public ResultSet accessRubric(String courseID, String activityName) {
+	public static ResultSet accessRubric(String courseID, String activityName) {
 		String query = "SELECT RubricItem, MaxGrade FROM c275g01A.dbo.Rubric WHERE CourseID = '"
 				+ courseID + "' AND ActivityName = '" + activityName + "'";
 		return execQuery(query);
+	}
+	
+	public static Object[][] accessRubricItems(String courseID, String actName) {
+		ResultSet res = accessRubric(courseID, actName);
+		Object[][] rubric = null;
+		int i = 0;
+		try {
+			while (res.next())
+				i++;
+			res = accessRubric(courseID, actName);
+			rubric = new Object[i][2];
+			i = 0;
+			while (res.next()) {
+				rubric[i][0] = res.getNString(1);
+				rubric[i][1] = res.getFloat(2);
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rubric;
 	}
 
 	/*
@@ -480,11 +502,10 @@ public class CourseAccess {
 	 * Method to delete a rubric item for a specific activity in a specific
 	 * course.
 	 */
-	public void deleteRubricItem(String courseID, String activityName,
-			String rubricItem) {
+	public static void deleteRubric(String courseID, String activityName) {
 		String query = "DELETE FROM c275g01A.dbo.Rubric WHERE CourseID = '"
 				+ courseID + "' AND ActivityName = '" + activityName
-				+ "' AND RubricItem = '" + rubricItem + "'";
+				+ "'";
 		execUpdate(query);
 	}
 

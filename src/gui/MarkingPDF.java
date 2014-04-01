@@ -32,37 +32,13 @@ import types.Activity;
  */
 
 
-public class Marking_Code extends MSPanel {
+public class MarkingPDF extends MSPanel {
 
-     public Marking_Code(final String courseID, final Activity act, final int stud_id) {
+     public MarkingPDF(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
         
-        //Currently only reads from a file.
-        //Populate textpanes with sample and solution
-        FileReader reader = null;
-        try {
-            reader = new FileReader("gui.utils.activity_test_submission.txt");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            submission_text_area.read(reader, "gui.utils.activity_test_submission.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        FileReader reader2 = null;
-        try {
-            reader2 = new FileReader("gui.utils.activity_test_submission.txt");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            submission_text_area.read(reader2, "gui.utils.activity_test_submission.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(Marking_Code.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //Some PDF Solution Implemented Below
         
         //Populate the Rubric Table code below this:
         
@@ -90,7 +66,6 @@ public class Marking_Code extends MSPanel {
         solution_panel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         solution_text_area = new javax.swing.JTextArea();
-        test_suite_button = new javax.swing.JToggleButton();
         save_button = new javax.swing.JToggleButton();
 
         rubric_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Rubric"));
@@ -201,13 +176,6 @@ public class Marking_Code extends MSPanel {
             .addComponent(jScrollPane5)
         );
 
-        test_suite_button.setText("Test Suite");
-        test_suite_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                test_suite_buttonActionPerformed(evt);
-            }
-        });
-
         save_button.setText("Save");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -224,9 +192,7 @@ public class Marking_Code extends MSPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(test_suite_button, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,16 +203,10 @@ public class Marking_Code extends MSPanel {
                     .addComponent(solution_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
                     .addComponent(rubric_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(test_suite_button, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(save_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void test_suite_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test_suite_buttonActionPerformed
-        System.out.println("Launch TEST SUITE");
-    }//GEN-LAST:event_test_suite_buttonActionPerformed
     
 
 
@@ -265,6 +225,5 @@ public class Marking_Code extends MSPanel {
     private javax.swing.JTextArea solution_text_area;
     private javax.swing.JTextArea submission_text_area;
     private javax.swing.JPanel submitted_panel;
-    private javax.swing.JToggleButton test_suite_button;
     // End of variables declaration//GEN-END:variables
 }

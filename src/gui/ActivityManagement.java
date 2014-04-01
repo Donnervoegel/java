@@ -126,7 +126,7 @@ public class ActivityManagement extends MSPanel {
 
     private void delete_activity_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_activity_buttonActionPerformed
         // For Markus : Toggles here
-        
+    	
         GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(DELETE_ACTIVITY, courseID));
     }//GEN-LAST:event_delete_activity_buttonActionPerformed
 
