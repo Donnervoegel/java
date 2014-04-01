@@ -12,3 +12,5 @@
 /bin
 *.bak
 *.jar
+
+*.properties
