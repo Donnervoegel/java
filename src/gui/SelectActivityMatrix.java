@@ -7,22 +7,48 @@
 package gui;
 
 import gui.types.*;
+import gui.utils.GUIUtils;
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import types.Account;
+import types.Activity;
+import types.Course;
 
 /**
  *
  * @author Normal
  */
+
 public class SelectActivityMatrix extends MSPanel {
 
     /**
      * Creates new form SelectActivityMatrix1
      */
-    public SelectActivityMatrix() {
+    public SelectActivityMatrix(Course course) {
 	super("Activity Selection");
 
+        this.c = course;
+        
         initComponents();
+        
+        //Populate student dropdowns
+        ResultSet student_list = database.CourseAccess.accessStudentList(course.getCourseID());
+        ArrayList<String> student_names = GUIUtils.generateArrayFromResultSet(student_list, 1);
+		        
+        student_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(student_names.toArray()));
+        
+        //Populate assignment dropdown based on the student
+        Object[] assignment_list = database.CourseAccess.accessActivityList(course.getCourseID());
+        String[] assignment_list_string = (String[])assignment_list;
+        assignment_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(assignment_list_string));
     }
 
+    private Course c;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,7 +147,17 @@ public class SelectActivityMatrix extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        // TODO add your handling code here:
+        
+        String c_id = c.getCourseID();
+        Activity act = database.CourseAccess.constructActivityObject(c_id, assignment_select_dropdown.getSelectedItem().toString());
+    //    int student_id = FUNCTION THAT TAKES STUDENT NAME AND OUTPUTS THEIR ID FROM DB;
+        
+        
+        //Uncomment when functional
+    //    if (ACTIVITY CODE CONDITION) //Activity is code
+    //        GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id));
+    //    else //Activity is not code
+    //        GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id));
     }//GEN-LAST:event_ok_buttonActionPerformed
 
 

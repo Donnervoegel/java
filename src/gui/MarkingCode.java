@@ -34,6 +34,8 @@ import types.Activity;
 
 public class MarkingCode extends MSPanel {
 
+    //Populates text panels based on preset textfiles in gui.utils.
+    
      public MarkingCode(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();

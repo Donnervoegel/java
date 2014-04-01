@@ -6,6 +6,7 @@
 
 package gui;
 
+import database.CourseAccess;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
@@ -35,6 +36,7 @@ public class CourseSelection extends MSPanel {
     public CourseSelection(int page, Account acct) {
     	super("Course Selection");
     	this.a = acct;
+       marking = false;
 
     	switch (page) {
     	case 1: // Course Selection for Course Modification
@@ -56,6 +58,8 @@ public class CourseSelection extends MSPanel {
     	case 3: // Course Selection for Instructor Marking
     		initComponents();
 
+                marking = true;
+                
     		course_selection_dropdown
     		.setModel(new javax.swing.DefaultComboBoxModel(
     				database.CourseAccess.accessCourseList(a.getEmpID())));
@@ -88,6 +92,8 @@ public class CourseSelection extends MSPanel {
     	case 5: // Course Selection for Admin Grading
     		initComponents();
 
+                marking = true;
+                
     		for (java.awt.event.ActionListener act : ok_button
     				.getActionListeners())
     			ok_button.removeActionListener(act);
@@ -101,6 +107,8 @@ public class CourseSelection extends MSPanel {
     		break;
     	case 7: // Course Selection for TA Marking
     		initComponents();
+                
+                marking = true;
 
     		course_selection_dropdown
     		.setModel(new javax.swing.DefaultComboBoxModel(
@@ -118,6 +126,8 @@ public class CourseSelection extends MSPanel {
     	}
     }
 
+    Boolean marking = false;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -208,7 +218,11 @@ public class CourseSelection extends MSPanel {
 	
     private void ok_activityManagement_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
         String courseid = course_selection_dropdown.getSelectedItem().toString(); //needs to be changed
-        GUIUtils.getMasterFrame(this).movePage(new ActivityManagement(courseid, (Instructor) a));
+        Course course_choice = CourseAccess.constructCourseObject(courseid);
+        if (marking)
+            GUIUtils.getMasterFrame(this).movePage(new SelectActivityMatrix(course_choice));
+        else    
+            GUIUtils.getMasterFrame(this).movePage(new ActivityManagement(courseid, (Instructor) a));
     }//GEN-LAST:event_ok_buttonActionPerformed
 
 	private void ok_deleteCourse_buttonActionPerformed(ActionEvent evt) {
