@@ -10,6 +10,9 @@ public class ProgrammingTest
 {
     private String test_path, console_input_path, solution_path, description;
 
+    public ProgrammingTest(String test) {
+    	test_path = test;
+    }
     
     public ProgrammingTest(String test, String console, String solution, String desc)
     {

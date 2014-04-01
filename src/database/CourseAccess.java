@@ -24,28 +24,6 @@ public class CourseAccess {
 	// STATIC METHODS
 
 	/*
-	 * Method to establish a connection to the Cypress SQL server. Uses
-	 * hard-coded login information of our group's SQL connection.
-	 */
-	private static void establishConnection() {
-		try { // Access the JDBC driver
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("No JDBC driver found, exiting.");
-		}
-
-		try { // Connect to Cypress
-			dbConnection = DriverManager
-					.getConnection("jdbc:sqlserver://cypress.csil.sfu.ca;"
-							+ " user = c275g01; password = TAA2Md7nGrPj2LjN");
-		} catch (SQLException e) {
-			System.out.println("Connection failed, exiting.");
-		}
-	}
-
-	// NON-STATIC METHODS
-
-	/*
 	 * Method to return the list of courses by course ID to be used in a course
 	 * selection dropdown box.
 	 */
@@ -239,7 +217,7 @@ public class CourseAccess {
 				e.printStackTrace();
 			}
 		}
-		 
+
 		// Students table
 		rs = accessStudentList(cID);
 		if (rs != null) {
@@ -271,8 +249,8 @@ public class CourseAccess {
 					aType = rs.getBoolean("ActivityType");
 					groupAct = rs.getBoolean("GroupAct");
 					int numTests = rs.getInt("NumTests");
-					Activity temp = new Activity(aName, aDesc, sSolnPath, solnPath, aLang,
-							aType, groupAct, numTests);
+					Activity temp = new Activity(aName, aDesc, sSolnPath,
+							solnPath, aLang, aType, groupAct, numTests);
 					course.addActivity(temp);
 				}
 			} catch (SQLException e) {
@@ -364,8 +342,8 @@ public class CourseAccess {
 			boolean aType = res.getBoolean("ActivityType");
 			boolean groupAct = res.getBoolean("GroupAct");
 			int numTests = res.getInt("NumTests");
-			temp = new Activity(aName, aDesc, sSolnPath, solnPath, aLang, aType,
-					groupAct, numTests);
+			temp = new Activity(aName, aDesc, sSolnPath, solnPath, aLang,
+					aType, groupAct, numTests);
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
@@ -471,7 +449,7 @@ public class CourseAccess {
 				+ courseID + "' AND ActivityName = '" + activityName + "'";
 		return execQuery(query);
 	}
-	
+
 	public static Object[][] accessRubricItems(String courseID, String actName) {
 		ResultSet res = accessRubric(courseID, actName);
 		Object[][] rubric = null;
@@ -490,7 +468,7 @@ public class CourseAccess {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return rubric;
 	}
 
@@ -512,8 +490,71 @@ public class CourseAccess {
 	 */
 	public static void deleteRubric(String courseID, String activityName) {
 		String query = "DELETE FROM c275g01A.dbo.Rubric WHERE CourseID = '"
-				+ courseID + "' AND ActivityName = '" + activityName
-				+ "'";
+				+ courseID + "' AND ActivityName = '" + activityName + "'";
+		execUpdate(query);
+	}
+
+	public static String accessTestIn(String courseID, Activity act) {
+		String query = "SELECT TestInput FROM c275g01A.dbo.ProgTests WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + act.getName() + "'";
+		ResultSet res = execQuery(query);
+		String test = "";
+
+		try {
+			if (res.next())
+				test = res.getNString("TestInput");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return test;
+	}
+
+	public static String accessTestOut(String courseID, Activity act) {
+		String query = "SELECT TestOutput FROM c275g01A.dbo.ProgTests WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + act.getName() + "'";
+		ResultSet res = execQuery(query);
+		String test = "";
+
+		try {
+			if (res.next())
+				test = res.getNString("TestOutput");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return test;
+	}
+
+	public static void addTest(String courseID, Activity act, String testIn,
+			String testOut) {
+		String query = "SELECT * FROM c275g01A.dbo.ProgTests WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + act.getName() + "'";
+		ResultSet res = execQuery(query);
+		System.out.println(courseID + "," + act.getName());
+		try {
+			if (res.next()) {
+				System.out.println("update");
+				query = "UPDATE c275g01A.dbo.ProgTests SET TestInput = '"
+						+ testIn + "',TestOutput = '" + testOut
+						+ "' WHERE CourseID = '" + courseID
+						+ "' AND ActivityName = '" + act.getName() + "'";
+				execUpdate(query);
+			} else {
+				System.out.println("insert");
+				query = "INSERT INTO c275g01A.dbo.ProgTests VALUES ('"
+						+ courseID + "','" + act.getName() + "','" + testIn
+						+ "','" + testOut + "')";
+				execUpdate(query);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void deleteTests(String courseID, Activity act) {
+		String query = "DELETE FROM c275g01A.dbo.ProgTests WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + act.getName() + "'";
 		execUpdate(query);
 	}
 
@@ -554,6 +595,26 @@ public class CourseAccess {
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
 		}
 		return resSet;
+	}
+
+	/*
+	 * Method to establish a connection to the Cypress SQL server. Uses
+	 * hard-coded login information of our group's SQL connection.
+	 */
+	private static void establishConnection() {
+		try { // Access the JDBC driver
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("No JDBC driver found, exiting.");
+		}
+
+		try { // Connect to Cypress
+			dbConnection = DriverManager
+					.getConnection("jdbc:sqlserver://cypress.csil.sfu.ca;"
+							+ " user = c275g01; password = TAA2Md7nGrPj2LjN");
+		} catch (SQLException e) {
+			System.out.println("Connection failed, exiting.");
+		}
 	}
 
 	/*
