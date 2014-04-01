@@ -12,14 +12,14 @@ import java.awt.event.ActionListener;
 import database.CourseAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
-import java.util.ArrayList;
-import javax.swing.JFileChooser;
 
+import java.util.ArrayList;
+
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import types.Activity;
-import types.TextAnalyzer;
+import types.*;
 
 /**
  *
@@ -36,9 +36,16 @@ public class ActivityCreation extends MSPanel {
     // TODO: Pretty sure this isn't correct.
     public ActivityCreation(String courseid) {
 	super("Activity Modification");
-
         this.courseid = courseid;
         initComponents();
+        activity_test_in_button.setEnabled(false);
+    	activity_test_in_field.setEnabled(false);
+    	activity_test_in_field.setText("");
+    	activity_test_out_button.setEnabled(false);
+    	activity_test_out_field.setEnabled(false);
+    	activity_test_out_field.setText("");
+    	activity_test_number_field.setEnabled(false);
+    	activity_test_number_field.setText("0");
     }
 
     public ActivityCreation(final String courseID, final Activity act) {
@@ -58,9 +65,12 @@ public class ActivityCreation extends MSPanel {
     	else
     		activity_individual_checkbox.doClick();
     	
-    	if(act.isProgramming()) 
+    	if(act.isProgramming()) {
     		activity_type_combo.setSelectedIndex(1);
-    	else
+    		activity_test_in_field.setText(CourseAccess.accessTestIn(courseID,act));
+    		activity_test_out_field.setText(CourseAccess.accessTestOut(courseID,act));
+    		activity_test_number_field.setText(Integer.toString(act.getNumOfTests()));
+    	} else
     		activity_type_combo.setSelectedIndex(0);
     		
     	for(ActionListener actLis : activity_submit_button.getActionListeners()) 
@@ -534,7 +544,6 @@ public class ActivityCreation extends MSPanel {
 	private void rubric_additional_row_buttonActionPerformed(
 			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rubric_additional_row_buttonActionPerformed
 		if (data[0][1] != null) {
-			System.out.println("im in here");
 			Object[][] temp = new Object[data.length + 1][2]; // hold the first datapoint in a temp object
 			for (int i = 0; i < data.length; i++) { // grab rest of data into the temp object
 				for (int j = 0; j < 2; j++) {
@@ -618,8 +627,13 @@ public class ActivityCreation extends MSPanel {
 				activity_lang_field.getText(),
 				prog, group,
 				Integer.parseInt(activity_test_number_field.getText()));
-
 		CourseAccess.addActivity(courseid, new_activity);
+		if (prog) 
+			CourseAccess.addTest(courseid, new_activity,
+					activity_test_in_field.getText(),
+					activity_test_out_field.getText());
+		else
+			CourseAccess.deleteTests(courseid,new_activity);
 
 		JOptionPane.showMessageDialog(this, "Activity submitted.");
 		GUIUtils.getMasterFrame(this).goBack();
@@ -647,6 +661,13 @@ public class ActivityCreation extends MSPanel {
 				Integer.parseInt(activity_test_number_field.getText()));
 
 		CourseAccess.modifyActivity(courseID, actName, new_activity);
+		if (prog) 
+			CourseAccess.addTest(courseid, new_activity,
+					activity_test_in_field.getText(),
+					activity_test_out_field.getText());
+		else 
+			CourseAccess.deleteTests(courseid,new_activity);
+		
 
 		JOptionPane.showMessageDialog(this, "Activity modified.");
 		GUIUtils.getMasterFrame(this).goBack();

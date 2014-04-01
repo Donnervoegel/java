@@ -91,9 +91,9 @@ public class Activity
         due_date = date;
     }
     
-    public void addProgrammingTest(String test, String console, String solution, String desc)
+    public void addProgrammingTest(String test)
     {
-        ProgrammingTest p = new ProgrammingTest(test, console, solution, desc);
+        ProgrammingTest p = new ProgrammingTest(test);
         tests.add(p);
         isProgramming = true;
     }
