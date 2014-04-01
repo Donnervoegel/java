@@ -72,14 +72,14 @@ public class AccountAccess {
 		return accounts.toArray();
 	}
 
-	public static Object[] accessAllTAsNames() {
+	public static Object[] accessAllTAs() {
 		ArrayList<String> accounts = new ArrayList<String>();
-		String query = "SELECT EmployeeName FROM "
+		String query = "SELECT EmployeeName, EmployeeID FROM "
 				+ "c275g01A.dbo.Account WHERE AccountType = 5";
 		ResultSet res = execQuery(query);
 		try {
 			while (res.next()) {
-				accounts.add(res.getNString(1));
+				accounts.add(res.getNString(1) + " - " + res.getInt(2));
 			}
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
@@ -89,33 +89,14 @@ public class AccountAccess {
 		return accounts.toArray();
 	}
 
-	public static int accessTAID(String taname) { // really broken so far
-		int taid = 0;
-		String query = "SELECT EmployeeID FROM "
-				+ "c275g01A.dbo.Account WHERE AccountType = 5 AND EmployeeName= '"
-				+ taname + "'";
-		ResultSet res = execQuery(query);
-		try {
-			while (res.next()) {
-				taid = res.getInt(1);
-				System.out.println("The TA ID is: " + res.getInt(1));
-			}
-		} catch (SQLException e) {
-			System.out.println("SQL Exception occured, the state : "
-					+ e.getSQLState() + "\nMessage: " + e.getMessage());
-		}
-
-		return taid;
-	}
-
-	public static Object[] accessAllInstructorsNames() {
+	public static Object[] accessAllInstructors() {
 		ArrayList<String> accounts = new ArrayList<String>();
-		String query = "SELECT EmployeeName FROM "
+		String query = "SELECT EmployeeName,EmployeeID FROM "
 				+ "c275g01A.dbo.Account WHERE AccountType = 4";
 		ResultSet res = execQuery(query);
 		try {
 			while (res.next()) {
-				accounts.add(res.getNString(1));
+				accounts.add(res.getNString(1) + " - " + res.getInt(2));
 			}
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
@@ -125,40 +106,18 @@ public class AccountAccess {
 		return accounts.toArray();
 	}
 
-	public static int accessInstructorID(String instructorname) { // really
-																	// broken so
-																	// far
-		int instructid = 0;
-		String query = "SELECT EmployeeID FROM "
-				+ "c275g01A.dbo.Account WHERE AccountType = 4 AND EmployeeName= '"
-				+ instructorname + "'";
-		ResultSet res = execQuery(query);
-		try {
-			while (res.next()) {
-				instructid = res.getInt(1);
-
-			}
-		} catch (SQLException e) {
-			System.out.println("SQL Exception occured, the state : "
-					+ e.getSQLState() + "\nMessage: " + e.getMessage());
-		}
-
-		return instructid;
-	}
-
-	public static Account constructAccountFromID(int empID) {
-		Account a = null;
-		String query = "SELECT * FROM c275g01A.dbo.Account WHERE EmployeeID = "
-				+ empID;
+	public static String accessUsername(int empID) {
+		String query = "SELECT Username from c275g01A.dbo.Account WHERE EmployeeID = '" + empID + "'";
+		String username = null;
 		ResultSet res = execQuery(query);
 		try {
 			res.next();
+			username = res.getNString(1);
 		} catch (SQLException e) {
-			System.out.println("SQL Exception occured, the state : "
-					+ e.getSQLState() + "\nMessage: " + e.getMessage());
+			e.printStackTrace();
 		}
-
-		return a;
+		
+		return username;
 	}
 
 	/*
@@ -348,5 +307,4 @@ public class AccountAccess {
 	private static int boolToBit(boolean b) {
 		return b ? 1 : 0;
 	}
-
 }

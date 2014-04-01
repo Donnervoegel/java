@@ -36,6 +36,10 @@ public class Course
 	return instructor;
     }
     
+    public Account getTA() {
+		return markers.get(0);
+	}
+    
     public Course(String n, String id, Instructor ins, String start, String end)
     {
         courseName = n;

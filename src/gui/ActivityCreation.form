@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="individual_button_group">
+    </Component>
+  </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -21,7 +25,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="create_activity_pane" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="create_activity_pane" min="-2" pref="625" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -48,6 +55,11 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="activity_submit_button" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="activity_reset_button" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -58,15 +70,6 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="activity_due_date_1_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                              <Component id="activity_due_date_1_field" min="-2" pref="155" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="activity_due_date_1_time" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="additional_due_date_button" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="activity_name_label" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -83,9 +86,22 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="activity_test_number_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="activity_test_number_field" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="activity_test_number_label" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="activity_test_number_field" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="activity_due_date_1_label" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                      <Component id="activity_due_date_1_field" min="-2" pref="155" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="activity_due_date_1_time" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="additional_due_date_button" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -97,21 +113,22 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="activity_solution_button" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="activity_solution_field" min="-2" pref="291" max="-2" attributes="0"/>
+                                      <Component id="activity_solution_field" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="activity_testcomment_label" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="activity_test_inout_button" min="-2" pref="167" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="activity_test_in_button" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
+                                          <Component id="activity_test_out_button" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="activity_test_outin_field" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="activity_test_out_field" max="32767" attributes="0"/>
+                                          <Component id="activity_test_in_field" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="activity_submit_button" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="activity_reset_button" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -160,12 +177,17 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="activity_test_inout_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="activity_test_outin_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="activity_test_in_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="activity_test_in_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="activity_testcomment_label" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="activity_test_out_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="activity_test_out_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="activity_testcomment_label" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="activity_student_submissionpath_button" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="activity_student_submissionpath_field" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -175,12 +197,12 @@
                           <Component id="activity_solution_button" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="activity_solution_field" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="activity_reset_button" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="activity_submit_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -231,11 +253,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="activity_individual_checkbox">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="individual_button_group"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Individual"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="activity_group_checkbox">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="individual_button_group"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Group"/>
               </Properties>
             </Component>
@@ -255,15 +283,31 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activity_solution_buttonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="activity_test_inout_button">
+            <Component class="javax.swing.JButton" name="activity_test_in_button">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Test output/inputs"/>
+                <Property name="text" type="java.lang.String" value="Test Input**"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activity_test_inout_buttonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activity_test_in_buttonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="activity_test_outin_field">
+            <Component class="javax.swing.JTextField" name="activity_test_in_field">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="File Location..."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="activity_test_out_button">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Test Output**"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activity_test_out_buttonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="activity_test_out_field">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="File Location..."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="activity_submit_button">
               <Properties>
@@ -289,7 +333,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="activity_test_number_label">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Number of Programming Tests"/>
+                <Property name="text" type="java.lang.String" value="Number of Programming Tests **"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="activity_test_number_field">
@@ -371,7 +415,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="239" max="-2" attributes="0"/>
-                      <EmptySpace pref="232" max="32767" attributes="0"/>
+                      <EmptySpace pref="245" max="32767" attributes="0"/>
                       <Component id="rubric_submit_button" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

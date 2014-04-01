@@ -37,26 +37,30 @@ public class CreateCourse extends MSPanel {
         initComponents();
     }
 
-    public CreateCourse(final Course course) {
-	super("Course Modification");
+	public CreateCourse(final Course course) {
+		super("Course Modification");
 
-	initComponents();
-	course_name_field.setText(course.getCourseName());
-	course_id_field.setText(course.getCourseID());
-	instructor_field.setText(course.getInstructor().getFirstName());
-	ta_field.setText("");
-	course_start_formatfield.setText(course.getStartDate());
-	course_end_formatfield.setText(course.getEndDate());
+		initComponents();
+		course_name_field.setText(course.getCourseName());
+		course_id_field.setText(course.getCourseID());
+		instruct_combo.setSelectedItem(course.getInstructor().getFirstName()
+				+ " " + course.getInstructor().getLastName() + " - "
+				+ course.getInstructor().getEmpID());
+		ta_combo.setSelectedItem(course.getTA().getFirstName() + " "
+				+ course.getTA().getLastName() + " - "
+				+ course.getTA().getEmpID());
+		course_start_formatfield.setText(course.getStartDate());
+		course_end_formatfield.setText(course.getEndDate());
 
-	for(ActionListener act : submit_button.getActionListeners()) 
-	    submit_button.removeActionListener(act);
+		for (ActionListener act : submit_button.getActionListeners())
+			submit_button.removeActionListener(act);
 
-	submit_button.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent evt) {
-		    submit_modify_buttonActionPerformed(evt, course.getCourseID());
-		}
-	    });
-    }
+		submit_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				submit_modify_buttonActionPerformed(evt, course.getCourseID());
+			}
+		});
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,8 +110,11 @@ public class CreateCourse extends MSPanel {
 
         course_end_label.setText("Course End Date");
 
-        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
-        course_start_formatfield.setText("yyyy/MM/dd");
+        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        course_start_formatfield.setText("yyyy-MM-dd");
+        
+        course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        course_end_formatfield.setText("yyyy-MM-dd");
 
         stud_list_file_location_field.setText("File Location...");
 
@@ -138,21 +145,22 @@ public class CreateCourse extends MSPanel {
             }
         });
 
-        course_end_formatfield.setText("yyyy/MM/dd");
         course_end_formatfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 course_end_formatfieldActionPerformed(evt);
             }
         });
 
-        ta_combo.setModel(new javax.swing.DefaultComboBoxModel(database.AccountAccess.accessAllTAsNames()));
+        ta_combo.setModel(new javax.swing.DefaultComboBoxModel(database.AccountAccess.accessAllTAs()));
+        ta_combo.setSelectedIndex(-1);
         ta_combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ta_comboActionPerformed(evt);
             }
         });
 
-        instruct_combo.setModel(new javax.swing.DefaultComboBoxModel(database.AccountAccess.accessAllInstructorsNames()));
+        instruct_combo.setModel(new javax.swing.DefaultComboBoxModel(database.AccountAccess.accessAllInstructors()));
+        instruct_combo.setSelectedIndex(-1);
         instruct_combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 instruct_comboActionPerformed(evt);
@@ -303,96 +311,106 @@ public class CreateCourse extends MSPanel {
     }//GEN-LAST:event_course_end_formatfieldActionPerformed
 
     private void ta_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta_comboActionPerformed
-        // TODO add your handling code here:
+    	String taField = ta_combo.getSelectedItem().toString();
+		taField = taField.substring(taField.indexOf("-") + 2);
+		ta_field.setText(taField);
     }//GEN-LAST:event_ta_comboActionPerformed
 
     private void instruct_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instruct_comboActionPerformed
-        // TODO add your handling code here:
+    	String instField = instruct_combo.getSelectedItem().toString();
+		instField = instField.substring(instField.indexOf("-") + 2);
+		instructor_field.setText(instField);
     }//GEN-LAST:event_instruct_comboActionPerformed
 										
-    private void submit_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_submit_buttonActionPerformed
-	Instructor instructor_taken;
-	instructor_taken = (Instructor) AccountAccess
-	    .constructAccountObject(instructor_field.getText());
-	if (instructor_taken == null) {
-	    JOptionPane.showMessageDialog(this,
-					  "Invalid instructor username, please re-enter");
-	} else {
-	    Course new_course = new Course(course_name_field.getText(),
-					   course_id_field.getText(), instructor_taken,
-					   course_start_formatfield.getText(),
-					   course_end_formatfield.getText());
+	private void submit_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_submit_buttonActionPerformed
+		Instructor instructor_taken;
+		String instField = instruct_combo.getSelectedItem().toString();
+		instField = instField.substring(instField.indexOf("-") + 2);
+		int instID = Integer.parseInt(instField);
+		instructor_taken = (Instructor) AccountAccess
+				.constructAccountObject(AccountAccess.accessUsername(instID));
+		Course new_course = new Course(course_name_field.getText(),
+				course_id_field.getText(), instructor_taken,
+				course_start_formatfield.getText(),
+				course_end_formatfield.getText());
 
-	    // Add the course to course db
-	    CourseAccess.createCourse(new_course);
+		// Add the course to course db
+		CourseAccess.createCourse(new_course);
 
-	    // Add the TA to the TA table
-	    // TODO: Fix this!
-	    // CourseAccess.addTA(course_id_field.getText(),
-	    // 		       Integer.parseInt(ta_id_field.getText()),
-	    // 		       ta_field.getText());
+		// Add the TA to the TA table
+		String taName = ta_combo.getSelectedItem().toString();
+		taName = taName.substring(0, taName.indexOf(" - "));
+		System.out.println(taName);
+		CourseAccess.addTA(course_id_field.getText(),
+				Integer.parseInt(ta_field.getText()), taName);
+		if (accounts_list != null) {
+			// Add the CSV file
+			CourseAccess.clearStudentList(course_id_field.getText());
+			String student_name;
+			String student_id;
 
-	    // Add the CSV file
-	    CourseAccess.clearStudentList(course_id_field.getText());
-	    String student_name;
-	    String student_id;
-	    
-	    for (String i : accounts_list) {
-		String[] arr = i.split(", ");
-		student_name = arr[0];
-		student_id = arr[1];
-		
-		// Push the student to the database
-		CourseAccess
-		    .addStudent(student_name, Integer.parseInt(student_id),
-				course_id_field.getText());
-	    }
-	}
-	// TODO: Redirect back to the page
+			for (String i : accounts_list) {
+				String[] arr = i.split(", ");
+				student_name = arr[0];
+				student_id = arr[1];
 
-    }// GEN-LAST:event_submit_buttonActionPerformed
-	
-    private void submit_modify_buttonActionPerformed(ActionEvent evt, String courseIDToModify) {
-	Instructor instructor_taken;
-	instructor_taken = (Instructor) AccountAccess
-	    .constructAccountObject(instructor_field.getText());
-	if (instructor_taken == null) {
-	    JOptionPane.showMessageDialog(this,
-					  "Invalid instructor username, please re-enter");
-	} else {
-	    Course new_course = new Course(course_name_field.getText(),
-					   course_id_field.getText(), instructor_taken,
-					   course_start_formatfield.getText(),
-					   course_end_formatfield.getText());
-	    
-	    // Add the course to course db
-	    CourseAccess.modifyCourse(courseIDToModify, new_course);
-	    
-	    /*// Add the TA to the TA table
-	      CourseAccess.addTA(course_id_field.getText(),
-	      Integer.parseInt(ta_id_field.getText()),
-	      ta_field.getText());
-	    */
-	    // Add the CSV file
-	    CourseAccess.clearStudentList(course_id_field.getText());
-	    String student_name;
-	    String student_id;
-	    
-	    if(accounts_list != null) {
-		for (String i : accounts_list) {
-		    String[] arr = i.split(", ");
-		    student_name = arr[0];
-		    student_id = arr[1];
-		    
-		    // Push the student to the database
-		    CourseAccess
-			.addStudent(student_name, Integer.parseInt(student_id),
-				    course_id_field.getText());
+				// Push the student to the database
+				CourseAccess
+						.addStudent(student_name, Integer.parseInt(student_id),
+								course_id_field.getText());
+			}
 		}
-	    }
+
+		JOptionPane.showMessageDialog(this,
+				"Course " + new_course.getCourseName() + " added.");
+		GUIUtils.getMasterFrame(this).goBack();
+	}// GEN-LAST:event_submit_buttonActionPerformed
+
+	private void submit_modify_buttonActionPerformed(ActionEvent evt,
+			String courseIDToModify) {
+		Instructor instructor_taken;
+		String instField = instruct_combo.getSelectedItem().toString();
+		instField = instField.substring(instField.indexOf("-") + 2);
+		int instID = Integer.parseInt(instField);
+		instructor_taken = (Instructor) AccountAccess
+				.constructAccountObject(AccountAccess.accessUsername(instID));
+		Course new_course = new Course(course_name_field.getText(),
+				course_id_field.getText(), instructor_taken,
+				course_start_formatfield.getText(),
+				course_end_formatfield.getText());
+
+		// Add the course to course db
+		CourseAccess.modifyCourse(courseIDToModify, new_course);
+
+		// Add the TA to the TA table
+		String taName = ta_combo.getSelectedItem().toString();
+		taName = taName.substring(0, taName.indexOf(" - "));
+		System.out.println(taName);
+		CourseAccess.addTA(course_id_field.getText(),
+				Integer.parseInt(ta_field.getText()), taName);
+
+		if (accounts_list != null) {
+			// Add the CSV file
+			CourseAccess.clearStudentList(course_id_field.getText());
+			String student_name;
+			String student_id;
+
+			for (String i : accounts_list) {
+				String[] arr = i.split(", ");
+				student_name = arr[0];
+				student_id = arr[1];
+
+				// Push the student to the database
+				CourseAccess
+						.addStudent(student_name, Integer.parseInt(student_id),
+								course_id_field.getText());
+			}
+		}
+
+		JOptionPane.showMessageDialog(this,
+				"Course " + new_course.getCourseName() + " modified.");
+		GUIUtils.getMasterFrame(this).goBack();
 	}
-	// TODO:  Redirect back to the page
-    }
     
     // Purpose is to assign the values of the text file to global variable
     // accounts_list
