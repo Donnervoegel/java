@@ -12,11 +12,14 @@ import java.awt.event.ActionListener;
 import database.CourseAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import types.Activity;
+import types.TextAnalyzer;
 
 /**
  *
@@ -24,7 +27,7 @@ import types.Activity;
  */
 public class ActivityCreation extends MSPanel {
     private String courseid;
-
+    private ArrayList<String> filepath_temp;
     String[] columnNames =new String[] {"Description", "Max Grade"};
     Object data [][] = new Object[1][2]; 
     /**
@@ -417,11 +420,57 @@ public class ActivityCreation extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void activity_solution_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_solution_buttonActionPerformed
-        // TODO add your handling code here:
+
+	JFileChooser chooser = new JFileChooser();
+	chooser.setCurrentDirectory(new java.io.File("."));
+	chooser.setDialogTitle("choosertitle");
+	chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+	chooser.setAcceptAllFileFilterUsed(true);
+	
+	String path_container;
+	
+	if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+	    System.out.println("getCurrentDirectory(): "
+			       + chooser.getCurrentDirectory());
+	    path_container = chooser.getSelectedFile().toString();
+	    
+	    activity_solution_field.setText(path_container);
+	    filepath_temp = TextAnalyzer.getInput(path_container);
+	    
+	    System.out.println("getSelectedFile() : "
+			       + chooser.getSelectedFile());
+	} else {
+	    System.out.println("No Selection");
+	    filepath_temp = null; // Set the array list filepath_temp to null if
+	    // nothing initiated.
+	}
     }//GEN-LAST:event_activity_solution_buttonActionPerformed
 
     private void activity_test_inout_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_test_inout_buttonActionPerformed
-        // TODO add your handling code here:
+
+	JFileChooser chooser = new JFileChooser();
+	chooser.setCurrentDirectory(new java.io.File("."));
+	chooser.setDialogTitle("choosertitle");
+	chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+	chooser.setAcceptAllFileFilterUsed(true);
+	
+	String path_container;
+	
+	if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+	    System.out.println("getCurrentDirectory(): "
+			       + chooser.getCurrentDirectory());
+	    path_container = chooser.getSelectedFile().toString();
+	    
+	    activity_test_outin_field.setText(path_container);
+	    filepath_temp = TextAnalyzer.getInput(path_container);
+	    
+	    System.out.println("getSelectedFile() : "
+			       + chooser.getSelectedFile());
+	} else {
+	    System.out.println("No Selection");
+	    filepath_temp = null; // Set the array list filepath_temp to null if
+	    // nothing initiated.
+	}
     }//GEN-LAST:event_activity_test_inout_buttonActionPerformed
 
     private void activity_solution_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_solution_fieldActionPerformed
@@ -463,7 +512,36 @@ public class ActivityCreation extends MSPanel {
     }//GEN-LAST:event_activity_test_number_fieldActionPerformed
 
     private void activity_student_submissionpath_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_student_submissionpath_buttonActionPerformed
-        // TODO add your handling code here:
+
+
+
+
+	JFileChooser chooser = new JFileChooser();
+	chooser.setCurrentDirectory(new java.io.File("."));
+	chooser.setDialogTitle("choosertitle");
+	chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+	chooser.setAcceptAllFileFilterUsed(true);
+	
+	String path_container;
+	
+	if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+	    System.out.println("getCurrentDirectory(): "
+			       + chooser.getCurrentDirectory());
+	    path_container = chooser.getSelectedFile().toString();
+	    
+	    activity_student_submissionpath_field.setText(path_container);
+	    filepath_temp = TextAnalyzer.getInput(path_container);
+	    
+	    System.out.println("getSelectedFile() : "
+			       + chooser.getSelectedFile());
+	} else {
+	    System.out.println("No Selection");
+	    filepath_temp = null; // Set the array list filepath_temp to null if
+	    // nothing initiated.
+	}
+
+
+
     }//GEN-LAST:event_activity_student_submissionpath_buttonActionPerformed
 
     private void additional_due_date_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additional_due_date_buttonActionPerformed
