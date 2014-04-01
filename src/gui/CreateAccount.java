@@ -383,7 +383,7 @@ public class CreateAccount extends MSPanel {
 	
 	if (modify_existing_checkbox.isSelected()) {
            creation.setBlocked(block_value);
-    	   AccountAccess.modifyAccount(username, creation);
+    	   AccountAccess.modifyAccount(existing_account_dropdown.getSelectedItem().toString(), creation);
     	   if(!block_value) 
     		   AccountAccess.successfulLogin(username);
            System.out
