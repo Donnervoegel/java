@@ -213,7 +213,7 @@ public class CourseAccess {
 			endDate = rs.getDate("EndDate");
 			String[] names = instructorName.split("\\s+");
 			String fname = names[0];
-			String lname = "";
+			String lname = names[1];
 			ins = new Instructor(fname, lname, instructorID, null, null);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -223,15 +223,24 @@ public class CourseAccess {
 		course = new Course(courseName, cID, ins, startDate.toString(),
 				endDate.toString());
 		// TeachingAssistant table
-		/*
-		 * rs = accessTAs(cID); if (rs != null) { try { while (rs.next()) {
-		 * taEID = rs.getInt("EmployeeID"); taEName =
-		 * rs.getNString("EmployeeName"); String[] names =
-		 * taEName.split("\\s+"); String fname = names[0]; String lname =
-		 * names[1]; TATM temp = new TATM(fname, lname, taEID, null, null);
-		 * course.addMarker(temp); } } catch (SQLException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); } }
-		 */
+		rs = accessTAs(cID);
+		if (rs != null) {
+			try {
+				while (rs.next()) {
+					taEID = rs.getInt("EmployeeID");
+					taEName = rs.getNString("EmployeeName");
+					System.out.println(taEName);
+					String[] names = taEName.split("\\s+");
+					String fname = names[0];
+					String lname = names[1];
+					TATM temp = new TATM(fname, lname, taEID, null, null);
+					course.addMarker(temp);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		 
 		// Students table
 		rs = accessStudentList(cID);
 		if (rs != null) {
