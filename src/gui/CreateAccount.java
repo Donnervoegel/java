@@ -410,7 +410,7 @@ public class CreateAccount extends MSPanel {
 		if (confirm == 0) {
 			AccountAccess.deleteAccount(account);
 			ClearFields();
-			existing_account_dropdown.removeAll();
+			existing_account_dropdown.removeAllItems();
 			existing_account_dropdown
     		.setModel(new javax.swing.DefaultComboBoxModel(
     				database.AccountAccess.accessAccountList()));
