@@ -6,18 +6,14 @@
 
 package gui;
 
-import database.AccountAccess;
-import database.CourseAccess;
-import static java.lang.System.in;
-
+import database.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
+
 import java.awt.event.*;
 
-import types.Course;
-import types.Instructor;
-import types.TextAnalyzer;
+import types.*;
 import gui.types.*;
 import gui.utils.*;
 
@@ -46,9 +42,11 @@ public class CreateCourse extends MSPanel {
 		instruct_combo.setSelectedItem(course.getInstructor().getFirstName()
 				+ " " + course.getInstructor().getLastName() + " - "
 				+ course.getInstructor().getEmpID());
-		ta_combo.setSelectedItem(course.getTA().getFirstName() + " "
-				+ course.getTA().getLastName() + " - "
-				+ course.getTA().getEmpID());
+		String tas = ""; Account[] a = course.getTA();
+		for(int i=0; i<a.length; i++) {
+			tas = tas + a[i].getFirstName() + " " + a[i].getLastName() + " - " + a[i].getEmpID() + ", ";
+		}
+		ta_list.setText(tas);
 		course_start_formatfield.setText(course.getStartDate());
 		course_end_formatfield.setText(course.getEndDate());
 
@@ -111,8 +109,8 @@ public class CreateCourse extends MSPanel {
 
         course_end_label.setText("Course End Date");
 
-        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
-        course_start_formatfield.setText("yyyy/MM/dd");
+        course_start_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        course_start_formatfield.setText("yyyy-MM-dd");
 
         stud_list_file_location_field.setText("File Location...");
 
@@ -143,7 +141,8 @@ public class CreateCourse extends MSPanel {
             }
         });
 
-        course_end_formatfield.setText("yyyy/MM/dd");
+        course_end_formatfield.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        course_end_formatfield.setText("yyyy-MM-dd");
         course_end_formatfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 course_end_formatfieldActionPerformed(evt);
@@ -353,13 +352,14 @@ public class CreateCourse extends MSPanel {
 		CourseAccess.createCourse(new_course);
 
 		// Add the TA to the TA table
-                if (ta_list.getText() != null){
-                   String [] tasplit = ta_list.getText().split(",");
-                   for (int i=0; i <tasplit.length-1; i++) {       
-                       String [] ta = tasplit[i].split(" - ");
-                       CourseAccess.addTA(course_id_field.getText(),Integer.parseInt(ta[1]), ta[0]);        
-                       }
-                }
+		if (ta_list.getText() != null) {
+			String[] tasplit = ta_list.getText().split(",");
+			for (int i = 0; i < tasplit.length - 1; i++) {
+				String[] ta = tasplit[i].split(" - ");
+				CourseAccess.addTA(course_id_field.getText(),
+						Integer.parseInt(ta[1].trim()), ta[0].trim());
+			}
+		}
  
 		if (accounts_list != null) {
 			// Add the CSV file
@@ -379,9 +379,9 @@ public class CreateCourse extends MSPanel {
 			}
 		}
 
-//		JOptionPane.showMessageDialog(this,
-//				"Course " + new_course.getCourseName() + " added.");
-//		GUIUtils.getMasterFrame(this).goBack();
+		JOptionPane.showMessageDialog(this,
+				"Course " + new_course.getCourseName() + " added.");
+		GUIUtils.getMasterFrame(this).goBack();
 	}// GEN-LAST:event_submit_buttonActionPerformed
 
 	private void submit_modify_buttonActionPerformed(ActionEvent evt,
@@ -400,14 +400,16 @@ public class CreateCourse extends MSPanel {
 		// Add the course to course db
 		CourseAccess.modifyCourse(courseIDToModify, new_course);
 
+		CourseAccess.clearTAs(course_id_field.getText());
 		// Add the TA to the TA table
-                if (ta_list.getText() != null){
-                   String [] tasplit = ta_list.getText().split(",");
-                   for (int i=0; i <tasplit.length-1; i++) {       
-                       String [] ta = tasplit[i].split(" - ");
-                       CourseAccess.addTA(course_id_field.getText(),Integer.parseInt(ta[1]), ta[0]);        
-                       }
-                }
+		if (ta_list.getText() != null) {
+			String[] tasplit = ta_list.getText().split(",");
+			for (int i = 0; i < tasplit.length - 1; i++) {
+				String[] ta = tasplit[i].split(" - ");
+				CourseAccess.addTA(course_id_field.getText(),
+						Integer.parseInt(ta[1].trim()), ta[0].trim());
+			}
+		}
              
 		if (accounts_list != null) {
 			// Add the CSV file
@@ -436,35 +438,35 @@ public class CreateCourse extends MSPanel {
     // accounts_list
     // From
     // http://stackoverflow.com/questions/10621687/how-to-get-full-path-directory-from-file-choosers
-    private void choose_file_student_list_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
-	JFileChooser chooser = new JFileChooser();
-	chooser.setCurrentDirectory(new java.io.File("."));
-	chooser.setDialogTitle("choosertitle");
-	chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-	chooser.setAcceptAllFileFilterUsed(true);
-	
-	String path_container;
-	
-	if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-	    System.out.println("getCurrentDirectory(): "
-			       + chooser.getCurrentDirectory());
-	    path_container = chooser.getSelectedFile().toString();
-	    
-	    stud_list_file_location_field.setText(path_container);
-	    accounts_list = TextAnalyzer.getInput(path_container);
-	    
-	    System.out.println("getSelectedFile() : "
-			       + chooser.getSelectedFile());
-	} else {
-	    System.out.println("No Selection");
-	    accounts_list = null; // Set the array list accounts_list to null if
-	    // nothing initiated.
-	}
-    }// GEN-LAST:event_choose_file_student_list_buttonActionPerformed
+	private void choose_file_student_list_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_choose_file_student_list_buttonActionPerformed
+		JFileChooser chooser = new JFileChooser();
+		chooser.setCurrentDirectory(new java.io.File("."));
+		chooser.setDialogTitle("choosertitle");
+		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		chooser.setAcceptAllFileFilterUsed(true);
 
-    private void cancel_buttonActionPerformed(ActionEvent evt) {
-	GUIUtils.getMasterFrame(this).goBack();
-    }
+		String path_container;
+
+		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+			System.out.println("getCurrentDirectory(): "
+					+ chooser.getCurrentDirectory());
+			path_container = chooser.getSelectedFile().toString();
+
+			stud_list_file_location_field.setText(path_container);
+			accounts_list = TextAnalyzer.getInput(path_container);
+
+			System.out.println("getSelectedFile() : "
+					+ chooser.getSelectedFile());
+		} else {
+			System.out.println("No Selection");
+			accounts_list = null; // Set the array list accounts_list to null if
+			// nothing initiated.
+		}
+	}// GEN-LAST:event_choose_file_student_list_buttonActionPerformed
+
+	private void cancel_buttonActionPerformed(ActionEvent evt) {
+		GUIUtils.getMasterFrame(this).goBack();
+	}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_ta_button;

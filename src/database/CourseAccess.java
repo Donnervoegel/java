@@ -249,9 +249,9 @@ public class CourseAccess {
 					aType = rs.getBoolean("ActivityType");
 					groupAct = rs.getBoolean("GroupAct");
 					int numTests = rs.getInt("NumTests");
-					String dueDate = rs.getNString("DueDate");
+					Date dueDate = rs.getDate("DueDate");
 					Activity temp = new Activity(aName, aDesc, sSolnPath,
-							solnPath, aLang, dueDate, aType, groupAct, numTests);
+							solnPath, aLang, dueDate.toString(), aType, groupAct, numTests);
 					course.addActivity(temp);
 				}
 			} catch (SQLException e) {
@@ -332,7 +332,7 @@ public class CourseAccess {
 	public static Activity constructActivityObject(String courseID,
 			String activityName) {
 		ResultSet res = accessActivity(courseID, activityName);
-		Activity temp = null;
+		Activity act = null;
 		try {
 			res.next();
 			String aName = res.getNString("ActivityName");
@@ -344,13 +344,13 @@ public class CourseAccess {
 			boolean aType = res.getBoolean("ActivityType");
 			boolean groupAct = res.getBoolean("GroupAct");
 			int numTests = res.getInt("NumTests");
-			temp = new Activity(aName, aDesc, sSolnPath, solnPath, aLang,
+			act = new Activity(aName, aDesc, sSolnPath, solnPath, aLang,
 					dueDate, aType, groupAct, numTests);
 		} catch (SQLException e) {
 			System.out.println("SQL Exception occured, the state : "
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
 		}
-		return temp;
+		return act;
 	}
 
 	/*
@@ -440,11 +440,13 @@ public class CourseAccess {
 	 * Method to delete a teaching assistant (or tutor marker) from a specified
 	 * course, deleted by their employee ID.
 	 */
-	public void deleteTA(String courseID, int empID) {
+	public static void clearTAs(String courseID) {
 		String query = "DELETE FROM c275g01A.dbo.TeachingAssistant WHERE CourseID = '"
-				+ courseID + "' AND EmployeeID = " + empID;
+				+ courseID + "'";
 		execUpdate(query);
 	}
+	
+
 
 	/*
 	 * Method to access the rubric for a specific activity in a course.
