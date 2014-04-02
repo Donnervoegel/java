@@ -427,7 +427,10 @@ public class CreateAccount extends MSPanel {
 	    				database.AccountAccess.accessAccountList()));
 				existing_account_dropdown.setSelectedIndex(-1);
 			} catch (SQLException e) {
-				JOptionPane.showMessageDialog(this, "This i ");
+				JOptionPane.showMessageDialog(this, "This instructor cannot be "
+						+ "deleted as they are the instructor of a course. "
+						+ "Please alter that course before trying to delete "
+						+ "this instructor.");
 			}
 		}
 	}
