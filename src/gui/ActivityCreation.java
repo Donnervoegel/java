@@ -24,6 +24,8 @@ import types.*;
 /**
  *
  * @author Ian
+ * 
+ * Comment from Graeme: all activities are hard coded to programming for now
  */
 public class ActivityCreation extends MSPanel {
     private String courseid;
@@ -610,6 +612,7 @@ public class ActivityCreation extends MSPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_activity_reset_buttonActionPerformed
 
+<<<<<<< HEAD
 	private void activity_submit_buttonActionPerformed(
 			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_activity_submit_buttonActionPerformed
 		// public Activity(String n, String sol, String lang, boolean p, boolean g)
@@ -672,7 +675,6 @@ public class ActivityCreation extends MSPanel {
 					activity_test_out_field.getText());
 		else 
 			CourseAccess.deleteTests(courseid,new_activity);
-		
 
 		JOptionPane.showMessageDialog(this, "Activity modified.");
 		GUIUtils.getMasterFrame(this).goBack();

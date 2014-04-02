@@ -14,6 +14,7 @@ import types.Activity;
 import database.CourseAccess;
 import gui.utils.GUIUtils;
 import gui.types.*;
+import types.Course;
 
 /**
  *
@@ -169,7 +170,12 @@ public class ActivitySelection extends MSPanel {
 	}
     
 	private void ok_markActivity_buttonActionPerformed(ActionEvent evt) {
+                System.out.println("Getting activity name");
 		String activityName = activity_dropdown.getSelectedItem().toString();
+                System.out.println("Getting course");
+                Course course=CourseAccess.constructCourseObject(courseID);
+                System.out.println("Got course "+course.getCourseID());
+                GUIUtils.getMasterFrame(this).movePage(new SelectActivityMatrix(course));//need to make it so it moves based on activity as well
 		
 	}
 
