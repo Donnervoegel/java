@@ -109,7 +109,7 @@ public class LandingPageSysAdmin extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manage_database_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_manage_database_buttonActionPerformed
-	GUIUtils.nothing();
+	 GUIUtils.getMasterFrame(this).movePage(new DatabaseManagement(a));
     }//GEN-LAST:event_manage_database_buttonActionPerformed
 
     private void manage_accounts_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_manage_accounts_buttonActionPerformed
@@ -117,7 +117,7 @@ public class LandingPageSysAdmin extends MSPanel {
     }//GEN-LAST:event_manage_accounts_buttonActionPerformed
 
     private void manage_log_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_manage_log_buttonActionPerformed
-        GUIUtils.nothing();
+        GUIUtils.getMasterFrame(this).movePage(new LogManagement());
     }//GEN-LAST:event_manage_log_buttonActionPerformed
 
 
