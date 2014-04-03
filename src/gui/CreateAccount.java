@@ -350,49 +350,59 @@ public class CreateAccount extends MSPanel {
         }
      }
     
-    private void ok_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-       String first = first_name_field.getText();
-       String last = last_name_field.getText();
-       int id = Integer.parseInt(id_field.getText());
-       String username = username_field.getText();
-       String pass = password_field.getText();
-       boolean block_value = block_account_checkbox.isSelected();
-       Account creation;
-       String account_select = account_type_dropdown
-	   .getSelectedItem().toString();
-       
-        if (account_select.equalsIgnoreCase("System Admin"))
-            creation = new SystemAdmin(first, last, id, username, pass);
-        
-        else if(account_select.equalsIgnoreCase("Administrator"))
-            creation = new AcademicAdmin(first, last, id, username, pass);
-        
-        else if(account_select.equalsIgnoreCase("Assistant Admin"))
-            creation = new AssistantAdmin(first, last, id, username, pass);
-        
-        else if(account_select.equalsIgnoreCase("Instructor"))
-            creation = new Instructor(first, last, id, username, pass);
-        
-        else if(account_select.equalsIgnoreCase("TA"))
-            creation = new TATM(first, last, id, username, pass);
-       
-        else { //Incorrect account type, this should never happen
-            creation = null;
-            System.out.println("Is it Christmas right now?  Because you have an error message to unwrap.");
-        }
-	
-	if (modify_existing_checkbox.isSelected()) {
-           creation.setBlocked(block_value);
-    	   AccountAccess.modifyAccount(existing_account_dropdown.getSelectedItem().toString(), creation);
-    	   if(!block_value) 
-    		   AccountAccess.successfulLogin(username);
-           System.out
-	       .println("Account " + username_field.getText() + " modified.");
-	} else {
-	    System.out.println("Creating " + account_select + " type account.");
-	    AccountAccess.createAccount(creation);
-	    JOptionPane.showMessageDialog(this, "Account Created: " + username_field.getText());
-	}
+	private void ok_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_ok_buttonActionPerformed
+		String first = first_name_field.getText();
+		String last = last_name_field.getText();
+		int id = Integer.parseInt(id_field.getText());
+		String username = username_field.getText();
+		String pass = password_field.getText();
+		boolean block_value = block_account_checkbox.isSelected();
+		Account creation;
+		String account_select = account_type_dropdown.getSelectedItem()
+				.toString();
+
+		if (account_select.equalsIgnoreCase("System Admin"))
+			creation = new SystemAdmin(first, last, id, username, pass);
+
+		else if (account_select.equalsIgnoreCase("Administrator"))
+			creation = new AcademicAdmin(first, last, id, username, pass);
+
+		else if (account_select.equalsIgnoreCase("Assistant Admin"))
+			creation = new AssistantAdmin(first, last, id, username, pass);
+
+		else if (account_select.equalsIgnoreCase("Instructor"))
+			creation = new Instructor(first, last, id, username, pass);
+
+		else if (account_select.equalsIgnoreCase("TA"))
+			creation = new TATM(first, last, id, username, pass);
+
+		else { // Incorrect account type, this should never happen
+			creation = null;
+			System.out.println("Is it Christmas right now? Because you have an"
+					+ " error message to unwrap.");
+		}
+
+		if (modify_existing_checkbox.isSelected()) {
+			creation.setBlocked(block_value);
+			try {
+				AccountAccess.modifyAccount(existing_account_dropdown
+						.getSelectedItem().toString(), creation);
+				if (!block_value)
+					AccountAccess.successfulLogin(username);
+				System.out.println("Account " + username_field.getText()
+						+ " modified.");
+			} catch (SQLException e) {
+				JOptionPane.showMessageDialog(this,"This instructor cannot be "
+						+ "modified in this way as they are the instructor of "
+						+ "a course. Please alter that course before trying to"
+						+ " make this change.");
+			}
+		} else {
+			System.out.println("Creating " + account_select + " type account.");
+			AccountAccess.createAccount(creation);
+			JOptionPane.showMessageDialog(this, "Account Created: "
+					+ username_field.getText());
+		}
         
         GUIUtils.getMasterFrame(this).goBack();
     }//GEN-LAST:event_ok_buttonActionPerformed
@@ -408,12 +418,20 @@ public class CreateAccount extends MSPanel {
 				+ username_field.getText() + "\"?", "",
 				JOptionPane.YES_NO_OPTION);
 		if (confirm == 0) {
-			AccountAccess.deleteAccount(account);
-			ClearFields();
-			existing_account_dropdown.removeAll();
-			existing_account_dropdown
-    		.setModel(new javax.swing.DefaultComboBoxModel(
-    				database.AccountAccess.accessAccountList()));
+			try {
+				AccountAccess.deleteAccount(account);
+				ClearFields();
+				existing_account_dropdown.removeAllItems();
+				existing_account_dropdown
+	    		.setModel(new javax.swing.DefaultComboBoxModel(
+	    				database.AccountAccess.accessAccountList()));
+				existing_account_dropdown.setSelectedIndex(-1);
+			} catch (SQLException e) {
+				JOptionPane.showMessageDialog(this, "This instructor cannot be "
+						+ "deleted as they are the instructor of a course. "
+						+ "Please alter that course before trying to delete "
+						+ "this instructor.");
+			}
 		}
 	}
 

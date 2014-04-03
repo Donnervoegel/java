@@ -36,8 +36,12 @@ public class Course
 	return instructor;
     }
     
-    public Account getTA() {
-		return markers.get(0);
+    public Account[] getTA() {
+    	Account[] tas = new Account[markers.size()];
+    	for (Account a : markers) {
+    		tas[markers.indexOf(a)] = a;
+    	}
+    	return tas;
 	}
     
     public Course(String n, String id, Instructor ins, String start, String end)

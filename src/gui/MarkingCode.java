@@ -34,40 +34,35 @@ import types.Activity;
 
 public class MarkingCode extends MSPanel {
 
+    private final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};
+    Object data [][];
     //Populates text panels based on preset textfiles in gui.utils.
+    
+    Activity testsuite_activity;
+    
     
      public MarkingCode(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
+        this.testsuite_activity = act;
         
         //Currently only reads from a file.
         //Populate textpanes with sample and solution
-        FileReader reader = null;
-        try {
-            reader = new FileReader("gui.utils.ActivityTestSubmission.txt");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            submission_text_area.read(reader, "gui.utils.ActivityTestSubmission.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("Trying to read submission");
+        //submission_text_area=
         
-        FileReader reader2 = null;
-        try {
-            reader2 = new FileReader("gui.utils.ActivityTestSolution.txt");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            solution_text_area.read(reader2, "gui.utils.ActivityTestSolution.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(MarkingCode.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         //Populate the Rubric Table code below this:
-        
+        Object[][] temp = CourseAccess.accessRubricItems(courseID, act.getName());
+        System.out.println("Starting to populate rubric");
+        int num_rubric_items=temp[0].length;    //this is the number of descriptions and assumes there are grades for every description
+        data=new Object[num_rubric_items][3];
+        for (int i=0;i<num_rubric_items;i++) {
+            data[i][0]=temp[i][0];
+            data[i][1]=0;
+            data[i][2]=temp[i][1];
+        }
+        rubric_table.setModel(new DefaultTableModel(data, COLUMN_NAMES));
 	}
 
 	/**
@@ -110,9 +105,16 @@ public class MarkingCode extends MSPanel {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         rubric_table.getTableHeader().setReorderingAllowed(false);
@@ -159,7 +161,7 @@ public class MarkingCode extends MSPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(max_grade_field, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(max_grade_field, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
                     .addComponent(slash_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(grade_field, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -247,7 +249,7 @@ public class MarkingCode extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void test_suite_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test_suite_buttonActionPerformed
-        System.out.println("Launch TEST SUITE");
+        GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath(), testsuite_activity.getSolnPath()));
     }//GEN-LAST:event_test_suite_buttonActionPerformed
     
 

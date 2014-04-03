@@ -19,7 +19,7 @@ public class Activity
     
     private Rubric rubric;
     
-    public Activity(String n, String desc, String studPath, String soln, String lang, boolean p, boolean g, int numTests)
+    public Activity(String n, String desc, String studPath, String soln, String lang, String dueDate, boolean p, boolean g, int numTests)
     {
         name = n;
         activityDesc = desc;
@@ -29,6 +29,7 @@ public class Activity
         isProgramming = p;
         isGroup = g;
         num_of_tests = numTests;
+        due_date = dueDate;
         isProgramming = p;
         isGroup = g;
         tests = new ArrayList<ProgrammingTest>();

@@ -9,7 +9,10 @@ package gui;
 import database.AccountAccess;
 
 import javax.swing.*;
+
 import java.awt.event.*;
+import java.sql.SQLException;
+
 import gui.utils.*;
 import gui.types.MSPanel;
 import types.Account;
@@ -99,7 +102,11 @@ public class SettingsPage extends MSPanel {
 
 	    if (choice == JOptionPane.OK_OPTION) {
 		a.setPassword(newP);
-		AccountAccess.modifyAccount(a.getUsername(), a);
+		try {
+			AccountAccess.modifyAccount(a.getUsername(), a);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		System.out.println("Password changed to " + newP);
 	    }
 	}
