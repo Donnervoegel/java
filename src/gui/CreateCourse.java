@@ -31,6 +31,7 @@ public class CreateCourse extends MSPanel {
 	super("Course Creation");
 
         initComponents();
+        instructor_field.setEditable(false);
     }
 
 	public CreateCourse(final Course course) {
