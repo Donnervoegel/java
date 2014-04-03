@@ -56,7 +56,7 @@ public class MasterFrame extends JFrame {
 	    curr_page = new LandingPageAdmin((AcademicAdmin)a);
 	} else if (a.getAccountType() == Account.Type.ASSISTANTADMIN) {
 	    role_label.setText("Role: Assistant Academic Administrator");
-	    curr_page = new LandingPageAssistAdmin((AssistantAdmin)a);
+	    curr_page = new CourseManagement((AssistantAdmin)a);
 	} else if (a.getAccountType() == Account.Type.INSTRUCTOR) {
 	    role_label.setText("Role: Instructor");
 	    curr_page = new LandingPageInstructor((Instructor)a);
