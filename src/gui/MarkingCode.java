@@ -38,9 +38,13 @@ public class MarkingCode extends MSPanel {
     Object data [][];
     //Populates text panels based on preset textfiles in gui.utils.
     
+    Activity testsuite_activity;
+    
+    
      public MarkingCode(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
+        this.testsuite_activity = act;
         
         //Currently only reads from a file.
         //Populate textpanes with sample and solution
@@ -245,7 +249,7 @@ public class MarkingCode extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void test_suite_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test_suite_buttonActionPerformed
-        System.out.println("Launch TEST SUITE");
+        GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath(), testsuite_activity.getSolnPath()));
     }//GEN-LAST:event_test_suite_buttonActionPerformed
     
 
