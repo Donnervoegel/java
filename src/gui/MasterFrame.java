@@ -22,7 +22,6 @@ public class MasterFrame extends JFrame {
     private JButton back_button;
     private JButton settings_button;
     private JLabel  role_label;
-    private JLabel  crumbs;  // This won't be a JLabel later.
     private LinkedList<MSPanel> pages;
     private GridBagConstraints c = new GridBagConstraints();
 
@@ -37,7 +36,6 @@ public class MasterFrame extends JFrame {
 	back_button     = new JButton("Back");
 	settings_button = new JButton("Settings");
 	role_label      = new JLabel();  // Changes according to `a`.
-	crumbs          = new JLabel("Breadcrumbs here...");
 	pages           = new LinkedList<MSPanel>();
 
 	// Various settings.
@@ -92,34 +90,31 @@ public class MasterFrame extends JFrame {
 
 	// Set up persistent top bar
 	top_panel.setLayout(new GridBagLayout());
-	//	c.ipadx = 50;
-	c.gridx = 0;
-	c.gridy = 0;
-	c.anchor = GridBagConstraints.LINE_START;
-	top_panel.add(crumbs, c);
-
-	c.gridx = 9;
+	c.gridx = 1;
 	c.gridy = 0;
 	c.weightx = 1.0;
 	//	c.weighty = 1.0;
-	c.anchor = GridBagConstraints.LINE_END;
+	c.anchor = GridBagConstraints.NORTHEAST;
 	top_panel.add(role_label, c);
 
 	c.gridx = 0;
 	c.gridy = 1;
 	c.weighty = 1.0;
 	c.weightx = 0;
-	c.anchor = GridBagConstraints.LINE_START;
+	c.anchor = GridBagConstraints.WEST;
 	top_panel.add(back_button, c);
 
 	c.gridx = 1;
+	c.weighty = 0;
+	c.weightx = 0;
+	c.anchor = GridBagConstraints.CENTER;
 	top_panel.add(settings_button, c);
 
 	c.gridx = 2;
 	c.gridy = 1;
-	c.anchor = GridBagConstraints.LINE_END;
-	//	c.weightx = 1.0;
-	//	c.weighty = 1.0;
+	c.anchor = GridBagConstraints.EAST;
+	c.weightx = 1.0;
+	c.weighty = 1.0;
 	top_panel.add(logout_button, c);
 
 	// MasterFrame Layout Settings
