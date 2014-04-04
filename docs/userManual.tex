@@ -103,6 +103,12 @@ to simplify the process required for grading. Features of the program include:
 
 \subsection{Software Requirements}
 
+\begin{itemize}
+	\item Windows XP or newer
+	\item Microsoft SQL Server 2003 or newer
+	\item Java 1.6 or newer
+\end{itemize}
+
 \subsection{Hardware Requirements}
 
 \subsection{Installation}
@@ -125,19 +131,16 @@ to simplify the process required for grading. Features of the program include:
 The login screen is displayed whenever the program is started, so the user can login
 to their own account. The user will enter their username and password into the
 appropriate field and hit the Login button. If the details entered were correct,
-they will be sent to the landing page, and otherwise an error will be shown telling
-the user their details were incorrect.\\
+they will be sent to the landing page, and otherwise an error will be shown informing the user their username or password was incorrect. If the user makes five unsuccessful attempts to log in, the user will be blocked.\\
 \centerline{\includegraphics[scale=0.65]{../images/UIMockups/pngs/forgotPW}}
-If the user hits the Forgot Password button, a pop up window will open prompting
-them to enter their username. Once they confirm their username, the System 
-Administrator will be alerted to their request for a password reset.
+%-- If the user hits the Forgot Password button, a pop up window will open prompting
+%-- them to enter their username. Once they confirm their username, the System 
+%-- Administrator will be alerted to their request for a password reset.
 
 \subsection{Landing Page}
 \includegraphics[scale=0.55]{../images/UIMockups/pngs/LandingPage} 
 \label{landPg}\\
-The Landing Page is shown to all users of the system following login.  The Tasks
-box shows actions that each user can do.  It does not show actions the user
-cannot do. The above represents what an Instructor would see upon logging in.
+The Landing Page is shown to all users of the system following a successful login.  The Tasks box shows actions that each user can do.  It does not show actions the user cannot do. The above represents what an Instructor would see upon logging in.
 
 \subsection{Manage Courses}
 \begin{enumerate}
@@ -161,7 +164,7 @@ cannot do. The above represents what an Instructor would see upon logging in.
    \begin{enumerate}
      \item Enter the name of the course in the \textbf{Course Name} field by typing.
      \item Enter the Course ID in the \textbf{Course ID} field by typing.
-     \item To pick the instructor for our new course, we are given a drop-down
+     \item To pick the instructor for our new course, the user is given a drop-down
        menu of all the registered Instructors in alphabetical order by last
        name. Click on the arrow to the right of the field in order to find
        the designated Instructor name.
