@@ -143,8 +143,9 @@ public class MarkingCode extends MSPanel {
         solution_panel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         solution_text_area = new javax.swing.JTextArea();
-        test_suite_button = new javax.swing.JToggleButton();
-        save_button = new javax.swing.JToggleButton();
+        test_suite_button = new javax.swing.JButton();
+        save_button = new javax.swing.JButton();
+        next_button = new javax.swing.JButton();
 
         rubric_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Rubric"));
         rubric_panel.setMinimumSize(new java.awt.Dimension(400, 500));
@@ -185,12 +186,10 @@ public class MarkingCode extends MSPanel {
         max_grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         max_grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         max_grade_field.setText("Max");
-        max_grade_field.setEditable(false);
 
         grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         grade_field.setText("Grade");
-        grade_field.setEditable(false);
 
         slash_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         slash_label.setText("/");
@@ -219,7 +218,7 @@ public class MarkingCode extends MSPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(max_grade_field, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                    .addComponent(max_grade_field, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addComponent(slash_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(grade_field, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -271,56 +270,65 @@ public class MarkingCode extends MSPanel {
         });
 
         save_button.setText("Save");
+        save_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_buttonActionPerformed(evt);
+            }
+        });
+
+        next_button.setText("Next");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(rubric_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(submitted_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(solution_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(test_suite_button, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rubric_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(submitted_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(solution_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(test_suite_button, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(submitted_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
-                    .addComponent(solution_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
-                    .addComponent(rubric_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(test_suite_button, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(save_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(submitted_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                    .addComponent(solution_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                    .addComponent(rubric_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(test_suite_button, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(next_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void test_suite_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test_suite_buttonActionPerformed
-        GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath(), testsuite_activity.getSolnPath()));
+         GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath(), testsuite_activity.getSolnPath()));
     }//GEN-LAST:event_test_suite_buttonActionPerformed
-    
-    private void table_change_actionPerformed(TableModelEvent e) {
-    	float grades = 0;
-    	for(int i=0; i<rubric_table.getRowCount(); i++)
-			grades += Float.parseFloat(rubric_table.getModel()
-					.getValueAt(i, e.getColumn()).toString());
-    	String currentGrade = "" + grades;
-    	grade_field.setText(currentGrade);
-	}
-    
-	private void save_buttonActionPerformed(ActionEvent evt) {
-		for (int i = 0; i < rubric_table.getColumnCount(); i++) {
+
+    private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
+       for (int i = 0; i < rubric_table.getColumnCount(); i++) {
 			try {
 				GradeAccess.enterGrade(studentID, courseID, actName,
 						rubric_table.getModel().getValueAt(i, 0).toString(),
@@ -337,8 +345,18 @@ public class MarkingCode extends MSPanel {
 		}
 		JOptionPane.showMessageDialog(this,"Grade saved.");
 		GUIUtils.getMasterFrame(this).goBack();
+    }//GEN-LAST:event_save_buttonActionPerformed
+    
+    private void table_change_actionPerformed(TableModelEvent e) {
+    	float grades = 0;
+    	for(int i=0; i<rubric_table.getRowCount(); i++)
+			grades += Float.parseFloat(rubric_table.getModel()
+					.getValueAt(i, e.getColumn()).toString());
+    	String currentGrade = "" + grades;
+    	grade_field.setText(currentGrade);
 	}
-
+    
+	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField grade_field;
     private javax.swing.JLabel jLabel1;
@@ -346,14 +364,15 @@ public class MarkingCode extends MSPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField max_grade_field;
+    private javax.swing.JButton next_button;
     private javax.swing.JPanel rubric_panel;
     private javax.swing.JTable rubric_table;
-    private javax.swing.JToggleButton save_button;
+    private javax.swing.JButton save_button;
     private javax.swing.JLabel slash_label;
     private javax.swing.JPanel solution_panel;
     private javax.swing.JTextArea solution_text_area;
     private javax.swing.JTextArea submission_text_area;
     private javax.swing.JPanel submitted_panel;
-    private javax.swing.JToggleButton test_suite_button;
+    private javax.swing.JButton test_suite_button;
     // End of variables declaration//GEN-END:variables
 }
