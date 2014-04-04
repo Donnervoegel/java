@@ -15,10 +15,12 @@ import gui.utils.GUIUtils;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,11 +62,33 @@ public class MarkingCode extends MSPanel {
         //Currently only reads from a file.
         //Populate textpanes with sample and solution
         System.out.println("Trying to read submission");
-        //submission_text_area=
-        
+        String[] paths = CourseAccess.accessSubmissionPath(courseID, act.getName());
+        Scanner in = null;
+        String submission = "";
+        try {
+			in = new Scanner(new FileReader(paths[0] + "/" + stud_id + "/" + act.getName() + ".py"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+        while(in.hasNext()) {
+        	submission += in.nextLine() + "\n";
+        }
+        in.close();
+        submission_text_area.setText(submission);
+
+        String solution = "";
+        try {
+			in = new Scanner(new FileReader(paths[1]));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+        while(in.hasNext()) {
+        	solution += in.nextLine() + "\n";
+        }
+        in.close();
+        solution_text_area.setText(solution);
         
         //Populate the Rubric Table code below this:
-      //Populate the Rubric Table code below this:
         grade_field.setText("");
         Object[][] temp = CourseAccess.accessRubricItems(courseID, act.getName());
 		if (temp.length != 0) {
@@ -230,6 +254,7 @@ public class MarkingCode extends MSPanel {
 
         submission_text_area.setColumns(20);
         submission_text_area.setRows(5);
+        submission_text_area.setTabSize(1);
         jScrollPane4.setViewportView(submission_text_area);
 
         javax.swing.GroupLayout submitted_panelLayout = new javax.swing.GroupLayout(submitted_panel);
@@ -249,6 +274,7 @@ public class MarkingCode extends MSPanel {
 
         solution_text_area.setColumns(20);
         solution_text_area.setRows(5);
+        solution_text_area.setTabSize(1);
         jScrollPane5.setViewportView(solution_text_area);
 
         javax.swing.GroupLayout solution_panelLayout = new javax.swing.GroupLayout(solution_panel);

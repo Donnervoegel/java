@@ -221,23 +221,23 @@ public class CourseAccess {
 		}
 
 		// Students table
-//		rs = accessStudentList(cID);
-//		if (rs != null) {
-//			try {
-//				while (rs.next()) {
-//					sID = rs.getInt("StudentID");
-//					sName = rs.getNString("StudentName");
-//					String[] names = sName.split("\\s+");
-//					String fname = names[0];
-//					String lname = names[1];
-//					Student temp = new Student();
-//					course.addStudent(temp);
-//				}
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
+		// rs = accessStudentList(cID);
+		// if (rs != null) {
+		// try {
+		// while (rs.next()) {
+		// sID = rs.getInt("StudentID");
+		// sName = rs.getNString("StudentName");
+		// String[] names = sName.split("\\s+");
+		// String fname = names[0];
+		// String lname = names[1];
+		// Student temp = new Student();
+		// course.addStudent(temp);
+		// }
+		// } catch (SQLException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		// }
 		// Activities table
 		rs = accessCourseActivities(cID);
 		if (rs != null) {
@@ -367,6 +367,23 @@ public class CourseAccess {
 					+ e.getSQLState() + "\nMessage: " + e.getMessage());
 		}
 		return act;
+	}
+
+	public static String[] accessSubmissionPath(String courseID, String actName) {
+		String[] paths = new String[2];
+		String query = "SELECT StudentSolnPath,SolnPath FROM c275g01A.dbo.Activity WHERE CourseID = '"
+				+ courseID + "' AND ActivityName = '" + actName + "'";
+		ResultSet res = execQuery(query);
+		
+		try {
+			res.next();
+			paths[0] = res.getNString(1);
+			paths[1] = res.getNString(2);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return paths;
 	}
 
 	/*
