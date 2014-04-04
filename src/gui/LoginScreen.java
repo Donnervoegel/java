@@ -24,6 +24,7 @@ import types.*;
 
 public class LoginScreen extends JFrame {
     private MasterFrame master;
+    private boolean red_eyes = false;
 
     /**
      * Creates new form NewJFrame
@@ -52,6 +53,13 @@ public class LoginScreen extends JFrame {
         login_button = new JButton();
         jLabel3 = new JLabel();
         forgot_button = new JButton();
+
+	jLabel3.setIcon(new ImageIcon(getClass().getResource("/gui/markshark-5x.png"))); // NOI18N
+	jLabel3.addMouseListener(new MouseAdapter() {
+		public void mousePressed(MouseEvent me) {
+		    changeLogo(me);
+		}
+	    });
 
         ForgotPwd.setText("Forgot Password");
 
@@ -111,8 +119,6 @@ public class LoginScreen extends JFrame {
                 .addComponent(login_button)
                 .addGap(153, 153, 153))
         );
-
-        jLabel3.setIcon(new ImageIcon(getClass().getResource("/gui/markshark-5x.png"))); // NOI18N
 
         forgot_button.setText("Forgot Password");
         forgot_button.addActionListener(new java.awt.event.ActionListener() {
@@ -217,6 +223,16 @@ public class LoginScreen extends JFrame {
     public void clearFields() {
 	username_field.setText("");
 	password_field.setText("");
+    }
+
+    public void changeLogo(MouseEvent me) {
+	if (red_eyes) {
+	    jLabel3.setIcon(new ImageIcon(getClass().getResource("/gui/markshark-5x.png")));
+	    red_eyes = false;
+	} else {
+	    jLabel3.setIcon(new ImageIcon(getClass().getResource("/gui/markshark-5x-eyes.png")));
+	    red_eyes = true;
+	}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
