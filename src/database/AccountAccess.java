@@ -204,7 +204,7 @@ public class AccountAccess {
 	 * Method to update an account in the database. Takes a username to access,
 	 * and updates the account with all the fields of the account object passed.
 	 */
-	public static void modifyAccount(String accessUsername, Account acct) throws SQLException {
+	public static void modifyAccount(String accessUsername, Account acct) {
 		// Initialise fields of account object to edit in database
 		String username = acct.getUsername();
 		String password = acct.getPassword();
@@ -219,22 +219,24 @@ public class AccountAccess {
 				+ empID + ", EmployeeName = '" + empName + "', AccountType = "
 				+ acctType + ", BlockAccountFlag = " + boolToBit(blockFlag)
 				+ "WHERE Username = '" + accessUsername + "'";
-		establishConnection();
-		PreparedStatement prepSt = dbConnection.prepareStatement(query); // Execute the update query
-		prepSt.executeUpdate();
+		execUpdate(query);
+		//establishConnection();
+		//PreparedStatement prepSt = dbConnection.prepareStatement(query); // Execute the update query
+		//prepSt.executeUpdate();
 	}
 
 	/*
 	 * Method to delete an account from the database. Takes a username as an
 	 * argument and removes the account with that username from the database.
 	 */
-	public static void deleteAccount(String username) throws SQLException {
+	public static void deleteAccount(String username) {
 		// Create the deletion query string
 		String query = "DELETE FROM c275g01A.dbo.Account WHERE Username = '"
 				+ username + "'";
-		establishConnection();
-		PreparedStatement prepSt = dbConnection.prepareStatement(query); // Execute the update query
-		prepSt.executeUpdate();
+		execUpdate(query);
+		//establishConnection();
+		//PreparedStatement prepSt = dbConnection.prepareStatement(query); // Execute the update query
+		//prepSt.executeUpdate();
 	}
 
 	public static int failedLogin(String username) {

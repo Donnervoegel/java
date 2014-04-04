@@ -190,7 +190,9 @@ public class CourseAccess {
 			endDate = rs.getDate("EndDate");
 			String[] names = instructorName.split("\\s+");
 			String fname = names[0];
-			String lname = names[1];
+			String lname = "";
+			if (names.length > 1)
+				lname = names[1];
 			ins = new Instructor(fname, lname, instructorID, null, null);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

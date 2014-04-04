@@ -102,11 +102,8 @@ public class SettingsPage extends MSPanel {
 
 	    if (choice == JOptionPane.OK_OPTION) {
 		a.setPassword(newP);
-		try {
-			AccountAccess.modifyAccount(a.getUsername(), a);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		AccountAccess.modifyAccount(a.getUsername(), a);
+
 		System.out.println("Password changed to " + newP);
 	    }
 	}

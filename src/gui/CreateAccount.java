@@ -384,19 +384,12 @@ public class CreateAccount extends MSPanel {
 
 		if (modify_existing_checkbox.isSelected()) {
 			creation.setBlocked(block_value);
-			try {
-				AccountAccess.modifyAccount(existing_account_dropdown
-						.getSelectedItem().toString(), creation);
-				if (!block_value)
-					AccountAccess.successfulLogin(username);
-				System.out.println("Account " + username_field.getText()
-						+ " modified.");
-			} catch (SQLException e) {
-				JOptionPane.showMessageDialog(this,"This instructor cannot be "
-						+ "modified in this way as they are the instructor of "
-						+ "a course. Please alter that course before trying to"
-						+ " make this change.");
-			}
+			AccountAccess.modifyAccount(existing_account_dropdown
+					.getSelectedItem().toString(), creation);
+			if (!block_value)
+				AccountAccess.successfulLogin(username);
+			System.out.println("Account " + username_field.getText()
+					+ " modified.");
 		} else {
 			System.out.println("Creating " + account_select + " type account.");
 			AccountAccess.createAccount(creation);
@@ -418,20 +411,13 @@ public class CreateAccount extends MSPanel {
 				+ username_field.getText() + "\"?", "",
 				JOptionPane.YES_NO_OPTION);
 		if (confirm == 0) {
-			try {
-				AccountAccess.deleteAccount(account);
-				ClearFields();
-				existing_account_dropdown.removeAllItems();
-				existing_account_dropdown
-	    		.setModel(new javax.swing.DefaultComboBoxModel(
-	    				database.AccountAccess.accessAccountList()));
-				existing_account_dropdown.setSelectedIndex(-1);
-			} catch (SQLException e) {
-				JOptionPane.showMessageDialog(this, "This instructor cannot be "
-						+ "deleted as they are the instructor of a course. "
-						+ "Please alter that course before trying to delete "
-						+ "this instructor.");
-			}
+			AccountAccess.deleteAccount(account);
+			ClearFields();
+			existing_account_dropdown.removeAllItems();
+			existing_account_dropdown
+					.setModel(new javax.swing.DefaultComboBoxModel(
+							database.AccountAccess.accessAccountList()));
+			existing_account_dropdown.setSelectedIndex(-1);
 		}
 	}
 

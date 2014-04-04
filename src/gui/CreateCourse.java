@@ -27,12 +27,10 @@ public class CreateCourse extends MSPanel {
     /**
      * Creates new form CreateCourse
      */
-    public CreateCourse() {
-	super("Course Creation");
-
-        initComponents();
-        instructor_field.setEditable(false);
-    }
+	public CreateCourse() {
+		super("Course Creation");
+		initComponents();
+	}
 
 	public CreateCourse(final Course course) {
 		super("Course Modification");
@@ -164,6 +162,7 @@ public class CreateCourse extends MSPanel {
             }
         });
 
+        instructor_field.setEditable(false);
         instructor_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 instructor_fieldActionPerformed(evt);
@@ -172,6 +171,7 @@ public class CreateCourse extends MSPanel {
 
         instructor_id_label.setText("Instructor ID");
 
+        ta_list.setEditable(false);
         ta_list.setColumns(20);
         ta_list.setRows(5);
         jScrollPane1.setViewportView(ta_list);
@@ -332,9 +332,7 @@ public class CreateCourse extends MSPanel {
     }//GEN-LAST:event_instruct_comboActionPerformed
 
     private void add_ta_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_ta_buttonActionPerformed
-  
         ta_list.append(ta_combo.getSelectedItem().toString() + ", ");
-        
     }//GEN-LAST:event_add_ta_buttonActionPerformed
 										
 	private void submit_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_submit_buttonActionPerformed
@@ -467,6 +465,9 @@ public class CreateCourse extends MSPanel {
 
 	private void cancel_buttonActionPerformed(ActionEvent evt) {
 		GUIUtils.getMasterFrame(this).goBack();
+		//String tas = ta_list.getText();
+		//tas = tas.replaceFirst(ta_combo.getSelectedItem().toString() + ", ","");
+		//ta_list.setText(tas);
 	}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
