@@ -334,9 +334,36 @@ public class CreateCourse extends MSPanel {
     private void add_ta_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_ta_buttonActionPerformed
         ta_list.append(ta_combo.getSelectedItem().toString() + ", ");
     }//GEN-LAST:event_add_ta_buttonActionPerformed
-										
+	
+        private Boolean fieldCheck(){
+           
+            Boolean fields_pass_check;
+            
+            // If any of the conditions are true, popup a menu
+            if (       course_name_field.getText().equalsIgnoreCase("") // course name empty
+                    || course_id_field.getText().equalsIgnoreCase("") //Course id empty
+                    || instructor_field.getText().equalsIgnoreCase("") // instructor id empty
+                    || ta_list.getText().equalsIgnoreCase("") //ta field empty
+                    || course_start_formatfield.getText().equalsIgnoreCase("") //start field empty
+                    || course_end_formatfield.getText().equalsIgnoreCase("") //end field empty
+                    || stud_list_file_location_field.getText().equalsIgnoreCase("") // file location field empty
+                    
+                    ){
+                JOptionPane.showMessageDialog(this, "One of your fields is not filled in, please check all your fields and resubmit!");
+                fields_pass_check = false;
+            }
+            
+            else 
+                fields_pass_check = true;
+            
+            return fields_pass_check;        
+        }
+        
+    
 	private void submit_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_submit_buttonActionPerformed
-		Instructor instructor_taken;
+		Boolean ok_to_submit = fieldCheck();
+                if (ok_to_submit){
+                Instructor instructor_taken;
 		String instField = instruct_combo.getSelectedItem().toString();
 		instField = instField.substring(instField.indexOf("-") + 2);
 		int instID = Integer.parseInt(instField);
@@ -381,6 +408,7 @@ public class CreateCourse extends MSPanel {
 		JOptionPane.showMessageDialog(this,
 				"Course " + new_course.getCourseName() + " added.");
 		GUIUtils.getMasterFrame(this).goBack();
+                }
 	}// GEN-LAST:event_submit_buttonActionPerformed
 
 	private void submit_modify_buttonActionPerformed(ActionEvent evt,
