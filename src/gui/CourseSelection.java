@@ -69,7 +69,7 @@ public class CourseSelection extends MSPanel {
     			ok_button.removeActionListener(act);
     		ok_button.addActionListener(new java.awt.event.ActionListener() {
     			public void actionPerformed(java.awt.event.ActionEvent evt) {
-    				ok_actListCourse_buttonActionPerformed(evt);
+    				ok_markingCourse_buttonActionPerformed(evt);
     			}
     		});
     		break;
@@ -119,7 +119,7 @@ public class CourseSelection extends MSPanel {
     			ok_button.removeActionListener(act);
     		ok_button.addActionListener(new java.awt.event.ActionListener() {
     			public void actionPerformed(java.awt.event.ActionEvent evt) {
-    				ok_actListCourse_buttonActionPerformed(evt);
+    				ok_markingCourse_buttonActionPerformed(evt);
     			}
     		});
     		break;
@@ -238,14 +238,14 @@ public class CourseSelection extends MSPanel {
 		}
 	}
 	
-	private void ok_actListCourse_buttonActionPerformed(ActionEvent evt) {
+	private void ok_markingCourse_buttonActionPerformed(ActionEvent evt) {
 		String courseID = course_selection_dropdown.getSelectedItem().toString();
-		GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(3, courseID));
+		GUIUtils.getMasterFrame(this).movePage(new SelectActivityMatrix(CourseAccess.constructCourseObject(courseID)));
 	}
 	
 	private void ok_grading_buttonActionPerformed(ActionEvent evt) {
 		String courseID = course_selection_dropdown.getSelectedItem().toString();
-		GUIUtils.getMasterFrame(this).movePage(new ActivitySelection(courseID));
+		GUIUtils.getMasterFrame(this).movePage(new SelectActivityMatrix(CourseAccess.constructCourseObject(courseID)));
 	}
 
 	private void course_selection_dropdownActionPerformed(

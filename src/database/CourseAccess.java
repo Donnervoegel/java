@@ -219,23 +219,23 @@ public class CourseAccess {
 		}
 
 		// Students table
-		rs = accessStudentList(cID);
-		if (rs != null) {
-			try {
-				while (rs.next()) {
-					sID = rs.getInt("StudentID");
-					sName = rs.getNString("StudentName");
-					String[] names = sName.split("\\s+");
-					String fname = names[0];
-					String lname = names[1];
-					Student temp = new Student();
-					course.addStudent(temp);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//		rs = accessStudentList(cID);
+//		if (rs != null) {
+//			try {
+//				while (rs.next()) {
+//					sID = rs.getInt("StudentID");
+//					sName = rs.getNString("StudentName");
+//					String[] names = sName.split("\\s+");
+//					String fname = names[0];
+//					String lname = names[1];
+//					Student temp = new Student();
+//					course.addStudent(temp);
+//				}
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		// Activities table
 		rs = accessCourseActivities(cID);
 		if (rs != null) {
@@ -251,7 +251,8 @@ public class CourseAccess {
 					int numTests = rs.getInt("NumTests");
 					Date dueDate = rs.getDate("DueDate");
 					Activity temp = new Activity(aName, aDesc, sSolnPath,
-							solnPath, aLang, dueDate.toString(), aType, groupAct, numTests);
+							solnPath, aLang, dueDate.toString(), aType,
+							groupAct, numTests);
 					course.addActivity(temp);
 				}
 			} catch (SQLException e) {
@@ -267,10 +268,23 @@ public class CourseAccess {
 	 * Method to access the student list for a specified course. Will return the
 	 * student IDs and names of the student list for the course.
 	 */
-	public static ResultSet accessStudentList(String courseID) {
-		String query = "SELECT StudentID,StudentName FROM c275g01A.dbo.Student "
+	public static Object[] accessStudentList(String courseID) {
+		ArrayList<String> students = new ArrayList<String>();
+		String query = "SELECT StudentName,StudentID FROM c275g01A.dbo.Student "
 				+ "WHERE CourseID = '" + courseID + "'";
-		return execQuery(query);
+		ResultSet res = execQuery(query);
+
+		try {
+			while (res.next()) {
+				String name = res.getNString(1);
+				int id = res.getInt(2);
+				students.add(name + " - " + id);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return students.toArray();
 	}
 
 	/*
@@ -445,8 +459,6 @@ public class CourseAccess {
 				+ courseID + "'";
 		execUpdate(query);
 	}
-	
-
 
 	/*
 	 * Method to access the rubric for a specific activity in a course.

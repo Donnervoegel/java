@@ -1,12 +1,7 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Class to access grades in project SQL database.
@@ -47,26 +42,45 @@ public class GradeAccess {
 
 	// NON-STATIC METHODS
 
-        public static int getStudentID(String stud_name) {
-                String query = "SELECT StudentID FROM c275g01A.dbo.Student WHERE StudentName = '" + stud_name + "'";
-                        ResultSet rs = execQuery(query);
-                        int student_id = 666; //If you get this value, you'll know the database didn't find anything.
-                       
-              try {
-                rs.next();
-                student_id = rs.getInt(1);
-            } catch (SQLException ex) {
-                Logger.getLogger(GradeAccess.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                       
-                       return student_id;
-        }
-        
+//        public static int getStudentID(String stud_name) {
+//                String query = "SELECT StudentID FROM c275g01A.dbo.Student WHERE StudentName = '" + stud_name + "'";
+//                        ResultSet rs = execQuery(query);
+//                        int student_id = 666; //If you get this value, you'll know the database didn't find anything.
+//                       
+//              try {
+//                rs.next();
+//                student_id = rs.getInt(1);
+//            } catch (SQLException ex) {
+//                ex.printStackTrace();	
+//            }
+//                       
+//                       return student_id;
+//        }
+//        
 	public static ResultSet accessGrades(String courseID, String actName) {
 		String query = "SELECT Grade FROM c275g01A.dbo.Grades WHERE"
 				+ " CourseID = '" + courseID + "',ActivityName = '" + actName
 				+ "'";
 		return execQuery(query);
+	}
+	
+	public static Object[] accessGrades(String courseID, String actName,
+			int studentID) {
+		ArrayList<Float> grades = new ArrayList<Float>();
+		
+		String query = "SELECT Grade FROM c275g01A.dbo.Grades WHERE"
+				+ " CourseID = '" + courseID + "' AND ActivityName = '" + actName
+				+ "' AND StudentID = " + studentID;
+		ResultSet res = execQuery(query);
+		
+		try {
+			while(res.next())
+				grades.add(res.getFloat(1));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return grades.toArray();
 	}
 
 	public static void enterGrade(int studentID, String courseID,

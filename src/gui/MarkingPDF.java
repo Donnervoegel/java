@@ -7,9 +7,10 @@
 package gui;
 
 
-import database.CourseAccess;
+import database.*;
 import gui.types.*;
 import gui.utils.GUIUtils;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -20,10 +21,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
-
 import javax.swing.text.Document;
 import javax.swing.text.StyledDocument;
+
 import types.Activity;
 
 /**
@@ -34,14 +36,64 @@ import types.Activity;
 
 public class MarkingPDF extends MSPanel {
 
+    private static final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};
+    private Object[][] table;
+	
      public MarkingPDF(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
         System.out.println("Tis a pdf");
+        float max = 0;
         //Some PDF Solution Implemented Below
         
         //Populate the Rubric Table code below this:
-        
+        Object[][] temp = CourseAccess.accessRubricItems(courseID, act.getName());
+		if (temp.length != 0) {
+			table = new Object[temp.length][3];
+			for(int i=0; i<table.length; i++) {
+				table[i][0] = temp[i][0];
+				table[i][1] = 0;
+				table[i][2] = temp[i][1];
+				max += (float) temp[i][1];
+ 			}
+			DefaultTableModel tm = new DefaultTableModel(table,COLUMN_NAMES) {
+	            public boolean isCellEditable(int row, int column) {
+	            	if(column == 0 || column == 2) 
+	            		return false;
+	            	return true;
+	            }
+			};;
+			tm.addTableModelListener(new javax.swing.event.TableModelListener() {
+				public void tableChanged(TableModelEvent e) {
+					table_change_actionPerformed(e);
+				}
+	        });;
+			rubric_table.setModel(tm);
+			rubric_table.getColumnModel().getColumn(0).setPreferredWidth(500);
+		}
+		Object[] grades = GradeAccess.accessGrades(courseID, act.getName(), stud_id);
+		System.out.println(grades.length);
+		if(grades.length != 0) {
+			for(int i=0; i<grades.length; i++) {
+				table[i][1] = grades[i];
+				System.out.println(grades[i]);
+			}
+			DefaultTableModel tm = new DefaultTableModel(table,COLUMN_NAMES) {
+	            public boolean isCellEditable(int row, int column) {
+	            	if(column == 0 || column == 2) 
+	            		return false;
+	            	return true;
+	            }
+			};;
+			tm.addTableModelListener(new javax.swing.event.TableModelListener() {
+				public void tableChanged(TableModelEvent e) {
+					table_change_actionPerformed(e);
+				}
+	        });;
+			rubric_table.setModel(tm);
+		}
+		String maxField = "" + max;
+		max_grade_field.setText(maxField);
 	}
 
 	/**
@@ -72,22 +124,16 @@ public class MarkingPDF extends MSPanel {
         rubric_panel.setMinimumSize(new java.awt.Dimension(400, 500));
         rubric_panel.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        rubric_table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null}
-            },
-            new String [] {
-                "Description", "Grade", "Max Grade"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
-            };
+		rubric_table.setModel(new javax.swing.table.DefaultTableModel(
+				new Object[][] { { null, null, null } }, new String[] {
+						"Description", "Grade", "Max Grade" }) {
+			Class[] types = new Class[] { java.lang.String.class,
+					java.lang.Integer.class, java.lang.Integer.class };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+			public Class getColumnClass(int columnIndex) {
+				return types[columnIndex];
+			}
+		});
         rubric_table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(rubric_table);
         if (rubric_table.getColumnModel().getColumnCount() > 0) {
@@ -177,6 +223,11 @@ public class MarkingPDF extends MSPanel {
         );
 
         save_button.setText("Save");
+        save_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,7 +259,18 @@ public class MarkingPDF extends MSPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     
-
+    private void table_change_actionPerformed(TableModelEvent e) {
+    	float grades = 0;
+    	for(int i=0; i<rubric_table.getRowCount(); i++)
+    		grades += Float.parseFloat(rubric_table.getModel().getValueAt(i,e.getColumn()).toString());
+    	String currentGrade = "" + grades;
+    	grade_field.setText(currentGrade);
+	}
+    
+    private void save_buttonActionPerformed(ActionEvent evt) {
+		float[] grades = new float[rubric_table.getColumnCount()]; 
+		
+	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField grade_field;
