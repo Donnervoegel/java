@@ -27,7 +27,6 @@ public class DatabaseManagement extends MSPanel {
     public DatabaseManagement(SystemAdmin a) {
 	super("System Administrator");
         initComponents();
-        restore_button.setEnabled(false);
     }
 
     /**
