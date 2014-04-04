@@ -42,59 +42,70 @@ public class GradeAccess {
 
 	// NON-STATIC METHODS
 
-//        public static int getStudentID(String stud_name) {
-//                String query = "SELECT StudentID FROM c275g01A.dbo.Student WHERE StudentName = '" + stud_name + "'";
-//                        ResultSet rs = execQuery(query);
-//                        int student_id = 666; //If you get this value, you'll know the database didn't find anything.
-//                       
-//              try {
-//                rs.next();
-//                student_id = rs.getInt(1);
-//            } catch (SQLException ex) {
-//                ex.printStackTrace();	
-//            }
-//                       
-//                       return student_id;
-//        }
-//        
+	// public static int getStudentID(String stud_name) {
+	// String query =
+	// "SELECT StudentID FROM c275g01A.dbo.Student WHERE StudentName = '" +
+	// stud_name + "'";
+	// ResultSet rs = execQuery(query);
+	// int student_id = 666; //If you get this value, you'll know the database
+	// didn't find anything.
+	//
+	// try {
+	// rs.next();
+	// student_id = rs.getInt(1);
+	// } catch (SQLException ex) {
+	// ex.printStackTrace();
+	// }
+	//
+	// return student_id;
+	// }
+	//
 	public static ResultSet accessGrades(String courseID, String actName) {
 		String query = "SELECT Grade FROM c275g01A.dbo.Grades WHERE"
 				+ " CourseID = '" + courseID + "',ActivityName = '" + actName
 				+ "'";
 		return execQuery(query);
 	}
-	
+
 	public static Object[] accessGrades(String courseID, String actName,
 			int studentID) {
 		ArrayList<Float> grades = new ArrayList<Float>();
-		
+
 		String query = "SELECT Grade FROM c275g01A.dbo.Grades WHERE"
-				+ " CourseID = '" + courseID + "' AND ActivityName = '" + actName
-				+ "' AND StudentID = " + studentID;
+				+ " CourseID = '" + courseID + "' AND ActivityName = '"
+				+ actName + "' AND StudentID = " + studentID;
 		ResultSet res = execQuery(query);
-		
+
 		try {
-			while(res.next())
+			while (res.next())
 				grades.add(res.getFloat(1));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return grades.toArray();
 	}
 
 	public static void enterGrade(int studentID, String courseID,
-			String actName, float grade) {
-		String query = "INSERT INTO c275g01A.dbo.Grades VALUES (" + studentID
-				+ ",'" + courseID + "','" + actName + "'," + grade + ")";
-		execUpdate(query);
+			String actName, String rubricItem, float grade) throws SQLException {
+		String query = "INSERT INTO c275g01A.dbo.Grades VALUES ('" + courseID
+				+ "','" + actName + "','" + rubricItem + "'," + studentID + ","
+				+ grade + ")";
+		PreparedStatement prepStatement;
+
+		establishConnection(); // Establish connection to Cypress
+
+		prepStatement = dbConnection.prepareStatement(query);
+		prepStatement.executeUpdate();
+
 	}
 
 	public static void updateGrade(int studentID, String courseID,
-			String actName, float grade) {
+			String actName, String rubricItem, float grade) {
 		String query = "UPDATE c275g01A.dbo.Grades SET Grade = " + grade
-				+ " WHERE StudentID = '" + studentID + ",CourseID = '"
-				+ courseID + "',ActivityName = '" + actName + "'";
+				+ " WHERE StudentID = '" + studentID + "' AND CourseID = '"
+				+ courseID + "' AND ActivityName = '" + actName
+				+ "' AND RubricItem = '" + rubricItem + "'";
 		execUpdate(query);
 	}
 
