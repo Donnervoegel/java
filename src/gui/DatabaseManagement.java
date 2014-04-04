@@ -6,10 +6,12 @@
 
 package gui;
 
+import database.Dbaccess;
 import gui.utils.*;
 import gui.types.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import types.*;
 
 /**
@@ -18,15 +20,13 @@ import types.*;
  */
 public class DatabaseManagement extends MSPanel {
     private SystemAdmin a;
-
+    private ArrayList<String> filepath_temp;
     /**
      * Creates new form LandingPageSysAdmin
      */
     public DatabaseManagement(SystemAdmin a) {
 	super("System Administrator");
         initComponents();
-        
-        previous_backup_dropdown.setEnabled(false);
         restore_button.setEnabled(false);
     }
 
@@ -41,63 +41,113 @@ public class DatabaseManagement extends MSPanel {
 
         tasks_panel = new javax.swing.JPanel();
         backup_button = new javax.swing.JButton();
-        previous_backup_toggle = new javax.swing.JRadioButton();
-        previous_backup_dropdown = new javax.swing.JComboBox();
-        backup_progressbar = new javax.swing.JProgressBar();
         restore_button = new javax.swing.JButton();
         backup_separator = new javax.swing.JSeparator();
+        backup_path_field = new javax.swing.JTextField();
+        restore_db_label = new javax.swing.JLabel();
+        change_backuppath_button = new javax.swing.JButton();
+        backup_db_label = new javax.swing.JLabel();
+        restore_db_path_field = new javax.swing.JTextField();
+        change_restorepath_button = new javax.swing.JButton();
 
-        tasks_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tasks"));
+        tasks_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Database Management"));
 
-        backup_button.setText("Backup Database Manually");
-
-        previous_backup_toggle.setText("Restore from previous Backup:");
-        previous_backup_toggle.addActionListener(new java.awt.event.ActionListener() {
+        backup_button.setText("Backup");
+        backup_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                previous_backup_toggleActionPerformed(evt);
+                backup_buttonActionPerformed(evt);
             }
         });
 
-        previous_backup_dropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        restore_button.setText("Restore ");
+        restore_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restore_buttonActionPerformed(evt);
+            }
+        });
 
-        restore_button.setText("Restore from Selected Backup");
+        backup_path_field.setText("C://");
+
+        restore_db_label.setText("Path:");
+
+        change_backuppath_button.setText("Change");
+        change_backuppath_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                change_backuppath_buttonActionPerformed(evt);
+            }
+        });
+
+        backup_db_label.setText("Path:");
+
+        restore_db_path_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restore_db_path_fieldActionPerformed(evt);
+            }
+        });
+
+        change_restorepath_button.setText("Change");
+        change_restorepath_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                change_restorepath_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tasks_panelLayout = new javax.swing.GroupLayout(tasks_panel);
         tasks_panel.setLayout(tasks_panelLayout);
         tasks_panelLayout.setHorizontalGroup(
             tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tasks_panelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backup_separator)
                     .addGroup(tasks_panelLayout.createSequentialGroup()
-                        .addComponent(backup_button, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(backup_progressbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(tasks_panelLayout.createSequentialGroup()
-                        .addComponent(previous_backup_toggle)
-                        .addGap(42, 42, 42)
                         .addGroup(tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(restore_button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                            .addComponent(previous_backup_dropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(tasks_panelLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(backup_db_label)
+                                .addGap(18, 18, 18)
+                                .addComponent(backup_path_field, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(change_backuppath_button))
+                            .addGroup(tasks_panelLayout.createSequentialGroup()
+                                .addGap(192, 192, 192)
+                                .addComponent(restore_button, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 39, Short.MAX_VALUE))
+                    .addGroup(tasks_panelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(restore_db_label)
+                        .addGap(18, 18, 18)
+                        .addComponent(restore_db_path_field)
+                        .addGap(18, 18, 18)
+                        .addComponent(change_restorepath_button)
+                        .addGap(39, 39, 39))
+                    .addGroup(tasks_panelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backup_separator)))
                 .addContainerGap())
+            .addGroup(tasks_panelLayout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(backup_button, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tasks_panelLayout.setVerticalGroup(
             tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tasks_panelLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backup_button)
-                    .addComponent(backup_progressbar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(backup_separator, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addGroup(tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(previous_backup_toggle)
-                    .addComponent(previous_backup_dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(backup_path_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(change_backuppath_button)
+                    .addComponent(backup_db_label))
+                .addGap(18, 18, 18)
+                .addComponent(backup_button)
+                .addGap(18, 18, 18)
+                .addComponent(backup_separator, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
+                .addGroup(tasks_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(restore_db_label)
+                    .addComponent(restore_db_path_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(change_restorepath_button))
+                .addGap(18, 18, 18)
                 .addComponent(restore_button)
-                .addGap(55, 55, 55))
+                .addGap(9, 9, 9))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -118,35 +168,85 @@ public class DatabaseManagement extends MSPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void previous_backup_toggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previous_backup_toggleActionPerformed
-        if (previous_backup_toggle.isSelected()) {
-            //disables
-            backup_button.setEnabled(false);
-            backup_progressbar.setEnabled(false);
-            
-            //enables
-            previous_backup_dropdown.setEnabled(true);
-            restore_button.setEnabled(true);
-        }
-        else {
-            //disables
-            previous_backup_dropdown.setEnabled(false);
-            restore_button.setEnabled(false);
-            
-            //enables
-            backup_button.setEnabled(true);
-            backup_progressbar.setEnabled(true);
-        }
-    }//GEN-LAST:event_previous_backup_toggleActionPerformed
+    private void change_backuppath_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_change_backuppath_buttonActionPerformed
+	JFileChooser chooser = new JFileChooser();
+	chooser.setCurrentDirectory(new java.io.File("."));
+	chooser.setDialogTitle("choosertitle");
+	chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+	chooser.setAcceptAllFileFilterUsed(true);
+	
+	String path_container;
+	
+	if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+	    System.out.println("getCurrentDirectory(): "
+			       + chooser.getCurrentDirectory());
+	    path_container = chooser.getSelectedFile().toString();
+	    
+	    backup_path_field.setText(path_container);
+	    filepath_temp = TextAnalyzer.getInput(path_container);
+	    
+	    System.out.println("getSelectedFile() : "
+			       + chooser.getSelectedFile());
+	} else {
+	    System.out.println("No Selection");
+	    filepath_temp = null; // Set the array list filepath_temp to null if
+	    // nothing initiated.
+	}   
+    }//GEN-LAST:event_change_backuppath_buttonActionPerformed
+
+    private void change_restorepath_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_change_restorepath_buttonActionPerformed
+JFileChooser chooser = new JFileChooser();
+	chooser.setCurrentDirectory(new java.io.File("."));
+	chooser.setDialogTitle("choosertitle");
+	chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+	chooser.setAcceptAllFileFilterUsed(true);
+	
+	String path_container;
+	
+	if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+	    System.out.println("getCurrentDirectory(): "
+			       + chooser.getCurrentDirectory());
+	    path_container = chooser.getSelectedFile().toString();
+	    
+	    restore_db_path_field.setText(path_container);
+	    filepath_temp = TextAnalyzer.getInput(path_container);
+	    
+	    System.out.println("getSelectedFile() : "
+			       + chooser.getSelectedFile());
+	} else {
+	    System.out.println("No Selection");
+	    filepath_temp = null; // Set the array list filepath_temp to null if
+	    // nothing initiated.
+	}            
+    }//GEN-LAST:event_change_restorepath_buttonActionPerformed
+
+    private void backup_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backup_buttonActionPerformed
+
+Dbaccess.backupdatabase(backup_path_field.getText());
+JOptionPane.showMessageDialog(this, "Backup successfully made!");
+
+    }//GEN-LAST:event_backup_buttonActionPerformed
+
+    private void restore_db_path_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restore_db_path_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_restore_db_path_fieldActionPerformed
+
+    private void restore_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restore_buttonActionPerformed
+Dbaccess.restoredatabase(restore_db_path_field.getText());
+JOptionPane.showMessageDialog(this, "Restore successfully made!");        // TODO add your handling code here:
+    }//GEN-LAST:event_restore_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backup_button;
-    private javax.swing.JProgressBar backup_progressbar;
+    private javax.swing.JLabel backup_db_label;
+    private javax.swing.JTextField backup_path_field;
     private javax.swing.JSeparator backup_separator;
-    private javax.swing.JComboBox previous_backup_dropdown;
-    private javax.swing.JRadioButton previous_backup_toggle;
+    private javax.swing.JButton change_backuppath_button;
+    private javax.swing.JButton change_restorepath_button;
     private javax.swing.JButton restore_button;
+    private javax.swing.JLabel restore_db_label;
+    private javax.swing.JTextField restore_db_path_field;
     private javax.swing.JPanel tasks_panel;
     // End of variables declaration//GEN-END:variables
 }
