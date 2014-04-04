@@ -33,14 +33,15 @@ public class TestSuite extends MSPanel {
     private void initComponents() {
 
         rubric_panel = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
+        solution_scrollpane = new javax.swing.JScrollPane();
         solution_output_text_area = new javax.swing.JTextArea();
         submitted_panel = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        submission_scrollpane = new javax.swing.JScrollPane();
         submission_output_test_area = new javax.swing.JTextArea();
         solution_panel = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        diff_scrollpane = new javax.swing.JScrollPane();
         diff_text_area = new javax.swing.JTextArea();
+        run_button = new javax.swing.JButton();
 
         rubric_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Solution Output"));
         rubric_panel.setMinimumSize(new java.awt.Dimension(400, 500));
@@ -48,17 +49,19 @@ public class TestSuite extends MSPanel {
 
         solution_output_text_area.setColumns(20);
         solution_output_text_area.setRows(5);
-        jScrollPane6.setViewportView(solution_output_text_area);
+        solution_scrollpane.setViewportView(solution_output_text_area);
 
         javax.swing.GroupLayout rubric_panelLayout = new javax.swing.GroupLayout(rubric_panel);
         rubric_panel.setLayout(rubric_panelLayout);
         rubric_panelLayout.setHorizontalGroup(
             rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+            .addComponent(solution_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
         );
         rubric_panelLayout.setVerticalGroup(
             rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6)
+            .addGroup(rubric_panelLayout.createSequentialGroup()
+                .addComponent(solution_scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         submitted_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Submission Output"));
@@ -67,17 +70,17 @@ public class TestSuite extends MSPanel {
 
         submission_output_test_area.setColumns(20);
         submission_output_test_area.setRows(5);
-        jScrollPane4.setViewportView(submission_output_test_area);
+        submission_scrollpane.setViewportView(submission_output_test_area);
 
         javax.swing.GroupLayout submitted_panelLayout = new javax.swing.GroupLayout(submitted_panel);
         submitted_panel.setLayout(submitted_panelLayout);
         submitted_panelLayout.setHorizontalGroup(
             submitted_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+            .addComponent(submission_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
         );
         submitted_panelLayout.setVerticalGroup(
             submitted_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(submission_scrollpane)
         );
 
         solution_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Diff"));
@@ -86,18 +89,25 @@ public class TestSuite extends MSPanel {
 
         diff_text_area.setColumns(20);
         diff_text_area.setRows(5);
-        jScrollPane5.setViewportView(diff_text_area);
+        diff_scrollpane.setViewportView(diff_text_area);
 
         javax.swing.GroupLayout solution_panelLayout = new javax.swing.GroupLayout(solution_panel);
         solution_panel.setLayout(solution_panelLayout);
         solution_panelLayout.setHorizontalGroup(
             solution_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+            .addComponent(diff_scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
         );
         solution_panelLayout.setVerticalGroup(
             solution_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5)
+            .addComponent(diff_scrollpane)
         );
+
+        run_button.setText("Run Code");
+        run_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                run_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,29 +120,41 @@ public class TestSuite extends MSPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(solution_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(run_button, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(submitted_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-                    .addComponent(solution_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-                    .addComponent(rubric_panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(solution_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(rubric_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(submitted_panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(run_button, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void run_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_run_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_run_buttonActionPerformed
     
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane diff_scrollpane;
     private javax.swing.JTextArea diff_text_area;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel rubric_panel;
+    private javax.swing.JButton run_button;
     private javax.swing.JTextArea solution_output_text_area;
     private javax.swing.JPanel solution_panel;
+    private javax.swing.JScrollPane solution_scrollpane;
     private javax.swing.JTextArea submission_output_test_area;
+    private javax.swing.JScrollPane submission_scrollpane;
     private javax.swing.JPanel submitted_panel;
     // End of variables declaration//GEN-END:variables
 }
