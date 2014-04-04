@@ -170,13 +170,12 @@ public class ActivitySelection extends MSPanel {
 	}
     
 	private void ok_markActivity_buttonActionPerformed(ActionEvent evt) {
-                System.out.println("Getting activity name");
+		System.out.println("Getting activity name");
 		String activityName = activity_dropdown.getSelectedItem().toString();
-                System.out.println("Getting course");
-                Course course=CourseAccess.constructCourseObject(courseID);
-                System.out.println("Got course "+course.getCourseID());
-                GUIUtils.getMasterFrame(this).movePage(new SelectActivityMatrix(course));//need to make it so it moves based on activity as well
-		
+		System.out.println("Getting course");
+		Course course = CourseAccess.constructCourseObject(courseID);
+		System.out.println("Got course " + course.getCourseID());
+		GUIUtils.getMasterFrame(this).movePage(new SelectActivityMatrix(course));
 	}
 
     private void activity_dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activity_dropdownActionPerformed

@@ -6,15 +6,18 @@
 
 package gui;
 
+import database.CourseAccess;
 import database.GradeAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
+
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import types.Account;
 import types.Activity;
 import types.Course;
@@ -39,12 +42,7 @@ public class SelectActivityMatrix extends MSPanel {
         
         //Populate student dropdowns
         System.out.println("Accessing Student List");
-        ResultSet student_list = database.CourseAccess.accessStudentList(course.getCourseID());
-        System.out.println("Making ArrayList of student names");
-        //ArrayList<String> student_names = GUIUtils.generateArrayFromResultSet(student_list, 1);
-        String[] names={"Graeme"};
-		        
-        student_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(names));//student_names.toArray()));
+        student_select_dropdown.setModel(new javax.swing.DefaultComboBoxModel(CourseAccess.accessStudentList(c.getCourseID())));
         
         //Populate assignment dropdown based on the student
         Object[] assignment_list = database.CourseAccess.accessActivityList(course.getCourseID());
@@ -151,12 +149,13 @@ public class SelectActivityMatrix extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        
         String c_id = c.getCourseID();
         Activity act = database.CourseAccess.constructActivityObject(c_id, assignment_select_dropdown.getSelectedItem().toString());
-        int student_id = 6;//GradeAccess.getStudentID(student_select_dropdown.getSelectedItem().toString());
-       
-        if (!act.isProgramming()) //Activity is code
+        String id = student_select_dropdown.getSelectedItem().toString();
+        id = id.substring(id.indexOf(" - ") + 3);
+        int student_id = Integer.parseInt(id);
+        
+        if (act.isProgramming()) //Activity is code
             GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id));
         else //Activity is not code
             GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id));
