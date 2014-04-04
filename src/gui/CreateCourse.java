@@ -91,6 +91,7 @@ public class CreateCourse extends MSPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         ta_list = new javax.swing.JTextArea();
         add_ta_button = new javax.swing.JButton();
+        delete_ta_button = new javax.swing.JButton();
 
         create_course_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Create A Course"));
 
@@ -182,6 +183,13 @@ public class CreateCourse extends MSPanel {
                 add_ta_buttonActionPerformed(evt);
             }
         });
+        
+        delete_ta_button.setText("Remove TA");
+        delete_ta_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_ta_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout create_course_panelLayout = new javax.swing.GroupLayout(create_course_panel);
         create_course_panel.setLayout(create_course_panelLayout);
@@ -243,8 +251,10 @@ public class CreateCourse extends MSPanel {
                                 .addComponent(instructor_field)))))
                 .addContainerGap())
             .addGroup(create_course_panelLayout.createSequentialGroup()
-                .addGap(182, 182, 182)
+                .addGap(125,125,125)
                 .addComponent(add_ta_button)
+                .addGap(5,5,5)
+                .addComponent(delete_ta_button)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         create_course_panelLayout.setVerticalGroup(
@@ -271,8 +281,9 @@ public class CreateCourse extends MSPanel {
                         .addComponent(ta_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
-                .addComponent(add_ta_button)
-                .addGap(18, 18, 18)
+                .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                	.addComponent(add_ta_button)
+                	.addComponent(delete_ta_button))
                 .addGroup(create_course_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(course_start_label)
                     .addComponent(course_start_formatfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,7 +343,8 @@ public class CreateCourse extends MSPanel {
     }//GEN-LAST:event_instruct_comboActionPerformed
 
     private void add_ta_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_ta_buttonActionPerformed
-        ta_list.append(ta_combo.getSelectedItem().toString() + ", ");
+        if(!ta_list.getText().contains(ta_combo.getSelectedItem().toString()))
+        	ta_list.append(ta_combo.getSelectedItem().toString() + ", ");
     }//GEN-LAST:event_add_ta_buttonActionPerformed
 	
         private Boolean fieldCheck(){
@@ -497,6 +509,14 @@ public class CreateCourse extends MSPanel {
 		//tas = tas.replaceFirst(ta_combo.getSelectedItem().toString() + ", ","");
 		//ta_list.setText(tas);
 	}
+
+	private void delete_ta_buttonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_add_ta_buttonActionPerformed
+		String tas = ta_list.getText();
+		tas = tas.replaceFirst(ta_combo.getSelectedItem().toString() + 
+				", ", "");
+		ta_list.setText(tas);
+	}// GEN-LAST:event_add_ta_buttonActionPerformed
+										
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_ta_button;
@@ -522,5 +542,6 @@ public class CreateCourse extends MSPanel {
     private javax.swing.JComboBox ta_combo;
     private javax.swing.JTextArea ta_list;
     private javax.swing.JLabel ta_name_label;
+    private javax.swing.JButton delete_ta_button;
     // End of variables declaration//GEN-END:variables
 }
