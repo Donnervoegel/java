@@ -17,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,15 +39,21 @@ public class MarkingPDF extends MSPanel {
 
     private static final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};
     private Object[][] table;
+    private int studentID;
+    private String courseID, actName;
 	
      public MarkingPDF(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
-        System.out.println("Tis a pdf");
         float max = 0;
+        
+        this.courseID = courseID;
+        this.actName = act.getName();
+        this.studentID = stud_id;
         //Some PDF Solution Implemented Below
         
         //Populate the Rubric Table code below this:
+        grade_field.setText("");
         Object[][] temp = CourseAccess.accessRubricItems(courseID, act.getName());
 		if (temp.length != 0) {
 			table = new Object[temp.length][3];
@@ -69,7 +76,6 @@ public class MarkingPDF extends MSPanel {
 				}
 	        });;
 			rubric_table.setModel(tm);
-			rubric_table.getColumnModel().getColumn(0).setPreferredWidth(500);
 		}
 		Object[] grades = GradeAccess.accessGrades(courseID, act.getName(), stud_id);
 		System.out.println(grades.length);
@@ -91,9 +97,16 @@ public class MarkingPDF extends MSPanel {
 				}
 	        });;
 			rubric_table.setModel(tm);
+			float gradeTotal = 0;
+			for (int i = 0; i < rubric_table.getRowCount(); i++)
+				gradeTotal += Float.parseFloat(rubric_table.getModel()
+						.getValueAt(i, 1).toString());
+	    	String currentGrade = "" + gradeTotal;
+	    	grade_field.setText(currentGrade);
 		}
 		String maxField = "" + max;
 		max_grade_field.setText(maxField);
+		rubric_table.getColumnModel().getColumn(0).setPreferredWidth(500);
 	}
 
 	/**
@@ -146,11 +159,13 @@ public class MarkingPDF extends MSPanel {
         max_grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         max_grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         max_grade_field.setText("Max");
-
+        max_grade_field.setEditable(false);
+        
         grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         grade_field.setText("Grade");
-
+        grade_field.setEditable(false);
+        
         slash_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         slash_label.setText("/");
 
@@ -262,14 +277,30 @@ public class MarkingPDF extends MSPanel {
     private void table_change_actionPerformed(TableModelEvent e) {
     	float grades = 0;
     	for(int i=0; i<rubric_table.getRowCount(); i++)
-    		grades += Float.parseFloat(rubric_table.getModel().getValueAt(i,e.getColumn()).toString());
+			grades += Float.parseFloat(rubric_table.getModel()
+					.getValueAt(i, e.getColumn()).toString());
     	String currentGrade = "" + grades;
     	grade_field.setText(currentGrade);
 	}
     
     private void save_buttonActionPerformed(ActionEvent evt) {
-		float[] grades = new float[rubric_table.getColumnCount()]; 
-		
+		for (int i = 0; i < rubric_table.getColumnCount(); i++) {
+			try {
+				GradeAccess.enterGrade(studentID, courseID, actName,
+						rubric_table.getModel().getValueAt(i, 0).toString(),
+						Float.parseFloat(rubric_table.getModel().getValueAt(i, 1)
+								.toString()));
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				GradeAccess.updateGrade(studentID, courseID, actName,
+						rubric_table.getModel().getValueAt(i, 0).toString(),
+						Float.parseFloat(rubric_table.getModel().getValueAt(i, 1)
+								.toString()));
+			}
+		}
+		JOptionPane.showMessageDialog(this,"Grade saved.");
+		GUIUtils.getMasterFrame(this).goBack();
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

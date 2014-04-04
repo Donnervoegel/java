@@ -8,22 +8,26 @@ package gui;
 
 
 import database.CourseAccess;
+import database.GradeAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
-
 import javax.swing.text.Document;
 import javax.swing.text.StyledDocument;
+
 import types.Activity;
 
 /**
@@ -35,7 +39,9 @@ import types.Activity;
 public class MarkingCode extends MSPanel {
 
     private final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};
-    Object data [][];
+    private Object[][] table;
+    private int studentID;
+    private String courseID, actName;
     //Populates text panels based on preset textfiles in gui.utils.
     
     Activity testsuite_activity;
@@ -44,7 +50,12 @@ public class MarkingCode extends MSPanel {
      public MarkingCode(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
+        float max = 0;
+        
         this.testsuite_activity = act;
+        this.courseID = courseID;
+        this.actName = act.getName();
+        this.studentID = stud_id;
         
         //Currently only reads from a file.
         //Populate textpanes with sample and solution
@@ -53,16 +64,61 @@ public class MarkingCode extends MSPanel {
         
         
         //Populate the Rubric Table code below this:
+      //Populate the Rubric Table code below this:
+        grade_field.setText("");
         Object[][] temp = CourseAccess.accessRubricItems(courseID, act.getName());
-        System.out.println("Starting to populate rubric");
-        int num_rubric_items=temp[0].length;    //this is the number of descriptions and assumes there are grades for every description
-        data=new Object[num_rubric_items][3];
-        for (int i=0;i<num_rubric_items;i++) {
-            data[i][0]=temp[i][0];
-            data[i][1]=0;
-            data[i][2]=temp[i][1];
-        }
-        rubric_table.setModel(new DefaultTableModel(data, COLUMN_NAMES));
+		if (temp.length != 0) {
+			table = new Object[temp.length][3];
+			for(int i=0; i<table.length; i++) {
+				table[i][0] = temp[i][0];
+				table[i][1] = 0;
+				table[i][2] = temp[i][1];
+				max += (float) temp[i][1];
+ 			}
+			DefaultTableModel tm = new DefaultTableModel(table,COLUMN_NAMES) {
+	            public boolean isCellEditable(int row, int column) {
+	            	if(column == 0 || column == 2) 
+	            		return false;
+	            	return true;
+	            }
+			};;
+			tm.addTableModelListener(new javax.swing.event.TableModelListener() {
+				public void tableChanged(TableModelEvent e) {
+					table_change_actionPerformed(e);
+				}
+	        });;
+			rubric_table.setModel(tm);
+		}
+		Object[] grades = GradeAccess.accessGrades(courseID, act.getName(), stud_id);
+		System.out.println(grades.length);
+		if(grades.length != 0) {
+			for(int i=0; i<grades.length; i++) {
+				table[i][1] = grades[i];
+				System.out.println(grades[i]);
+			}
+			DefaultTableModel tm = new DefaultTableModel(table,COLUMN_NAMES) {
+	            public boolean isCellEditable(int row, int column) {
+	            	if(column == 0 || column == 2) 
+	            		return false;
+	            	return true;
+	            }
+			};;
+			tm.addTableModelListener(new javax.swing.event.TableModelListener() {
+				public void tableChanged(TableModelEvent e) {
+					table_change_actionPerformed(e);
+				}
+	        });;
+			rubric_table.setModel(tm);
+			float gradeTotal = 0;
+			for (int i = 0; i < rubric_table.getRowCount(); i++)
+				gradeTotal += Float.parseFloat(rubric_table.getModel()
+						.getValueAt(i, 1).toString());
+	    	String currentGrade = "" + gradeTotal;
+	    	grade_field.setText(currentGrade);
+		}
+		String maxField = "" + max;
+		max_grade_field.setText(maxField);
+		rubric_table.getColumnModel().getColumn(0).setPreferredWidth(500);
 	}
 
 	/**
@@ -129,10 +185,12 @@ public class MarkingCode extends MSPanel {
         max_grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         max_grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         max_grade_field.setText("Max");
+        max_grade_field.setEditable(false);
 
         grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         grade_field.setText("Grade");
+        grade_field.setEditable(false);
 
         slash_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         slash_label.setText("/");
@@ -252,7 +310,34 @@ public class MarkingCode extends MSPanel {
         GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath(), testsuite_activity.getSolnPath()));
     }//GEN-LAST:event_test_suite_buttonActionPerformed
     
-
+    private void table_change_actionPerformed(TableModelEvent e) {
+    	float grades = 0;
+    	for(int i=0; i<rubric_table.getRowCount(); i++)
+			grades += Float.parseFloat(rubric_table.getModel()
+					.getValueAt(i, e.getColumn()).toString());
+    	String currentGrade = "" + grades;
+    	grade_field.setText(currentGrade);
+	}
+    
+	private void save_buttonActionPerformed(ActionEvent evt) {
+		for (int i = 0; i < rubric_table.getColumnCount(); i++) {
+			try {
+				GradeAccess.enterGrade(studentID, courseID, actName,
+						rubric_table.getModel().getValueAt(i, 0).toString(),
+						Float.parseFloat(rubric_table.getModel().getValueAt(i, 1)
+								.toString()));
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				GradeAccess.updateGrade(studentID, courseID, actName,
+						rubric_table.getModel().getValueAt(i, 0).toString(),
+						Float.parseFloat(rubric_table.getModel().getValueAt(i, 1)
+								.toString()));
+			}
+		}
+		JOptionPane.showMessageDialog(this,"Grade saved.");
+		GUIUtils.getMasterFrame(this).goBack();
+	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField grade_field;
