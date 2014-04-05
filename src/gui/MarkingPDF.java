@@ -36,11 +36,17 @@ public class MarkingPDF extends MSPanel {
     private static final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};
     private Object[][] table;
     private int studentID;
-    private String courseID, actName;
+    private String courseID, actName, stud_name;
+    private Object[] student_list;
+    private Activity activity;
 	
-     public MarkingPDF(final String courseID, final Activity act, final int stud_id, String student_name) {
+     public MarkingPDF(final String courseID, final Activity act, final int stud_id, String student_name, Object[] stud_list) {
         super(act.getName());
         initComponents();
+        this.student_list = stud_list;
+        this.activity = act;
+        this.stud_name = student_name;
+        
         
         student_name_label.setText(student_name);
         id_label.setText(Integer.toString(stud_id));
@@ -367,6 +373,7 @@ public class MarkingPDF extends MSPanel {
     	String currentGrade = "" + grades;
     	grade_field.setText(currentGrade);
 	}
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

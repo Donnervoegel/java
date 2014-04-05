@@ -41,7 +41,7 @@ public class MarkingCode extends MSPanel {
     Activity testsuite_activity;
     
     
-     public MarkingCode(final String courseID, final Activity act, final int stud_id, String student_name) {
+     public MarkingCode(final String courseID, final Activity act, final int stud_id, String student_name, Object[] stud_list) {
         super(act.getName());
         initComponents();
         
@@ -299,6 +299,7 @@ public class MarkingCode extends MSPanel {
         solution_panel.setMinimumSize(new java.awt.Dimension(400, 500));
         solution_panel.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        solution_text_area.setEditable(false);
         solution_text_area.setColumns(20);
         solution_text_area.setRows(5);
         jScrollPane5.setViewportView(solution_text_area);

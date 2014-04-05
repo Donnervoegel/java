@@ -65,6 +65,11 @@ public class SelectActivityMatrix extends MSPanel {
         student_matrix_header.setName(""); // NOI18N
 
         cancel_button.setText("Cancel");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
 
         ok_button.setText("OK");
         ok_button.addActionListener(new java.awt.event.ActionListener() {
@@ -144,16 +149,21 @@ public class SelectActivityMatrix extends MSPanel {
         String c_id = c.getCourseID();
         Activity act = database.CourseAccess.constructActivityObject(c_id, assignment_select_dropdown.getSelectedItem().toString());
         String id = student_select_dropdown.getSelectedItem().toString();
+        Object[] student_list = CourseAccess.accessStudentList(c_id);
         
         String[] pass_array = id.split(" - ");
         String student_name = pass_array[0];
         int student_id = Integer.parseInt(pass_array[1]);
         
         if (act.isProgramming()) //Activity is code
-            GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id, student_name));
+            GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id, student_name, student_list));
         else //Activity is not code
-            GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id, student_name));
+            GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id, student_name, student_list));
     }//GEN-LAST:event_ok_buttonActionPerformed
+
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        GUIUtils.getMasterFrame(this).goBack();
+    }//GEN-LAST:event_cancel_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
