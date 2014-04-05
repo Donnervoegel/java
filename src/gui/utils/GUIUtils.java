@@ -7,9 +7,10 @@ import java.security.SecureRandom;
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.*;
 import types.Writer;
 import javax.swing.*;
+import java.io.*;
 
 public abstract class GUIUtils {
     // BUG: If the starting Component is of a higher type than
@@ -53,7 +54,20 @@ public abstract class GUIUtils {
         //System.out.println("Password generated: " + pass);
         return pass;
     }
-    
+
+    public static LinkedList<String> lines(String filename) {
+	LinkedList<String> lines = new LinkedList<String>();
+	String line = "";
+	try {
+	    BufferedReader in = new BufferedReader(new FileReader(filename));
+	    while ((line = in.readLine()) != null) {
+		lines.add(line);
+	    }
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+	return lines;
+    }
     
     /**
      * Takes a resultset and an index as arguments.  Outputs
@@ -61,11 +75,9 @@ public abstract class GUIUtils {
      * drop down do ArrayList.toArray() as an argument to the constructor for
      * my_dropdown.setModel(new javax.swing.DefaultComboBoxModel(ArrayList.toArray()));
      */
-    public static ArrayList<String> generateArrayFromResultSet(ResultSet rs, int index){
-        
+    public static ArrayList<String> generateArrayFromResultSet(ResultSet rs, int index) {
         ArrayList<String> list = new ArrayList<String>();
         Array a;
-        
        
         try {
             while (rs.next()) {
@@ -73,11 +85,11 @@ public abstract class GUIUtils {
             }
         } catch (SQLException e) {
             System.out.println("SQL Exception occured, the state : "
-                    + e.getSQLState() + "\nMessage: " + e.getMessage());
+			       + e.getSQLState() + "\nMessage: " + e.getMessage());
         }
         return list;             
     }
-
+    
     /**
     * @desc:   This method is used by the Instructor to generate a csv file containing the 
     *          grades for a given activity. It takes data from the database and converts it
