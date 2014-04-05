@@ -11,6 +11,5 @@
 /dist/
 /bin
 *.bak
-*.jar
 
 *.properties
