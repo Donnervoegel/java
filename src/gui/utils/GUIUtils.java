@@ -165,9 +165,9 @@ public abstract class GUIUtils {
             
     }
     //Given a name, an id, get the next position of the array
-    public String getNextStudent(String name, int student_id, Object[] array)
+    public static String getNextStudent(String name, int student_id, Object[] array)
     {
-        ArrayList<String> string_arraylist = null;
+        ArrayList<String> string_arraylist = new ArrayList();
         int index;
         
         for (Object n : array)
