@@ -116,12 +116,11 @@ public class MarkingPDF extends MSPanel {
         grade_field = new javax.swing.JTextField();
         slash_label = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        submitted_panel = new javax.swing.JPanel();
-        open_submission_button = new javax.swing.JButton();
-        solution_panel = new javax.swing.JPanel();
-        open_solution_button = new javax.swing.JButton();
         next_button = new javax.swing.JButton();
         save_button = new javax.swing.JButton();
+        pdf_tabbed_pane = new javax.swing.JTabbedPane();
+        submitted_panel = new javax.swing.JPanel();
+        solution_panel = new javax.swing.JPanel();
 
         rubric_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Rubric"));
         rubric_panel.setMinimumSize(new java.awt.Dimension(400, 500));
@@ -193,52 +192,6 @@ public class MarkingPDF extends MSPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        submitted_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Submission PDF"));
-        submitted_panel.setMinimumSize(new java.awt.Dimension(400, 500));
-        submitted_panel.setPreferredSize(new java.awt.Dimension(400, 500));
-
-        open_submission_button.setText("Open Submisson");
-
-        javax.swing.GroupLayout submitted_panelLayout = new javax.swing.GroupLayout(submitted_panel);
-        submitted_panel.setLayout(submitted_panelLayout);
-        submitted_panelLayout.setHorizontalGroup(
-            submitted_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, submitted_panelLayout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
-                .addComponent(open_submission_button, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-        );
-        submitted_panelLayout.setVerticalGroup(
-            submitted_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(submitted_panelLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(open_submission_button, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        solution_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Solution PDF"));
-        solution_panel.setMinimumSize(new java.awt.Dimension(400, 500));
-        solution_panel.setPreferredSize(new java.awt.Dimension(400, 500));
-
-        open_solution_button.setText("Open Solution");
-
-        javax.swing.GroupLayout solution_panelLayout = new javax.swing.GroupLayout(solution_panel);
-        solution_panel.setLayout(solution_panelLayout);
-        solution_panelLayout.setHorizontalGroup(
-            solution_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, solution_panelLayout.createSequentialGroup()
-                .addContainerGap(114, Short.MAX_VALUE)
-                .addComponent(open_solution_button, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
-        );
-        solution_panelLayout.setVerticalGroup(
-            solution_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(solution_panelLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(open_solution_button, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         next_button.setText("Next");
         next_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +206,40 @@ public class MarkingPDF extends MSPanel {
             }
         });
 
+        submitted_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        submitted_panel.setMinimumSize(new java.awt.Dimension(400, 500));
+        submitted_panel.setPreferredSize(new java.awt.Dimension(400, 500));
+
+        javax.swing.GroupLayout submitted_panelLayout = new javax.swing.GroupLayout(submitted_panel);
+        submitted_panel.setLayout(submitted_panelLayout);
+        submitted_panelLayout.setHorizontalGroup(
+            submitted_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        submitted_panelLayout.setVerticalGroup(
+            submitted_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        pdf_tabbed_pane.addTab("Submission", submitted_panel);
+
+        solution_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        solution_panel.setMinimumSize(new java.awt.Dimension(400, 500));
+        solution_panel.setPreferredSize(new java.awt.Dimension(400, 500));
+
+        javax.swing.GroupLayout solution_panelLayout = new javax.swing.GroupLayout(solution_panel);
+        solution_panel.setLayout(solution_panelLayout);
+        solution_panelLayout.setHorizontalGroup(
+            solution_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 581, Short.MAX_VALUE)
+        );
+        solution_panelLayout.setVerticalGroup(
+            solution_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+
+        pdf_tabbed_pane.addTab("Solution", solution_panel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -266,26 +253,20 @@ public class MarkingPDF extends MSPanel {
                         .addComponent(next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(rubric_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(submitted_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(solution_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 4, Short.MAX_VALUE))
+                .addComponent(pdf_tabbed_pane, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pdf_tabbed_pane)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rubric_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(save_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(submitted_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(solution_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(save_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -330,8 +311,7 @@ public class MarkingPDF extends MSPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField max_grade_field;
     private javax.swing.JButton next_button;
-    private javax.swing.JButton open_solution_button;
-    private javax.swing.JButton open_submission_button;
+    private javax.swing.JTabbedPane pdf_tabbed_pane;
     private javax.swing.JPanel rubric_panel;
     private javax.swing.JTable rubric_table;
     private javax.swing.JButton save_button;
