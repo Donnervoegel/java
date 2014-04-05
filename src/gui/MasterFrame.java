@@ -1,7 +1,6 @@
 package gui;
 
 import javax.swing.*;
-import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.event.*;

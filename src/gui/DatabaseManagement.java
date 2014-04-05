@@ -7,10 +7,8 @@
 package gui;
 
 import database.Dbaccess;
-import gui.utils.*;
 import gui.types.*;
 import javax.swing.*;
-import java.awt.event.*;
 import java.util.ArrayList;
 import types.*;
 

@@ -1,6 +1,5 @@
 package login;
 
-import java.util.*;
 import types.*;
 import database.*;
 

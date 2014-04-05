@@ -1,7 +1,6 @@
 package types;
 
 import java.util.*;
-import java.io.*;
 /**
  * The class Rubric is used to model the Rubric option. It requires a csv file
  * to create and populate the items

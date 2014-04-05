@@ -6,10 +6,8 @@
 
 package gui;
 
-import gui.utils.*;
 import gui.types.*;
 import javax.swing.*;
-import java.awt.event.*;
 import types.*;
 
 /**

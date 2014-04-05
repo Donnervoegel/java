@@ -7,16 +7,8 @@
 package gui;
 
 import database.CourseAccess;
-import database.GradeAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
-
-import java.sql.Array;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import types.Account;
 import types.Activity;

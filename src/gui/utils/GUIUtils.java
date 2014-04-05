@@ -2,8 +2,6 @@ package gui.utils;
 
 import gui.MasterFrame;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.sql.Array;

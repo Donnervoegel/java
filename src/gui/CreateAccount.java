@@ -10,17 +10,7 @@ import database.AccountAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
 
-import java.awt.*;
 import java.awt.event.*;
-import java.sql.Array;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 

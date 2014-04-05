@@ -10,11 +10,7 @@ import javax.swing.*;
 
 import database.AccountAccess;
 
-import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-
-import gui.utils.*;
 import login.Login;
 import types.*;
 

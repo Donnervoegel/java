@@ -11,8 +11,6 @@ import database.AccountAccess;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.sql.SQLException;
-
 import gui.utils.*;
 import gui.types.MSPanel;
 import types.Account;
