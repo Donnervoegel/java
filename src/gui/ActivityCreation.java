@@ -600,7 +600,7 @@ public class ActivityCreation extends MSPanel {
 			// nothing initiated.
 		}
 
-	}//GEN-LAST:event_activity_student_submissionpath_buttonActionPerformed
+	}                                                                      
 
     private void additional_due_date_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additional_due_date_buttonActionPerformed
         // TODO add your handling code here:
@@ -680,8 +680,10 @@ public class ActivityCreation extends MSPanel {
 
     private void Edit_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_row_buttonActionPerformed
        if (rubric_table.getSelectedRow() >=0){ 
-            String desc = JOptionPane.showInputDialog ("Enter Rubric Description"); // get new values
-            String MaxGrade= JOptionPane.showInputDialog ("Enter Max Grade");
+            
+                      
+            String desc = JOptionPane.showInputDialog ("Enter Rubric Description", rubric_table.getModel().getValueAt(rubric_table.getSelectedRow(),0).toString());
+            String MaxGrade = JOptionPane.showInputDialog ("Enter Max Grade", rubric_table.getModel().getValueAt(rubric_table.getSelectedRow(),1).toString());
             rubric_table.getModel().setValueAt(desc, rubric_table.getSelectedRow(),0); //set new values into selected row
             rubric_table.getModel().setValueAt(MaxGrade, rubric_table.getSelectedRow(),1);
        }
