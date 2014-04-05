@@ -298,7 +298,6 @@ public class MarkingPDF extends MSPanel {
 			}
 		}
 		JOptionPane.showMessageDialog(this,"Grade saved.");
-		GUIUtils.getMasterFrame(this).goBack();
     }//GEN-LAST:event_save_buttonActionPerformed
     
     private void table_change_actionPerformed(TableModelEvent e) {
