@@ -9,12 +9,23 @@ import javax.swing.JPanel;
 
 public abstract class MSPanel extends JPanel {
     private String panel_title;
+    private boolean ok_to_navigate;
 
     public MSPanel(String panel_title) {
 	this.panel_title = panel_title;
+	ok_to_navigate = true;
+    }
+
+    public MSPanel(String panel_title, boolean nav) {
+	this.panel_title = panel_title;
+	ok_to_navigate = nav;
     }
     
     public String getPanelTitle() {
 	return panel_title;
+    }
+
+    public boolean okToNav() {
+	return ok_to_navigate;
     }
 }
