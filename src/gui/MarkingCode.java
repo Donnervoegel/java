@@ -55,8 +55,7 @@ public class MarkingCode extends MSPanel {
         this.actName = act.getName();
         this.studentID = stud_id;
         
-        //Currently only reads from a file.
-        //Populate textpanes with sample and solution
+        
         System.out.println("Trying to read submission");
         String[] paths = CourseAccess.accessSubmissionPath(courseID, act.getName());
         Scanner in = null;
@@ -363,7 +362,6 @@ public class MarkingCode extends MSPanel {
 			}
 		}
 		JOptionPane.showMessageDialog(this,"Grade saved.");
-		GUIUtils.getMasterFrame(this).goBack();
     }//GEN-LAST:event_save_buttonActionPerformed
     
     private void table_change_actionPerformed(TableModelEvent e) {
