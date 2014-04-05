@@ -25,7 +25,7 @@ public abstract class Shell {
     public static String pythonCall(String cmd) {
 	ArrayList<String> l = new ArrayList<String>();
 	l.add("python");
-	l.add("cmd");
+	l.add(cmd);
 
 	return Shell.exec(l);
     }
