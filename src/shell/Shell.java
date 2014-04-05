@@ -22,7 +22,7 @@ public abstract class Shell {
 	return result;
     }
 
-    public static pythonCall(String cmd) {
+    public static String pythonCall(String cmd) {
 	ArrayList<String> l = new ArrayList<String>();
 	l.add("python");
 	l.add("cmd");
