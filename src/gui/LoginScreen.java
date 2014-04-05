@@ -31,6 +31,7 @@ public class LoginScreen extends JFrame {
     public LoginScreen() {
         initComponents();
         this.setTitle("MarkShark - Login");
+	player = new AudioPlayer("jaws.mid");
     }
 
     /**
@@ -236,14 +237,8 @@ public class LoginScreen extends JFrame {
 	} else {
 	    jLabel3.setIcon(new ImageIcon(getClass().getResource("/gui/markshark-5x-eyes.png")));
 	    red_eyes = true;
-	    player = new AudioPlayer("jaws.mid");
 	    System.out.println("Playing Jaws theme...");
-	    try {
-		player.play();
-	    } catch (Exception e) {
-		System.out.println("Couldn't play the file...");
-		e.printStackTrace();
-	    }
+	    player.play();
 	}
     }
     

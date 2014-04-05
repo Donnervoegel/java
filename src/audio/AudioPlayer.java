@@ -12,9 +12,16 @@ public class AudioPlayer {
     public AudioPlayer(String filename) {
 	useExternalSynth = false;
 	this.filename = filename;
+
+	try {
+	    init();
+	} catch (Exception e) {
+	    System.out.println("Couldn't open audio file...");
+	    e.printStackTrace();
+	}
     }
 
-    public void play() throws Exception {
+    private void init() throws Exception {
         MidiDevice receivingDevice = getReceivingDevice();
         receivingDevice.open();
 
@@ -26,8 +33,11 @@ public class AudioPlayer {
 
         seq.open();
         seq.setSequence(sequence1);
+    }
 
-        seq.start();
+    public void play() {
+	if (seq != null)
+	    seq.start();
     }
 
     public void stop() {
