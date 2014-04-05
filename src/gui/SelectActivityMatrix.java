@@ -144,13 +144,15 @@ public class SelectActivityMatrix extends MSPanel {
         String c_id = c.getCourseID();
         Activity act = database.CourseAccess.constructActivityObject(c_id, assignment_select_dropdown.getSelectedItem().toString());
         String id = student_select_dropdown.getSelectedItem().toString();
-        id = id.substring(id.indexOf(" - ") + 3);
-        int student_id = Integer.parseInt(id);
+        
+        String[] pass_array = id.split(" - ");
+        String student_name = pass_array[0];
+        int student_id = Integer.parseInt(pass_array[1]);
         
         if (act.isProgramming()) //Activity is code
-            GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id));
+            GUIUtils.getMasterFrame(this).movePage(new MarkingCode(c_id, act, student_id, student_name));
         else //Activity is not code
-            GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id));
+            GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(c_id, act, student_id, student_name));
     }//GEN-LAST:event_ok_buttonActionPerformed
 
 

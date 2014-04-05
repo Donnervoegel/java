@@ -33,9 +33,12 @@ public class MarkingPDF extends MSPanel {
     private int studentID;
     private String courseID, actName;
 	
-     public MarkingPDF(final String courseID, final Activity act, final int stud_id) {
+     public MarkingPDF(final String courseID, final Activity act, final int stud_id, String student_name) {
         super(act.getName());
         initComponents();
+        
+        student_name_label.setText(student_name);
+        id_label.setText(Integer.toString(stud_id));
         
         grade_field.setEditable(false);
         max_grade_field.setEditable(false);
@@ -119,7 +122,11 @@ public class MarkingPDF extends MSPanel {
         max_grade_field = new javax.swing.JTextField();
         grade_field = new javax.swing.JTextField();
         slash_label = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        total_label = new javax.swing.JLabel();
+        name_label = new javax.swing.JLabel();
+        student_name_label = new javax.swing.JLabel();
+        id_label = new javax.swing.JLabel();
+        student_id_label = new javax.swing.JLabel();
         next_button = new javax.swing.JButton();
         save_button = new javax.swing.JButton();
         pdf_tabbed_pane = new javax.swing.JTabbedPane();
@@ -155,12 +162,10 @@ public class MarkingPDF extends MSPanel {
             rubric_table.getColumnModel().getColumn(2).setPreferredWidth(10);
         }
 
-        max_grade_field.setEditable(false);
         max_grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         max_grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         max_grade_field.setText("Max");
 
-        grade_field.setEditable(false);
         grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         grade_field.setText("Grade");
@@ -168,9 +173,19 @@ public class MarkingPDF extends MSPanel {
         slash_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         slash_label.setText("/");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Total:");
+        total_label.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        total_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        total_label.setText("Total:");
+
+        name_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        name_label.setText("Name:");
+
+        student_name_label.setText("...");
+
+        id_label.setText("...");
+
+        student_id_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        student_id_label.setText("Student ID:");
 
         javax.swing.GroupLayout rubric_panelLayout = new javax.swing.GroupLayout(rubric_panel);
         rubric_panel.setLayout(rubric_panelLayout);
@@ -178,24 +193,40 @@ public class MarkingPDF extends MSPanel {
             rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
             .addGroup(rubric_panelLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(total_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(grade_field, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slash_label, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(max_grade_field, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(rubric_panelLayout.createSequentialGroup()
+                .addComponent(name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(student_name_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(rubric_panelLayout.createSequentialGroup()
+                .addComponent(student_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(id_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         rubric_panelLayout.setVerticalGroup(
             rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rubric_panelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(student_id_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(id_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addGroup(rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(name_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(student_name_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(rubric_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(max_grade_field, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(max_grade_field, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                     .addComponent(slash_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(grade_field, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(total_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         next_button.setText("Next");
@@ -206,6 +237,9 @@ public class MarkingPDF extends MSPanel {
         });
 
         save_button.setText("Save");
+        save_button.setMaximumSize(new java.awt.Dimension(57, 25));
+        save_button.setMinimumSize(new java.awt.Dimension(57, 25));
+        save_button.setPreferredSize(new java.awt.Dimension(57, 25));
         save_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 save_buttonActionPerformed(evt);
@@ -251,8 +285,8 @@ public class MarkingPDF extends MSPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -270,8 +304,8 @@ public class MarkingPDF extends MSPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rubric_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(next_button, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                             .addComponent(save_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -312,9 +346,10 @@ public class MarkingPDF extends MSPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField grade_field;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel id_label;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField max_grade_field;
+    private javax.swing.JLabel name_label;
     private javax.swing.JButton next_button;
     private javax.swing.JTabbedPane pdf_tabbed_pane;
     private javax.swing.JPanel rubric_panel;
@@ -322,6 +357,9 @@ public class MarkingPDF extends MSPanel {
     private javax.swing.JButton save_button;
     private javax.swing.JLabel slash_label;
     private javax.swing.JPanel solution_panel;
+    private javax.swing.JLabel student_id_label;
+    private javax.swing.JLabel student_name_label;
     private javax.swing.JPanel submitted_panel;
+    private javax.swing.JLabel total_label;
     // End of variables declaration//GEN-END:variables
 }
