@@ -39,7 +39,7 @@ public class MasterFrame extends JFrame {
 
 	// Various settings.
 	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	setResizable(false);
+	//	setResizable(false);
 	setSize(700,700);
 	//	setLayout(new GridLayout(2,1));
         back_button.setEnabled(false);  //Grey back button initially
