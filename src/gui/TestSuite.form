@@ -88,6 +88,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="solution_output_text_area">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
@@ -133,6 +134,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="submission_output_test_area">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
@@ -182,6 +184,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="diff_text_area">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>

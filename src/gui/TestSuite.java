@@ -47,6 +47,7 @@ public class TestSuite extends MSPanel {
         rubric_panel.setMinimumSize(new java.awt.Dimension(400, 500));
         rubric_panel.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        solution_output_text_area.setEditable(false);
         solution_output_text_area.setColumns(20);
         solution_output_text_area.setRows(5);
         solution_scrollpane.setViewportView(solution_output_text_area);
@@ -68,6 +69,7 @@ public class TestSuite extends MSPanel {
         submitted_panel.setMinimumSize(new java.awt.Dimension(400, 500));
         submitted_panel.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        submission_output_test_area.setEditable(false);
         submission_output_test_area.setColumns(20);
         submission_output_test_area.setRows(5);
         submission_scrollpane.setViewportView(submission_output_test_area);
@@ -87,6 +89,7 @@ public class TestSuite extends MSPanel {
         solution_panel.setMinimumSize(new java.awt.Dimension(400, 500));
         solution_panel.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        diff_text_area.setEditable(false);
         diff_text_area.setColumns(20);
         diff_text_area.setRows(5);
         diff_scrollpane.setViewportView(diff_text_area);
