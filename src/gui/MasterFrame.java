@@ -147,12 +147,20 @@ public class MasterFrame extends JFrame {
         //if length of pages is zero 
         if (pages.isEmpty())
             back_button.setEnabled(true);
-        
-        curr_page.setVisible(false);
-	remove(curr_page);
-	pages.push(curr_page);
-	curr_page = p;
-	showPage(curr_page);
+
+	if (!p.okToNav()) {
+	    int answer = JOptionPane.showConfirmDialog(this, "Some changes have not been saved. Are you sure you want to navigate away?");
+	    if (answer == JOptionPane.YES_OPTION) {
+		p.setOkToNav();
+		movePage(p);
+	    }
+	} else {
+	    curr_page.setVisible(false);
+	    remove(curr_page);
+	    pages.push(curr_page);
+	    curr_page = p;
+	    showPage(curr_page);
+	}
     }
 
     private void showPage(MSPanel p) {

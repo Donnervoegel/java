@@ -28,4 +28,12 @@ public abstract class MSPanel extends JPanel {
     public boolean okToNav() {
 	return ok_to_navigate;
     }
+
+    public void setCantNav() {
+	ok_to_navigate = false;
+    }
+
+    public void setOkToNav() {
+	ok_to_navigate = true;
+    }
 }
