@@ -13,6 +13,7 @@ import database.AccountAccess;
 import java.awt.event.*;
 import login.Login;
 import types.*;
+import audio.*;
 
 /**
  *
@@ -22,6 +23,7 @@ import types.*;
 public class LoginScreen extends JFrame {
     private MasterFrame master;
     private boolean red_eyes = false;
+    private AudioPlayer player;
 
     /**
      * Creates new form NewJFrame
@@ -157,87 +159,94 @@ public class LoginScreen extends JFrame {
     }// </editor-fold>                        
 
 	private void login_buttonActionPerformed(ActionEvent evt) {
-		/*
-		 * Pass the user name and password to the login system. The login system
-		 * will indicate whether the login succeeded. If it did, hide the login
-		 * screen and show the splash page according to the user's Role.
-		 */
-		String name = username_field.getText();
-		String pass = new String(password_field.getPassword());
-		Account acct;
-		boolean login = false;
-		boolean backdoor = false;
-		int attempts = 0;
-
-		if (name.equalsIgnoreCase("sysadmin")) {
-			backdoor = true;
-			login = true;
-			acct = new SystemAdmin("Joey", "Tester", 9999, "password",
-					"sysadmin");
-		} else if (name.equalsIgnoreCase("admin")) {
-			backdoor = true;
-			login = true;
-			acct = new AcademicAdmin("Joey", "Tester", 9999, "password",
-					"admin");
-		} else if (name.equalsIgnoreCase("assist")) {
-			backdoor = true;
-			login = true;
-			acct = new AssistantAdmin("Joey", "Tester", 9999, "password",
-					"assist");
-		} else if (name.equalsIgnoreCase("instructor")) {
-			backdoor = true;
-			login = true;
-			acct = new Instructor("Joey", "Tester", 9999, "password",
-					"instructor");
-		} else if (name.equalsIgnoreCase("tatm")) {
-			backdoor = true;
-			login = true;
-			acct = new TATM("Joey", "Tester", 9999, "password", "ta");
-		} else {
-			login = Login.login(name, pass);
-			acct = AccountAccess.constructAccountObject(name);
+	    /*
+	     * Pass the user name and password to the login system. The login system
+	     * will indicate whether the login succeeded. If it did, hide the login
+	     * screen and show the splash page according to the user's Role.
+	     */
+	    String name = username_field.getText();
+	    String pass = new String(password_field.getPassword());
+	    Account acct;
+	    boolean login = false;
+	    boolean backdoor = false;
+	    int attempts = 0;
+	    
+	    if (name.equalsIgnoreCase("sysadmin")) {
+		backdoor = true;
+		login = true;
+		acct = new SystemAdmin("Joey", "Tester", 9999, "password",
+				       "sysadmin");
+	    } else if (name.equalsIgnoreCase("admin")) {
+		backdoor = true;
+		login = true;
+		acct = new AcademicAdmin("Joey", "Tester", 9999, "password",
+					 "admin");
+	    } else if (name.equalsIgnoreCase("assist")) {
+		backdoor = true;
+		login = true;
+		acct = new AssistantAdmin("Joey", "Tester", 9999, "password",
+					  "assist");
+	    } else if (name.equalsIgnoreCase("instructor")) {
+		backdoor = true;
+		login = true;
+		acct = new Instructor("Joey", "Tester", 9999, "password",
+				      "instructor");
+	    } else if (name.equalsIgnoreCase("tatm")) {
+		backdoor = true;
+		login = true;
+		acct = new TATM("Joey", "Tester", 9999, "password", "ta");
+	    } else {
+		login = Login.login(name, pass);
+		acct = AccountAccess.constructAccountObject(name);
+	    }
+	    
+	    if (acct != null && acct.isBlocked()) {
+		JOptionPane.showMessageDialog(this, "This account is blocked.");
+	    } else if (!login) {
+		attempts = AccountAccess.failedLogin(name);
+		JOptionPane.showMessageDialog(this, "Invalid username/password combo. Attempts left: " + (5 - attempts));
+	    } else {
+		if (!backdoor) {
+		    AccountAccess.successfulLogin(name);
+		    System.out.println("login good");
 		}
-
-		if (acct != null && acct.isBlocked()) {
-			JOptionPane.showMessageDialog(this, "This account is blocked.");
-		} else if (!login) {
-			attempts = AccountAccess.failedLogin(name);
-			JOptionPane.showMessageDialog(this,
-					"Invalid username/password combo. Attempts left: "
-							+ (5 - attempts));
-		} else {
-			if (!backdoor) {
-				AccountAccess.successfulLogin(name);
-				System.out.println("login good");
-			}
-
-			System.out.println("Logging in as " + name + " with password `"
-					+ pass + "`");
-			master = new MasterFrame(acct, this);
-			this.setVisible(false);
-			master.run();
-		}
+		
+		System.out.println("Logging in as " + name + " with password `"
+				   + pass + "`");
+		master = new MasterFrame(acct, this);
+		this.setVisible(false);
+		master.run();
+	    }
 	}
-
+    
     private void forgot_buttonActionPerformed(ActionEvent evt) {
 	JOptionPane.showMessageDialog(this, "Go talk to a System Administrator.");
     }
-
+    
     public void clearFields() {
 	username_field.setText("");
 	password_field.setText("");
     }
-
+    
     public void changeLogo(MouseEvent me) {
 	if (red_eyes) {
 	    jLabel3.setIcon(new ImageIcon(getClass().getResource("/gui/markshark-5x.png")));
 	    red_eyes = false;
+	    player.stop();
 	} else {
 	    jLabel3.setIcon(new ImageIcon(getClass().getResource("/gui/markshark-5x-eyes.png")));
 	    red_eyes = true;
+	    player = new AudioPlayer("jaws.mid");
+	    System.out.println("Playing Jaws theme...");
+	    try {
+		player.play();
+	    } catch (Exception e) {
+		System.out.println("Couldn't play the file...");
+		e.printStackTrace();
+	    }
 	}
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton ForgotPwd;
     private JButton ForgotPwd1;
