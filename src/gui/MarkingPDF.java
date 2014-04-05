@@ -12,11 +12,16 @@ import gui.types.*;
 import gui.utils.GUIUtils;
 
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.Document;
 import javax.swing.text.StyledDocument;
+
+import org.icepdf.ri.common.ComponentKeyBinding;
+import org.icepdf.ri.common.SwingController;
+import org.icepdf.ri.common.SwingViewBuilder;
 
 import types.Activity;
 
@@ -132,6 +137,22 @@ public class MarkingPDF extends MSPanel {
         pdf_tabbed_pane = new javax.swing.JTabbedPane();
         submitted_panel = new javax.swing.JPanel();
         solution_panel = new javax.swing.JPanel();
+        
+        SwingController submittedController = new SwingController();
+    	SwingViewBuilder submittedPDF = new SwingViewBuilder(submittedController);
+    	
+    	SwingController solutionController = new SwingController();
+    	SwingViewBuilder solutionPDF = new SwingViewBuilder(solutionController);
+        
+        ComponentKeyBinding.install(submittedController, submitted_panel);
+        submittedController.getDocumentViewController().setAnnotationCallback(
+        	      new org.icepdf.ri.common.MyAnnotationCallback(
+        	             submittedController.getDocumentViewController()));
+        
+        ComponentKeyBinding.install(solutionController, solution_panel);
+        solutionController.getDocumentViewController().setAnnotationCallback(
+        	      new org.icepdf.ri.common.MyAnnotationCallback(
+        	             solutionController.getDocumentViewController()));
 
         rubric_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Rubric"));
         rubric_panel.setMinimumSize(new java.awt.Dimension(400, 500));
@@ -260,6 +281,8 @@ public class MarkingPDF extends MSPanel {
             submitted_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
+        submitted_panel = submittedPDF.buildViewerPanel();
+        submittedController.openDocument("/Users/Markus/Downloads/deliverable5-1.pdf");
 
         pdf_tabbed_pane.addTab("Submission", submitted_panel);
 
@@ -277,6 +300,8 @@ public class MarkingPDF extends MSPanel {
             solution_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 580, Short.MAX_VALUE)
         );
+        solution_panel = solutionPDF.buildViewerPanel();
+        solutionController.openDocument("/Users/Markus/Downloads/HSBC - BankMail.pdf");
 
         pdf_tabbed_pane.addTab("Solution", solution_panel);
 
