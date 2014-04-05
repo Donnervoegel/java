@@ -44,6 +44,10 @@ public class MarkingCode extends MSPanel {
      public MarkingCode(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
+        
+        max_grade_field.setEditable(false);
+        grade_field.setEditable(false);
+        
         float max = 0;
         
         this.testsuite_activity = act;

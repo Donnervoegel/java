@@ -36,6 +36,10 @@ public class MarkingPDF extends MSPanel {
      public MarkingPDF(final String courseID, final Activity act, final int stud_id) {
         super(act.getName());
         initComponents();
+        
+        grade_field.setEditable(false);
+        max_grade_field.setEditable(false);
+        
         float max = 0;
         
         this.courseID = courseID;
@@ -151,10 +155,12 @@ public class MarkingPDF extends MSPanel {
             rubric_table.getColumnModel().getColumn(2).setPreferredWidth(10);
         }
 
+        max_grade_field.setEditable(false);
         max_grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         max_grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         max_grade_field.setText("Max");
 
+        grade_field.setEditable(false);
         grade_field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         grade_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         grade_field.setText("Grade");
