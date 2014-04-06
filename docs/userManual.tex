@@ -118,6 +118,7 @@ to simplify the process required for grading. Features of the program include:
 \subsection{UAT Installation}
 
 % ---
+\clearpage
 \section{Functions and User Interface Description}  % 30 Marks total
 % This is a very big section.
 % 1. How is a function selected?
@@ -131,7 +132,8 @@ to simplify the process required for grading. Features of the program include:
 The Login screen is displayed whenever the program is started, so the user can login
 to the system. The user will enter their username and password into the
 appropriate field and hit the "Login" button. If the details entered are correct,
-the system will log the user in and display the landing page of that user type. Otherwise, a popup will appear informing the user their username or password was incorrect. If the user makes five unsuccessful attempts to log in, the user will be blocked. If the user presses the "Forgot Password" button, the user will be prompted to enter their username. After doing so, the system will prompt them to speak to a System Administrator. \\
+the system will log the user in and display the landing page of that user type. Otherwise, a popup will appear informing the user their username or password was incorrect. If the user makes five unsuccessful attempts to log in, the user will be blocked. If the user presses the "Forgot Password" button, the user will be prompted to enter their username. After doing so, the system will prompt them to speak to a System Administrator. 
+\clearpage
 
 
 
@@ -139,20 +141,43 @@ the system will log the user in and display the landing page of that user type. 
 \centerline{\includegraphics[scale=0.65]{../images/UpdatedUIScreens/landinginstructor.png}}
 \label{landPg}
 The Landing Page is shown to all users of the system following a successful login. The Tasks box will populate with the tasks available to the user, depending on their user type. For example, the preceding image shows the landing page of an Instructor.\\
+\clearpage
 
 \subsection{Manage Courses}
 \begin{itemize}
-	\item The user must log in to the system as an Administrative Assistant
+	\item The user must log in to the system as an Administrative Assistant.
 \end{itemize}
 The following screen will be shown. Press the "Course Management" button.
    \begin{center}
      \includegraphics[scale=0.55]{../images/UpdatedUIScreens/landingassist.png}
    \end{center}
 The "Course Management" Screen, shown above, will be displayed. On this screen, the user may  create a new course, or modify/delete an existing coruse.
-
+\clearpage
 
 \subsection{Create A Courses}
+\begin{itemize}
+	\item The user must log in to the system as an Administrative Assistant.
+	\item The user has navigated to the "Create A Course" page.
+\end{itemize}
+The user will be presented with the following screen:
+\begin{center} 
+   	\includegraphics[scale=0.55]{../images/UpdatedUIScreens/CreateCourse.png}
+\end{center} 
+To create an activity, the user must enter values into the following fields:
+\begin{itemize}
+	\item Course Name/ID
+	\item Instructor Name/ID
+	\item Course Start/End Date
+\end{itemize}
+The user may also add TA marekers and a csv file of students (format: name, id)\\
+\clearpage
 
+\subsection{Modify A Course}
+\begin{center} 
+   	\includegraphics[scale=0.55]{../images/UpdatedUIScreens/CreateCourse.png}
+\end{center} 
+Rhe user may also use this page to modify any fields in the course, as well as add TAs and update the list of students.
+\clearpage
 
 \subsection{Create Activity (Detailed)}
 \begin{enumerate}
@@ -160,22 +185,22 @@ The "Course Management" Screen, shown above, will be displayed. On this screen, 
   \item The following screen will be shown.
     Press the \textbf{Assignment Management} button.
   \begin{center} 
-   \includegraphics[scale=0.55]{../images/UIMockups/pngs/LandingPage}
+   \includegraphics[scale=0.55]{../images/UpdatedUIScreens/landinginstructor.png}
   \end{center}
   \item The following screen will be shown.  Select the course that you wish
     to do make an activity for from the drop-down list, then press \textbf{Ok}.
     \begin{center} 
-      \includegraphics[scale=0.55]{../images/UIMockups/pngs/CourseSelectionM}
+      \includegraphics[scale=0.55]{../images/UpdatedUIScreens/CourseSelection.png}
     \end{center}
   \item The following screen will be shown.  Students are listed down the left
     side. Available activities are listed along the top.  Find the student you
     wish to mark for, and select the corresponding activity, then press \textbf{Ok}.
   \begin{center} 
-     \includegraphics[scale=0.55]{../images/UIMockups/pngs/StudentActivitySelectionM}
+     \includegraphics[scale=0.55]{../images/UpdatedUIScreens/MarkingActivitySelection.png}
   \end{center} 
   \item The following screen will be shown.
    \begin{center} 
-   \includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivity}
+   \includegraphics[scale=0.55]{../images/UpdatedUIScreens/ActivityCreation.png}
    \label{newActivity}
   \end{center}
   To create the activity, complete the following:
@@ -199,14 +224,7 @@ The "Course Management" Screen, shown above, will be displayed. On this screen, 
   \item A solution can be attached by clicking the \textbf{Attach Solution} button and 
   selecting the desired file from the Explorer window. Alternatively, the path can be 
   typed directly into the adjacent field.
-  \end{enumerate}
-  \item The following is how the New Activity screen could look with some
-    additional options. 
-  \begin{center} 
-   \includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivityDetailed}
- 
-  \end{center}
-  \begin{enumerate}
+  
   \item Clicking \textbf{Add Due Date} adds new fields to add an additional
     date that can be before or after the original due date. The new date can
     be entered in the same manner as as above. The extra field is the multiplier
@@ -219,9 +237,7 @@ The "Course Management" Screen, shown above, will be displayed. On this screen, 
  top of the page that is underneath the breadcrumbs. This will open the rubric tab and 
  show the following screen.
  \begin{center} 
- 
-
-\includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivityRubric}
+	\includegraphics[scale=0.55]{../images/UpdatedUIScreens/RubricCreation.png}
  \end{center}
  \item Once all the desired information about the activity has been entered
    in correctly, clicking \textbf{Finish} will create the activity and open
