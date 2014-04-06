@@ -19,7 +19,7 @@
 \begin{document}
 
 % --- TITLE PAGE ---
-\title{Donnervögel Consulting \\ MarkShark Grading System \\ Design Document}
+\title{Donnervögel Consulting \\ MarkShark Grading System \\ Testing Documentand Post Mortem}
 \author{\textbf{Phase Lead: Stephen Laboucane}}
 \maketitle
 \centerline{\includegraphics{../images/logo/markshark-10x}}
@@ -33,13 +33,21 @@
     \hline
     Version & Date & Members & Changes\\
     \hline
+    2.0 & 2014 Apr 5 (Sat) & Stephen L. & Post Mortem section added.\\
+    & & Graeme S. & \\
+    & & Colin W. &\\
+    & & Markus B.&\\
+    & & Jordan T. &\\
+	& & Chazz Y. &\\
+    & & Ian P. &\\
+    \hline
     1.0 & 2014 Mar 28 (Fri) & Stephen L. & Document created.\\
     & & Graeme S. & \\
     & & Colin W. &\\
     & & Markus B.&\\
     & & Jordan T. &\\
+	& & Chazz Y. &\\
     & & Ian P. &\\
-
     \hline
   \end{tabular}
 \end{center}
@@ -106,7 +114,7 @@ private void loginButtonActionPerformed(ActionEvent evt) {
 
 \subsection{Flow Chart}
 % Develop a flow chart for your method based on the blocks of code the method was broken into in the previous step
-\centerline{\includegraphics[scale=1.1]{../images/8-white}}
+\centerline{\includegraphics[scale=1.1]{../images/Whitebox_Testing_Diagram}}
 
 \subsection{Coverage}
 % Comment on the types of coverage needed to test the method
@@ -151,8 +159,7 @@ Login denied.
 An error message should pop up saying "Invalid username/password combo," the user should still be on the login page, and therefore not be logged into the system.
 
 \subsubsection{Actual Behavious and Results}
-% May not print <> correctly.  Try changing encoding.
-<Added at test time>
+[Added at test time]
 
 \section{Black Box}
 \subsection{Purpose}
@@ -249,9 +256,23 @@ Jordan Toering
 \end{verbatim}
 
 \subsubsection{Actual Behaviours and Results}
-% May not print <> correctly.  Try changing encoding.
-<Added at test time>
+[Added at test time]
+
+\section{Post Mortem}
+\subsection{Project and Time Management}
+We have learned much in regards to time estimation.  Productivity appeared to increase exponentially as deadlines neared.  A result of this is giving a small lull between initiation of a phase and the activities associated with short-term planning and "crunch time."  Time allotted to the final merging process has increased with each deliverable for two main reasons: increased complexity and overlap of pull requests, and continuing repo errors (including server downtime).
+% Elaborate on "complexity of pull requests"?
+For the most part, our time estimates have been accurate to within the hour.  One or two deliverables were granted a few days extension (not pushing back the final deadline, though) that could have been theoretically completed on the original schedule.  The longest phase was definitely writing the program code.  It was shorter than what we would have planned for, not being accustomed to much of the work being scheduled prior to that stage.  While the three weeks flew by, there were many a sleepless night lost to a good train of thought and productive work-flow.  Still, there was not enough time to do all we wanted.  This is both surprising and not, as we had been lead to believe that the scheduled timeline was sufficient.
+
+\subsection{Testing}
+We have yet to discover a bug in our system that has not been previously caught by the coding process itself.  Developing, debugging, and testing well thought out automated testing systems can be fairly costly.  Some of those resources were better used in implementing a more diversified feature set.  While formal testing processes are important, MarkShark is fairly basic in its small set of inter-communications.  Good planning in class packaging was instrumental to easing this perspective of testing.  Discovering problems by trying to use methods in the program could probably  be classified a natural black box testing environment, as there is little need to dig into the implementation unless the expected output doesn't match the actual result.  Analytic white box testing should have been dealt with in some fashion while trying to get the code correct the first time.  Having different people look over and use the methods helps as well, having a fresh set of eyes to potentially catch errors.  
+
+\subsection{Team Setting}
+Working in a moderately sized group on a project of this scale has been an eye-opening experience for many of us.  A few associates had only previously worked on individual projects that could be completed in one day.
+% \subsubsection{Communication}
+Communication fluctuated throughout this project while testing out different methods.  Skype was the main hub, with several informal group meetings per week to facilitate face-time, in addition to a formal meeting.  Once coding began, a feature of GitHub - Issues - became useful, highlighting tasks that people were in the process of completing, items they needed to continue, or what still needed to be done.  As these are more accessible than meeting minutes, Issues could have been helpful earlier in the development cycle to track task assignment.  We worked better when physically together, as online communication could be much slower.  Having seven times the manpower was interesting, in being able to distribute tasks and work on them in parallel and also split into even smaller groups when needed.
+%#sleepdeprivation
+MarkShark has brought us closer together, forging life-long bonds.
 
 \end{document}
 
-% Fix <>'s
