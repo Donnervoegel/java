@@ -22,7 +22,7 @@ public abstract class Shell {
 	return result;
     }
 
-    public static isWindows() {
+    public static boolean isWindows() {
 	String os = System.getProperty("os.name");
 
 	if (os.matches("Windows")) {
@@ -37,7 +37,7 @@ public abstract class Shell {
 	String command;
 
 	if (isWindows()) {
-	    command = "C:\Python27\python";
+	    command = "C:\\Python27\\python";
 	} else {
 	    command = "python";
 	}
