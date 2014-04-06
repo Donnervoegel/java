@@ -22,9 +22,27 @@ public abstract class Shell {
 	return result;
     }
 
+    public static isWindows() {
+	String os = System.getProperty("os.name");
+
+	if (os.matches("Windows")) {
+	    System.out.println("I AM WINDOWS!!!!");
+	    return true;
+	}
+	return false;
+    }
+
     public static String pythonCall(String cmd) {
 	ArrayList<String> l = new ArrayList<String>();
-	l.add("python");
+	String command;
+
+	if (isWindows()) {
+	    command = "C:\Python27\python";
+	} else {
+	    command = "python";
+	}
+
+	l.add(command);
 	l.add(cmd);
 
 	return Shell.exec(l);
