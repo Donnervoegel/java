@@ -1,9 +1,11 @@
 package audio;
 
-import java.util.Locale;
 import java.io.File;
 import javax.sound.midi.*;
 
+/**
+ * @author: Colin
+ */
 public class AudioPlayer {
     private boolean useExternalSynth;
     private String filename;

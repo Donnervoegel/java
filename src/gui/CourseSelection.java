@@ -19,7 +19,7 @@ import gui.types.*;
 
 /**
  * 
- * @author Normal
+ * @author Ian
  */
 public class CourseSelection extends MSPanel {
     /**

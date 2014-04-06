@@ -8,6 +8,7 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import database.CourseAccess;
 import gui.types.*;
@@ -27,6 +28,7 @@ import types.*;
  */
 public class ActivityCreation extends MSPanel {
     private String courseid;
+    private String actName;
     private ArrayList<String> filepath_temp;
     String[] columnNames =new String[] {"Description", "Max Grade"};
     Object data [][] = new Object[1][2]; 
@@ -52,6 +54,7 @@ public class ActivityCreation extends MSPanel {
     	super("Activity Modification");
 
     	this.courseid = courseID;
+    	this.actName = act.getName();
     	initComponents();
     	activity_name_field.setText(act.getName());
     	activity_desc_field.setText(act.getActivityDesc());
@@ -59,6 +62,7 @@ public class ActivityCreation extends MSPanel {
     	activity_student_submissionpath_field.setText(act.getStudentSubPath());
     	activity_solution_field.setText(act.getSolnPath());
     	activity_due_date_1_field.setText(act.getDueDate());
+		generate_csv.setEnabled(true);
     	
     	if(act.isGroup())
     		activity_group_checkbox.doClick();
@@ -67,8 +71,8 @@ public class ActivityCreation extends MSPanel {
     	
     	if(act.isProgramming()) {
     		activity_type_combo.setSelectedIndex(1);
-    		activity_test_in_field.setText(CourseAccess.accessTestIn(courseID,act));
-    		activity_test_out_field.setText(CourseAccess.accessTestOut(courseID,act));
+    		activity_test_in_field.setText(CourseAccess.accessTestIn(courseID,act.getName()));
+    		activity_test_out_field.setText(CourseAccess.accessTestOut(courseID,act.getName()));
     		activity_test_number_field.setText(Integer.toString(act.getNumOfTests()));
     	} else
     		activity_type_combo.setSelectedIndex(0);
@@ -135,6 +139,7 @@ public class ActivityCreation extends MSPanel {
         rubric_submit_button = new javax.swing.JButton();
         Edit_row_button = new javax.swing.JButton();
         delete_row_button = new javax.swing.JButton();
+        generate_csv = new javax.swing.JButton();
 
         activity_name_label.setText("Activity Name");
 
@@ -238,6 +243,14 @@ public class ActivityCreation extends MSPanel {
                 activity_reset_buttonActionPerformed(evt);
             }
         });
+        
+        generate_csv.setText("Generate CSV");
+        generate_csv.setEnabled(false);
+        generate_csv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generate_csvActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout create_activity_tabLayout = new javax.swing.GroupLayout(create_activity_tab);
         create_activity_tab.setLayout(create_activity_tabLayout);
@@ -304,6 +317,7 @@ public class ActivityCreation extends MSPanel {
                                     .addComponent(activity_test_in_field))))
                         .addGap(0, 80, Short.MAX_VALUE)))
                 .addContainerGap())
+                .addComponent(generate_csv)
         );
         create_activity_tabLayout.setVerticalGroup(
             create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,6 +370,8 @@ public class ActivityCreation extends MSPanel {
                 .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activity_solution_button)
                     .addComponent(activity_solution_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(generate_csv)
                 .addGap(18, 18, 18)
                 .addGroup(create_activity_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(activity_reset_button)
@@ -460,10 +476,10 @@ public class ActivityCreation extends MSPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(create_activity_pane, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(create_activity_pane, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 11, Short.MAX_VALUE))
         );
-
+        
         create_activity_pane.getAccessibleContext().setAccessibleName("create_activity_pane");
     }// </editor-fold>//GEN-END:initComponents
 
@@ -755,7 +771,25 @@ public class ActivityCreation extends MSPanel {
 		setOkToNav();
                 JOptionPane.showMessageDialog(this, "Rubric Submitted.");
 	}// GEN-LAST:event_rubric_submit_buttonActionPerformed
-
+	
+	private void generate_csvActionPerformed(ActionEvent evt) {
+		JFileChooser chooser = new JFileChooser();
+		chooser.setCurrentDirectory(new java.io.File("."));
+		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		chooser.setAcceptAllFileFilterUsed(true);
+		
+		File path_container;
+		
+		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+			path_container = chooser.getCurrentDirectory();
+		    String s = path_container.toString();
+		    GUIUtils.generateGradeCSV(courseid, actName, s, actName + ".csv");
+		} else {
+		    System.out.println("No Selection");
+		    filepath_temp = null; // Set the array list filepath_temp to null if
+		    // nothing initiated.
+		}
+	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Edit_row_button;
@@ -795,5 +829,6 @@ public class ActivityCreation extends MSPanel {
     private javax.swing.JButton rubric_additional_row_button;
     private javax.swing.JButton rubric_submit_button;
     private javax.swing.JTable rubric_table;
+    private javax.swing.JButton generate_csv;
     // End of variables declaration//GEN-END:variables
 }

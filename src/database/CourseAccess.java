@@ -546,9 +546,9 @@ public class CourseAccess {
 		execUpdate(query);
 	}
 
-	public static String accessTestIn(String courseID, Activity act) {
+	public static String accessTestIn(String courseID, String actName) {
 		String query = "SELECT TestInput FROM c275g01A.dbo.ProgTests WHERE CourseID = '"
-				+ courseID + "' AND ActivityName = '" + act.getName() + "'";
+				+ courseID + "' AND ActivityName = '" + actName + "'";
 		ResultSet res = execQuery(query);
 		String test = "";
 
@@ -562,9 +562,9 @@ public class CourseAccess {
 		return test;
 	}
 
-	public static String accessTestOut(String courseID, Activity act) {
+	public static String accessTestOut(String courseID, String actName) {
 		String query = "SELECT TestOutput FROM c275g01A.dbo.ProgTests WHERE CourseID = '"
-				+ courseID + "' AND ActivityName = '" + act.getName() + "'";
+				+ courseID + "' AND ActivityName = '" + actName + "'";
 		ResultSet res = execQuery(query);
 		String test = "";
 

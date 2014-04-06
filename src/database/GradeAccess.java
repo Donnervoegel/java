@@ -61,9 +61,9 @@ public class GradeAccess {
 	// }
 	//
 	public static ResultSet accessGrades(String courseID, String actName) {
-		String query = "SELECT Grade FROM c275g01A.dbo.Grades WHERE"
-				+ " CourseID = '" + courseID + "',ActivityName = '" + actName
-				+ "'";
+		String query = "SELECT StudentID,Grade FROM c275g01A.dbo.Grades WHERE"
+				+ " CourseID = '" + courseID + "' AND ActivityName = '"
+				+ actName + "' ORDER BY StudentID,RubricItem";
 		return execQuery(query);
 	}
 

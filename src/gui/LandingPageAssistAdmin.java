@@ -12,7 +12,7 @@ import types.*;
 
 /**
  *
- * @author Normal
+ * @author Jordan
  */
 public class LandingPageAssistAdmin extends MSPanel {
     private AssistantAdmin a;

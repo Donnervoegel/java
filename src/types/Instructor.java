@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * @desc:   The Instructor class is used to model the Instructor account.
  * 
- * @author 
+ * @author Chazz
  */
 public class Instructor extends Marker
 {

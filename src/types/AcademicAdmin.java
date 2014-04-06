@@ -1,5 +1,8 @@
 package types;
 
+/**
+ * @author: Chazz
+ */
 public class AcademicAdmin extends Marker
 {
     

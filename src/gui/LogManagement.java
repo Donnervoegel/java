@@ -7,7 +7,6 @@
 package gui;
 
 import gui.types.*;
-import javax.swing.*;
 import types.*;
 
 /**

@@ -149,7 +149,7 @@ public class MasterFrame extends JFrame {
     
     private void pleaseMove(MSPanel p, Move movement) {
 	if (!curr_page.okToNav()) {
-	    int answer = JOptionPane.showConfirmDialog(this, "Some changes have not been saved. Are you sure you want to navigate away?", "Navigate away?", JOptionPane.YES_NO_OPTION);
+	    int answer = JOptionPane.showConfirmDialog(this, "You may have some unsaved changes. Are you sure you want to navigate away?", "Navigate away?", JOptionPane.YES_NO_OPTION);
 	    if (answer == JOptionPane.YES_OPTION) {
 		curr_page.setOkToNav();
 		pleaseMove(p, movement);

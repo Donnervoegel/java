@@ -3,6 +3,9 @@ package shell;
 import java.util.*;
 import java.io.*;
 
+/**
+ * @author: Colin
+ */
 public abstract class Shell {
     public static String exec(ArrayList<String> cmd) {
 	ShellExec e = new ShellExec(cmd);
@@ -47,4 +50,21 @@ public abstract class Shell {
 
 	return Shell.exec(l);
     }
+
+	public static String pythonCall(String cmd, String testIn) {
+		ArrayList<String> l = new ArrayList<String>();
+		String command;
+
+		if (isWindows()) {
+		    command = "C:\\Python27\\python";
+		} else {
+		    command = "python";
+		}
+
+		l.add(command);
+		l.add(cmd);
+		l.add(testIn);
+
+		return Shell.exec(l);
+	}
 }

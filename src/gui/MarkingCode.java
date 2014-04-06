@@ -19,17 +19,12 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Document;
-import javax.swing.text.StyledDocument;
-
 import types.Activity;
 
 /**
  *
  * @author Jordan Toering, Graeme Smith
  */
-
-
 public class MarkingCode extends MSPanel {
 
     private final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};
@@ -389,7 +384,7 @@ public class MarkingCode extends MSPanel {
 
     private void test_suite_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test_suite_buttonActionPerformed
 	setOkToNav();
-	GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath() + "/" + studentID + "/" + actName + ".py", testsuite_activity.getSolnPath()));
+	GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath() + "/" + studentID + "/" + actName + ".py", testsuite_activity.getSolnPath(), activity.getNumOfTests(), actName, courseID));
 	setCantNav();
     }//GEN-LAST:event_test_suite_buttonActionPerformed
 
@@ -409,7 +404,7 @@ public class MarkingCode extends MSPanel {
 								.getValueAt(i, 1).toString()));
 			}
 		}
-
+		
 		try {
 			PrintWriter out = new PrintWriter(paths[0] + "/" + studentID + "/"
 					+ actName + ".py");
