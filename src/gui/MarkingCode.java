@@ -388,7 +388,9 @@ public class MarkingCode extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void test_suite_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test_suite_buttonActionPerformed
-         GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath() + "/" + studentID + "/" + actName + ".py", testsuite_activity.getSolnPath()));
+	setOkToNav();
+	GUIUtils.getMasterFrame(this).movePage(new TestSuite(testsuite_activity.getStudentSubPath() + "/" + studentID + "/" + actName + ".py", testsuite_activity.getSolnPath()));
+	setCantNav();
     }//GEN-LAST:event_test_suite_buttonActionPerformed
 
     private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
