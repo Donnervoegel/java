@@ -143,11 +143,19 @@ public class CourseAccess {
 	 * Method to delete a course from the database. Takes a course ID as the
 	 * parameter and removes the specified course from the database.
 	 */
-	public static void deleteCourse(String courseID) {
-		// Create the deletion query string
-		String query = "DELETE FROM c275g01A.dbo.Course WHERE CourseID = '"
+	public static boolean deleteCourse(String courseID) {
+		String query = "SELECT * FROM c275g01A.dbo.Activity WHERE CourseID = '"
 				+ courseID + "'";
-		execUpdate(query); // Execute the deletion query
+		ResultSet res = execQuery(query);
+		if (res == null) {
+			// Create the deletion query string
+			query = "DELETE FROM c275g01A.dbo.Course WHERE CourseID = '"
+					+ courseID + "'";
+			execUpdate(query); // Execute the deletion query
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/*
@@ -374,7 +382,7 @@ public class CourseAccess {
 		String query = "SELECT StudentSolnPath,SolnPath FROM c275g01A.dbo.Activity WHERE CourseID = '"
 				+ courseID + "' AND ActivityName = '" + actName + "'";
 		ResultSet res = execQuery(query);
-		
+
 		try {
 			res.next();
 			paths[0] = res.getNString(1);
@@ -382,7 +390,7 @@ public class CourseAccess {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return paths;
 	}
 

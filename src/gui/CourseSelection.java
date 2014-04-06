@@ -232,9 +232,14 @@ public class CourseSelection extends MSPanel {
 				"Delete course " + toDelete + "?",
 				"", JOptionPane.YES_NO_OPTION);
 		if(check == 0) {
-			database.CourseAccess.deleteCourse(toDelete);
+			boolean deleted = database.CourseAccess.deleteCourse(toDelete);
 			// GO BACK TO LANDING PAGE
-			course_selection_dropdown.removeItem(toDelete);
+			if(deleted)
+				course_selection_dropdown.removeItem(toDelete);
+			else
+				JOptionPane.showMessageDialog(this, 
+						"This course has activities associated with it, "
+						+ "so it was not deleted.");
 		}
 	}
 	
