@@ -7,9 +7,12 @@
 package gui;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.text.*;
 
@@ -17,6 +20,7 @@ import com.sun.prism.paint.Color;
 
 import shell.Shell;
 import gui.types.*;
+import database.CourseAccess;
 import difflib.*;
 import gui.utils.*;
 
@@ -27,12 +31,18 @@ import gui.utils.*;
 public class TestSuite extends MSPanel {
     private String submission_fp;
     private String solution_fp;
+    private int numTests;
+    private String actName;
+    private String courseID;
 
-     public TestSuite(String submission_fp, String solution_fp) {
+     public TestSuite(String submission_fp, String solution_fp, int numTests, String actName, String courseID) {
         super("Test Suite");
 
-	this.submission_fp = submission_fp;
-	this.solution_fp = solution_fp;
+        this.submission_fp = submission_fp;
+        this.solution_fp = solution_fp;
+        this.numTests = numTests;
+        this.actName = actName;
+        this.courseID = courseID;
 
         initComponents();
      }
@@ -157,12 +167,31 @@ public class TestSuite extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void run_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_run_buttonActionPerformed
-    	String result = Shell.pythonCall(submission_fp);
-    	submission_output_test_area.setText(result);
-    	ArrayList<String> submission = new ArrayList<String>(Arrays.asList(submission_output_test_area.getText().split("\n")));
-    	result = Shell.pythonCall(solution_fp);
-    	solution_output_text_area.setText(result);
-    	ArrayList<String> solution = new ArrayList<String>(Arrays.asList(solution_output_text_area.getText().split("\n")));
+    	String result = "";
+    	ArrayList<String> solution,submission;
+    	if(numTests == 1) {
+    		result = Shell.pythonCall(submission_fp, CourseAccess.accessTestIn(courseID, actName));
+    		submission_output_test_area.setText(result);
+    		submission = new ArrayList<String>(Arrays.asList(submission_output_test_area.getText().split("\n")));
+    		String out = "";
+    		try {
+				Scanner in = new Scanner(new FileReader(CourseAccess.accessTestOut(courseID, actName)));
+				while(in.hasNext())
+					out += in.nextLine();
+				in.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+    		solution_output_text_area.setText(out);
+    		solution = new ArrayList<String>(Arrays.asList(solution_output_text_area.getText().split("\n")));
+    	} else {
+    		result = Shell.pythonCall(submission_fp);
+    		submission_output_test_area.setText(result);
+    		submission = new ArrayList<String>(Arrays.asList(submission_output_test_area.getText().split("\n")));
+    		result = Shell.pythonCall(solution_fp);
+    		solution_output_text_area.setText(result);
+    		solution = new ArrayList<String>(Arrays.asList(solution_output_text_area.getText().split("\n")));
+    	}
     	Patch patch = DiffUtils.diff(solution,submission);
     	List<String> diff = DiffUtils.generateUnifiedDiff("Solution","Submission",solution,patch,3);
     	String diffText = "";

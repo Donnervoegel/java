@@ -71,8 +71,8 @@ public class ActivityCreation extends MSPanel {
     	
     	if(act.isProgramming()) {
     		activity_type_combo.setSelectedIndex(1);
-    		activity_test_in_field.setText(CourseAccess.accessTestIn(courseID,act));
-    		activity_test_out_field.setText(CourseAccess.accessTestOut(courseID,act));
+    		activity_test_in_field.setText(CourseAccess.accessTestIn(courseID,act.getName()));
+    		activity_test_out_field.setText(CourseAccess.accessTestOut(courseID,act.getName()));
     		activity_test_number_field.setText(Integer.toString(act.getNumOfTests()));
     	} else
     		activity_type_combo.setSelectedIndex(0);
