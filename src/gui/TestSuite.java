@@ -6,6 +6,16 @@
 
 package gui;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.swing.text.*;
+
+import com.sun.prism.paint.Color;
+
+import shell.Shell;
 import gui.types.*;
 import difflib.*;
 import gui.utils.*;
@@ -147,7 +157,41 @@ public class TestSuite extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void run_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_run_buttonActionPerformed
-	System.out.println("Performing Code test.");
+    	String result = Shell.pythonCall(submission_fp);
+    	submission_output_test_area.setText(result);
+    	ArrayList<String> submission = new ArrayList<String>(Arrays.asList(submission_output_test_area.getText().split("\n")));
+    	result = Shell.pythonCall(solution_fp);
+    	solution_output_text_area.setText(result);
+    	ArrayList<String> solution = new ArrayList<String>(Arrays.asList(solution_output_text_area.getText().split("\n")));
+    	Patch patch = DiffUtils.diff(solution,submission);
+    	List<String> diff = DiffUtils.generateUnifiedDiff("Solution","Submission",solution,patch,3);
+    	String diffText = "";
+    	for(String s : diff)
+    		diffText += s + "\n";
+    	if(diffText.equals(""))
+    		diff_text_area.setText("No differences.");
+    	else
+    		diff_text_area.setText(diffText);
+
+		DefaultHighlighter.DefaultHighlightPainter red = new DefaultHighlighter.DefaultHighlightPainter(
+				java.awt.Color.RED);
+		DefaultHighlighter.DefaultHighlightPainter green = new DefaultHighlighter.DefaultHighlightPainter(
+				java.awt.Color.GREEN);
+    	try {
+    		for(int i=0; i<diffText.length(); ) {
+    			if(diffText.startsWith("+",i)) {
+    				diff_text_area.getHighlighter().addHighlight(diffText.indexOf("+",i),diffText.indexOf("\n",diffText.indexOf("+",i)),green);
+    				i = diffText.indexOf("\n",diffText.indexOf("+",i)) + 1;
+    			} else if (diffText.startsWith("-",i)){
+    				diff_text_area.getHighlighter().addHighlight(diffText.indexOf("-",i),diffText.indexOf("\n",diffText.indexOf("-",i)),red);
+    				i = diffText.indexOf("\n",diffText.indexOf("-",i)) + 1;
+    			} else {
+    				i = diffText.indexOf("\n",i) + 1;
+    			}
+    		}
+    	} catch (BadLocationException e) {
+			e.printStackTrace();
+		}
     }//GEN-LAST:event_run_buttonActionPerformed
     
 
