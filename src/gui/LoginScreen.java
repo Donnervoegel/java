@@ -32,6 +32,8 @@ public class LoginScreen extends JFrame {
         initComponents();
         this.setTitle("MarkShark - Login");
 	player = new AudioPlayer("jaws.mid");
+        setIconImage(new ImageIcon(getClass()
+				   .getResource("markshark-1x.png")).getImage());
     }
 
     /**
