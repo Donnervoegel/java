@@ -6,8 +6,6 @@
 
 package database;
 
-import types.*;
-
 import java.sql.*;
 
 

@@ -12,8 +12,6 @@ import gui.utils.GUIUtils;
 
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
-
 import types.*;
 
 /**

@@ -10,7 +10,6 @@ import database.CourseAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
 
-import types.Account;
 import types.Activity;
 import types.Course;
 

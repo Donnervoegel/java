@@ -7,8 +7,6 @@
 package gui;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,13 +14,10 @@ import java.util.Scanner;
 
 import javax.swing.text.*;
 
-import com.sun.prism.paint.Color;
-
 import shell.Shell;
 import gui.types.*;
 import database.CourseAccess;
 import difflib.*;
-import gui.utils.*;
 
 /**
  *

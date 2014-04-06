@@ -11,17 +11,10 @@ import database.*;
 import gui.types.*;
 import gui.utils.GUIUtils;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.sql.SQLException;
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Document;
-import javax.swing.text.StyledDocument;
-
 import org.icepdf.ri.common.ComponentKeyBinding;
 import org.icepdf.ri.common.SwingController;
 import org.icepdf.ri.common.SwingViewBuilder;

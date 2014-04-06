@@ -10,8 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-import types.Writer;
-
 import javax.swing.*;
 
 import database.GradeAccess;

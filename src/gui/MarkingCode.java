@@ -19,9 +19,6 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Document;
-import javax.swing.text.StyledDocument;
-
 import types.Activity;
 
 /**
