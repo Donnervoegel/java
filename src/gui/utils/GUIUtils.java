@@ -1,6 +1,7 @@
 package gui.utils;
 
 import gui.MasterFrame;
+
 import java.awt.*;
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -8,8 +9,13 @@ import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+
 import types.Writer;
+
 import javax.swing.*;
+
+import database.GradeAccess;
+
 import java.io.*;
 
 public abstract class GUIUtils {
@@ -98,71 +104,32 @@ public abstract class GUIUtils {
     */
     public static void generateGradeCSV(String courseID, String actName, String path, String name)
     {
-        //Get grades from database
-        ResultSet grade_rs = database.GradeAccess.accessGrades(courseID, actName);
-        boolean row_valid = false;
-        
-        //Check to see if the database connection was successful
-        try {
-            row_valid = grade_rs.next();
-        } catch (SQLException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        
-        //Initialize grades to return
-        ArrayList<String> grades = new ArrayList<String>();
-        
-        if (row_valid){
-            //Initialize temp values to store line info for the csv file
-            int student = 0;
-            float grade = 0.0f;
-            float total = 0.0f;
-            String toAdd;
-            
-            //Set first line to begin
-            try{
-                student = grade_rs.getInt("StudentID");
-            } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            toAdd = Integer.toString(student);
-            
-            //Populate the ArrayList<String> of lines to add
-            while(row_valid){
-                try {
-                    //For each student, add grade (rounded to 2 decimal places) to line
-                    //e.g. 12345, 6.25, 12.00, 88.50, 2.00, 106.25
-                    if(student == grade_rs.getInt("StudentID")){//add another grade to line
-                        grade = grade_rs.getFloat("Grade");
-                        total += grade;
-                        grade = Math.round(student*100)/100;
-                        toAdd = toAdd + ", " + Float.toString(grade);
-                        row_valid = grade_rs.next();
-                    }else{//Add total to end of line, reset line, and initialize next line
-                        toAdd = (toAdd + ", " + total);
-                        grades.add(toAdd);
-                        toAdd = "";
-                        student = grade_rs.getInt("StudentID");
-                        grade = grade_rs.getFloat("Grade");
-                        grade = Math.round(student*100)/100;
-                        toAdd = (Integer.toString(student) + ", " + grade);
-                        row_valid = grade_rs.next();
-                    }
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-            
-            //Write the ArrayList<String> to a file
-            (new Writer()).write(grades, path, name);
-        }else{
-            System.out.println("Error. Either there was an error connecting to the database");
-            System.out.println("or one of teh specified fields is invalid.");
-        }
-            
+    	ResultSet res = GradeAccess.accessGrades(courseID, actName);
+    	String s = "";
+    	int x = 0;
+    	try {
+    		while(res.next()) {
+    			if(x == res.getInt(1)) {
+    				s += "," + res.getFloat(2);
+    			} else {
+    				if(x == 0)
+    					s += res.getInt(1) + "," + res.getFloat(2);
+    				else
+    					s += "\n" + res.getInt(1) + "," + res.getFloat(2);
+    			}
+    			x = res.getInt(1);
+    		}
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	try {
+			PrintWriter out = new PrintWriter(path + "/" + name);
+			out.write(s);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
     }
     //Given a name, an id, get the next position of the array
     public static String getNextStudent(String name, int student_id, Object[] array)
