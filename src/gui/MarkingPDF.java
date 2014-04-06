@@ -44,7 +44,7 @@ public class MarkingPDF extends MSPanel {
     private Activity activity;
 	
      public MarkingPDF(final String courseID, final Activity act, final int stud_id, String student_name, Object[] stud_list) {
-        super(act.getName());
+        super(act.getName(), CANT_NAV);
         initComponents();
         this.student_list = stud_list;
         this.activity = act;
@@ -359,7 +359,8 @@ public class MarkingPDF extends MSPanel {
         String next_name = split_array[0];
         String next_number = split_array[1];
         int next_number_int = Integer.parseInt(next_number);
-            
+           
+        setOkToNav();
         GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(courseID, activity, next_number_int, next_name, student_list));
         
     }//GEN-LAST:event_next_buttonActionPerformed
@@ -380,7 +381,8 @@ public class MarkingPDF extends MSPanel {
 								.toString()));
 			}
 		}
-		JOptionPane.showMessageDialog(this,"Grade saved.");
+	setOkToNav();	
+        JOptionPane.showMessageDialog(this,"Grade saved.");
     }//GEN-LAST:event_save_buttonActionPerformed
     
     private void table_change_actionPerformed(TableModelEvent e) {

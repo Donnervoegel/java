@@ -35,7 +35,7 @@ public class ActivityCreation extends MSPanel {
      */
     // TODO: Pretty sure this isn't correct.
     public ActivityCreation(String courseid) {
-	super("Activity Modification");
+	super("Activity Modification", CANT_NAV);
         this.courseid = courseid;
         initComponents();
         activity_test_in_button.setEnabled(false);
@@ -675,7 +675,8 @@ public class ActivityCreation extends MSPanel {
 		
 
 		JOptionPane.showMessageDialog(this, "Activity modified.");
-		GUIUtils.getMasterFrame(this).goBack();
+		setOkToNav();
+                GUIUtils.getMasterFrame(this).goBack();
 	}
 
     private void Edit_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_row_buttonActionPerformed
@@ -751,7 +752,8 @@ public class ActivityCreation extends MSPanel {
 			CourseAccess.addRubricItem(courseID, actName, desc, MaxGrade);
 			// need references to activity name and courseID to work!
 		}
-		JOptionPane.showMessageDialog(this, "Rubric Submitted.");
+		setOkToNav();
+                JOptionPane.showMessageDialog(this, "Rubric Submitted.");
 	}// GEN-LAST:event_rubric_submit_buttonActionPerformed
 
 

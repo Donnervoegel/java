@@ -28,12 +28,12 @@ public class CreateCourse extends MSPanel {
      * Creates new form CreateCourse
      */
 	public CreateCourse() {
-		super("Course Creation");
+		super("Course Creation", CANT_NAV);
 		initComponents();
 	}
 
 	public CreateCourse(final Course course) {
-		super("Course Modification");
+		super("Course Modification", CANT_NAV);
 
 		initComponents();
 		course_name_field.setText(course.getCourseName());
@@ -419,7 +419,8 @@ public class CreateCourse extends MSPanel {
 
 		JOptionPane.showMessageDialog(this,
 				"Course " + new_course.getCourseName() + " added.");
-		GUIUtils.getMasterFrame(this).goBack();
+		setOkToNav();
+                GUIUtils.getMasterFrame(this).goBack();
                 }
 	}// GEN-LAST:event_submit_buttonActionPerformed
 
@@ -470,7 +471,8 @@ public class CreateCourse extends MSPanel {
 
 		JOptionPane.showMessageDialog(this,
 				"Course " + new_course.getCourseName() + " modified.");
-		GUIUtils.getMasterFrame(this).goBack();
+		setOkToNav();
+                GUIUtils.getMasterFrame(this).goBack();
 	}
     
     // Purpose is to assign the values of the text file to global variable

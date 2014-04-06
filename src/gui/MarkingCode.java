@@ -45,7 +45,7 @@ public class MarkingCode extends MSPanel {
     
     
      public MarkingCode(final String courseID, final Activity act, final int stud_id, String student_name, Object[] stud_list) {
-        super(act.getName());
+        super(act.getName(), CANT_NAV);
         initComponents();
         this.student_list = stud_list;
         this.activity = act;
@@ -416,7 +416,7 @@ public class MarkingCode extends MSPanel {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-       
+       setOkToNav();
        JOptionPane.showMessageDialog(this,"Grade and comments saved.");
     }//GEN-LAST:event_save_buttonActionPerformed
 
@@ -429,6 +429,7 @@ public class MarkingCode extends MSPanel {
         String next_number = split_array[1];
         int next_number_int = Integer.parseInt(next_number);
             
+        setOkToNav();
         GUIUtils.getMasterFrame(this).movePage(new MarkingCode(courseID, activity, next_number_int, next_name, student_list));
         
     }//GEN-LAST:event_next_buttonActionPerformed
