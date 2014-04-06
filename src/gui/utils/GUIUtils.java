@@ -16,6 +16,9 @@ import database.GradeAccess;
 
 import java.io.*;
 
+/**
+ * @author: Colin
+ */
 public abstract class GUIUtils {
     // BUG: If the starting Component is of a higher type than
     // JFrame, this will recurse forever or possibly throw and error.

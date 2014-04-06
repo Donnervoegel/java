@@ -4,6 +4,9 @@
 
 import gui.MarkSharkGUI;
 
+/**
+ * @author: Colin
+ */
 public class MarkShark {
     public static void main(String doesnt_matter[]) {
 	MarkSharkGUI gui = new MarkSharkGUI();

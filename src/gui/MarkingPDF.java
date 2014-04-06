@@ -25,8 +25,6 @@ import types.Activity;
  *
  * @author Jordan Toering, Graeme Smith
  */
-
-
 public class MarkingPDF extends MSPanel {
 
     private static final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};

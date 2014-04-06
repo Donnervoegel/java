@@ -7,6 +7,9 @@ package gui.types;
 
 import javax.swing.JPanel;
 
+/**
+ * @author: Colin
+ */
 public abstract class MSPanel extends JPanel {
     protected static final int CANT_NAV = 42;
     private String panel_title;

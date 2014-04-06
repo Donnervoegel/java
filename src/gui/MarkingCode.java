@@ -25,8 +25,6 @@ import types.Activity;
  *
  * @author Jordan Toering, Graeme Smith
  */
-
-
 public class MarkingCode extends MSPanel {
 
     private final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};

@@ -3,6 +3,9 @@ package shell;
 import java.util.*;
 import java.io.*;
 
+/**
+ * @author: Colin
+ */
 public abstract class Shell {
     public static String exec(ArrayList<String> cmd) {
 	ShellExec e = new ShellExec(cmd);

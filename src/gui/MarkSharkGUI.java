@@ -5,6 +5,9 @@ package gui;
 import javax.swing.*;
 import java.util.logging.*;
 
+/**
+ * @author: Colin
+ */
 public class MarkSharkGUI {
     private LoginScreen login;
 

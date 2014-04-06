@@ -18,7 +18,7 @@ import types.Course;
 
 /**
  *
- * @author Normal
+ * @author Jordan
  */
 public class ActivitySelection extends MSPanel {
     String courseID;

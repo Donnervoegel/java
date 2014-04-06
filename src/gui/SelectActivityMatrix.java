@@ -15,9 +15,8 @@ import types.Course;
 
 /**
  *
- * @author Normal
+ * @author Jordan
  */
-
 public class SelectActivityMatrix extends MSPanel {
 
     /**

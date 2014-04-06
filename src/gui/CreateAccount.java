@@ -16,7 +16,7 @@ import types.*;
 
 /**
  *
- * @author Normal
+ * @author Markus
  */
 public class CreateAccount extends MSPanel {
 

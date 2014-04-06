@@ -19,7 +19,7 @@ import gui.utils.*;
 
 /**
  * 
- * @author Normal
+ * @author Markus
  */
 public class CreateCourse extends MSPanel {
     private ArrayList<String> accounts_list;
