@@ -39,11 +39,17 @@ public class MarkingPDF extends MSPanel {
     private static final String COLUMN_NAMES[]={"Description", "Grade", "Max Grade"};
     private Object[][] table;
     private int studentID;
-    private String courseID, actName;
+    private String courseID, actName, stud_name;
+    private Object[] student_list;
+    private Activity activity;
 	
-     public MarkingPDF(final String courseID, final Activity act, final int stud_id, String student_name) {
+     public MarkingPDF(final String courseID, final Activity act, final int stud_id, String student_name, Object[] stud_list) {
         super(act.getName());
         initComponents();
+        this.student_list = stud_list;
+        this.activity = act;
+        this.stud_name = student_name;
+        
         
         student_name_label.setText(student_name);
         id_label.setText(Integer.toString(stud_id));
@@ -56,6 +62,11 @@ public class MarkingPDF extends MSPanel {
         this.courseID = courseID;
         this.actName = act.getName();
         this.studentID = stud_id;
+        
+        String last_indice_check = student_name + " - " + studentID;
+        if (last_indice_check.equalsIgnoreCase((String)stud_list[stud_list.length-1]))
+                this.next_button.setEnabled(false);
+        
         //Some PDF Solution Implemented Below
         SwingController submittedController = new SwingController();
     	SwingViewBuilder submittedPDF = new SwingViewBuilder(submittedController);
@@ -341,7 +352,16 @@ public class MarkingPDF extends MSPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void next_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next_buttonActionPerformed
-        // TODO add your handling code here:
+        String next_stud = gui.utils.GUIUtils.getNextStudent(stud_name, studentID, student_list);
+        
+        
+        String[] split_array = next_stud.split(" - ");
+        String next_name = split_array[0];
+        String next_number = split_array[1];
+        int next_number_int = Integer.parseInt(next_number);
+            
+        GUIUtils.getMasterFrame(this).movePage(new MarkingPDF(courseID, activity, next_number_int, next_name, student_list));
+        
     }//GEN-LAST:event_next_buttonActionPerformed
 
     private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
@@ -371,6 +391,7 @@ public class MarkingPDF extends MSPanel {
     	String currentGrade = "" + grades;
     	grade_field.setText(currentGrade);
 	}
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

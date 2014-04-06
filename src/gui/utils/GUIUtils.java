@@ -164,6 +164,24 @@ public abstract class GUIUtils {
         }
             
     }
+    //Given a name, an id, get the next position of the array
+    public static String getNextStudent(String name, int student_id, Object[] array)
+    {
+        ArrayList<String> string_arraylist = new ArrayList();
+        int index;
+        
+        for (Object n : array)
+            string_arraylist.add((String) n);
+        
+        String line = name + " - " + Integer.toString(student_id);
+        index = string_arraylist.indexOf(line);
+        
+        if (index == -1)
+            return null;
+        
+        else
+            return string_arraylist.get(index+1);
+    }
             
 
 }
