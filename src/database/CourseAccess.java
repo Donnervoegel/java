@@ -147,15 +147,21 @@ public class CourseAccess {
 		String query = "SELECT * FROM c275g01A.dbo.Activity WHERE CourseID = '"
 				+ courseID + "'";
 		ResultSet res = execQuery(query);
-		if (res == null) {
-			// Create the deletion query string
-			query = "DELETE FROM c275g01A.dbo.Course WHERE CourseID = '"
-					+ courseID + "'";
-			execUpdate(query); // Execute the deletion query
-			return true;
-		} else {
-			return false;
+		try {
+			boolean test = res.next();
+			if (!test) {
+				// Create the deletion query string
+				query = "DELETE FROM c275g01A.dbo.Course WHERE CourseID = '"
+						+ courseID + "'";
+				execUpdate(query); // Execute the deletion query
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		return false;
 	}
 
 	/*
