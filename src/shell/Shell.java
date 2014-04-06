@@ -25,7 +25,7 @@ public abstract class Shell {
     public static boolean isWindows() {
 	String os = System.getProperty("os.name");
 
-	if (os.matches("Windows")) {
+	if (os.contains("Windows")) {
 	    System.out.println("I AM WINDOWS!!!!");
 	    return true;
 	}
