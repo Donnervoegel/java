@@ -99,27 +99,36 @@ to simplify the process required for grading. Features of the program include:
 
 % ---
 \section{Getting Started}
-\emph{No contents here.}
 
 \subsection{Software Requirements}
 
 \begin{itemize}
-	\item Windows XP or newer
+	\item Windows Vista or newer
 	\item Microsoft SQL Server 2003 or newer
-	\item Java 1.6 or newer
+	\item Java 1.7 or newer
 	\item Python 2.7
 \end{itemize}
 
 \subsection{Hardware Requirements}
+\begin{itemize}
+	\item Computer that can run Windows Vista or newer
+	\item Proper network that is capable of running a SQL database instance
+\end{itemize}
 
 \subsection{Installation}
+\begin{enumerate}
+\item Set up database with appropriate tables using Microsoft SQL server.
+\item Manually create atleast one System Administrator account so that he may log in to create other accounts used by the system.
+\item Ensure that Instructor accounts exist prior to the creation of courses.
+\item Also, ensure that student lists are available prior to the creation of courses.
+\item The system is now prepared for normal use.
+\end{enumerate}
 
 \subsection{Running the Application}
 
 \subsection{UAT Installation}
 
 % ---
-\clearpage
 \section{Functions and User Interface Description}  % 30 Marks total
 % This is a very big section.
 % 1. How is a function selected?
@@ -129,56 +138,113 @@ to simplify the process required for grading. Features of the program include:
 % 5. What will the user see when a step is performed incorrectly? (errors)
 \subsection{Login}
 \label{login}
-\centerline{\includegraphics[scale=0.65]{../images/UpdatedUIScreens/Login.png}}
-The Login screen is displayed whenever the program is started, so the user can login
-to the system. The user will enter their username and password into the
-appropriate field and hit the "Login" button. If the details entered are correct,
-the system will log the user in and display the landing page of that user type. Otherwise, a popup will appear informing the user their username or password was incorrect. If the user makes five unsuccessful attempts to log in, the user will be blocked. If the user presses the "Forgot Password" button, the user will be prompted to enter their username. After doing so, the system will prompt them to speak to a System Administrator. 
-\clearpage
-
-
+\centerline{\includegraphics[scale=0.65]{../images/UIMockups/pngs/loginScreen}}
+The login screen is displayed whenever the program is started, so the user can login
+to their own account. The user will enter their username and password into the
+appropriate field and hit the Login button. If the details entered were correct,
+they will be sent to the landing page, and otherwise an error will be shown informing the user their username or password was incorrect. If the user makes five unsuccessful attempts to log in, the user will be blocked.\\
+\centerline{\includegraphics[scale=0.65]{../images/UIMockups/pngs/forgotPW}}
+%-- If the user hits the Forgot Password button, a pop up window will open prompting
+%-- them to enter their username. Once they confirm their username, the System 
+%-- Administrator will be alerted to their request for a password reset.
 
 \subsection{Landing Page}
-\centerline{\includegraphics[scale=0.65]{../images/UpdatedUIScreens/landinginstructor.png}}
-\label{landPg}
-The Landing Page is shown to all users of the system following a successful login. The Tasks box will populate with the tasks available to the user, depending on their user type. For example, the preceding image shows the landing page of an Instructor.\\
-\clearpage
+\includegraphics[scale=0.55]{../images/UIMockups/pngs/LandingPage} 
+\label{landPg}\\
+The Landing Page is shown to all users of the system following a successful login.  The Tasks box shows actions that each user can do.  It does not show actions the user cannot do. The above represents what an Instructor would see upon logging in.
 
 \subsection{Manage Courses}
-\begin{itemize}
-	\item The user must log in to the system as an Administrative Assistant.
-\end{itemize}
-The following screen will be shown. Press the "Course Management" button.
+\begin{enumerate}
+ \item Log in to the system as an Administrator Assistant
+ \item The following screen will be shown. Press the "Course Management" button.
    \begin{center}
-     \includegraphics[scale=0.55]{../images/UpdatedUIScreens/landingassist.png}
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/adminassisthomepage}
    \end{center}
-The "Course Management" Screen, shown above, will be displayed. On this screen, the user may  create a new course, or modify/delete an existing coruse.
-\clearpage
+ \item The "Course Management" Screen will be shown. Press the "Create A Course" Button.
+   \begin{center}
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/Coursemanagement}
+   \end{center}
+   \label{courseManage}
+ \item The "Create A Course" screen will be shown. There will be input fields
+   for Instructors Name/ID, TA Name/ID, Course start and end date, and student list.
+   \begin{center}
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/createACourse}
+   \end{center}
+   \label{createCourse}
+   To create a course, do the following:
+   \begin{enumerate}
+     \item Enter the name of the course in the \textbf{Course Name} field by typing.
+     \item Enter the Course ID in the \textbf{Course ID} field by typing.
+     \item To pick the instructor for our new course, the user is given a drop-down
+       menu of all the registered Instructors in alphabetical order by last
+       name. Click on the arrow to the right of the field in order to find
+       the designated Instructor name.
+     \item Enter the Instructor ID in the \textbf{Instructor ID} field by typing.
+     \item To pick the TA/Marker for our new course, we are given a drop-down
+       menu of all the registered TA/markers in alphabetical order by last name.
+       Click on the arrow to the right of the field in order to find the
+       designated TA/marker's name.
+     \item Enter the TA/Marker ID in the \textbf{TA/Marker ID} field by typing.
+     \item To enter an additional TA/Marker, press the "+" button next to the
+       TA/Marker field. This will present  an additional field as follows:
+       \begin{center}
+         \includegraphics[scale=0.55]{../images/UIMockups/pngs/newTACourses}
+       \end{center}
+       Here, we can enter an additional TA/Marker following the same steps.
+       To remove an additional TA due to input error, you can press the "-"
+       button next to the newest TA/Marker field to remove it.
+     \item Enter the Course Start Date and Course End Date first by the year,
+       month, then day separated by a slash (YY/DD/MM). An example input would
+       be 2014/03/07, translating to March 7, 2014.
+     \item To input the student list, press the "choose file" button and a
+       pop-up will appear asking for you to locate the .csv file containing
+       the current student list for the designated course.
+   \end{enumerate}
+ \item Once all the information has been entered in correctly, Click "Submit"
+   to finish creating the course.
+\end{enumerate}
 
-\subsection{Create A Courses}
-\begin{itemize}
-	\item The user must log in to the system as an Administrative Assistant.
-	\item The user has navigated to the "Create A Course" page.
-\end{itemize}
-The user will be presented with the following screen:
-\begin{center} 
-   	\includegraphics[scale=0.55]{../images/UpdatedUIScreens/CreateCourse.png}
-\end{center} 
-To create an activity, the user must enter values into the following fields:
-\begin{itemize}
-	\item Course Name/ID
-	\item Instructor Name/ID
-	\item Course Start/End Date
-\end{itemize}
-The user may also add TA marekers and a csv file of students (format: name, id)\\
-\clearpage
-
-\subsection{Modify A Course}
-\begin{center} 
-   	\includegraphics[scale=0.55]{../images/UpdatedUIScreens/CreateCourse.png}
-\end{center} 
-Rhe user may also use this page to modify any fields in the course, as well as add TAs and update the list of students.
-\clearpage
+\subsection{Modify Courses}
+\begin{enumerate}
+ \item Log in to the system as an Administrator Assistant
+ \item The following screen will be shown. Press the "Course Management" button.
+   \begin{center}
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/adminassisthomepage}
+   \end{center}
+ \item The "Course Management" Screen will be shown.
+   Press the "Modify A Course" Button.
+   \begin{center}
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/Coursemanagement}
+   \end{center}
+ \item This following course selection screen will be shown. Select the course
+   that you wish to do modifications to, then press \textbf{Ok}.
+   \begin{center} 
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/CourseSelectionAM}
+   \end{center}
+ \item The following screen will be shown with attributes filled in
+   previously during the last saved modification. 
+   \begin{center}
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/modifyACourse}
+   \end{center}
+   \begin{enumerate}
+   \item To change the instructor name, select the correct instructor name
+     through the dropdown box by clicking on the arrow. You can change the
+     Instructor ID by deleting it and typing it in manually.
+   \item To change the TA/Marker name, select the correct TA/marker name
+     through the dropdown box by clicking on the arrow. You can change the
+     TA/Marker ID by deleting it and typing it in manually. To remove a
+     TA/marker position completely (if you have 2 or more TA/Markers), you can
+     click the "-" button to remove both the \textbf{TA/Marker Name} and
+     \textbf{TA/Marker ID} fields.
+   \item Edit the start and end course date by deleting and replacing the
+     updated dates by typing it in.
+   \item To update the class list, select your new .csv file by clicking the
+     "choose file". A pop-up will appear and you will be required to locate
+     the new updated copy of the student list.
+   \item Once all the information has been modified correctly, click "submit"
+     to finish modifying the course.
+   \end{enumerate}
+\end{enumerate}
 
 \subsection{Create Activity (Detailed)}
 \begin{enumerate}
@@ -186,22 +252,22 @@ Rhe user may also use this page to modify any fields in the course, as well as a
   \item The following screen will be shown.
     Press the \textbf{Assignment Management} button.
   \begin{center} 
-   \includegraphics[scale=0.55]{../images/UpdatedUIScreens/landinginstructor.png}
+   \includegraphics[scale=0.55]{../images/UIMockups/pngs/LandingPage}
   \end{center}
   \item The following screen will be shown.  Select the course that you wish
     to do make an activity for from the drop-down list, then press \textbf{Ok}.
     \begin{center} 
-      \includegraphics[scale=0.55]{../images/UpdatedUIScreens/CourseSelection.png}
+      \includegraphics[scale=0.55]{../images/UIMockups/pngs/CourseSelectionM}
     \end{center}
   \item The following screen will be shown.  Students are listed down the left
     side. Available activities are listed along the top.  Find the student you
     wish to mark for, and select the corresponding activity, then press \textbf{Ok}.
   \begin{center} 
-     \includegraphics[scale=0.55]{../images/UpdatedUIScreens/MarkingActivitySelection.png}
+     \includegraphics[scale=0.55]{../images/UIMockups/pngs/StudentActivitySelectionM}
   \end{center} 
   \item The following screen will be shown.
    \begin{center} 
-   \includegraphics[scale=0.55]{../images/UpdatedUIScreens/ActivityCreation.png}
+   \includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivity}
    \label{newActivity}
   \end{center}
   To create the activity, complete the following:
@@ -225,7 +291,14 @@ Rhe user may also use this page to modify any fields in the course, as well as a
   \item A solution can be attached by clicking the \textbf{Attach Solution} button and 
   selecting the desired file from the Explorer window. Alternatively, the path can be 
   typed directly into the adjacent field.
-  
+  \end{enumerate}
+  \item The following is how the New Activity screen could look with some
+    additional options. 
+  \begin{center} 
+   \includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivityDetailed}
+ 
+  \end{center}
+  \begin{enumerate}
   \item Clicking \textbf{Add Due Date} adds new fields to add an additional
     date that can be before or after the original due date. The new date can
     be entered in the same manner as as above. The extra field is the multiplier
@@ -238,7 +311,9 @@ Rhe user may also use this page to modify any fields in the course, as well as a
  top of the page that is underneath the breadcrumbs. This will open the rubric tab and 
  show the following screen.
  \begin{center} 
-	\includegraphics[scale=0.55]{../images/UpdatedUIScreens/RubricCreation.png}
+ 
+
+\includegraphics[scale=0.55]{../images/UIMockups/pngs/newActivityRubric}
  \end{center}
  \item Once all the desired information about the activity has been entered
    in correctly, clicking \textbf{Finish} will create the activity and open
