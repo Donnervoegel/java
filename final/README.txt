@@ -1,3 +1,5 @@
+**PLEASE READ IN WORDPAD FOR PROPER FORMATTING
+
 Assumed software present on CSIL Computers:
 ===========================================
 - Python 2.7 (Filepath: "C:\Python27\python")
