@@ -12,10 +12,10 @@ import database.GradeAccess;
 import gui.types.*;
 import gui.utils.GUIUtils;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +38,7 @@ public class MarkingCode extends MSPanel {
     private String courseID, actName, stud_name;
     private Object[] student_list;
     private Activity activity;
+    private String[] paths;
     //Populates text panels based on preset textfiles in gui.utils.
     
     Activity testsuite_activity;
@@ -68,7 +69,7 @@ public class MarkingCode extends MSPanel {
                 this.next_button.setEnabled(false);
                 
         System.out.println("Trying to read submission");
-        String[] paths = CourseAccess.accessSubmissionPath(courseID, act.getName());
+        paths = CourseAccess.accessSubmissionPath(courseID, act.getName());
         Scanner in = null;
         String submission = "";
         try {
@@ -391,22 +392,32 @@ public class MarkingCode extends MSPanel {
     }//GEN-LAST:event_test_suite_buttonActionPerformed
 
     private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
-       for (int i = 0; i < rubric_table.getColumnCount(); i++) {
+		for (int i = 0; i < rubric_table.getColumnCount(); i++) {
 			try {
 				GradeAccess.enterGrade(studentID, courseID, actName,
 						rubric_table.getModel().getValueAt(i, 0).toString(),
-						Float.parseFloat(rubric_table.getModel().getValueAt(i, 1)
-								.toString()));
+						Float.parseFloat(rubric_table.getModel()
+								.getValueAt(i, 1).toString()));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
 				GradeAccess.updateGrade(studentID, courseID, actName,
 						rubric_table.getModel().getValueAt(i, 0).toString(),
-						Float.parseFloat(rubric_table.getModel().getValueAt(i, 1)
-								.toString()));
+						Float.parseFloat(rubric_table.getModel()
+								.getValueAt(i, 1).toString()));
 			}
 		}
-		JOptionPane.showMessageDialog(this,"Grade saved.");
+
+		try {
+			PrintWriter out = new PrintWriter(paths[0] + "/" + studentID + "/"
+					+ actName + ".py");
+			out.write(submission_text_area.getText());
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+       
+       JOptionPane.showMessageDialog(this,"Grade and comments saved.");
     }//GEN-LAST:event_save_buttonActionPerformed
 
     private void next_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next_buttonActionPerformed
