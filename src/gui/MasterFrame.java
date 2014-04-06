@@ -13,6 +13,10 @@ import gui.types.*;
  * @author Colin
  */
 public class MasterFrame extends JFrame {
+    private enum Move {
+	AHEAD, BACK
+    }
+
     private Account a;
     private LoginScreen login_screen;
     private JPanel  top_panel;
@@ -142,25 +146,38 @@ public class MasterFrame extends JFrame {
 	this.setVisible(true);
 	GUIUtils.centerFrame(this);  // Doesn't work?
     }
+    
+    private void pleaseMove(MSPanel p, Move movement) {
+	if (!curr_page.okToNav()) {
+	    int answer = JOptionPane.showConfirmDialog(this, "Some changes have not been saved. Are you sure you want to navigate away?", "Navigate away?", JOptionPane.YES_NO_OPTION);
+	    if (answer == JOptionPane.YES_OPTION) {
+		curr_page.setOkToNav();
+		pleaseMove(p, movement);
+	    }
+	} else {
+	    curr_page.setVisible(false);
+	    remove(curr_page);
+
+	    if (movement == Move.AHEAD) {
+		pages.push(curr_page);
+		curr_page = p;
+	    } else if (movement == Move.BACK) {
+		System.out.println("Going back.");
+		curr_page = pages.pop();
+	    } else {
+		System.out.println("You should never see this.");
+	    }
+
+	    showPage(curr_page);
+	}
+    }
 
     public void movePage(MSPanel p) {
         //if length of pages is zero 
         if (pages.isEmpty())
             back_button.setEnabled(true);
 
-	if (!p.okToNav()) {
-	    int answer = JOptionPane.showConfirmDialog(this, "Some changes have not been saved. Are you sure you want to navigate away?");
-	    if (answer == JOptionPane.YES_OPTION) {
-		p.setOkToNav();
-		movePage(p);
-	    }
-	} else {
-	    curr_page.setVisible(false);
-	    remove(curr_page);
-	    pages.push(curr_page);
-	    curr_page = p;
-	    showPage(curr_page);
-	}
+	pleaseMove(p, Move.AHEAD);
     }
 
     private void showPage(MSPanel p) {
@@ -178,11 +195,7 @@ public class MasterFrame extends JFrame {
     }
 
     private void goBackAction(ActionEvent e) {
-	System.out.println("Going back.");
-	curr_page.setVisible(false);
-	remove(curr_page);
-	curr_page = pages.pop();
-	showPage(curr_page);
+	pleaseMove(null, Move.BACK);
         
         //if the page stack zero, then grey back button
         if (pages.isEmpty())

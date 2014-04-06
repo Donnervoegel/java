@@ -26,7 +26,7 @@ public class CreateAccount extends MSPanel {
      * Creates new form CreateAccount
      */
     public CreateAccount() {
-	super("Account Management");
+	super("Account Management", CANT_NAV);
 
         initComponents();
         
@@ -340,54 +340,55 @@ public class CreateAccount extends MSPanel {
         }
      }
     
-	private void ok_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_ok_buttonActionPerformed
-		String first = first_name_field.getText();
-		String last = last_name_field.getText();
-		int id = Integer.parseInt(id_field.getText());
-		String username = username_field.getText();
-		String pass = password_field.getText();
-		boolean block_value = block_account_checkbox.isSelected();
-		Account creation;
-		String account_select = account_type_dropdown.getSelectedItem()
-				.toString();
+    private void ok_buttonActionPerformed(ActionEvent evt) {// GEN-FIRST:event_ok_buttonActionPerformed
+	String first = first_name_field.getText();
+	String last = last_name_field.getText();
+	int id = Integer.parseInt(id_field.getText());
+	String username = username_field.getText();
+	String pass = password_field.getText();
+	boolean block_value = block_account_checkbox.isSelected();
+	Account creation;
+	String account_select = account_type_dropdown.getSelectedItem()
+	    .toString();
 
-		if (account_select.equalsIgnoreCase("System Admin"))
-			creation = new SystemAdmin(first, last, id, username, pass);
+	if (account_select.equalsIgnoreCase("System Admin"))
+	    creation = new SystemAdmin(first, last, id, username, pass);
 
-		else if (account_select.equalsIgnoreCase("Administrator"))
-			creation = new AcademicAdmin(first, last, id, username, pass);
+	else if (account_select.equalsIgnoreCase("Administrator"))
+	    creation = new AcademicAdmin(first, last, id, username, pass);
 
-		else if (account_select.equalsIgnoreCase("Assistant Admin"))
-			creation = new AssistantAdmin(first, last, id, username, pass);
+	else if (account_select.equalsIgnoreCase("Assistant Admin"))
+	    creation = new AssistantAdmin(first, last, id, username, pass);
 
-		else if (account_select.equalsIgnoreCase("Instructor"))
-			creation = new Instructor(first, last, id, username, pass);
+	else if (account_select.equalsIgnoreCase("Instructor"))
+	    creation = new Instructor(first, last, id, username, pass);
 
-		else if (account_select.equalsIgnoreCase("TA"))
-			creation = new TATM(first, last, id, username, pass);
+	else if (account_select.equalsIgnoreCase("TA"))
+	    creation = new TATM(first, last, id, username, pass);
 
-		else { // Incorrect account type, this should never happen
-			creation = null;
-			System.out.println("Is it Christmas right now? Because you have an"
+	else { // Incorrect account type, this should never happen
+	    creation = null;
+	    System.out.println("Is it Christmas right now? Because you have an"
 					+ " error message to unwrap.");
-		}
+	}
 
-		if (modify_existing_checkbox.isSelected()) {
-			creation.setBlocked(block_value);
-			AccountAccess.modifyAccount(existing_account_dropdown
+	if (modify_existing_checkbox.isSelected()) {
+	    creation.setBlocked(block_value);
+	    AccountAccess.modifyAccount(existing_account_dropdown
 					.getSelectedItem().toString(), creation);
-			if (!block_value)
-				AccountAccess.successfulLogin(username);
-			System.out.println("Account " + username_field.getText()
-					+ " modified.");
-		} else {
-			System.out.println("Creating " + account_select + " type account.");
-			AccountAccess.createAccount(creation);
-			JOptionPane.showMessageDialog(this, "Account Created: "
-					+ username_field.getText());
-		}
-        
-        GUIUtils.getMasterFrame(this).goBack();
+	    if (!block_value)
+		AccountAccess.successfulLogin(username);
+	    System.out.println("Account " + username_field.getText()
+			       + " modified.");
+	} else {
+	    System.out.println("Creating " + account_select + " type account.");
+	    AccountAccess.createAccount(creation);
+	    JOptionPane.showMessageDialog(this, "Account Created: "
+					  + username_field.getText());
+	}
+
+	setOkToNav();
+	GUIUtils.getMasterFrame(this).goBack();
     }//GEN-LAST:event_ok_buttonActionPerformed
     
     private void cancel_buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
