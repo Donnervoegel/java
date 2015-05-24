@@ -713,11 +713,11 @@ public class ActivityCreation extends MSPanel {
         int deleterow = rubric_table.getSelectedRow();
         Object[][] temp = new Object[data.length-1][2]; //shrink the datasize by 1 since were going to lose a row
 
-        for (int i=0; i<deleterow;i++){ // this will add all the rubric details before the selected delete row
+        for (int i=0; i<deleterow; i++){ // this will add all the rubric details before the selected delete row
             temp[i][0] = data[i][0];
             temp[i][1] = data[i][1];
         }
-        for (int i=deleterow+1; i<data.length;i++){ //this will add all the rubric details after the selected delete row
+        for (int i=deleterow+1; i<data.length; i++){ //this will add all the rubric details after the selected delete row
             temp[i-1][0] = data[i][0];
             temp[i-1][1] = data[i][1];
         }
