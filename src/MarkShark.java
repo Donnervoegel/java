@@ -7,9 +7,16 @@ import gui.MarkSharkGUI;
 /**
  * @author: Colin
  */
-public class MarkShark {
-    public static void main(String doesnt_matter[]) {
-	MarkSharkGUI gui = new MarkSharkGUI();
+public class MarkShark 
+{
+    public static void main(String doesnt_matter[]) 
+    {
+	detour();
+    }
+    
+    public void detour 
+    {
+    	MarkSharkGUI gui = new MarkSharkGUI();
 
 	System.out.println("Starting GUI...");
 	gui.startGUI();
