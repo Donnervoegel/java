@@ -16,9 +16,6 @@ Chazz Young
 Ian Pun
 <itpun@sfu.ca>
 
-Markus Balaski
-<mabalaski@gmail.com>
-
 Stephen Laboucane
 <slabouca@sfu.ca>
 
